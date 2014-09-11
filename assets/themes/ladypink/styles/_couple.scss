@@ -1,0 +1,35 @@
+
+#view-couple[data-theme=ladypink] {
+    background-color: #fff;
+    color: $gray-light;
+    > header {
+        box-shadow: inset 0 3px 3px rgba(0, 0, 0, 0.1);
+        padding-top: 40%;
+        background: url(#{$static-url}themes/ladypink/images/ladypink-couple-hands.jpg) no-repeat top;
+        background-size: contain;
+        color: $ladypink-rose;
+        margin-bottom: 0;
+    }
+    .name {
+        color: $ladypink-gray;
+        padding-bottom: 5px;
+        border-bottom: 2px dotted darken($ladypink-rose, 10%);
+        font-family: veneer, $font-family-sans-serif;
+        mark, .mark {
+            font-size: 200%;
+        }
+    }
+    .avatar {
+        margin: 20px auto;
+        width: 90%;
+        max-width: 300px;
+        padding-top: 100%;
+        position: relative;
+        .background {
+            z-index: 1;
+        }
+    }
+    .groom, .bride {
+        margin-bottom: 30px;
+    }
+}

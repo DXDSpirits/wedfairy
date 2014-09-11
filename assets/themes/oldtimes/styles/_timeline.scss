@@ -1,0 +1,64 @@
+
+#view-timeline[data-theme=oldtimes] {
+    background: url(#{$static-url}themes/oldtimes/images/oldtimes-bg-texture.png) repeat;
+    color: $oldtimes-green;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    > header {
+        padding-top: 35px;
+        background: url(#{$static-url}themes/oldtimes/images/oldtimes-voyage-icon.png) no-repeat top;
+        background-size: auto 35px;
+    }
+    > .container {
+        max-width: $container-md;
+    }
+    .story-item {
+        .text, .img {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .img {
+            width: 40%;
+            padding-top: 45%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: url(#{$static-url}themes/oldtimes/images/oldtimes-diamond-green.png) no-repeat center;
+                background-size: 100% 100%;
+            }
+        }
+        .text {
+            font-size: 90%;
+            width: 60%;
+            padding: 5px 5px 5px 10px;
+            @media (min-width: $screen-sm-min) {
+                font-size: 1.3em;
+                padding: 20px;
+            }
+        }
+        &.indent {
+            text-align: right;
+            .text {
+                width: 40%;
+            }
+        }
+    }
+    .btn-next {
+        display: block;
+        margin: 20px auto 0;
+        width: 50px;
+        cursor: pointer;
+        @include transition(all .35s ease-in-out);
+        &:hover {
+            @include transform(translate3d(0, 10px, 0));
+        }
+    }
+}

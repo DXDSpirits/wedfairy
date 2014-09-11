@@ -1,0 +1,43 @@
+
+#view-timeline[data-theme=summer] {
+    > .background {
+        background-color: $summer-orange;
+        background-position: center 80px;
+        background-size: contain;
+    }
+    color: #fff;
+    padding-bottom: 20px;
+    > .container {
+        max-width: $container-md;
+    }
+    .story-item {
+        margin: 20px 0;
+        .text, .img {
+            display: inline-block;
+            vertical-align: top;
+        }
+        .img {
+            width: 40%;
+            padding-top: 40%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        .text {
+            color: #fff;
+            width: 60%;
+            padding-left: 30%;
+            margin-top: 10%;
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                top: 10px;
+                left: 22%;
+                width: 20%;
+                height: 2px;
+                background-color: rgba(#555, 0.5);
+            }
+        }
+    }
+}

@@ -1,0 +1,151 @@
+
+@mixin path-style-timeline($background-color, $line-color, $text-color) {
+    .timeline-wrapper {
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        .line {
+            z-index: 0;
+            position: absolute;
+            top: 0;
+            left: 40px;
+            height: 100%;
+            width: 2px;
+            background: rgba($line-color, .6);
+        }
+        .timeline {
+            @include clearfix();
+            position: relative;
+            padding: 50px 10px;
+        }
+        .post {
+            z-index: 1;
+            position: relative;
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .post-box {
+            position: relative;
+            background-clip: padding-box;
+            background-color: $line-color;
+            color: $text-color;
+            border-radius: 3px;
+            margin-left: 45px;
+            padding: 10px;
+            &::before {
+                display: block;
+                content: "";
+                position: absolute;
+                background-color: $line-color;
+                border-style: solid none none solid;
+                border-width: 0 0 1px;
+                height: 10px;
+                width: 10px;
+                left: -5px;
+                top: 10px;
+                @include transform(rotate(-315deg));
+            }
+            &::after {
+                display: block;
+                content: "";
+                position: absolute;
+                background-clip: padding-box;
+                background-color: $line-color;
+                border-radius: 50%;
+                border: 4px solid $background-color;
+                height: 16px;
+                width: 16px;
+                top: 7px;
+                left: -22px;
+            }
+        }
+        .post-title {
+            font-size: 2.5em;
+            line-height: 2;
+            display: block;
+            padding: 10px 15px;
+            background: $background-color;
+            color: $line-color;
+        }
+        .post-image {
+            width: 100%;
+            border-radius: 5px;
+            border: 2px solid $line-color;
+            @include transform(translate3d(0, 0, 0));
+        }
+    }
+    @media (min-width: $screen-md-min) {
+        .timeline-wrapper {
+            max-width: none;
+            width: 800px;
+            .post-title {
+                font-size: 4em;
+                text-align: center;
+                margin-left: -360px;
+            }
+            .timeline {
+                margin-left: 360px;
+            }
+            .post-image {
+                @include transform(translate3d(-100%, 0, 0));
+                margin-left: 40px;
+                width: 70%;
+            }
+            .post-box {
+                width: 60%;
+            }
+        }
+    }
+}
+
+@-webkit-keyframes fadein {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadein {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@mixin wish-form($background-color, $text-color, $message-color) {
+    .btn {
+        background: lighten($background-color, 17%);
+        border-color: lighten($background-color, 17%);
+        color: $text-color;
+        box-shadow: none;
+        &:active {
+            box-shadow: none;
+            background: lighten($background-color, 10%);
+        }
+    }
+    textarea {
+        margin-top: 20px;
+        background: lighten($background-color, 18%);
+        &, &:focus {
+            border-color: lighten($background-color, 18%);
+        }
+        color: $text-color;
+        padding: 15px 10px;
+        box-shadow: none;
+        -webkit-appearance: none;
+        @include placeholder {
+            color: lighten($text-color, 10%);
+        }
+    }
+    .messages {
+        color: $message-color;
+        .fa-heart-o {
+            margin-right: 10px;
+        }
+        > p {
+            @include animation(fadein .35s ease-in-out);
+        }
+        margin: 10px;
+        max-height: 200px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+}

@@ -1,0 +1,32 @@
+
+$summer-pink: #fc9d9a;
+$summer-orange: #fab83c;
+
+$image-path: "#{$static-url}themes/summer/images/";
+$font-path: "#{$static-url}themes/summer/fonts/";
+
+.view[data-theme=summer] {
+    mark, .mark {
+        color: lighten($summer-pink, 0%);
+    }
+    > header {
+        padding: 0 15px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        > h1 {
+            font-size: 70px;
+            @media (max-width: $screen-xs-max) {
+                font-size: 45px;
+            }
+        }
+    }
+}
+
+@import "styles/hero";
+@import "styles/couple";
+@import "styles/timeline";
+@import "styles/bigday";
+@import "styles/map";
+@import "styles/information";
+@import "styles/gallery";
+@import "styles/wish";

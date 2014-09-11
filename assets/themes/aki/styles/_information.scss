@@ -1,0 +1,20 @@
+
+#view-information[data-theme=aki] {
+    color: $aki-white;
+    background-color: $aki-blue;
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 50px;
+    > .container {
+        max-width: $container-sm;
+    }
+    > header {
+        color: $aki-red;
+    }
+    .spliter {
+        width: 100%;
+        padding-top: 10%;
+        background: url(#{$static-url}themes/aki/images/aki-spliter.png) no-repeat center;
+        background-size: contain;
+    }
+}

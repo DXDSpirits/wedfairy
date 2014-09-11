@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]>    <html class="no-js iem7"> <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <title>八音盒</title>
+    
+    <% include includes/metadata %>
+    
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/bootstrap.css?v=<%= build_no %>">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/font-awesome/font-awesome.css">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/vendor/animate.min.css">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/amour.css?v=<%= build_no %>">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/storytell.css?v=<%= build_no %>">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/homepage.css?v=<%= build_no %>">
+    
+    <script src="<%= static_url %>javascripts/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+
+<!-- The story begins here -->
+<div class="views-wrapper">
+    <% include homepage/hero %>
+    <% include homepage/clients %>
+    <% include homepage/contact %>
+</div>
+<!-- The story ends -->
+
+<% include homepage/qrcode %>
+
+<div class="loading-screen"><p class="loading-text">正在加载 <span>0</span>%</p></div>
+
+<script>
+    var BOOST = {};
+</script>
+
+<script src="<%= static_url %>javascripts/vendor/jquery-2.1.1.min.js"></script>
+<script src="<%= static_url %>javascripts/vendor/underscore.min.js"></script>
+<script src="<%= static_url %>javascripts/vendor/mustache.min.js"></script>
+<script src="<%= static_url %>javascripts/vendor/backbone.min.js"></script>
+<script src="<%= static_url %>javascripts/vendor/bootstrap.min.js"></script>
+
+<script src="<%= static_url %>javascripts/plugins/fastclick.js"></script>
+<script src="<%= static_url %>javascripts/plugins/jquery.qrcode.min.js"></script>
+
+<script src="<%= static_url %>javascripts/amour.js?v=<%= build_no %>"></script>
+<script src="<%= static_url %>javascripts/homepage.js?v=<%= build_no %>"></script>
+
+<% include includes/analytics %>
+
+</body>
+</html>

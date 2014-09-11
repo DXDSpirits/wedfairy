@@ -1,0 +1,61 @@
+
+#view-hero[data-theme=aki] {
+    color: $aki-white;
+    background-color: $aki-blue;
+    > .img {
+        min-height: 500px;
+        position: relative;
+        padding: 60% 10%;
+        @media (min-width: $screen-sm-min) {
+            padding: 30% 30%;
+        }
+        @media (min-width: $screen-lg-min) {
+            padding: 20% 40%;
+        }
+    }
+    .prologue {
+        color: lighten($aki-white, 10%);
+        text-shadow: 2px 2px 5px rgba(#000, 0.7);
+        background-size: contain;
+        @media (min-width: $screen-sm-min) {
+            font-size: 120%;
+        }
+        @media (min-width: $screen-lg-min) {
+            font-size: 130%;
+        }
+    }
+    .rendez-vous {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        margin: 0;
+    }
+    .countdown {
+        padding-top: 15%;
+        background: url(#{$static-url}themes/aki/images/aki-spliter-light.png) no-repeat top;
+        background-size: contain;
+    }
+    .countdown-item {
+        width: 20%;
+        margin-left: 10%;
+        &:first-child {
+            width: 50%;
+            margin-left: 25%;
+            margin-bottom: 10%;
+            border: 1px solid $aki-white;
+            border-radius: 5px;
+        }
+        .days, .hours, .minutes {
+            font-family: bandathin $font-family-sans-serif; 
+            font-size: 30px;
+            border: 1px solid $aki-white;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+        .seconds {
+            font-family: bandathin $font-family-sans-serif; 
+            font-size: 70px;
+        }
+    }
+}

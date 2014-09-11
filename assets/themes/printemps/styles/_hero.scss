@@ -1,0 +1,56 @@
+
+#view-hero[data-theme=printemps] {
+    background-color: $printemps-yellow;
+    color: $printemps-blue;
+    padding-top: 100px;
+    padding-bottom: 220px;
+    .prologue {
+        width: 70%;
+        margin: 10% auto 50px;
+        @media (min-width: $screen-sm-min) {
+            width: 50%;
+            font-size: 150%;
+        }
+    }
+    .salut {
+        background-size: contain;
+        margin: 0 15px;
+        position: relative;
+        > span {
+            display: inline-block;
+            padding: 10px;
+            background-color: $printemps-yellow;
+            position: relative;
+            font-size: 18px;
+            @media (min-width: $screen-sm-min) {
+                font-size: 200%;
+            }
+        }
+    }
+    .bg-couple {
+        position: absolute;
+        bottom: 0;
+        height: 200px;
+        width: 100%;
+        background-size: contain;
+    }
+    .bg-peoples {
+        position: absolute;
+        bottom: 0;
+        height: 100px;
+        width: 100%;
+        background-size: cover;
+    }
+    .countdown {}
+    .countdown-item {
+        width: 25%;
+        .days, .hours, .minutes, .seconds {
+            font-family: bandasemibold, $font-family-sans-serif;
+            font-size: 36px;
+            margin-bottom: 0;
+        }
+        .days, .hours, .minutes {
+            border-right: 1px solid $printemps-gold;
+        }
+    }
+}

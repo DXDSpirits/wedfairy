@@ -1,0 +1,26 @@
+@import "../../mixins";
+
+#view-wish[data-theme=oldtimes] {
+    background: desaturate($oldtimes-green, 10%);
+    color: #fff;
+    > header {
+        padding-bottom: 30px;
+        background: url(#{$static-url}themes/oldtimes/images/oldtimes-floral-light.png) no-repeat bottom;
+        background-size: auto 30px;
+    }
+    > .container {
+        max-width: $container-sm;
+    }
+    .remerciement {
+        padding-top: 10px;
+        border-top: 2px dotted #fff;
+        border-bottom: 2px dotted #fff;
+    }
+    .call-for-wishes {
+        @media (min-width: $screen-sm-min) {
+            margin-top: 35px;
+        }
+    }
+    //@include wish-form($oldtimes-green, #fff, #fff);
+    @include wish-form(#fff, $oldtimes-green, #fff);
+}

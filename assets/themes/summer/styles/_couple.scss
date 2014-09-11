@@ -1,0 +1,33 @@
+
+#view-couple[data-theme=summer] {
+    background: url(#{$static-url}themes/summer/images/summer-couple-bottom.png) no-repeat bottom,
+                url(#{$static-url}themes/summer/images/summer-couple-bg.jpg) repeat top;
+    background-size: contain, contain;
+    padding-bottom: 10%;
+    > .container {
+        max-width: $container-sm;
+    }
+    .sticker {
+        background-size: 100% 100%;
+        margin-bottom: 20px;
+        .img {
+            width: 35%;
+            margin: 10% 5%;
+            padding-top: 50%;
+        }
+        .text {
+            width: 45%;
+            margin: 10% 10%;
+            &.pull-left { margin-right: 0; }
+            &.pull-right { margin-left: 0; }
+        }
+        &.weak {
+            @include scale(0.9, 0.9);
+            @include transform-origin(100% 0);
+        }
+    }
+    .name {
+        color: #fff;
+        margin: 30px 20px 20px;
+    }
+}

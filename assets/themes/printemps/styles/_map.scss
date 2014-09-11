@@ -1,0 +1,50 @@
+
+#view-map[data-theme=printemps] {
+    background-color: lighten($printemps-yellow, 5%);
+    color: $printemps-gold;
+    padding-top: 20%;
+    padding-bottom: 20%;
+    mark, .mark {
+        color: $printemps-blue;
+    }
+    .spliter {
+        width: 100%;
+        padding-top: 5%;
+        background: url(#{$static-url}themes/printemps/images/printemps-spliter.png) no-repeat bottom;
+        background-size: contain;
+    }
+    .address-line {
+        min-height: 80px;
+        &.ring {
+            padding-left: 70px;
+            padding-right: 20px;
+            background: url(#{$static-url}themes/printemps/images/printemps-ring-blue.png) no-repeat left;
+            background-size: 60px 60px;
+        }
+        &.img {
+            background-size: contain;
+        }
+    }
+    @media (max-width: $screen-xs-max) {
+        .spliter, .address-line {
+            max-width: 400px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    #map-canvas {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        border-radius: 10px;
+        border: 2px solid #ffffde;
+        box-shadow: inset 0 0 5px rgba(#000, 0.5);
+        margin: 20px 0;
+        padding-top: 80%;
+        position: relative;
+        @media (min-width: $screen-sm-min) {
+            margin: 0;
+        }
+    }
+}

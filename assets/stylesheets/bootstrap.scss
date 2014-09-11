@@ -1,0 +1,80 @@
+
+//== Typography
+$font-family-sans-serif:  "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif !default;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+
+$font-family-base:        $font-family-sans-serif !default;
+$headings-font-family:    $font-family-sans-serif !default;
+
+//-- Iconography
+$icon-font-path: "../fonts/bootstrap/" !default;
+
+
+//== Components
+$border-radius-base:        0 !default;
+$border-radius-large:       0 !default;
+$border-radius-small:       0 !default;
+
+
+//== Type
+$headings-small-color:      inherit !default;
+
+
+//======================================== Bootstrap ========================================
+
+@import "bootstrap/bootstrap";
+
+//===========================================================================================
+
+
+a:hover, a:focus {
+    color: $link-hover-color;
+    text-decoration: none;
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+    margin-top: ($line-height-computed / 2);
+}
+
+mark,
+.mark {
+    background-color: transparent;
+    color: inherit;
+    padding: .2em;
+}
+
+.invisible {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.form-control {
+    @include box-shadow(none);
+    &:focus {
+        outline: 0;
+        @include box-shadow(none);
+    }
+}
+
+input[type=tel],
+input[type=url],
+input[type=text],
+input[type=email],
+input[type=search],
+input[type=number],
+input[type=password],
+textarea {
+    &.form-control {
+        -webkit-appearance: none;
+    }
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.progress {
+    border-radius: 0;
+}

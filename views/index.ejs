@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]>    <html class="no-js iem7"> <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <title><%= title %></title>
+    
+    <% include includes/metadata %>
+    
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/font-awesome/font-awesome.css">
+    
+    <script src="<%= static_url %>javascripts/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+</div>
+
+<% include includes/analytics %>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+@import "../../mixins";
+
+#view-wish[data-theme=aki] {
+    background: $aki-red;
+    color: $aki-white;
+    > .container {
+        max-width: $container-sm;
+    }
+    .spliter {
+        width: 100%;
+        padding-top: 10%;
+        margin: 20px auto;
+        background: url(#{$static-url}themes/aki/images/aki-spliter-light.png) no-repeat center;
+        background-size: contain;
+    }
+    .call-for-wishes {
+        @media (min-width: $screen-sm-min) {
+            margin-top: 40px;
+        }
+    }
+    @include wish-form($aki-white, $aki-red, $aki-white);
+}

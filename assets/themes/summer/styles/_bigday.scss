@@ -1,0 +1,25 @@
+#view-bigday[data-theme=summer] {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    color: #f0f0f0;
+    > header {
+        opacity: 0.95;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, .5);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+    > header {
+        color: #66402c;
+        background: rgba(#f3eae5, 0.7);
+        margin: 30% auto;
+        padding: 20px;
+        line-height: 160px;
+        font-size: 20px;
+        border-radius: 50%;
+        @include size(200px);
+    }
+}

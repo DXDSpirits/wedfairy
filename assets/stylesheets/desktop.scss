@@ -1,0 +1,81 @@
+@import "configs";
+
+
+// Bourbon
+@import "bourbon/bourbon";
+
+
+// Desktop
+
+$body-fixed-width: 800px;
+
+body {
+    background: #eee;
+}
+
+body > header {
+    min-width: $body-fixed-width;
+    background-color: #372d3b;
+    padding: 10px;
+    margin-bottom: 10px;
+    .logo {
+        display: block;
+        width: 200px;
+        height: 35px;
+        background: url(#{$static-url}images/logo.png) no-repeat left;
+        background-size: contain;
+    }
+}
+
+body > footer {
+    color: #ffffde;
+    background-color: #372d3b;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+body > .wrapper, body > header > .wrapper {
+    width: $body-fixed-width;
+    margin: 0 auto;
+}
+
+#iframe-wrapper {
+    padding-top: 36.460%;
+    padding-bottom: 29.326%;
+    padding-left: 8.190%;
+    padding-right: 7.266%;
+    width: (757px / 2);
+    height: (1594px / 2);
+    background: url(#{$static-url}images/iphone5-border.png) no-repeat center;
+    background-size: 100% 100%;
+}
+
+iframe {
+    border: 0;
+    max-width: 100%;
+    background: #fff;
+}
+
+.qrcode {
+    width: 350px;
+    padding-left: 50px;
+    padding-top: 120px;
+}
+
+#qrcode-wrapper {
+    padding: 10px;
+    width: 170px;
+    height: 170px;
+    background: #fff;
+}
+
+.qrcode-tips {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    strong {
+        color: #da666a;
+        display: inline-block;
+        font-size: 1.1em;
+        padding: 0 0.2em;
+    }
+}

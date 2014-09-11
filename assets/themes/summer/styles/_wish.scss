@@ -1,0 +1,20 @@
+@import "../../mixins";
+
+#view-wish[data-theme=summer] {
+    background: #fff;
+    color: $gray;
+    > .container {
+        max-width: $container-sm;
+    }
+    .remerciement {
+        padding-top: 10px;
+        border-top: 1px solid lighten($summer-pink, 10%);
+        border-bottom: 1px solid lighten($summer-pink, 10%);
+    }
+    .call-for-wishes {
+        @media (min-width: $screen-sm-min) {
+            margin-top: 35px;
+        }
+    }
+    @include wish-form($summer-pink, darken($summer-pink, 10%), darken($summer-pink, 10%));
+}

@@ -1,0 +1,22 @@
+@import "../../mixins";
+
+#view-timeline[data-theme=aki] {
+    color: $aki-white;
+    background: $aki-red;
+    .ceil {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding-top: 15%;
+        background-size: 100% 100%;
+    }
+    @include path-style-timeline($aki-red, $aki-white, $aki-blue);
+    .post-title {
+        font-family: bandasemibold, $font-family-sans-serif;
+    }
+    .emphisize {
+        font-size: 36px;
+    }
+}

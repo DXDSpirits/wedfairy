@@ -1,0 +1,39 @@
+
+#view-map[data-theme=default] {
+    height: 600px;
+    position: relative;
+    .address-wrapper {
+        position: absolute;
+        z-index: 1;
+        top: 50px;
+        left: 20%;
+        @include size(250px);
+        border-radius: 50%;
+        border: 25px solid #2d3b44;
+        overflow: hidden;
+    }
+    address {
+        @include size(100%);
+        border-radius: 50%;
+        padding: 40px 15px;
+        background: $qidlove-pink url(#{$static-url}themes/default/images/default-dotted.png) repeat;
+        color: #fff;
+        h4 {
+            margin-bottom: 30px;
+        }
+        a {
+            color: #fff;
+        }
+    }
+    #map-canvas {
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+}

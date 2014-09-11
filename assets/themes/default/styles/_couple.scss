@@ -1,0 +1,20 @@
+
+#view-couple[data-theme=default] {
+    background: $qidlove-blue;
+    color: #fff;
+    padding-bottom: 40px;
+    > header {
+        color: $qidlove-pink;
+    }
+    > .container {
+        max-width: $container-sm;
+    }
+    p { line-height: 1.4; }
+    @media (min-width: $screen-sm-min) {
+        font-size: 1.1em;
+    }
+    .avatar {
+        background-position: top;
+        padding-top: 100%;
+    }
+}

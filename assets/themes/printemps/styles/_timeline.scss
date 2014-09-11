@@ -1,0 +1,13 @@
+@import "../../mixins";
+
+#view-timeline[data-theme=printemps] {
+    color: $gray;
+    background: $printemps-cyan;
+    @include path-style-timeline($printemps-cyan, $gray-light, $printemps-yellow);
+    .post-title {
+        font-family: bandasemibold, $font-family-sans-serif;
+    }
+    .emphisize {
+        font-size: 36px;
+    }
+}
