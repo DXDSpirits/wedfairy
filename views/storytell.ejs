@@ -13,11 +13,13 @@
     <link rel="stylesheet" href="<%= static_url %>stylesheets/storytell.css?v=<%= build_no %>">
     <link rel="stylesheet" href="<%= static_url %>themes/<%= theme %>/theme.css?v=<%= build_no %>">
     
+    <% if (settings.env != 'development') { %>
     <script>
         if (window == window.top && !/iPhone|Android|iPad|Windows Phone/i.test(navigator.userAgent)) {
             window.location.href = '/desktop?url=' + encodeURIComponent(window.location.href);
         }
     </script>
+    <% } %>
     <script src="<%= static_url %>javascripts/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>

@@ -8,7 +8,7 @@ router.get('/', function(req, res) {
 
 router.get('/desktop', function(req, res) {
     res.render('desktop', {
-        url: req.query.url
+        url: req.query.url || '/'
     });
 });
 
