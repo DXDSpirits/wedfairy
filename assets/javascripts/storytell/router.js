@@ -1,4 +1,4 @@
-define(['app'], function(App) {
+define(['storytell/app'], function(App) {
     
     App.router = new (Backbone.Router.extend({
         routes : {

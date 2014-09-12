@@ -1,4 +1,4 @@
-define(['app'], function(App) {
+define(['storytell/app'], function(App) {
     
     function Lottery(id, cover, coverType, width, height, drawPercentCallback) {
         this.conId = id;

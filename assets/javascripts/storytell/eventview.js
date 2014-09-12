@@ -1,4 +1,4 @@
-define(['app'], function(App) {
+define(['storytell/app'], function(App) {
     
     var EventView = Amour.View.extend({
         tagName: 'section',
