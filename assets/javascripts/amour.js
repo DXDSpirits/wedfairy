@@ -33,7 +33,6 @@
     
     var Amour = {
         version: '1.0',
-        StaticURL: $('meta[name="StaticURL"]').attr('content'),
         APIHost: $('meta[name="APIHost"]').attr('content'),
         CDNURL: $('meta[name="CDNURL"]').attr('content')
     };

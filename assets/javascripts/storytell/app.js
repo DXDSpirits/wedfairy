@@ -35,7 +35,7 @@ define(function() {
         var TPL_PAIRS = App.story.storyEvents.map(function(storyEvent) {
             var name = storyEvent.get('name');
             var tpl_path = ['themes', theme, 'templates', name + '.tpl'].join('/');
-            return [name, Amour.StaticURL + tpl_path];
+            return [name, '/assets/' + tpl_path];
         });
         var n = TPL_PAIRS.length;
         var startTime = _.now();
