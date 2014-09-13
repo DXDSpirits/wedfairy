@@ -415,6 +415,7 @@
                 error.save({
                     message: message,
                     detail: {
+                        url: location.href,
                         error: arguments,
                         userAgent: navigator.userAgent
                     }
