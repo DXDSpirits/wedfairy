@@ -40,7 +40,6 @@ app.use('/assets', express.static(path.join(__dirname, 'assets'), {
 
 // routes
 app.use('/', require('./routes/index'));
-app.use('/story', require('./routes/storytell'));
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
