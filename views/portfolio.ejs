@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <title>八音盒</title>
+    
+    <% include includes/metadata %>
+    
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/bootstrap.css?v=<%= build_no %>">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/font-awesome/font-awesome.css">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/amour.css?v=<%= build_no %>">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/portfolio.css?v=<%= build_no %>">
+    
+    <script src="<%= static_url %>javascripts/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+
+<!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Content Begins Here -->
+
+<header>
+    <div class="wrapper">
+        <a class="logo" href="/"></a>
+    </div>
+</header>
+<div class="container">
+    <div class="row story-list"></div>
+    <button id="btn-more" data-loading-text="Loading..." class="btn btn-block">更多</button>
+</div>
+<footer>
+    <h4 class="font-wide text-center">SITE MADE WITH LOVE</h4>
+</footer>
+
+<!-- Content Ends Here -->
+
+<script src="<%= static_url %>javascripts/vendor/jquery-2.1.1.min.js"></script>
+<script src="<%= static_url %>javascripts/vendor/underscore.min.js"></script>
+<script src="<%= static_url %>javascripts/vendor/mustache.min.js"></script>
+<script src="<%= static_url %>javascripts/vendor/backbone.min.js"></script>
+<script src="<%= static_url %>javascripts/vendor/bootstrap.min.js"></script>
+
+<script src="<%= static_url %>javascripts/plugins/fastclick.js"></script>
+<script src="<%= static_url %>javascripts/plugins/jquery.qrcode.min.js"></script>
+
+<script src="<%= static_url %>javascripts/amour.js?v=<%= build_no %>"></script>
+<script src="<%= static_url %>javascripts/portfolio.js?v=<%= build_no %>"></script>
+
+<% include includes/analytics %>
+
+</body>
+</html>
