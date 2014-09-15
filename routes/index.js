@@ -6,10 +6,4 @@ router.get('/', function(req, res) {
     res.render('homepage');
 });
 
-router.get('/desktop', function(req, res) {
-    res.render('desktop', {
-        url: req.query.url || '/'
-    });
-});
-
 module.exports = router;
