@@ -2,13 +2,15 @@ var fs = require('fs');
 
 var CONFIG = {
     ENV : 'production',
-
-    CDN_URL : 'http://wedfairy.qiniudn.com/',
-
+    
+    TAT_STATIC : 'http://static.wedfairy.com/',
+    
     API_HOST : 'http://api.wedfairy.com',
     API_HOSTNAME : 'api.wedfairy.com',
     API_PORT : 80,
     API_PROTOCOL : 'http',
+    
+    CDN_URL : 'http://wedfairy.qiniudn.com/'
 };
 
 try {
