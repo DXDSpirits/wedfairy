@@ -9,11 +9,13 @@
     <% include includes/metadata %>
     
     <link rel="stylesheet" href="<%= static_url %>stylesheets/bootstrap.css?v=<%= build_no %>">
-    <link rel="stylesheet" href="<%= static_url %>stylesheets/font-awesome/font-awesome.css">
-    <link rel="stylesheet" href="<%= static_url %>stylesheets/amour.css?v=<%= build_no %>">
+    
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/font-awesome.css">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/amour.css">
+    
     <link rel="stylesheet" href="<%= static_url %>stylesheets/portfolio.css?v=<%= build_no %>">
     
-    <script src="<%= static_url %>javascripts/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="<%= tat_static %>javascripts/vendor/modernizr-2.6.2.min.js"></script>
 </head>
 <body>
 
@@ -38,16 +40,17 @@
 
 <!-- Content Ends Here -->
 
-<script src="<%= static_url %>javascripts/vendor/jquery-2.1.1.min.js"></script>
-<script src="<%= static_url %>javascripts/vendor/underscore.min.js"></script>
-<script src="<%= static_url %>javascripts/vendor/mustache.min.js"></script>
-<script src="<%= static_url %>javascripts/vendor/backbone.min.js"></script>
-<script src="<%= static_url %>javascripts/vendor/bootstrap.min.js"></script>
+<script src="<%= tat_static %>javascripts/vendor/jquery-2.1.1.min.js"></script>
+<script src="<%= tat_static %>javascripts/vendor/underscore.min.js"></script>
+<script src="<%= tat_static %>javascripts/vendor/mustache.min.js"></script>
+<script src="<%= tat_static %>javascripts/vendor/backbone.min.js"></script>
+<script src="<%= tat_static %>javascripts/vendor/bootstrap.min.js"></script>
 
-<script src="<%= static_url %>javascripts/plugins/fastclick.js"></script>
-<script src="<%= static_url %>javascripts/plugins/jquery.qrcode.min.js"></script>
+<script src="<%= tat_static %>javascripts/plugins/fastclick.js"></script>
+<script src="<%= tat_static %>javascripts/plugins/jquery.qrcode.min.js"></script>
 
-<script src="<%= static_url %>javascripts/amour.js?v=<%= build_no %>"></script>
+<script src="<%= tat_static %>javascripts/amour.js"></script>
+
 <script src="<%= static_url %>javascripts/portfolio.js?v=<%= build_no %>"></script>
 
 <% include includes/analytics %>

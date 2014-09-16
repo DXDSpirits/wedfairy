@@ -25,6 +25,9 @@ $main-white: #ffffde;
     to { opacity: 1; }
 }
 
+@include font-face(disco, '#{$static-url}fonts/disco-webfont');
+.font-wide { font-family: disco; }
+
 //****************************************************************************************//
 
 em, .em {
