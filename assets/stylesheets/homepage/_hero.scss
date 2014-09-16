@@ -1,0 +1,24 @@
+#view-hero {
+    padding-top: 100px;
+    color: #fff;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    > .container {
+        position: relative;
+    }
+    .btn {
+        background-color: #fe5858;
+        border-color: #fe5858;
+    }
+    h1, h2, h3, h4, h5 {
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+}
