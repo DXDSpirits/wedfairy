@@ -1,11 +1,6 @@
-@import "configs";
+@import "variables";
+@import "mixins";
 
-
-// Bourbon
-@import "bourbon/bourbon";
-
-
-// Desktop
 
 $body-fixed-width: 800px;
 

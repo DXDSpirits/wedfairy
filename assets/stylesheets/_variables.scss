@@ -1,0 +1,31 @@
+@import "local";
+
+//== Static url for images
+$static-url: 'http://wedfairy.qiniudn.com/' !default;
+
+
+//== Typography
+$font-family-sans-serif:  "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif !default;
+$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+
+$font-family-base:        $font-family-sans-serif !default;
+$headings-font-family:    $font-family-sans-serif !default;
+
+
+//-- Iconography
+$icon-font-path: "../fonts/bootstrap/" !default;
+
+
+//== Components
+$border-radius-base:        0 !default;
+$border-radius-large:       0 !default;
+$border-radius-small:       0 !default;
+
+
+//== Type
+$headings-small-color:      inherit !default;
+
+
+//===========================================================================================
+@import "bootstrap/variables";
+//===========================================================================================
