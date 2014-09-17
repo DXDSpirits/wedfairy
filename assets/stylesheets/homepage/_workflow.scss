@@ -1,0 +1,35 @@
+#view-workflow {
+    padding-top: 100px;
+    > header {
+        margin-bottom: 100px;
+    }
+    .icon-title {
+        .img {
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 20px;
+        }
+        &:hover .img {
+            @include animation(pulse .35s ease-in-out);
+        }
+    }
+    .desc {
+        max-width: 200px;
+    }
+    .banner {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        margin-top: 100px;
+        color: #fff;
+        .btn {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    }
+    .qrcode-composer {
+        width: 100px;
+        height: 100px;
+    }
+}

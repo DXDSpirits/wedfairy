@@ -1,5 +1,10 @@
 (function() {
     
+    $('#view-hero').css({
+        'min-height': $(window).height(),
+        'padding-top': ($(window).height() - 260) / 2
+    });
+    
     $('body').on('click', 'a', function(e) {
         var target = $(e.currentTarget).attr('href');
         if (target && target[0] == '#') {
@@ -70,7 +75,7 @@
     
     App.start = function() {
         bindWxSharing();
-        $('.views-wrapper,.view').css('min-height', $(window).height());
+        //$('.views-wrapper,.view').css('min-height', $(window).height());
         fillImages();
     };
     

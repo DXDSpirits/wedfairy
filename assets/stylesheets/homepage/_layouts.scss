@@ -9,4 +9,26 @@
     position: relative;
     overflow-x: hidden;
     padding: 0;
+    > header {
+        > h1 {
+            display: inline-block;
+            padding: 0 20px 20px;
+            border-bottom: 1px solid $brand-primary;
+            position: relative;
+            &::after {
+                content: "";
+                position: absolute;
+                height: 10px;
+                width: 50%;
+                bottom: -5px;
+                left: 25%;
+                background-color: $body-bg;
+                border: 1px solid $brand-primary;
+                border-radius: 5px;
+            }
+        }
+        &:hover > h1::after {
+            @include animation(shake 2s ease-in-out);
+        }
+    }
 }
