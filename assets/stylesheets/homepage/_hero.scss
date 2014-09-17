@@ -1,4 +1,6 @@
 #view-hero {
+    background: url(#{$static-url}images/homepage/hero-bg.jpg) no-repeat center;
+    background-size: cover;
     padding-top: 100px;
     color: #fff;
     &::before {

@@ -10,6 +10,12 @@
         }
     });
     
+    var onScroll = _.throttle(function() {
+        $('#global-navbar').toggleClass('hidden', window.scrollY < $(window).height());
+    }, 100);
+    
+    $(window).scroll(onScroll);
+    
     var App = window.App = {};
     
     var SectionView = Amour.View.extend({});
