@@ -1,3 +1,39 @@
 #global-footer {
-    
+    padding-top: 50px;
+    background-color: $gray-darker;
+    color: $gray-lighter;
+    .qrcode-composer {
+        background-color: #fff;
+        background-size: auto;
+        width: 110px;
+        height: 110px;
+        margin: 0 auto;
+    }
+    .copyright {
+        border-top: 1px solid $gray-light;
+        padding-top: 10px;
+        margin-top: 30px;
+    }
+    .subtitle {
+        margin-bottom: 30px;
+    }
+    .social-icon {
+        cursor: pointer;
+        display: inline-block;
+        border-radius: 50%;
+        border: 1px solid #fff;
+        color: #fff;
+        &:hover, &:focus {
+            border-color: $brand-primary;
+            color: $brand-primary;
+        }
+        @include transition(all .35s ease-in-out);
+        text-align: center;
+        height: 50px;
+        width: 50px;
+        .fa {
+            line-height: 48px;
+        }
+        margin-left: 10px;
+    }
 }

@@ -5,9 +5,21 @@ $static-url: 'http://wedfairy.qiniudn.com/' !default;
 
 
 //== Colors
-//
-//## Gray and brand colors for use across Bootstrap.
+$gray-darker:            lighten(#000, 13.5%) !default; // #222
+$gray-dark:              lighten(#000, 20%) !default;   // #333
+$gray:                   lighten(#000, 33.5%) !default; // #555
+$gray-light:             lighten(#000, 60%) !default;   // #999
+$gray-lighter:           lighten(#000, 93.5%) !default; // #eee
+
 $brand-primary:         #fe5858 !default;
+$brand-success:         #5cb85c !default;
+$brand-info:            #5bc0de !default;
+$brand-warning:         #f0ad4e !default;
+$brand-danger:          #d9534f !default;
+
+
+//== Scaffolding
+$text-color:            $gray !default;
 
 
 //== Typography
