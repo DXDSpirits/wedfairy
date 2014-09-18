@@ -1,0 +1,9 @@
+#view-howto {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    > header > p {
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
