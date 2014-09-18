@@ -17,20 +17,59 @@
     
     var onScroll = _.throttle(function() {
         $('#global-navbar').toggleClass('hidden', window.scrollY < $(window).height());
-    }, 100);
+    }, 500);
     
     $(window).scroll(onScroll);
     
     var App = window.App = {};
     
-    var SectionView = Amour.View.extend({});
+    var SectionViews = {};
     
-    var HeroView = new (SectionView.extend({
+    SectionViews['gallery'] = new (Amour.View.extend({
         initView: function() {
-            var days = Math.floor(((new Date('2014-08-03')) - (new Date())) / 86400000);
-            this.$('>footer em').text(days);
+            this.stories = new Amour.Collection();
+            this.galleryView = new (Amour.CollectionView.extend({
+                ModelView: Amour.ModelView.extend({
+                    className: 'col-sm-3 safari-window',
+                    template: '<div class="safari-buttons-bar"><i></i><i></i><i></i></div>' + 
+                              '<div class="story-item img"><div class="dark-layer"><span>{{name}}</span></div></div>',
+                    
+                })
+            }))({
+                el: this.$('.gallery'),
+                collection: this.stories
+            });
+        },
+        render: function() {
+            this.stories.reset([
+                {
+                    id: 1,
+                    name: 'QiQi & XD'
+                }, {
+                    id: 2,
+                    name: 'QiQi & XD'
+                }, {
+                    id: 3,
+                    name: 'QiQi & XD'
+                }, {
+                    id: 4,
+                    name: 'QiQi & XD'
+                }, {
+                    id: 5,
+                    name: 'QiQi & XD'
+                }, {
+                    id: 6,
+                    name: 'QiQi & XD'
+                }, {
+                    id: 7,
+                    name: 'QiQi & XD'
+                }, {
+                    id: 8,
+                    name: 'QiQi & XD'
+                }
+            ])
         }
-    }))({el: $('#view-hero')});
+    }))({el: $('#view-gallery')});
     
     var fillImages = function() {
         $('img[data-src]').each(function() {
@@ -77,6 +116,9 @@
         bindWxSharing();
         //$('.views-wrapper,.view').css('min-height', $(window).height());
         fillImages();
+        _.each(SectionViews, function(view, name) {
+            view.render();
+        });
     };
     
     App.start();
