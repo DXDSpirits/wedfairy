@@ -9,7 +9,7 @@
             height: 100px;
             display: inline-block;
             vertical-align: middle;
-            margin-right: 20px;
+            margin-right: 10px;
         }
         &:hover .img {
             @include animation(pulse .35s ease-in-out);
