@@ -1,9 +1,57 @@
 #view-howto {
     padding-top: 100px;
-    padding-bottom: 100px;
+    padding-bottom: 200px;
     > header > p {
         max-width: 500px;
         margin-left: auto;
         margin-right: auto;
+    }
+    .slider-wrapper {
+        position: relative;
+        margin: 50px auto;
+    }
+    .slider-item {
+        position: absolute;
+        .img {
+            cursor: pointer;
+            border-radius: 50%;
+            width: 100%;
+            padding-top: 100%;
+            &:hover, &:active {
+                @include animation(pulse .35s ease-in-out);
+            }
+        }
+        .abbr, .caption {
+            position: absolute;
+            top: 100%;
+            @include transition(all .35s ease-in-out);
+        }
+        .caption {
+            padding-top: 50px;
+            left: -100%;
+            width: 300%;
+            visibility: hidden;
+            opacity: 0;
+        }
+        .abbr {
+            padding-top: 10px;
+            left: 0;
+            width: 100%;
+            visibility: visible;
+            opacity: 1;
+        }
+        &.standout {
+            .img {
+                @include animation(none);
+            }
+            .caption {
+                visibility: visible;
+                opacity: 1;
+            }
+            .abbr {
+                visibility: hidden;
+                opacity: 0;
+            }
+        }
     }
 }
