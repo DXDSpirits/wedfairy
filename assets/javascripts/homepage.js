@@ -90,55 +90,68 @@
     
     SectionViews['howto'] = new (Amour.View.extend({
         events: {
-            'click .slider-item': 'slideOnClick'
+            'click .slider-item': 'slideOnClick',
+            'click .slider-control': 'slideOnControl'
         },
         initView: function() {},
-        slideOnClick: function(e) {
-            var $item = $(e.currentTarget);
-            var index = $item.prevAll().length;
+        slideTo: function(index, $item) {
             if (index == this.mean) return;
+            $item = $item || this.$('.slider-item').slice(index, index + 1);
             var dir = index > this.mean ? 'slideLeft' : 'slideRight';
             var dis = Math.abs(index - this.mean);
             var speed = 600 / dis;
             var self = this;
+            this.$('.slider-item').removeClass('standout');
+            $item.addClass('standout');
+            var $control = this.$('.slider-control');
+            $control.addClass('invisible');
+            _.delay(function() {
+                $control.removeClass('invisible');
+            }, 600);
             var animate = _.before(dis + 1, function() {
                 self[dir](speed, animate);
             });
-            this.$('.slider-item').removeClass('standout');
-            animate();
-            $item.addClass('standout');
+            _.delay(animate, 100);
+        },
+        slideOnControl: function(e) {
+            var $control = $(e.currentTarget);
+            this.slideTo($control.hasClass('left') ? this.mean - 1 : this.mean + 1);
+        },
+        slideOnClick: function(e) {
+            var $item = $(e.currentTarget);
+            var index = $item.prevAll('.slider-item').length;
+            this.slideTo(index, $item);
         },
         calculateStyle: function(index) {
-            var fullWidth = this.itemWidth + this.gap;
             var opacity = (index < 0 || index >= this.n) ? 0 : 1;
             if (index < this.mean) {
                 return {
                     'width': this.itemWidth,
                     'height': this.itemWidth,
-                    'top': this.itemWidth / 2,
-                    'left': index * fullWidth,
+                    'top': this.itemWidth,
+                    'left': index * this.itemWidth,
                     'opacity': opacity
                 };
             } else if (index > this.mean) {
                 return {
                     'width': this.itemWidth,
                     'height': this.itemWidth,
-                    'top': this.itemWidth / 2,
-                    'left': this.gap + (index + 1) * fullWidth,
+                    'top': this.itemWidth,
+                    'left': this.gap * 2 + (index + 2) * this.itemWidth,
                     'opacity': opacity
                 };
             } else {
                 return {
-                    'width': this.itemWidth * 2,
-                    'height': this.itemWidth * 2,
+                    'width': this.itemWidth * 3,
+                    'height': this.itemWidth * 3,
                     'top': 0,
-                    'left': this.gap + this.mean * fullWidth,
+                    'left': this.gap + this.mean * this.itemWidth,
                     'opacity': opacity
                 };
             }
         },
         slideRight: function(speed, callback) {
-            var $lastItem = $('.slider-item:last-child');
+            var $lastItem = $('.slider-item').last();
             var style = this.calculateStyle(-1);
             $lastItem.clone().css(style).prependTo('.slider-wrapper');
             var animationEnd = _.after(this.n + 1, function() {
@@ -152,7 +165,7 @@
             });
         },
         slideLeft: function(speed, callback) {
-            var $firstItem = $('.slider-item:first-child');
+            var $firstItem = $('.slider-item').first();
             var style = this.calculateStyle(this.n + 1);
             $firstItem.clone().css(style).appendTo('.slider-wrapper');
             var animationEnd = _.after(this.n + 1, function() {
@@ -165,18 +178,36 @@
                 $(this).animate(style, speed || 1000, animationEnd);
             });
         },
-        render: function() {
+        initCircles: function() {
             var gap = this.gap = 10;
             var n = this.n = this.$('.slider-item').length;
             var mean = this.mean = (n >> 1);
             var wrapperWidth = this.wrapperWidth = this.$('.slider-wrapper').innerWidth();
-            var itemWidth = this.itemWidth = (wrapperWidth - (n + 1) * gap) / (n + 1);
-            this.$('.slider-wrapper').css('height', itemWidth * 2);
+            var itemWidth = this.itemWidth = (wrapperWidth - 2 * gap) / (n + 2);
+            var wrapperHeight = this.wrapperHeight = itemWidth * 3;
+            this.$('.slider-wrapper').css('height', wrapperHeight);
             var self = this;
             this.$('.slider-item').each(function(index) {
                 var style = self.calculateStyle(index);
                 $(this).css(style);
             });
+            var $sliderControl = this.$('.slider-control');
+            $sliderControl.filter('.left').css({
+                'top': (wrapperHeight - $sliderControl.outerHeight()) / 2,
+                'left': itemWidth * mean + gap
+            });
+            $sliderControl.filter('.right').css({
+                'top': (wrapperHeight - $sliderControl.outerHeight()) / 2,
+                'right': itemWidth * mean + gap
+            });
+        },
+        render: function() {
+            var self = this;
+            var debounce = _.debounce(function() {
+                self.initCircles();
+            }, 100);
+            $(window).resize(debounce);
+            debounce();
         }
     }))({el: $('#view-howto')});
     

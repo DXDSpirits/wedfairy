@@ -16,9 +16,14 @@
     .navbar-brand {
         background: url(#{$static-url}images/logo.png) no-repeat left;
         background-size: 50px 50px;
+        margin-left: 15px;
         padding-left: 65px;
         height: 60px;
         line-height: 30px;
+    }
+    .navbar-toggle {
+        margin-top: 13px;
+        margin-bottom: 13px;
     }
     .navbar-nav > li > a {
         line-height: 30px;

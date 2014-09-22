@@ -1,22 +1,55 @@
 #view-howto {
-    padding-top: 100px;
-    padding-bottom: 200px;
+    > header {
+        margin-bottom: 0;
+    }
     > header > p {
-        max-width: 500px;
         margin-left: auto;
         margin-right: auto;
+        max-width: 500px;
+        @media (max-width: $screen-xs-max) {
+            max-width: 200px;
+        }
+    }
+    > .container {
+        max-width: $container-md;
     }
     .slider-wrapper {
         position: relative;
-        margin: 50px auto;
+        margin: 50px auto 150px;
+        @media (max-width: $screen-xs-max) {
+            margin-left: -35%;
+            margin-right: -35%;
+        }
+    }
+    .slider-control {
+        position: absolute;
+        cursor: pointer;
+        z-index: 2;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        &.left {
+            padding-right: 50px;
+        }
+        &.right {
+            padding-left: 50px;
+        }
+        @include transition(all .2s ease-in-out);
+        &.left.invisible {
+            @include transform(translate3d(10px, 0, 0));
+        }
+        &.right.invisible {
+            @include transform(translate3d(-10px, 0, 0));
+        }
     }
     .slider-item {
         position: absolute;
+        z-index: 1;
         .img {
             cursor: pointer;
             border-radius: 50%;
-            width: 100%;
-            padding-top: 100%;
+            margin: 10%;
+            padding-top: 80%;
+            width: 80%;
             &:hover, &:active {
                 @include animation(pulse .35s ease-in-out);
             }
@@ -26,16 +59,22 @@
             top: 100%;
         }
         .caption {
-            padding-top: 50px;
-            left: -100%;
-            width: 300%;
-            display: none;
             @include animation(none);
+            display: none;
+            left: -(300% - 100%) / 2;
+            width: 300%;
+            @media (max-width: $screen-xs-max) {
+                left: -(150% - 100%) / 2;
+                width: 150%;
+            }
         }
         .abbr {
             padding-top: 10px;
             left: 0;
             width: 100%;
+            @media (max-width: $screen-xs-max) {
+                display: none;
+            }
         }
         &.standout {
             .img:hover, .img:active {
