@@ -222,13 +222,14 @@
     };
     
     var initScroll = function () {
+        var windowHeight = $(window).height();
         var navbarIn = $('#view-hero').outerHeight();
         var $workflow = $('#view-workflow');
-        var workflowIn = $workflow.offset().top - $workflow.outerHeight() / 2;
+        var workflowIn = $workflow.offset().top - windowHeight / 2;
         var $features = $('#view-features');
-        var featuresIn = $features.offset().top - $features.outerHeight() / 2;
+        var featuresIn = $features.offset().top - windowHeight / 2;
         var $gallery = $('#view-gallery');
-        var galleryIn = $gallery.offset().top - $gallery.outerHeight() / 2;
+        var galleryIn = $gallery.offset().top - windowHeight / 2;
         var onScroll = _.throttle(function() {
             var scrollTop = $(window).scrollTop();
             $('#global-navbar').toggleClass('rollup', scrollTop < navbarIn);

@@ -57,14 +57,14 @@
         }
     }
     .animated {
-        @include animation-duration(3s);
-        &:nth-child(2) { @include animation-delay(0.1s); }
-        &:nth-child(3) { @include animation-delay(0.2s); }
-        &:nth-child(4) { @include animation-delay(0.3s); }
-        &:nth-child(5) { @include animation-delay(0.4s); }
-        &:nth-child(6) { @include animation-delay(0.5s); }
-        &:nth-child(7) { @include animation-delay(0.6s); }
-        &:nth-child(8) { @include animation-delay(0.7s); }
+        @include animation-duration(2s);
+        &:nth-child(2) { @include animation-delay(0.5s); }
+        &:nth-child(3) { @include animation-delay(1.0s); }
+        &:nth-child(4) { @include animation-delay(1.5s); }
+        &:nth-child(5) { @include animation-delay(2.0s); }
+        &:nth-child(6) { @include animation-delay(2.5s); }
+        &:nth-child(7) { @include animation-delay(3.0s); }
+        &:nth-child(8) { @include animation-delay(3.5s); }
     }
     > .container.invisible {
         .animated {

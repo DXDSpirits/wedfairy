@@ -36,7 +36,7 @@
         height: 110px;
     }
     .animated {
-        @include animation-duration(2s);
+        @include animation-duration(1s);
         &:nth-child(2) { @include animation-delay(0.1s); }
         &:nth-child(3) { @include animation-delay(0.2s); }
         &:nth-child(4) { @include animation-delay(0.3s); }

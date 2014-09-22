@@ -6,10 +6,10 @@
         margin-bottom: 100px;
     }
     .iphone-wrapper {
-        padding-top: 36.460%;
-        padding-bottom: 29.326%;
-        padding-left: 8.190%;
-        padding-right: 7.266%;
+        padding-top: (757px / 300) * 36.460;
+        padding-bottom: (757px / 300) * 29.326;
+        padding-left: (757px / 300) * 8.190;
+        padding-right: (757px / 300) * 7.266;
         width: (757px / 3);
         height: (1594px / 3);
         margin: 0 auto;
@@ -35,9 +35,9 @@
         }
     }
     .animated {
-        @include animation-duration(2s);
+        @include animation-duration(1s);
         &+.animated {
-            @include animation-delay(.5s);
+            @include animation-delay(.2s);
         }
     }
     > .container.invisible {
