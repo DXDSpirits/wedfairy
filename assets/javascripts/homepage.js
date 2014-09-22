@@ -38,12 +38,6 @@
         }
     });
     
-    var onScroll = _.throttle(function() {
-        $('#global-navbar').toggleClass('hidden', $(window).scrollTop() < $(window).height());
-    }, 500);
-    
-    $(window).scroll(onScroll);
-    
     var App = window.App = {};
     
     var SectionViews = {};
@@ -53,7 +47,7 @@
             this.stories = new Amour.Collection();
             this.galleryView = new (Amour.CollectionView.extend({
                 ModelView: Amour.ModelView.extend({
-                    className: 'col-sm-3 safari-window',
+                    className: 'col-sm-3 safari-window animated fadeIn',
                     template: '<div class="safari-buttons-bar"><i></i><i></i><i></i></div>' + 
                               '<div class="story-item img"><div class="dark-layer"><span>{{name}}</span></div></div>',
                     
@@ -112,9 +106,7 @@
             });
             this.$('.slider-item').removeClass('standout');
             animate();
-            _.delay(function() {
-                $item.addClass('standout');
-            }, 600);
+            $item.addClass('standout');
         },
         calculateStyle: function(index) {
             var fullWidth = this.itemWidth + this.gap;
@@ -229,9 +221,27 @@
         }
     };
     
+    var initScroll = function () {
+        var navbarIn = $('#view-hero').outerHeight();
+        var $workflow = $('#view-workflow');
+        var workflowIn = $workflow.offset().top - $workflow.outerHeight() / 2;
+        var $features = $('#view-features');
+        var featuresIn = $features.offset().top - $features.outerHeight() / 2;
+        var $gallery = $('#view-gallery');
+        var galleryIn = $gallery.offset().top - $gallery.outerHeight() / 2;
+        var onScroll = _.throttle(function() {
+            var scrollTop = $(window).scrollTop();
+            $('#global-navbar').toggleClass('rollup', scrollTop < navbarIn);
+            $workflow.find('.container').toggleClass('invisible', scrollTop < workflowIn);
+            $features.find('.container').toggleClass('invisible', scrollTop < featuresIn);
+            $gallery.find('.container').toggleClass('invisible', scrollTop < galleryIn);
+        }, 500);
+        $(window).scroll(onScroll);
+    };
+    
     App.start = function() {
         bindWxSharing();
-        //$('.views-wrapper,.view').css('min-height', $(window).height());
+        initScroll();
         fillImages();
         _.each(SectionViews, function(view, name) {
             view.render();

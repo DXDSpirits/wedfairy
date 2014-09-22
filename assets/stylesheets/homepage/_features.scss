@@ -34,4 +34,15 @@
             margin-top: 100px;
         }
     }
+    .animated {
+        @include animation-duration(2s);
+        &+.animated {
+            @include animation-delay(.5s);
+        }
+    }
+    > .container.invisible {
+        .animated {
+            @include animation(none);
+        }
+    }
 }

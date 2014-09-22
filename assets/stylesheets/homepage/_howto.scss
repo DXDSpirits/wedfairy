@@ -24,33 +24,29 @@
         .abbr, .caption {
             position: absolute;
             top: 100%;
-            @include transition(all .35s ease-in-out);
         }
         .caption {
             padding-top: 50px;
             left: -100%;
             width: 300%;
-            visibility: hidden;
-            opacity: 0;
+            display: none;
+            @include animation(none);
         }
         .abbr {
             padding-top: 10px;
             left: 0;
             width: 100%;
-            visibility: visible;
-            opacity: 1;
         }
         &.standout {
-            .img {
+            .img:hover, .img:active {
                 @include animation(none);
             }
             .caption {
-                visibility: visible;
-                opacity: 1;
+                display: block;
+                @include animation(fadeInUp 1s ease-in-out);
             }
             .abbr {
-                visibility: hidden;
-                opacity: 0;
+                display: none;
             }
         }
     }
