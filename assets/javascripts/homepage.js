@@ -235,7 +235,7 @@
             $workflow.find('.container').toggleClass('invisible', scrollTop < workflowIn);
             $features.find('.container').toggleClass('invisible', scrollTop < featuresIn);
             $gallery.find('.container').toggleClass('invisible', scrollTop < galleryIn);
-        }, 500);
+        }, 100);
         $(window).scroll(onScroll);
     };
     
