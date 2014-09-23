@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<% include includes/html %>
+
 <head>
     <title>八音盒</title>
     
@@ -11,9 +10,12 @@
     <link rel="stylesheet" href="<%= static_url %>stylesheets/bootstrap.css?v=<%= build_no %>">
     
     <link rel="stylesheet" href="<%= tat_static %>stylesheets/font-awesome.css">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/animate.min.css">
     <link rel="stylesheet" href="<%= tat_static %>stylesheets/amour.css">
     
     <link rel="stylesheet" href="<%= static_url %>stylesheets/portfolio.css?v=<%= build_no %>">
+    
+    <% include includes/production %>
     
     <script src="<%= tat_static %>javascripts/vendor/modernizr-2.6.2.min.js"></script>
 </head>
