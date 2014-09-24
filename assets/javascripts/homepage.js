@@ -46,6 +46,23 @@
     
     var SectionViews = {};
     
+    SectionViews['features'] = new (Amour.View.extend({
+        events: {
+            'mouseover .feature': 'hover'
+        },
+        initView: function() {
+            this.feature == 0;
+        },
+        hover: function(e) {
+            var $target = $(e.currentTarget);
+            var feature = $target.data('feature');
+            if (feature == this.feature) return;
+            this.feature = feature;
+            Amour.loadBgImage(this.$('.iphone-wrapper .img'), ['images/homepage/features', feature, '.png'].join(''));
+        },
+        render: function() {}
+    }))({el: $('#view-features')});
+    
     SectionViews['gallery'] = new (Amour.View.extend({
         initView: function() {
             this.stories = new Amour.Collection();

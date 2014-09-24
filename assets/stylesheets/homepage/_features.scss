@@ -1,15 +1,21 @@
 #view-features {
     background-color: #f5f5f5;
     .iphone-wrapper {
-        padding-top: (757px / 300) * 36.460;
-        padding-bottom: (757px / 300) * 29.326;
-        padding-left: (757px / 300) * 8.190;
-        padding-right: (757px / 300) * 7.266;
-        width: (757px / 3);
-        height: (1594px / 3);
+        padding-top: 92px;
+        padding-bottom: 74px;
+        padding-left: 21px;
+        padding-right: 18px;
+        width: 252px;
+        height: 531px;
         margin: 0 auto;
-        background: url(#{$static-url}images/iphone5-border.png) no-repeat top;
+        background: url(#{$static-url}images/iphone5-border-dark.png) no-repeat top;
         background-size: contain;
+    }
+    .iphone-wrapper {
+        .img {
+            width: 213px;
+            height: 365px;
+        }
     }
     .feature {
         .icon {
