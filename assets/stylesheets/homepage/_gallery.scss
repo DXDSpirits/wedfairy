@@ -4,10 +4,7 @@
         @include user-select(none);
         cursor: pointer;
         position: relative;
-        box-shadow: 0 0 3px 0 #ddd;
-        background-image: url(#{$static-url}images/homepage/hero-bg.jpg);
         padding-bottom: 60%;
-        margin-bottom: 30px;
     }
     .dark-layer {
         position: absolute;
@@ -16,15 +13,14 @@
         height: 100%;
         width: 100%;
         padding-top: 20%;
-        background-color: rgba(0, 0, 0, 0.3);
+        background-color: rgba(0, 0, 0, 0.5);
         text-align: center;
         > span {
             display: inline-block;
-            padding: 5px 20px;
+            padding: 9px 24px;
             border-radius: 20px;
-            background-color: #ddd;
+            background-color: #e5e5e5;
             font-size: $font-size-small;
-            font-weight: bold;
         }
     }
     .dark-layer {
@@ -34,6 +30,10 @@
     .story-item:hover .dark-layer,
     .story-item:focus .dark-layer {
         opacity: 1;
+    }
+    .safari-window {
+        box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, .1);
+        margin-bottom: 30px;
     }
     .safari-buttons-bar {
         height: 10px;
@@ -53,14 +53,14 @@
         }
     }
     .animated {
-        @include animation-duration(2s);
-        &:nth-child(2) { @include animation-delay(0.5s); }
-        &:nth-child(3) { @include animation-delay(1.0s); }
-        &:nth-child(4) { @include animation-delay(1.5s); }
-        &:nth-child(5) { @include animation-delay(2.0s); }
-        &:nth-child(6) { @include animation-delay(2.5s); }
-        &:nth-child(7) { @include animation-delay(3.0s); }
-        &:nth-child(8) { @include animation-delay(3.5s); }
+        @include animation-duration(1s);
+        &:nth-child(2) { @include animation-delay(0.2s); }
+        &:nth-child(3) { @include animation-delay(0.4s); }
+        &:nth-child(4) { @include animation-delay(0.6s); }
+        &:nth-child(5) { @include animation-delay(0.8s); }
+        &:nth-child(6) { @include animation-delay(1.0s); }
+        &:nth-child(7) { @include animation-delay(1.2s); }
+        &:nth-child(8) { @include animation-delay(1.4s); }
     }
     > .container.invisible {
         .animated {

@@ -68,10 +68,16 @@
             this.stories = new Amour.Collection();
             this.galleryView = new (Amour.CollectionView.extend({
                 ModelView: Amour.ModelView.extend({
-                    className: 'col-sm-3 safari-window animated fadeIn',
-                    template: '<div class="safari-buttons-bar"><i></i><i></i><i></i></div>' + 
-                              '<div class="story-item img"><div class="dark-layer"><span>{{name}}</span></div></div>',
-                    
+                    className: 'col-sm-4 col-md-3',
+                    template: '<div class="safari-window animated fadeIn">' +
+                              '<div class="safari-buttons-bar"><i></i><i></i><i></i></div>' +
+                              '<div class="story-item img" data-bg-src="{{image}}">' +
+                                  '<div class="dark-layer"><span>{{title}}</span></div>' +
+                              '</div>' + '</div>',
+                    events: { 'click .story-item': 'onClick' },
+                    onClick: function() {
+                        window.open('http://story.wedfairy.com/story/' + this.model.get('name'), '_blank');
+                    }
                 })
             }))({
                 el: this.$('.gallery'),
@@ -81,29 +87,29 @@
         render: function() {
             this.stories.reset([
                 {
-                    id: 1,
-                    name: 'QiQi & XD'
+                    id: 1, name: 'naturalcurly', title: '蜂蜜罐头',
+                    image: 'http://tatup.qiniudn.com/o_18v2sopo9pbo1kt9tdj1g1nvg9c.jpg'
                 }, {
-                    id: 2,
-                    name: 'QiQi & XD'
+                    id: 2, name: 'xiaolei', title: '当爱射进球门',
+                    image: 'http://tatup.qiniudn.com/o_18uq2tv092ou17jtmn1o571e3h9.jpg'
                 }, {
-                    id: 3,
-                    name: 'QiQi & XD'
+                    id: 3, name: 'qidlove', title: 'QiQi & XD',
+                    image: 'http://tatup.qiniudn.com/o_18s85df0c4iknei1jtd38mi9uj.jpg!thumbnail'
                 }, {
-                    id: 4,
-                    name: 'QiQi & XD'
+                    id: 4, name: 'B18F79', title: '逆袭的爱情',
+                    image: 'http://tatup.qiniudn.com/o_18uqqn6js1k9p6mj1qa81ap21jid7.jpg'
                 }, {
-                    id: 5,
-                    name: 'QiQi & XD'
+                    id: 5, name: 'c92280', title: '择一城终老，遇一人白首',
+                    image: 'http://tatup.qiniudn.com/o_18ut953i51ig383fta0178k1ia87.jpg'
                 }, {
-                    id: 6,
-                    name: 'QiQi & XD'
+                    id: 6, name: 'FD2C14', title: '时常一起犯二！',
+                    image: 'http://tatup.qiniudn.com/o_18ur3kp3jsqp10r51rcgao4jv97.jpg'
                 }, {
-                    id: 7,
-                    name: 'QiQi & XD'
+                    id: 7, name: 'aef095', title: '藝叶知秋',
+                    image: 'http://tatup.qiniudn.com/o_18vfk2t5h1s781ott13r81pd3g1j7.jpg'
                 }, {
-                    id: 8,
-                    name: 'QiQi & XD'
+                    id: 8, name: 'fxfdz', title: '扬起风帆，铮爱启程',
+                    image: 'http://tatup.qiniudn.com/o_191f51sggrsa18la24c1nv8141k1f.jpg'
                 }
             ])
         }
