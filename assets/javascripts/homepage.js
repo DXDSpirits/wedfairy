@@ -297,6 +297,8 @@
         var workflowIn = $workflow.offset().top - windowHeight / 2;
         var $features = $('#view-features');
         var featuresIn = $features.offset().top - windowHeight / 2;
+        var $howto = $('#view-howto');
+        var howtoIn = $howto.offset().top - windowHeight / 2;
         var $gallery = $('#view-gallery');
         var galleryIn = $gallery.offset().top - windowHeight / 2;
         var onScroll = _.throttle(function() {
@@ -306,12 +308,14 @@
             if (!Amour.isMobile) {
                 $workflow.find('.container').toggleClass('invisible', scrollTop < workflowIn);
                 $features.find('.container').toggleClass('invisible', scrollTop < featuresIn);
+                $howto.find('.container').toggleClass('invisible', scrollTop < howtoIn);
                 $gallery.find('.container').toggleClass('invisible', scrollTop < galleryIn);
             }
         }, 100);
         if (Amour.isMobile) {
             $workflow.find('.container').removeClass('invisible');
             $features.find('.container').removeClass('invisible');
+            $howto.find('.container').removeClass('invisible');
             $gallery.find('.container').removeClass('invisible');
         }
         $(window).scroll(onScroll);

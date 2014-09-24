@@ -7,6 +7,14 @@
     > .container {
         max-width: $container-md;
     }
+    .animated {
+        @include animation-duration(1s);
+    }
+    > .container.invisible {
+        .animated {
+            @include animation(none);
+        }
+    }
     .slider-wrapper {
         position: relative;
         margin-bottom: 300px;
