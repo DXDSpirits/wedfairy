@@ -38,6 +38,10 @@
         }
     });
     
+    if (!Amour.isMobile) {
+        $('.wechat').attr('href', null);
+    }
+    
     var App = window.App = {};
     
     var SectionViews = {};

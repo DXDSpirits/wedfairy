@@ -2,6 +2,47 @@
     padding-top: 50px;
     background-color: $gray-darker;
     color: $gray-lighter;
+    .footer-col {
+        margin-bottom: 30px;
+    }
+    @media (max-width: $screen-xs-max) {
+        .footer-col {
+            text-align: center;
+        }
+    }
+    .subtitle {
+        margin-bottom: 30px;
+    }
+    a {
+        color: $gray-lighter;
+        &:hover, &:focus {
+            border-color: $brand-primary;
+            color: $brand-primary;
+        }
+    }
+    .social-icon {
+        cursor: pointer;
+        display: inline-block;
+        border-radius: 50%;
+        border: 1px solid $gray-lighter;
+        @include transition(all .35s ease-in-out);
+        text-align: center;
+        height: 50px;
+        width: 50px;
+        .fa {
+            line-height: 48px;
+        }
+        margin-left: 10px;
+    }
+    .wechat:hover {
+        @include transition(transform .1s ease-in-out);
+        @include transform(scale(4, 4));
+        @include transform-origin(100% 100%);
+        background: #fff url(#{$static-url}images/wechat-qrcode.jpg) no-repeat center;
+        background-size: 43px 43px;
+        border-radius: 0;
+        .fa { visibility: hidden; }
+    }
     .qrcode-composer {
         background-color: #fff;
         background-size: auto;
@@ -12,35 +53,5 @@
     .copyright {
         border-top: 1px solid $gray-light;
         padding-top: 10px;
-    }
-    .subtitle {
-        margin-bottom: 30px;
-    }
-    .social-icon {
-        cursor: pointer;
-        display: inline-block;
-        border-radius: 50%;
-        border: 1px solid $gray-lighter;
-        color: $gray-lighter;
-        &:hover, &:focus {
-            border-color: $brand-primary;
-            color: $brand-primary;
-        }
-        @include transition(all .35s ease-in-out);
-        text-align: center;
-        height: 50px;
-        width: 50px;
-        .fa {
-            line-height: 48px;
-        }
-        margin-left: 10px;
-    }
-    .footer-col {
-        margin-bottom: 30px;
-    }
-    @media (max-width: $screen-xs-max) {
-        .footer-col {
-            text-align: center;
-        }
     }
 }
