@@ -93,7 +93,16 @@
             'click .slider-item': 'slideOnClick',
             'click .slider-control': 'slideOnControl'
         },
-        initView: function() {},
+        initView: function() {
+            /*var hammertime = new Hammer(this.$('.slider-wrapper')[0]);
+            var self = this;
+            hammertime.on('swipeleft', function(ev) {
+                self.slideTo(self.mean + 1);
+            });
+            hammertime.on('swiperight', function(ev) {
+                self.slideTo(self.mean - 1);
+            });*/
+        },
         slideTo: function(index, $item) {
             if (index == this.mean) return;
             $item = $item || this.$('.slider-item').slice(index, index + 1);

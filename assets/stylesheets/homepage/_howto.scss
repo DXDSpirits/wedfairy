@@ -6,9 +6,6 @@
         margin-left: auto;
         margin-right: auto;
         max-width: 500px;
-        @media (max-width: $screen-xs-max) {
-            max-width: 200px;
-        }
     }
     > .container {
         max-width: $container-md;
@@ -22,6 +19,7 @@
         }
     }
     .slider-control {
+        @include user-select(none);
         position: absolute;
         cursor: pointer;
         z-index: 2;
@@ -45,6 +43,7 @@
         position: absolute;
         z-index: 1;
         .img {
+            @include user-select(none);
             cursor: pointer;
             border-radius: 50%;
             margin: 10%;

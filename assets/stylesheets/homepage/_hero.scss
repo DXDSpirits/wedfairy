@@ -1,5 +1,5 @@
 #view-hero {
-    background: url(#{$static-url}images/homepage/hero-bg.jpg) no-repeat center;
+    background: url(#{$static-url}images/homepage/hero-bg.jpg) no-repeat right;
     background-size: cover;
     padding-top: 100px;
     color: #fff;
@@ -37,22 +37,18 @@
         .navbar-brand {
             padding-top: 5px;
             padding-bottom: 5px;
-            height: 60px;
             .img, .text {
                 display: inline-block;
                 vertical-align: middle;
-                height: 50px;
+                height: 40px;
             }
             .img {
-                width: 50px;
+                width: 40px;
             }
             .text {
                 margin-left: 10px;
-                line-height: 50px;
+                line-height: 40px;
             }
-        }
-        .navbar-nav > li > a {
-            line-height: 30px;
         }
     }
 
