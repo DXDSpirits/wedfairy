@@ -15,12 +15,21 @@
         }
     }
     .navbar-brand {
-        background: url(#{$static-url}images/logo.png) no-repeat left;
-        background-size: 50px 50px;
-        margin-left: 15px;
-        padding-left: 65px;
+        padding-top: 5px;
+        padding-bottom: 5px;
         height: 60px;
-        line-height: 30px;
+        .img, .text {
+            display: inline-block;
+            vertical-align: middle;
+            height: 50px;
+        }
+        .img {
+            width: 50px;
+        }
+        .text {
+            margin-left: 10px;
+            line-height: 50px;
+        }
     }
     .navbar-nav > li > a {
         line-height: 30px;

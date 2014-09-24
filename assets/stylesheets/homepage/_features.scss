@@ -27,6 +27,8 @@
         margin-top: 50px;
         margin-bottom: 100px;
         @media (max-width: $screen-xs-max) {
+            margin-top: 0;
+            margin-bottom: 50px;
             text-align: center;
             p { max-width: none; }
         }
