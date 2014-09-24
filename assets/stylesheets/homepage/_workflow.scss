@@ -3,20 +3,10 @@
     .step {
         max-width: 200px;
         margin: 0 auto 50px;
-    }
-    .icon-title {
         .img {
             width: 100px;
             height: 100px;
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 10px;
-        }
-    }
-    .desc {
-        @include transition(color .2s linear);
-        &:hover {
-            color: $gray;
+            margin: 0 auto;
         }
     }
     .banner {
