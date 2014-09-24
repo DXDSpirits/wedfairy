@@ -1,7 +1,7 @@
 <section class="view" id="view-howto">
     <header class="text-center">
         <h1>如何DIY</h1>
-        <p>八音盒为将婚礼邀请函拆分为以下多个故事模块，并在每个故事模块中帮您预设了大量的创意性文字；您只需要按照提示放入您的灵感和素材，剩下的事情都由八音盒为您完成</p>
+        <p>八音盒为将婚礼邀请函拆分为以下多个故事模块，并在每个故事模块中帮你预设了大量的创意性文字；你只需要按照提示放入你的灵感和素材，剩下的事情都由八音盒为你完成</p>
     </header>
     <div class="container">
         <div class="slider-wrapper">
@@ -12,73 +12,134 @@
                 <i class="fa fa-chevron-right fa-lg"></i>
             </div>
             <div class="slider-item">
-                <div class="img" data-bg-src="images/homepage/outline-hero.jpg"></div>
+                <div class="img circle" data-bg-src="images/homepage/outline-hero.jpg"></div>
                 <div class="abbr text-center">婚礼开场白</div>
                 <div class="caption text-center">
                     <h2>婚礼开场白</h2>
-                    <p><strong>难度</strong>: 低</p>
-                    <p><strong>创意</strong>: 高</p>
-                    <p>用简短的话语介绍制作此邀请函的目的</p>
+                    <p class="idea-index">
+                        <strong>灵感指数：</strong>
+                        <% for (var i = 0; i < 5; i++) { %> 
+                            <i class="fa fa-lg fa-lightbulb-o <% if (i < 3) { %>light<% } %>"></i>
+                        <% } %>
+                    </p>
+                    <p class="description">用简单的话语介绍制作此邀请函的目的，为什么要做这个邀请函，做给谁，为了感谢什么或者为了迎接什么等。</p>
+                    <p class="inspiration"><i class="fa fa-quote-left"></i> 真诚期待您的光临，您一定不能错过这场温馨浪漫的婚礼，见证美丽的公主说出那句<br>Yes I Do !</p>
+                    <div class="compose-icons">
+                        <span class="img pencil"></span>
+                    </div>
                 </div>
             </div>
             <div class="slider-item">
-                <div class="img" data-bg-src="images/homepage/outline-couple.jpg"></div>
+                <div class="img circle" data-bg-src="images/homepage/outline-couple.jpg"></div>
                 <div class="abbr text-center">新郎和新娘</div>
                 <div class="caption text-center">
                     <h2>新郎和新娘</h2>
-                    <p><strong>难度</strong>: 低</p>
-                    <p><strong>创意</strong>: 高</p>
-                    <p>详细介绍新郎新娘</p>
+                    <p class="idea-index">
+                        <strong>灵感指数：</strong>
+                        <% for (var i = 0; i < 5; i++) { %> 
+                            <i class="fa fa-lg fa-lightbulb-o <% if (i < 5) { %>light<% } %>"></i>
+                        <% } %>
+                    </p>
+                    <p class="description">关于新郎新娘各自的介绍，无论是幽默风趣还是感人肺腑，充分发挥你的创作天赋吧。</p>
+                    <p class="inspiration"><i class="fa fa-quote-left"></i> 他叫白云，她叫黑土；他81，她85；他来自草原，她来自东土；他是她老公；她是他老母</p>
+                    <div class="compose-icons">
+                        <span class="img camera"></span>
+                        <i class="fa fa-times"></i> 2
+                        <span class="img pencil"></span>
+                        <i class="fa fa-times"></i> 2
+                    </div>
                 </div>
             </div>
             <div class="slider-item">
-                <div class="img" data-bg-src="images/homepage/outline-timeline.jpg"></div>
+                <div class="img circle" data-bg-src="images/homepage/outline-timeline.jpg"></div>
                 <div class="abbr text-center">我们的故事</div>
                 <div class="caption text-center">
                     <h2>我们的故事</h2>
-                    <p><strong>难度</strong>: 低</p>
-                    <p><strong>创意</strong>: 高</p>
-                    <p>两人相识到走到今天的一些最重要的时刻</p>
+                    <p class="idea-index">
+                        <strong>灵感指数：</strong>
+                        <% for (var i = 0; i < 5; i++) { %> 
+                            <i class="fa fa-lg fa-lightbulb-o <% if (i < 5) { %>light<% } %>"></i>
+                        <% } %>
+                    </p>
+                    <p class="description">按照时间顺序，简单介绍你们如何一路走来，记录你和她最幸福快乐的那些事情，你们是怎么相识的？是什么让你们相知？又是因为什么你们爱上了对方？使用五六句话，配合同时提交的五六幅图片，生成从相识到相爱的爱情故事。</p>
+                    <div class="compose-icons">
+                        <span class="img camera"></span>
+                        <i class="fa fa-times"></i> 5
+                        <span class="img pencil"></span>
+                        <i class="fa fa-times"></i> 5
+                    </div>
                 </div>
             </div>
             <div class="slider-item standout">
-                <div class="img" data-bg-src="images/homepage/outline-bigday.jpg"></div>
+                <div class="img circle" data-bg-src="images/homepage/outline-bigday.jpg"></div>
                 <div class="abbr text-center">大婚之日</div>
                 <div class="caption text-center">
                     <h2>大婚之日</h2>
-                    <p><strong>难度</strong>: 低</p>
-                    <p><strong>创意</strong>: 高</p>
-                    <p>相爱故事的高潮，表现男女主人公在即将走入婚姻殿堂之前的幸福</p>
+                    <p class="idea-index">
+                        <strong>灵感指数：</strong>
+                        <% for (var i = 0; i < 5; i++) { %> 
+                            <i class="fa fa-lg fa-lightbulb-o <% if (i < 3) { %>light<% } %>"></i>
+                        <% } %>
+                    </p>
+                    <p class="description">承接“我们的故事”模块，将整个邀请函带入高潮高潮。建议上传一张你们最喜欢的合照，可以是婚纱照，旅行照，或是艺术照，表现男女主人公的最幸福时刻</p>
+                    <div class="compose-icons">
+                        <span class="img camera"></span>
+                    </div>
                 </div>
             </div>
             <div class="slider-item">
-                <div class="img" data-bg-src="images/homepage/outline-information.jpg"></div>
-                <div class="abbr text-center">婚礼当天</div>
-                <div class="caption text-center">
-                    <h2>婚礼当天</h2>
-                    <p><strong>难度</strong>: 低</p>
-                    <p><strong>创意</strong>: 高</p>
-                    <p>用平时或者幽默的风格，列举到婚礼现场的方法或者描述婚礼当天的流程</p>
-                </div>
-            </div>
-            <div class="slider-item">
-                <div class="img" data-bg-src="images/homepage/outline-map.jpg"></div>
+                <div class="img circle" data-bg-src="images/homepage/outline-map.jpg"></div>
                 <div class="abbr text-center">地图</div>
                 <div class="caption text-center">
                     <h2>地图</h2>
-                    <p><strong>难度</strong>: 低</p>
-                    <p><strong>创意</strong>: 高</p>
-                    <p>婚礼举行当天的详细地址</p>
+                    <p class="idea-index">
+                        <strong>灵感指数：</strong>
+                        <% for (var i = 0; i < 5; i++) { %> 
+                            <i class="fa fa-lg fa-lightbulb-o <% if (i < 2) { %>light<% } %>"></i>
+                        <% } %>
+                    </p>
+                    <p class="description">在这部分中，输入你大喜之日的具体地址以及承办婚礼的酒店、海滩、会所、草原。你可以输入详细让八音盒自动生成地图，也可以自己上传一张制作精美的地图图片。</p>
+                    <div class="compose-icons">
+                        <span class="img camera"></span>
+                        <span class="img pencil"></span>
+                    </div>
                 </div>
             </div>
             <div class="slider-item">
-                <div class="img" data-bg-src="images/homepage/outline-wish.jpg"></div>
+                <div class="img circle" data-bg-src="images/homepage/outline-information.jpg"></div>
+                <div class="abbr text-center">婚礼当天</div>
+                <div class="caption text-center">
+                    <h2>婚礼当天</h2>
+                    <p class="idea-index">
+                        <strong>灵感指数：</strong>
+                        <% for (var i = 0; i < 5; i++) { %> 
+                            <i class="fa fa-lg fa-lightbulb-o <% if (i < 4) { %>light<% } %>"></i>
+                        <% } %>
+                    </p>
+                    <p class="description">告诉亲朋好友来宾们如何来到婚礼现场，不管他们在一个城市，在一个国家，还是远在大洋彼岸，不管他们能不能来，一个都不要忘记。记住建议大家选择环保的交通方式！</p>
+                    <p class="description">再说说你们这场婚礼。主题是什么？有什么好吃和好玩的？说说有趣的伴娘和伴郎们，说出你们最想和大家说的心里话。</p>
+                    <div class="compose-icons">
+                        <span class="img pencil"></span>
+                        <i class="fa fa-times"></i> 2
+                    </div>
+                </div>
+            </div>
+            <div class="slider-item">
+                <div class="img circle" data-bg-src="images/homepage/outline-wish.jpg"></div>
                 <div class="abbr text-center">祝福我们</div>
                 <div class="caption text-center">
                     <h2>祝福我们</h2>
-                    <p><strong>难度</strong>: 低</p>
-                    <p><strong>创意</strong>: 高</p>
-                    <p>收集亲朋好友对于男女主人公的祝福</p>
+                    <p class="idea-index">
+                        <strong>灵感指数：</strong>
+                        <% for (var i = 0; i < 5; i++) { %> 
+                            <i class="fa fa-lg fa-lightbulb-o <% if (i < 4) { %>light<% } %>"></i>
+                        <% } %>
+                    </p>
+                    <p class="description">在这里号召每一位看到邀请函的亲戚朋友给你们发送祝福，别忘了提醒他们留下姓名。同时作为婚礼的主人，感谢你们的父母、老师、同学和朋友，以及一切在你们的人生岁月中有意无意留下过帮助的人。</p>
+                    <div class="compose-icons">
+                        <span class="img pencil"></span>
+                        <i class="fa fa-times"></i> 2
+                    </div>
                 </div>
             </div>
         </div>

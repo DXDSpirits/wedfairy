@@ -1,7 +1,4 @@
 #view-howto {
-    > header {
-        margin-bottom: 0;
-    }
     > header > p {
         margin-left: auto;
         margin-right: auto;
@@ -12,10 +9,14 @@
     }
     .slider-wrapper {
         position: relative;
-        margin: 50px auto 150px;
+        margin-bottom: 300px;
         @media (max-width: $screen-xs-max) {
-            margin-left: -35%;
-            margin-right: -35%;
+            margin-left: -20%;
+            margin-right: -20%;
+        }
+        @media (max-width: 400px) {
+            margin-left: -300px;
+            margin-right: -300px;
         }
     }
     .slider-control {
@@ -25,12 +26,8 @@
         z-index: 2;
         padding-top: 50px;
         padding-bottom: 50px;
-        &.left {
-            padding-right: 50px;
-        }
-        &.right {
-            padding-left: 50px;
-        }
+        &.left { padding-right: 50px; }
+        &.right { padding-left: 50px; }
         @include transition(all .2s ease-in-out);
         &.left.invisible {
             @include transform(translate3d(10px, 0, 0));
@@ -42,41 +39,8 @@
     .slider-item {
         position: absolute;
         z-index: 1;
-        .img {
-            @include user-select(none);
-            cursor: pointer;
-            border-radius: 50%;
-            margin: 10%;
-            padding-top: 80%;
-            width: 80%;
-            &:hover, &:active {
-                @include animation(pulse .35s ease-in-out);
-            }
-        }
-        .abbr, .caption {
-            position: absolute;
-            top: 100%;
-        }
-        .caption {
-            @include animation(none);
-            display: none;
-            left: -(300% - 100%) / 2;
-            width: 300%;
-            @media (max-width: $screen-xs-max) {
-                left: -(150% - 100%) / 2;
-                width: 150%;
-            }
-        }
-        .abbr {
-            padding-top: 10px;
-            left: 0;
-            width: 100%;
-            @media (max-width: $screen-xs-max) {
-                display: none;
-            }
-        }
         &.standout {
-            .img:hover, .img:active {
+            .circle:hover, .circle:active {
                 @include animation(none);
             }
             .caption {
@@ -86,6 +50,73 @@
             .abbr {
                 display: none;
             }
+        }
+    }
+    .circle {
+        @include user-select(none);
+        cursor: pointer;
+        border-radius: 50%;
+        margin: 10%;
+        padding-top: 80%;
+        width: 80%;
+        &:hover, &:active {
+            @include animation(pulse .35s ease-in-out);
+        }
+    }
+    .abbr, .caption {
+        position: absolute;
+        top: 100%;
+    }
+    .caption {
+        @include animation(none);
+        display: none;
+        left: -(200% - 100%) / 2;
+        width: 200%;
+        @media (max-width: $screen-xs-max) {
+            left: 0;
+            width: 100%;
+        }
+        .description, .inspiration {
+            //color: $gray-light;
+            line-height: 24px;
+        }
+    }
+    .abbr {
+        padding-top: 10px;
+        left: 0;
+        width: 100%;
+        @media (max-width: $screen-xs-max) {
+            display: none;
+        }
+    }
+    .idea-index {
+        margin: 20px 0;
+    }
+    .fa-lightbulb-o {
+        color: $gray-lighter;
+        &.light {
+            color: #ff5e00;
+        }
+    }
+    .compose-icons {
+        margin: 20px 0;
+        font-weight: bold;
+        color: $gray-light;
+        .img {
+            display: inline-block;
+            vertical-align: bottom;
+            width: 64px;
+            height: 64px;
+            @media (max-width: $screen-xs-max) {
+                width: 32px;
+                height: 32px;
+            }
+        }
+        .camera {
+            background-image: url(#{$static-url}images/homepage/diy-icon-image.png);
+        }
+        .pencil {
+            background-image: url(#{$static-url}images/homepage/diy-icon-pencil.png);
         }
     }
 }

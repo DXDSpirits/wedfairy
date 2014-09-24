@@ -103,25 +103,6 @@
                 self.slideTo(self.mean - 1);
             });*/
         },
-        slideTo: function(index, $item) {
-            if (index == this.mean) return;
-            $item = $item || this.$('.slider-item').slice(index, index + 1);
-            var dir = index > this.mean ? 'slideLeft' : 'slideRight';
-            var dis = Math.abs(index - this.mean);
-            var speed = 600 / dis;
-            var self = this;
-            this.$('.slider-item').removeClass('standout');
-            $item.addClass('standout');
-            var $control = this.$('.slider-control');
-            $control.addClass('invisible');
-            _.delay(function() {
-                $control.removeClass('invisible');
-            }, 600);
-            var animate = _.before(dis + 1, function() {
-                self[dir](speed, animate);
-            });
-            _.delay(animate, 100);
-        },
         slideOnControl: function(e) {
             var $control = $(e.currentTarget);
             this.slideTo($control.hasClass('left') ? this.mean - 1 : this.mean + 1);
@@ -130,6 +111,59 @@
             var $item = $(e.currentTarget);
             var index = $item.prevAll('.slider-item').length;
             this.slideTo(index, $item);
+        },
+        slideTo: function(index, $item) {
+            if (index == this.mean) return;
+            if (this.sliding) return;
+            this.sliding = true;
+            var $itemList = this.$('.slider-item');
+            $item = $item || $itemList.slice(index, index + 1);
+            var dir = index > this.mean ? 'slideLeft' : 'slideRight';
+            var dis = Math.abs(index - this.mean);
+            var stepSpeed = this.speed / dis;
+            var self = this;
+            var $control = this.$('.slider-control');
+            $control.addClass('invisible');
+            _.delay(function() {
+                $control.removeClass('invisible');
+                self.sliding = false;
+            }, this.speed);
+            var animate = _.before(dis + 1, function() {
+                self[dir](stepSpeed, animate);
+            });
+            _.delay(function() {
+                animate();
+                $itemList.removeClass('standout');
+                $item.addClass('standout');
+            }, 100);
+        },
+        slideRight: function(speed, callback) {
+            var $lastItem = $('.slider-item').last();
+            var style = this.calculateStyle(-1);
+            $lastItem.clone().css(style).prependTo('.slider-wrapper');
+            var animationEnd = _.after(this.n + 1, function() {
+                $lastItem.remove();
+                callback && callback();
+            });
+            var self = this;
+            this.$('.slider-item').each(function(index) {
+                var style = self.calculateStyle(index);
+                $(this).animate(style, speed || self.speed, animationEnd);
+            });
+        },
+        slideLeft: function(speed, callback) {
+            var $firstItem = $('.slider-item').first();
+            var style = this.calculateStyle(this.n + 1);
+            $firstItem.clone().css(style).appendTo('.slider-wrapper');
+            var animationEnd = _.after(this.n + 1, function() {
+                $firstItem.remove();
+                callback && callback();
+            });
+            var self = this;
+            this.$('.slider-item').each(function(index) {
+                var style = self.calculateStyle(index - 1);
+                $(this).animate(style, speed || self.speed, animationEnd);
+            });
         },
         calculateStyle: function(index) {
             var opacity = (index < 0 || index >= this.n) ? 0 : 1;
@@ -159,35 +193,8 @@
                 };
             }
         },
-        slideRight: function(speed, callback) {
-            var $lastItem = $('.slider-item').last();
-            var style = this.calculateStyle(-1);
-            $lastItem.clone().css(style).prependTo('.slider-wrapper');
-            var animationEnd = _.after(this.n + 1, function() {
-                $lastItem.remove();
-                callback && callback();
-            });
-            var self = this;
-            this.$('.slider-item').each(function(index) {
-                var style = self.calculateStyle(index);
-                $(this).animate(style, speed || 1000, animationEnd);
-            });
-        },
-        slideLeft: function(speed, callback) {
-            var $firstItem = $('.slider-item').first();
-            var style = this.calculateStyle(this.n + 1);
-            $firstItem.clone().css(style).appendTo('.slider-wrapper');
-            var animationEnd = _.after(this.n + 1, function() {
-                $firstItem.remove();
-                callback && callback();
-            });
-            var self = this;
-            this.$('.slider-item').each(function(index) {
-                var style = self.calculateStyle(index - 1);
-                $(this).animate(style, speed || 1000, animationEnd);
-            });
-        },
         initCircles: function() {
+            var speed = this.speed = 600;
             var gap = this.gap = 10;
             var n = this.n = this.$('.slider-item').length;
             var mean = this.mean = (n >> 1);
