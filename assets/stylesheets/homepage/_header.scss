@@ -3,6 +3,7 @@
     border-bottom: 0;
     background-color: #fff;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+    @include transform(translate3d(0, 0, 0));
     @include transition(top .35s ease-in-out);
     &.rollup {
         top: -60px;

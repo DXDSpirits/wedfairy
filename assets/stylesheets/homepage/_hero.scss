@@ -15,12 +15,35 @@
     > .container {
         position: relative;
     }
-    .btn {
-        //background-color: #fe5858;
-        //border-color: #fe5858;
-    }
     h1, h2, h3, h4, h5 {
         margin-top: 50px;
         margin-bottom: 50px;
     }
+    > header {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        width: 100%;
+        margin-bottom: 0;
+        border-bottom: 0;
+        background-color: transparent;
+        a {
+            color: #fff;
+            background-color: transparent;
+            &:hover, &:focus {
+                color: $brand-primary;
+            }
+        }
+        .navbar-brand {
+            background: url(#{$static-url}images/logo-red.png) no-repeat left;
+            background-size: 50px 50px;
+            margin-left: 15px;
+            padding-left: 65px;
+            height: 60px;
+        }
+        .navbar-brand, .navbar-nav > li > a {
+            line-height: 30px;
+        }
+    }
+
 }

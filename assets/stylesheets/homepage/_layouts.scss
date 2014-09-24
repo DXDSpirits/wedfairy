@@ -42,6 +42,7 @@
                 border: 1px solid $brand-primary;
                 border-radius: 5px;
             }
+            @include transform(translate3d(0, 0, 0));
         }
         &:hover > h1::after {
             @include animation(shake 2s ease-in-out);
