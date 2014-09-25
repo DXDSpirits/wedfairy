@@ -60,7 +60,16 @@
             var feature = $target.data('feature');
             if (feature == this.feature) return;
             this.feature = feature;
-            Amour.loadBgImage(this.$('.iphone-wrapper .img'), ['images/homepage/features', feature, '.png'].join(''));
+            var $img = this.$('.iphone-wrapper .img')
+            var src = ['images/homepage/feature-', feature, '.png'].join('');
+            $img.animate({
+                opacity: 0
+            }, 100, function() {
+                Amour.loadBgImage($img, src);
+                $img.animate({
+                    opacity: 1
+                }, 500);
+            });
         },
         render: function() {}
     }))({el: $('#view-features')});
