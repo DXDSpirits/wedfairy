@@ -54,6 +54,10 @@
         },
         initView: function() {
             this.feature == 0;
+            for (var i=1; i<=4; i++) {
+                var image = new Image();
+                image.src = Amour.imageFullpath(['images/homepage/feature-', i, '.png'].join(''));
+            }
         },
         hover: function(e) {
             var $target = $(e.currentTarget);
