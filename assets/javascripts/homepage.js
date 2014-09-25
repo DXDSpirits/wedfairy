@@ -294,6 +294,7 @@
             "title" : '八音盒'
         };
         var onBridgeReady = function () {
+            if (!window.WeixinJSBridge) return;
             WeixinJSBridge.on('menu:share:appmessage', function(argv) {
                 WeixinJSBridge.invoke('sendAppMessage', message);
             });
