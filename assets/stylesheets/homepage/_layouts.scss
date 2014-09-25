@@ -5,6 +5,17 @@
     h3 { font-size: $font-size-h4; }
 }
 
+#loading-screen {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #333 url(#{$static-url}images/progress.gif) no-repeat center;
+    background-size: 64px 22px;
+}
+
 .views-wrapper {
     width: 100%;
     overflow: hidden;

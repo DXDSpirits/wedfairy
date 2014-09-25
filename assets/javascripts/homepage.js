@@ -336,6 +336,13 @@
         _.each(SectionViews, function(view, name) {
             view.render();
         });
+        _.delay(function() {
+            $('#loading-screen').animate({
+                opacity: 0
+            }, 1000, function() {
+                $(this).remove();
+            });
+        }, 3000);
     };
     
     App.start();
