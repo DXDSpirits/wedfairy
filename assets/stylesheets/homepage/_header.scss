@@ -15,19 +15,20 @@
         }
     }
     .navbar-brand {
-        padding-top: 5px;
-        padding-bottom: 5px;
-        .img, .text {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        .img {
             display: inline-block;
             vertical-align: middle;
-            height: 40px;
+            background-size: contain;
         }
-        .img {
-            width: 40px;
+        .logo {
+            height: 30px;
+            width: 30px;
         }
-        .text {
-            margin-left: 10px;
-            line-height: 40px;
+        .brand-name {
+            height: 18px;
+            width: 72px;
         }
     }
     .navbar-toggle .icon-bar {

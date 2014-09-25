@@ -14,14 +14,14 @@
     }
     > .container {
         position: relative;
-    }
-    h1, h2, h3, h4, h5 {
-        margin-top: 50px;
-        margin-bottom: 50px;
+        h1, h2, h3, h4, h5 {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
     }
     > header {
         position: absolute;
-        top: 5px;
+        top: 20px;
         left: 0;
         width: 100%;
         margin: 0;
@@ -35,21 +35,22 @@
             }
         }
         .navbar-brand {
+            height: 60px;
             padding-top: 5px;
             padding-bottom: 5px;
-            .img, .text {
+            .img {
                 display: inline-block;
                 vertical-align: middle;
-                height: 40px;
+                background-size: contain;
             }
-            .img {
-                width: 40px;
+            .logo {
+                height: 50px;
+                width: 50px;
             }
-            .text {
-                margin-left: 10px;
-                line-height: 40px;
+            .brand-name {
+                height: 30px;
+                width: 120px;
             }
         }
     }
-
 }
