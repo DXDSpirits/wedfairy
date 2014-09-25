@@ -25,7 +25,7 @@
     
     $('#view-hero').css({
         'min-height': $(window).height(),
-        'padding-top': ($(window).height() - 260) / 2
+        'padding-top': ($(window).height() - $('#view-hero > .container').outerHeight()) / 2
     });
     
     $('body').on('click', 'a', function(e) {
