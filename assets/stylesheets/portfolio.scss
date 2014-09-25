@@ -1,6 +1,7 @@
 @import "variables";
 @import "mixins";
 
+@import "homepage/fonts";
 
 $body-fixed-width: 800px;
 
@@ -17,7 +18,7 @@ body > header {
         display: block;
         width: 200px;
         height: 35px;
-        background: url(#{$static-url}images/logo.png) no-repeat left;
+        background: url(#{$static-url}images/logo-coral.png) no-repeat left;
         background-size: contain;
     }
 }
