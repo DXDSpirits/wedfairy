@@ -13,6 +13,11 @@
     .subtitle {
         margin-bottom: 30px;
     }
+    .email {
+        display: inline-block;
+        width: 170px;
+        text-align: right;
+    }
     a {
         color: $gray-lighter;
         &:hover, &:focus {
