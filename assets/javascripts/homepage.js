@@ -284,14 +284,14 @@
         var match = window.location.search.match(/[\?\&]radius=(\d+)(&|$)/);
         var radius = match ? +match[1] : 0;
         var image = new Image();
-        image.src = Amour.imageFullpath('images/homepage/hero-bg.jpg');
+        image.src = Amour.imageFullpath('images/homepage/wechat-share-image.jpg');
         var message = {
             "img_url" : image.src,
             "img_width" : "640",
             "img_height" : "640",
             "link" : [window.location.origin, '?radius=', radius + 1].join(''),
             "desc" : '我们用独特的方式为坠入爱河的你，用你最喜欢的照片和文字，讲出自己的爱情故事',
-            "title" : '八音盒'
+            "title" : '八音盒，会讲故事的婚礼邀请函'
         };
         var onBridgeReady = function () {
             if (!window.WeixinJSBridge) return;
@@ -300,7 +300,7 @@
             });
             WeixinJSBridge.on('menu:share:timeline', function(argv) {
                 var msg = _.clone(message);
-                msg.title = '八音盒，用独特的方式为你讲出自己的爱情故事';
+                msg.title = '八音盒，一个会讲故事的婚礼邀请函';
                 WeixinJSBridge.invoke('shareTimeline', msg);
             });
         };
