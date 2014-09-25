@@ -40,6 +40,8 @@
     
     if (!Amour.isMobile) {
         $('.wechat').attr('href', null);
+    } else {
+        $('.wechat').removeClass('wechat');
     }
     
     var App = window.App = {};
