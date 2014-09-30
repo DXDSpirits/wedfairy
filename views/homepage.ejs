@@ -15,15 +15,12 @@
     
     <link rel="stylesheet" href="<%= static_url %>stylesheets/homepage.css?v=<%= build_no %>">
     
+    <% include includes/capability %>
     <% include includes/production %>
     
     <script src="<%= tat_static %>javascripts/vendor/modernizr-2.7.1.min.js"></script>
 </head>
 <body>
-
-<!--[if lt IE 7]>
-    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
 
 <div id="loading-screen"></div>
 
@@ -39,7 +36,7 @@
 <% include homepage/footer %>
 <!-- The story ends -->
 
-<script src="<%= tat_static %>javascripts/vendor/jquery-2.1.1.min.js"></script>
+<script src="<%= tat_static %>javascripts/vendor/jquery-1.10.2.min.js"></script>
 <script src="<%= tat_static %>javascripts/vendor/underscore.min.js"></script>
 <script src="<%= tat_static %>javascripts/vendor/mustache.min.js"></script>
 <script src="<%= tat_static %>javascripts/vendor/backbone.min.js"></script>
