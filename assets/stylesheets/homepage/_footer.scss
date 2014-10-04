@@ -5,24 +5,24 @@
     .footer-col {
         margin-bottom: 30px;
     }
-    @media (max-width: $screen-xs-max) {
-        .footer-col {
-            text-align: center;
-        }
-    }
     .subtitle {
-        margin-bottom: 30px;
-    }
-    .email {
-        display: inline-block;
-        width: 170px;
-        text-align: right;
+        margin-bottom: 20px;
     }
     a {
         color: $gray-lighter;
         &:hover, &:focus {
             border-color: $brand-primary;
             color: $brand-primary;
+        }
+    }
+    .tailor-made-text {
+        margin: 30px 15px;
+        .img {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin: 0 10px;
+            vertical-align: middle;
         }
     }
     .social-icon {
@@ -37,7 +37,8 @@
         .fa {
             line-height: 48px;
         }
-        margin-left: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
     }
     .wechat:hover {
         @include transition(transform .1s ease-in-out);
@@ -53,7 +54,10 @@
         background-size: auto;
         width: 110px;
         height: 110px;
-        margin: 0 auto;
+        margin: 40px auto;
+    }
+    .btn-composer {
+        margin: 30px auto;
     }
     .copyright {
         border-top: 1px solid $gray-light;

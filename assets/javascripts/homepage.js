@@ -269,6 +269,12 @@
         }
     }))({el: $('#view-howto')});
     
+    SectionViews['globalFooter'] = new (Amour.View.extend({
+        initView: function() {
+            this.$('.visible-wechat').toggleClass('hidden', !Amour.isWeixin);
+        }
+    }))({el: $('#global-footer')});
+    
     var fillImages = function() {
         $('img[data-src]').each(function() {
             var src = $(this).data('src');
