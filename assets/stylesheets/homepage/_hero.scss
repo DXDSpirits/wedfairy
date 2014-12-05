@@ -18,6 +18,13 @@
             margin-top: 50px;
             margin-bottom: 50px;
         }
+        .btn {
+            margin: 20px;
+        }
+        .btn-primary + .btn-primary {
+            background-color: rgba(0, 0, 0, 0.1);
+            border-color: #fff;
+        }
     }
     > header {
         position: absolute;
