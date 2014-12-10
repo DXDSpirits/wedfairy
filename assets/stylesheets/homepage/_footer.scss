@@ -44,7 +44,7 @@
         @include transition(transform .1s ease-in-out);
         @include transform(scale(4, 4));
         @include transform-origin(100% 100%);
-        background: #fff url(#{$static-url}images/wechat-qrcode.jpg) no-repeat center;
+        background: #fff image-url("wechat-qrcode.jpg") no-repeat center;
         background-size: 43px 43px;
         border-radius: 0;
         .fa { visibility: hidden; }

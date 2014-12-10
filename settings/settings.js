@@ -1,4 +1,3 @@
-var fs = require('fs');
 
 var CONFIG = {
     ENV : 'production',
@@ -19,7 +18,5 @@ try {
         CONFIG[prop] = CONFIG_LOCAL[prop];
     }
 } catch (e) {}
-
-fs.closeSync(fs.openSync(__dirname + '/../assets/stylesheets/_local.scss', 'a'));
 
 module.exports = CONFIG;

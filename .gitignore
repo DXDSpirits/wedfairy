@@ -33,5 +33,4 @@ node_modules
 assets/javascripts/*-built.js
 
 # Local Dev
-_local.scss
 settings_local.js

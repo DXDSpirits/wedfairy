@@ -124,10 +124,10 @@
             }
         }
         .camera {
-            background-image: url(#{$static-url}images/homepage/diy-icon-image.png);
+            background-image: image-url("homepage/diy-icon-image.png");
         }
         .pencil {
-            background-image: url(#{$static-url}images/homepage/diy-icon-pencil.png);
+            background-image: image-url("homepage/diy-icon-pencil.png");
         }
     }
 }

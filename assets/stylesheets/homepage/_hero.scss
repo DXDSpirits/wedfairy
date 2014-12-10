@@ -1,5 +1,5 @@
 #view-hero {
-    background: url(#{$static-url}images/homepage/hero-bg.jpg) no-repeat right;
+    background: image-url("homepage/hero-bg.jpg") no-repeat right;
     background-size: cover;
     padding-top: 100px;
     color: #fff;

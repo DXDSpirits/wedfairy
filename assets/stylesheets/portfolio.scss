@@ -18,7 +18,7 @@ body > header {
         display: block;
         width: 200px;
         height: 35px;
-        background: url(#{$static-url}images/logo-coral.png) no-repeat left;
+        background: image-url("logo-coral.png") no-repeat left;
         background-size: contain;
     }
 }

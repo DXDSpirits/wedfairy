@@ -6,6 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compress = require('compression');
+var sass = require('node-sass-middleware');
 
 var app = express();
 
@@ -28,11 +29,14 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-app.use(require('node-compass')({
-    cache: app.get('env') !== 'development',
-    project: path.join(__dirname, 'assets'),
-    sass: '.',
-    css: '.'
+app.use(sass({
+    src: __dirname + '/assets/stylesheets/',
+    dest: __dirname + '/assets/stylesheets/',
+    prefix:  '/assets/stylesheets/',
+    imagePath: settings.CDN_URL + 'images',
+    debug: app.get('env') == 'development', // Output debugging information
+    force: app.get('env') == 'development', // Always re-compile
+    outputStyle: 'compressed'
 }));
 app.use(compress());
 app.use('/assets', express.static(path.join(__dirname, 'assets'), {

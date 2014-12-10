@@ -8,7 +8,7 @@
         width: (454px / 2);
         height: (956px / 2);
         margin: 0 auto;
-        background: url(#{$static-url}images/iphone5-border-small.png) no-repeat top;
+        background: image-url("iphone5-border-small.png") no-repeat top;
         background-size: contain;
     }
     .iphone-wrapper {
