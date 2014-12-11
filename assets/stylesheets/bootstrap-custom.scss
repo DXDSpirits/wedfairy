@@ -1,7 +1,8 @@
 @import "variables";
 
 //======================================== Bootstrap ========================================
-@import "bootstrap/bootstrap";
+@import "bootstrap-compass";
+@import "bootstrap";
 //===========================================================================================
 
 a:hover, a:focus {
