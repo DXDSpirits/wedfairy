@@ -34,6 +34,7 @@ app.use(sass({
     dest: __dirname + '/assets/stylesheets/',
     prefix:  '/assets/stylesheets/',
     imagePath: settings.CDN_URL + 'images',
+    includePaths: [__dirname + '/lib/'],
     debug: app.get('env') == 'development', // Output debugging information
     force: app.get('env') == 'development', // Always re-compile
     outputStyle: 'compressed'
