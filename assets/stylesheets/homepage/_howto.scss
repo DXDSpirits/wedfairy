@@ -14,6 +14,9 @@
     .animated {
         @include animation-duration(1s);
     }
+    .caption-wrapper {
+        @include animation-delay(.5s);
+    }
     > .container.invisible {
         .animated {
             @include animation(none);
@@ -21,7 +24,6 @@
     }
     .slider-wrapper {
         position: relative;
-        margin-bottom: 300px;
         @media (max-width: $screen-xs-max) {
             margin-left: -20%;
             margin-right: -20%;
@@ -55,79 +57,80 @@
             .circle:hover, .circle:active {
                 @include animation(none);
             }
-            .caption {
-                display: block;
-                @include animation(fadeInUp 1s ease-in-out);
-            }
             .abbr {
                 display: none;
             }
         }
-    }
-    .circle {
-        @include user-select(none);
-        cursor: pointer;
-        border-radius: 50%;
-        margin: 10%;
-        padding-top: 80%;
-        width: 80%;
-        &:hover, &:active {
-            @include animation(pulse .35s ease-in-out);
-        }
-    }
-    .abbr, .caption {
-        position: absolute;
-        top: 100%;
-    }
-    .caption {
-        @include animation(none);
-        display: none;
-        left: -(200% - 100%) / 2;
-        width: 200%;
-        @media (max-width: 480px) {
-            left: 0;
-            width: 100%;
-        }
-        .description, .inspiration {
-            line-height: 24px;
-        }
-    }
-    .abbr {
-        padding-top: 10px;
-        left: 0;
-        width: 100%;
-        @media (max-width: $screen-xs-max) {
-            display: none;
-        }
-    }
-    .idea-index {
-        margin: 20px 0;
-    }
-    .fa-lightbulb-o {
-        color: $gray-lighter;
-        &.light {
-            color: #ff5e00;
-        }
-    }
-    .compose-icons {
-        margin: 20px 0;
-        font-weight: bold;
-        color: $gray-light;
-        .img {
-            display: inline-block;
-            vertical-align: bottom;
-            width: 64px;
-            height: 64px;
-            @media (max-width: $screen-xs-max) {
-                width: 32px;
-                height: 32px;
+        > .circle {
+            @include user-select(none);
+            cursor: pointer;
+            border-radius: 50%;
+            margin: 10%;
+            padding-top: 80%;
+            width: 80%;
+            &:hover, &:active {
+                @include animation(pulse .35s ease-in-out);
             }
         }
-        .camera {
-            background-image: image-url("homepage/diy-icon-image.png");
+        > .abbr {
+            position: absolute;
+            top: 100%;
+            padding-top: 10px;
+            left: 0;
+            width: 100%;
+            @media (max-width: $screen-xs-max) {
+                display: none;
+            }
         }
-        .pencil {
-            background-image: image-url("homepage/diy-icon-pencil.png");
+    }
+    .caption-wrapper {
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        height: 300px;
+        @media (max-width: $screen-xs-max) {
+            width: 100%;
+        }
+    }
+    .caption {
+        display: none;
+        @include animation(none);
+        &.standout {
+            display: block;
+            @include animation(fadeIn 1s ease-in-out);
+        }
+        > .description, > .inspiration {
+            line-height: 24px;
+        }
+        > .idea-index {
+            margin: 20px 0;
+        }
+        .fa-lightbulb-o {
+            color: $gray-lighter;
+            &.light {
+                color: #ff5e00;
+            }
+        }
+        > .compose-icons {
+            margin: 20px 0;
+            font-weight: bold;
+            color: $gray-light;
+            .img {
+                display: inline-block;
+                vertical-align: bottom;
+                width: 64px;
+                height: 64px;
+                @media (max-width: $screen-xs-max) {
+                    width: 32px;
+                    height: 32px;
+                }
+            }
+            .camera {
+                background-image: image-url("homepage/diy-icon-image.png");
+            }
+            .pencil {
+                background-image: image-url("homepage/diy-icon-pencil.png");
+            }
         }
     }
 }

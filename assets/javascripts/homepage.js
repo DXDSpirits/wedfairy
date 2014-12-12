@@ -23,10 +23,18 @@
 
 (function() {
     
-    $('#view-hero').css({
-        'min-height': $(window).height(),
-        'padding-top': ($(window).height() - $('#view-hero > .container').outerHeight()) / 2
-    });
+    (function resizeHero() {
+        var debounce = _.debounce(function() {
+            var windowHeight = $(window).height();
+            var containerHeight = $('#view-hero > .container').outerHeight();
+            $('#view-hero').css({
+                'min-height': windowHeight,
+                'padding-top': 50 + (windowHeight - containerHeight) / 2
+            });
+        }, 100);
+        $(window).resize(debounce);
+        debounce();
+    })();
     
     $('body').on('click', 'a', function(e) {
         var target = $(e.currentTarget).attr('href');
@@ -83,8 +91,8 @@
             this.stories = new Amour.Collection();
             this.galleryView = new (Amour.CollectionView.extend({
                 ModelView: Amour.ModelView.extend({
-                    className: 'col-sm-4 col-md-3',
-                    template: '<div class="safari-window animated fadeIn">' +
+                    className: 'col-sm-4 col-md-3 animated fadeIn',
+                    template: '<div class="safari-window">' +
                               '<div class="safari-buttons-bar"><i></i><i></i><i></i></div>' +
                               '<div class="story-item img" data-bg-src="{{image}}">' +
                                   '<div class="dark-layer"><span>{{title}}</span></div>' +
@@ -136,14 +144,14 @@
             'click .slider-control': 'slideOnControl'
         },
         initView: function() {
-            /*var hammertime = new Hammer(this.$('.slider-wrapper')[0]);
+            var hammertime = new Hammer(this.$('>.container')[0]);
             var self = this;
             hammertime.on('swipeleft', function(ev) {
                 self.slideTo(self.mean + 1);
             });
             hammertime.on('swiperight', function(ev) {
                 self.slideTo(self.mean - 1);
-            });*/
+            });
         },
         slideOnControl: function(e) {
             var $control = $(e.currentTarget);
@@ -159,7 +167,10 @@
             if (this.sliding) return;
             this.sliding = true;
             var $itemList = this.$('.slider-item');
+            var $captionList = this.$('.caption');
             $item = $item || $itemList.slice(index, index + 1);
+            var step = +$item.data('step') - 1;
+            $caption = $captionList.slice(step, step + 1);
             var dir = index > this.mean ? 'slideLeft' : 'slideRight';
             var dis = Math.abs(index - this.mean);
             var stepSpeed = this.speed / dis;
@@ -177,6 +188,8 @@
                 animate();
                 $itemList.removeClass('standout');
                 $item.addClass('standout');
+                $captionList.removeClass('standout');
+                $caption.addClass('standout');
             }, 100);
         },
         slideRight: function(speed, callback) {
@@ -318,18 +331,18 @@
     };
     
     var initScroll = function () {
-        var windowHeight = $(window).height();
-        var $navbar = $('#global-navbar');
-        var navbarIn = $('#view-hero').outerHeight();
-        var $workflow = $('#view-workflow');
-        var workflowIn = $workflow.offset().top - windowHeight / 2;
-        var $features = $('#view-features');
-        var featuresIn = $features.offset().top - windowHeight / 2;
-        var $howto = $('#view-howto');
-        var howtoIn = $howto.offset().top - windowHeight / 2;
-        var $gallery = $('#view-gallery');
-        var galleryIn = $gallery.offset().top - windowHeight / 2;
         var onScroll = _.throttle(function() {
+            var windowHeight = $(window).height();
+            var $navbar = $('#global-navbar');
+            var navbarIn = $('#view-hero').outerHeight();
+            var $workflow = $('#view-workflow');
+            var workflowIn = $workflow.offset().top - windowHeight / 2;
+            var $features = $('#view-features');
+            var featuresIn = $features.offset().top - windowHeight / 2;
+            var $howto = $('#view-howto');
+            var howtoIn = $howto.offset().top - windowHeight / 2;
+            var $gallery = $('#view-gallery');
+            var galleryIn = $gallery.offset().top - windowHeight / 2;
             var scrollTop = $(window).scrollTop();
             $navbar.toggleClass('rollup', scrollTop < navbarIn);
             $navbar.find('.collapse').removeClass('in');
@@ -339,7 +352,7 @@
                 $howto.find('.container').toggleClass('invisible', scrollTop < howtoIn);
                 $gallery.find('.container').toggleClass('invisible', scrollTop < galleryIn);
             }
-        }, 100);
+        }, 200);
         if (Amour.isMobile) {
             $workflow.find('.container').removeClass('invisible');
             $features.find('.container').removeClass('invisible');
