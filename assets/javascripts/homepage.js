@@ -64,7 +64,7 @@
             var feature = $target.data('feature');
             if (feature == this.feature) return;
             this.feature = feature;
-            var $img = this.$('.iphone-wrapper .img')
+            var $img = this.$('.iphone-wrapper .img');
             var src = ['images/homepage/feature-', feature, '.png'].join('');
             $img.animate({
                 opacity: 0
@@ -126,7 +126,7 @@
                     id: 8, name: 'fxfdz', title: '扬起风帆，铮爱启程',
                     image: 'http://tatup.qiniudn.com/o_191f51sggrsa18la24c1nv8141k1f.jpg'
                 }
-            ])
+            ]);
         }
     }))({el: $('#view-gallery')});
     
