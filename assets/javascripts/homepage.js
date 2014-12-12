@@ -331,17 +331,17 @@
     };
     
     var initScroll = function () {
+        var $navbar = $('#global-navbar');
+        var $workflow = $('#view-workflow');
+        var $features = $('#view-features');
+        var $howto = $('#view-howto');
+        var $gallery = $('#view-gallery');
         var onScroll = _.throttle(function() {
             var windowHeight = $(window).height();
-            var $navbar = $('#global-navbar');
             var navbarIn = $('#view-hero').outerHeight();
-            var $workflow = $('#view-workflow');
             var workflowIn = $workflow.offset().top - windowHeight / 2;
-            var $features = $('#view-features');
             var featuresIn = $features.offset().top - windowHeight / 2;
-            var $howto = $('#view-howto');
             var howtoIn = $howto.offset().top - windowHeight / 2;
-            var $gallery = $('#view-gallery');
             var galleryIn = $gallery.offset().top - windowHeight / 2;
             var scrollTop = $(window).scrollTop();
             $navbar.toggleClass('rollup', scrollTop < navbarIn);
