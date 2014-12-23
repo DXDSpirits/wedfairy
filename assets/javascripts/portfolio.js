@@ -7,7 +7,7 @@
             },
             className: 'story-item text-center col-xs-6 col-sm-3 col-md-2',
             template: '<div class="cover img" data-bg-src="{{data.coverImage}}"></div>' +
-                      '<p class="name">{{name}}</p><p>{{owner}}</p>' +
+                      '<p class="name">{{name}} (<strong>{{progress}}</strong>)</p><p>{{owner}}</p>' +
                       '<p class="title">{{title}}</p>', 
             onClick: function() {
                 window.open('http://wedfairy.com/story/' + this.model.get('name'), '_blank');
@@ -16,7 +16,7 @@
     });
     
     var stories = new (Amour.Collection.extend({
-        url: Amour.APIHost + '/sites/storyname/',
+        url: Amour.APIHost + '/sites/storylist/',
         model: Amour.Models.Story
     }))();
     
