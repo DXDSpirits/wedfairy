@@ -12,7 +12,7 @@
                       '<p class="title">{{title}}</p>',
             serializeData: function() {
                 var data = this.model ? this.model.toJSON() : {};
-                data.formatted_date = (new Date(data.time_created)).toLocaleString();
+                data.formatted_date = (new Date(data.time_created + '+0800')).toLocaleString();
                 return data;
             },
             onClick: function() {
