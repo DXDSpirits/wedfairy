@@ -8,27 +8,8 @@ $body-fixed-width: 800px;
 
 body {
     background: #eee;
-}
-
-body > header {
-    min-width: $body-fixed-width;
-    background-color: #372d3b;
-    padding: 10px;
-    margin-bottom: 10px;
-    .logo {
-        display: block;
-        width: 200px;
-        height: 35px;
-        background: image-url("logo-coral.png") no-repeat left;
-        background-size: contain;
-    }
-}
-
-body > footer {
-    color: #ffffde;
-    background-color: #372d3b;
-    padding: 5px;
-    margin-top: 10px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .story-item {
