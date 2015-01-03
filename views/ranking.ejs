@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="<%= tat_static %>stylesheets/animate.min.css">
     <link rel="stylesheet" href="<%= tat_static %>stylesheets/amour.css">
     
-    <link rel="stylesheet" href="<%= static_url %>stylesheets/portfolio.css?v=<%= build_no %>">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/ranking.css?v=<%= build_no %>">
     
     <% include includes/capability %>
     <% include includes/production %>
@@ -23,11 +23,21 @@
 <body>
 
 <!-- Content Begins Here -->
+<header>
+    <div class="logo-text"><span class="logo"></span><span class="brand"></span></div>
+    <h4 class="text-right title">十月最具人气排行榜</h4>
+</header>
 
-<div class="container">
-    <div class="row story-list"></div>
-    <button id="btn-more" data-loading-text="Loading..." class="btn btn-block">更多</button>
-</div>
+<div class="story-list"></div>
+
+<button id="btn-more" data-loading-text="正在加载..." class="btn btn-block">更多</button>
+
+<footer>
+    <h4 class="text-center">如果你也想制作</h4>
+    <div class="text-center">
+        <span class="logo"></span><span class="brand"></span>
+    </div>
+</footer>
 
 <!-- Content Ends Here -->
 
@@ -42,7 +52,7 @@
 
 <script src="<%= tat_static %>javascripts/amour.js"></script>
 
-<script src="<%= static_url %>javascripts/portfolio.js?v=<%= build_no %>"></script>
+<script src="<%= static_url %>javascripts/ranking.js?v=<%= build_no %>"></script>
 
 <% include includes/analytics %>
 

@@ -1,0 +1,102 @@
+@import "bourbon/bourbon";
+
+@import "variables";
+
+body {
+    background: image-url("ranking/ranking-bg.jpg") repeat;
+    background-size: 160px 160px;
+    color: #fff;
+}
+
+body > header {
+    padding-top: 36%;
+    background: image-url("ranking/ranking-banner-mobile.jpg");
+    background-size: cover;
+    position: relative;
+    box-shadow: 0 3px 3px rgba(#000, 0.7);
+    .title {
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+    }
+    .logo-text {
+        position: absolute;
+        top: 10px;
+        left: 20px;
+    }
+}
+
+body > footer {
+    padding: 20px;
+}
+
+.logo, .brand {
+    display: inline-block;
+    vertical-align: middle;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.logo {
+    height: 30px;
+    width: 30px;
+    background-image: image-url("logo-light-coral.png");
+}
+
+.brand {
+    height: 18px;
+    width: 72px;
+    background-image: image-url("brand-name-light.png");
+}
+
+#btn-more {
+    background: transparent;
+    color: #fff;
+}
+
+.story-list {
+    
+}
+
+.story-item {
+    padding: 10px;
+    margin: 10px;
+    background: #f68181;
+    color: #fff;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    > .img {
+        width: 30%;
+        padding-top: 30%;
+    }
+    > .text {
+        width: 70%;
+        padding: 5px;
+    }
+    .desc {
+        font-size: 0.8em;
+        line-height: 1.2em;
+        height: 3.6em;
+        overflow: hidden;
+    }
+    .index {
+        position: absolute;
+        left: 5px;
+        top: 50%;
+        margin-top: -10px;
+        height: 20px;
+        width: 20px;
+    }
+    .fa {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        margin-top: -15px;
+        height: 30px;
+        line-height: 30px;
+        width: 15px;
+        font-size: 30px;
+    }
+}

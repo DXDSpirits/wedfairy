@@ -10,4 +10,8 @@ router.get('/portfolio', function(req, res) {
     res.render('portfolio');
 });
 
+router.get('/ranking', function(req, res) {
+    res.render('ranking');
+});
+
 module.exports = router;
