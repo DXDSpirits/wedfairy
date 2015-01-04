@@ -288,17 +288,6 @@
         }
     }))({el: $('#global-footer')});
     
-    var fillImages = function() {
-        $('img[data-src]').each(function() {
-            var src = $(this).data('src');
-            src && Amour.loadImage($(this), src);
-        });
-        $('.img[data-bg-src]').each(function() {
-            var src = $(this).data('bg-src');
-            src && Amour.loadBgImage($(this), src);
-        });
-    };
-    
     var bindWxSharing = function() {
         var match = window.location.search.match(/[\?\&]radius=(\d+)(&|$)/);
         var radius = match ? +match[1] : 0;
@@ -365,7 +354,6 @@
     App.start = function() {
         bindWxSharing();
         initScroll();
-        fillImages();
         _.each(SectionViews, function(view, name) {
             view.render();
         });
