@@ -19,7 +19,7 @@
                 return data;
             },
             onClick: function() {
-                window.open('http://wedfairy.com/story/' + this.model.get('name'), '_blank');
+                window.open('http://wedfairy.com/story/' + this.model.get('name') + '/?from=portfolio', '_blank');
             },
             feature: function(e) {
                 if (!this.model.get('featured')) {
@@ -51,13 +51,17 @@
     
     $('#btn-more').on('click', function () {
         var btn = $(this);
-        btn.button('loading');
-        stories.fetchNext({
-            remove: false,
-            success: function () {
-                btn.button('reset');
-            }
-        });
+        if (stories.next) {
+            btn.button('loading');
+            stories.fetchNext({
+                remove: false,
+                success: function () {
+                    btn.button('reset');
+                }
+            });
+        } else {
+            btn.addClass('hidden');
+        }
     });
     
     $('input[name=featured]').on('change', function() {

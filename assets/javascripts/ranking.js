@@ -34,15 +34,18 @@
     stories.fetch();
     
     var fetchMore = function() {
-        console.log('fetching...');
         var btn = $('#btn-more');
-        btn.button('loading');
-        stories.fetchNext({
-            remove: false,
-            success: function () {
-                btn.button('reset');
-            }
-        });
+        if (stories.next) {
+            btn.button('loading');
+            stories.fetchNext({
+                remove: false,
+                success: function () {
+                    btn.button('reset');
+                }
+            });
+        } else {
+            btn.addClass('hidden');
+        }
     };
     
     $('#btn-more').click(fetchMore);
