@@ -73,8 +73,26 @@
         }
     });
     
+    var user = new Amour.Models.User();
+    
     Amour.ajax.on('unauthorized', function() {
-        
+        $('#loginModal').modal('show');
+    });
+    
+    $('#loginButton').on('click', function(e) {
+        e.preventDefault && e.preventDefault();
+        var username = $('#loginForm input[name=username]').val() || null;
+        var password = $('#loginForm input[name=password]').val() || null;
+        if (username && password) {
+            user.login({ username : username, password : password }, {
+                success: function(model, response, options) {
+                    location.reload();
+                },
+                error: function(model, response, options) {
+                    alert('登录失败');
+                }
+            });
+        }
     });
     
 })();
