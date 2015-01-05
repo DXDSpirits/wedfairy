@@ -48,20 +48,19 @@
     });
     
     stories.fetch();
+    stories.on('reset add', function() {
+        $('#btn-more').toggleClass('hidden', stories.next == null);
+    });
     
     $('#btn-more').on('click', function () {
         var btn = $(this);
-        if (stories.next) {
-            btn.button('loading');
-            stories.fetchNext({
-                remove: false,
-                success: function () {
-                    btn.button('reset');
-                }
-            });
-        } else {
-            btn.addClass('hidden');
-        }
+        btn.button('loading');
+        stories.fetchNext({
+            remove: false,
+            success: function () {
+                btn.button('reset');
+            }
+        });
     });
     
     $('input[name=featured]').on('change', function() {

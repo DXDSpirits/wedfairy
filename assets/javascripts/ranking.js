@@ -32,20 +32,19 @@
     });
     
     stories.fetch();
+    stories.on('reset add', function() {
+        $('#btn-more').toggleClass('hidden', stories.next == null);
+    });
     
     var fetchMore = function() {
         var btn = $('#btn-more');
-        if (stories.next) {
-            btn.button('loading');
-            stories.fetchNext({
-                remove: false,
-                success: function () {
-                    btn.button('reset');
-                }
-            });
-        } else {
-            btn.addClass('hidden');
-        }
+        btn.button('loading');
+        stories.fetchNext({
+            remove: false,
+            success: function () {
+                btn.button('reset');
+            }
+        });
     };
     
     $('#btn-more').click(fetchMore);
