@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compress = require('compression');
 var sass = require('node-sass-middleware');
+var wechat = require('./middlewares/wechat');
 
 var app = express();
 
@@ -43,6 +44,8 @@ app.use(compress());
 app.use('/assets', express.static(path.join(__dirname, 'assets'), {
     maxAge: app.get('env') === 'development' ? 0 : 86400000
 }));
+
+app.use(wechat());
 
 // routes
 app.use('/', require('./routes/index'));

@@ -289,34 +289,23 @@
     }))({el: $('#global-footer')});
     
     var bindWxSharing = function() {
+        wx.config(WX_CONFIG);
         var match = window.location.search.match(/[\?\&]radius=(\d+)(&|$)/);
         var radius = match ? +match[1] : 0;
+        var link = [window.location.origin, '?radius=', radius + 1].join('');
         var image = new Image();
         image.src = Amour.imageFullpath('images/homepage/wechat-share-image.jpg');
-        var message = {
-            "img_url" : image.src,
-            "img_width" : "640",
-            "img_height" : "640",
-            "link" : [window.location.origin, '?radius=', radius + 1].join(''),
-            "desc" : '我们用独特的方式为坠入爱河的你，用你最喜欢的照片和文字，讲出自己的爱情故事',
-            "title" : '八音盒，会讲故事的婚礼邀请函'
-        };
-        var onBridgeReady = function () {
-            if (!window.WeixinJSBridge) return;
-            WeixinJSBridge.on('menu:share:appmessage', function(argv) {
-                WeixinJSBridge.invoke('sendAppMessage', message);
-            });
-            WeixinJSBridge.on('menu:share:timeline', function(argv) {
-                var msg = _.clone(message);
-                msg.title = '八音盒，一个会讲故事的婚礼邀请函';
-                WeixinJSBridge.invoke('shareTimeline', msg);
-            });
-        };
-        if (window.WeixinJSBridge) {
-            onBridgeReady();
-        } else {
-            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
-        }
+        wx.onMenuShareTimeline({
+            title: '八音盒，一个会讲故事的婚礼邀请函',
+            link: link,
+            imgUrl: image.src
+        });
+        wx.onMenuShareAppMessage({
+            title: '八音盒，会讲故事的婚礼邀请函',
+            desc: '我们用独特的方式为坠入爱河的你，用你最喜欢的照片和文字，讲出自己的爱情故事',
+            link: link,
+            imgUrl: image.src
+        });
     };
     
     var initScroll = function () {
