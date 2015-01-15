@@ -117,7 +117,7 @@
                     image: 'http://up.img.8yinhe.cn/o_18uq2tv092ou17jtmn1o571e3h9.jpg'
                 }, {
                     id: 3, name: 'qidlove', title: 'QiQi & XD',
-                    image: 'http://up.img.8yinhe.cn/o_18s85df0c4iknei1jtd38mi9uj.jpg!thumbnail'
+                    image: 'http://up.img.8yinhe.cn/o_18s85df0c4iknei1jtd38mi9uj.jpg'
                 }, {
                     id: 4, name: 'B18F79', title: '逆袭的爱情',
                     image: 'http://up.img.8yinhe.cn/o_18uqqn6js1k9p6mj1qa81ap21jid7.jpg'
