@@ -36,9 +36,9 @@
     });
     
     var stories = new (Amour.Collection.extend({
-        url: Amour.APIHost + '/staff/story/',
+        url: Amour.APIRoot + 'staff/story/',
         model: Amour.Models.Story.extend({
-            urlRoot: Amour.APIHost + '/staff/story/'
+            urlRoot: Amour.APIRoot + 'staff/story/'
         })
     }))();
     

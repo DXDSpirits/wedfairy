@@ -4,6 +4,7 @@ var CONFIG = {
     
     TAT_STATIC : 'http://static.wedfairy.com/',
     
+    API_ROOT : 'http://api.wedfairy.com/api/',
     API_HOST : 'http://api.wedfairy.com',
     API_HOSTNAME : 'api.wedfairy.com',
     API_PORT : 80,

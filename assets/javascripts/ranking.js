@@ -22,7 +22,7 @@
     });
     
     var stories = new (Amour.Collection.extend({
-        url: Amour.APIHost + '/sites/storylist/',
+        url: Amour.APIRoot + 'sites/storylist/',
         model: Amour.Models.Story
     }))();
     

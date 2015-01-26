@@ -1,11 +1,11 @@
 var settings = require('../settings/settings.js');
 var http = require('http');
 var BufferHelper = require('./bufferhelper');
-var APIHost = settings.API_HOST;
+var APIRoot = settings.API_ROOT;
 
 
 exports.getStoryByName = function(name, success, error) {
-    http.get(APIHost + '/sites/storyname/' + name + '/', function(res) {
+    http.get(APIRoot + 'sites/storyname/' + name + '/', function(res) {
         if (res.statusCode == 404) {
             error && error('Cannot find story with name "' + name + '"');
         } else {
@@ -24,7 +24,7 @@ exports.getStoryByName = function(name, success, error) {
 
 
 exports.getStoryById = function(id, success, error) {
-    http.get(APIHost + '/sites/story/' + id + '/', function(res) {
+    http.get(APIRoot + 'sites/story/' + id + '/', function(res) {
         if (res.statusCode == 404) {
             error && error('Cannot find story with ID "' + id + '"');
         } else {

@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 app.locals.build_no = settings.BUILD || Date.now();
 app.locals.static_url = '/assets/';
 app.locals.cdn_url = settings.CDN_URL;
-app.locals.api_host = settings.API_HOST;
+app.locals.api_root = settings.API_ROOT;
 app.locals.tat_static = settings.TAT_STATIC;
 
 // misc
