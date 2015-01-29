@@ -39,7 +39,19 @@
         url: Amour.APIRoot + 'staff/story/',
         model: Amour.Models.Story.extend({
             urlRoot: Amour.APIRoot + 'staff/story/'
-        })
+        }),
+        parse: function(response) {
+            var collection = Amour.Collection.prototype.parse.call(this, response);
+            var nonzero = _.filter(collection, function(item) {
+                return item.progress != '0.0%';
+            });
+            if (nonzero.length == 0) {
+                this.fetchNext({
+                    remove: false
+                });
+            }
+            return nonzero;
+        }
     }))();
     
     var storyGalleryView = new StoryGalleryView({
