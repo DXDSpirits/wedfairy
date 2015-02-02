@@ -64,7 +64,7 @@
             this.feature == 0;
             for (var i=1; i<=4; i++) {
                 var image = new Image();
-                image.src = Amour.imageFullpath(['images/homepage/feature-', i, '.png'].join(''));
+                image.src = Amour.imageFullpath(['images/wedding/feature-', i, '.png'].join(''));
             }
         },
         hover: function(e) {
@@ -73,7 +73,7 @@
             if (feature == this.feature) return;
             this.feature = feature;
             var $img = this.$('.iphone-wrapper .img');
-            var src = ['images/homepage/feature-', feature, '.png'].join('');
+            var src = ['images/wedding/feature-', feature, '.png'].join('');
             $img.animate({
                 opacity: 0
             }, 100, function() {
@@ -295,7 +295,7 @@
             var radius = match ? +match[1] : 0;
             var link = [window.location.origin, '?radius=', radius + 1].join('');
             var image = new Image();
-            image.src = Amour.imageFullpath('images/homepage/wechat-share-image.jpg');
+            image.src = Amour.imageFullpath('images/wedding/wechat-share-image.jpg');
             wx.onMenuShareTimeline({
                 title: '八音盒，一个会讲故事的婚礼邀请函',
                 link: link,

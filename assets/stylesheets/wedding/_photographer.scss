@@ -30,11 +30,11 @@
             @include transition(transform .35s ease-in-out);
         }
         &:before {
-            background-image: image-url("homepage/cover-coral-left.png");
+            background-image: image-url("wedding/cover-coral-left.png");
             @include transform(translate3d(-100%, 0, 0));
         }
         &:after {
-            background-image: image-url("homepage/cover-coral-right.png");
+            background-image: image-url("wedding/cover-coral-right.png");
             @include transform(translate3d(100%, 0, 0));
         }
         &:hover, &:active {

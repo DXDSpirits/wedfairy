@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="<%= tat_static %>stylesheets/animate.min.css">
     <link rel="stylesheet" href="<%= tat_static %>stylesheets/amour.css">
     
-    <link rel="stylesheet" href="<%= static_url %>stylesheets/homepage.css?v=<%= build_no %>">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/wedding.css?v=<%= build_no %>">
     
     <% include includes/capability %>
     <% include includes/production %>
@@ -28,16 +28,16 @@
 <div id="loading-screen"></div>
 
 <!-- The story begins here -->
-<% include homepage/header %>
+<% include wedding/header %>
 <div class="views-wrapper">
-    <% include homepage/hero %>
-    <% include homepage/workflow %>
-    <% include homepage/gallery %>
-    <% include homepage/features %>
-    <% include homepage/howto %>
-    <% include homepage/photographer %>
+    <% include wedding/hero %>
+    <% include wedding/workflow %>
+    <% include wedding/gallery %>
+    <% include wedding/features %>
+    <% include wedding/howto %>
+    <% include wedding/photographer %>
 </div>
-<% include homepage/footer %>
+<% include wedding/footer %>
 <!-- The story ends -->
 
 <script>
@@ -58,7 +58,7 @@
 
 <script src="<%= tat_static %>javascripts/amour.js?v=<%= build_no %>"></script>
 
-<script src="<%= static_url %>javascripts/homepage.js?v=<%= build_no %>"></script>
+<script src="<%= static_url %>javascripts/wedding.js?v=<%= build_no %>"></script>
 
 <% include includes/analytics %>
 
