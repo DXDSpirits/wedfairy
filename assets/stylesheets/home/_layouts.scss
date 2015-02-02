@@ -1,0 +1,15 @@
+
+#loading-screen {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #333 image-url("progress.gif") no-repeat center;
+    background-size: 64px 22px;
+}
+
+.view {
+    position: relative;
+}

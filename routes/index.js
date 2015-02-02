@@ -7,7 +7,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/newhome', function(req, res) {
-    res.render('homepage');
+    res.render('home');
 });
 
 router.get('/portfolio', function(req, res) {
