@@ -3,12 +3,43 @@
 @import "variables";
 
 
-// Components
+#loading-screen {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #333 image-url("progress.gif") no-repeat center;
+    background-size: 64px 22px;
+}
 
-@import "home/layouts";
+.view {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
 
-//Sections
+#view-hero {
+    
+}
 
-@import "home/hero";
-@import "home/products";
-@import "home/features";
+#view-products {
+    background-color: red;
+    top: 100%;
+}
+
+#view-features {
+    background-color: #fff;
+    top: 100%;
+    .cube {
+        opacity: 0;
+        height: 100px;
+        width: 100px;
+        margin: 100px;
+        background: #000;
+        color: #fff;
+    }
+}
