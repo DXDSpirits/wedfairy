@@ -1,8 +1,6 @@
 
 (function() {
     
-    $('.view').css('height', $(window).height());
-    
     var winh = $(window).height();
     
     constants = {};
