@@ -1,18 +1,48 @@
+
 <section class="view" id="view-features"
-    data-_enter_products="transform:translate3d(0,-100%,0);"
-    data-_leave_products="transform:translate3d(0,-100%,0);">
+    data-_enter_products="transform:translate3d(0,0%,0);"
+    data-_enter_features="transform:translate3d(0,0%,0);"
+    data-_leave_features--100p="transform:translate3d(0,0%,0);"
+    data-_leave_features="transform:translate3d(0,-50%,0);">
     
-    <div class="background img bg" data-bg-src="images/home/features-bg.png"
+    <header class="text-center hidden-xs">
+        <h2>了解玩法</h2>
+        <p>我们在创造一种爱的语言，让你和这个世界聊天</p>
+    </header>
+
+    <div class="background img bg" data-bg-src="images/home/features-bg-far.svg"
         data-_enter_products="transform:translate3d(0,20%,0);"
-        data-_leave_products-100p="transform:translate3d(0,0%,0);"></div>
+        data-_leave_features--100p="transform:translate3d(0,0%,0);"></div>
     
-    <div class="background img fg" data-bg-src="images/home/features-fg.png"
-        data-_enter_products="transform:translate3d(0,40%,0);"
-        data-_leave_products-100p="transform:translate3d(0,0%,0);"></div>
+    <div class="background img bg" data-bg-src="images/home/features-bg-near.svg"
+        data-_enter_products="transform:translate3d(0,30%,0);"
+        data-_leave_features--100p="transform:translate3d(0,0%,0);"></div>
+
+    <div class="background img fg fg-lg hidden-xs" data-bg-src="images/home/features-fg.svg"
+        data-_enter_products="transform:translate3d(0,50%,0);"
+        data-_leave_features--100p="transform:translate3d(0,0%,0);">
+        <a class="compose-button" href="http://compose.wedfairy.com/dashboard/?from=homepage"
+            data-_enter_products="opacity:0;"
+            data-_leave_products-100p="opacity:1;">
+            <span>创作故事</span>
+        </a>
+    </div>
+
+    <div class="background img fg fg-sm visible-xs" data-bg-src="images/home/features-fg-mobile.svg"
+        data-_enter_products="transform:translate3d(0,50%,0);"
+        data-_leave_features--100p="transform:translate3d(0,0%,0);">
+        <a class="compose-button" href="http://compose.wedfairy.com/dashboard/?from=homepage"
+            data-_enter_products="opacity:0;"
+            data-_leave_products-100p="opacity:1;">
+            <span>创作故事</span>
+        </a>
+    </div>
     
-    <div class="iphone img img-contain" data-bg-src="images/home/iphone-white.png"
+    <div class="iphone img img-contain" data-bg-src="images/home/iphone.svg"
         data-_enter_products="transform:translate3d(0,40%,0);opacity:0;"
-        data-_leave_products-100p="transform:translate3d(0,0%,0);opacity:1;">
+        data-_enter_features="transform:translate3d(0,0%,0);opacity:1;"
+        data-_enter_features-500p="transform:translate3d(0,0%,0);opacity:1;"
+        data-_enter_features-600p="transform:translate3d(0,0%,0);opacity:0;">
         
         <div class="iphone-inner">
             <div class="cube"
@@ -20,43 +50,60 @@
                 data-_enter_features-100p="opacity: 1;"
                 data-_enter_features-199p="opacity: 1;"
                 data-_enter_features-200p="opacity: 0;">
-                <h4>自主创作</h4>
-                <p>我们提供自主创作的工具和灵感，你来自己讲述爱的故事，使轻故事不再枯燥乏味</p>
+                <div class="img"></div>
+                <h4>1. 自主创作</h4>
+                <p>按照八音盒建议的故事线索上传图文，DIY自己的故事。即使缺乏灵感也不用担心，八音盒早已用自己的的方式为你准备了大量的故事原型和文字灵感，让你专注于创作本身。</p>
             </div>
             <div class="cube"
                 data-_enter_features-200p="opacity: 0;"
                 data-_enter_features-201p="opacity: 1;"
                 data-_enter_features-299p="opacity: 1;"
                 data-_enter_features-300p="opacity: 0;">
-                <h4>留言实时互动</h4>
-                <p>通过邀请函页面，与通过不同渠道送上祝福的亲朋好友们实时进行互动</p>
+                <div class="img"></div>
+                <h4>2. 精美模板</h4>
+                <p>在每个场景下，我们会为你提供风格不同，形式多样的精美模板，让你的故事生动有趣，充满爱意。</p>
             </div>
             <div class="cube"
                 data-_enter_features-300p="opacity: 0;"
                 data-_enter_features-301p="opacity: 1;"
                 data-_enter_features-399p="opacity: 1;"
                 data-_enter_features-400p="opacity: 0;">
-                <h4>精美模板选择</h4>
-                <p>每一个由八音盒精挑细选过的婚礼邀请板都饱含了爱和浪漫</p>
+                <div class="img"></div>
+                <h4>3. 分享故事</h4>
+                <p>将你制作的轻故事通过多个平台分享给身边的亲戚朋友。不管他们使用微信、微博和邮箱甚至其他的一些主流应用，只需通过一键分享即可实现。</p>
             </div>
             <div class="cube"
                 data-_enter_features-400p="opacity: 0;"
                 data-_enter_features-401p="opacity: 1;"
                 data-_enter_features-499p="opacity: 1;"
                 data-_enter_features-500p="opacity: 0;">
-                <h4>多平台分享</h4>
-                <p>快速将你制作的邀请函通过多个平台分享给亲戚朋友</p>
+                <div class="img"></div>
+                <h4>4. 实时互动</h4>
+                <p>随时查看亲朋好友们的留言，与不同渠道送上赞与祝福的人们进行实时互动。</p>
             </div>
         </div>
     </div>
     
-    <div class="story-star"
-        data-_enter_products="top:0%;left:65%;"
-        data-_enter_features-100p="top:50%;left:65%;"
-        data-_enter_features-200p="top:45%;left:64%;"
-        data-_enter_features-300p="top:50%;left:62%;"
-        data-_enter_features-400p="top:48%;left:60%;"
-        data-_enter_features-500p="top:70%;left:50%;">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+        x="0px" y="0px" viewBox="0 0 100 100" preserveAspectRatio="none"
+        width="50px" height="50px" class="story-star"
+        data-_enter_products=     "top: 0%;left:65%;width:  50px;height: 50px;margin-left:   0px;margin-top:   0px;"
+        data-_enter_features-500p="top:90%;left:50%;width:  50px;height: 50px;margin-left:   0px;margin-top:   0px;"
+        data-_enter_features-600p="top:70%;left:50%;width:1000px;height:500px;margin-left:-500px;margin-top:-250px;">
+        <g>
+            <polygon fill="#EABB39"
+                points="49.1,0 32.7,33.9 0,37.5 25,62.5 17.7,96.8 46.7,77.1 79.8,93.3 73.7,60.7 100,37.7 62.9,31.6"
+                data-_enter_features-500p="@points:49.1,0 32.7,33.9 0,37.5 25,62.5 17.7,96.8 46.7,77.1 79.8,93.3 73.7,60.7 100,37.7 62.9,31.6;@fill:rgb(234,187,57);opacity:1;"
+                data-_enter_features-520p="@points:49.1,0 32.7,33.9 0,37.5 25,62.5 17.7,96.8 46.7,77.1 79.8,93.3 73.7,60.7 100,37.7 62.9,31.6;@fill:rgb(234,187,57);opacity:0;"
+                data-_enter_features-521p="@points:50,0   25,0      0,0    0,50    0,100     50,100    100,100    100,50   100,00   75,0;@fill:rgb(255,255,255);opacity:0;"
+                data-_enter_features-600p="@points:50,0   25,0      0,0    0,50    0,100     50,100    100,100    100,50   100,00   75,0;@fill:rgb(255,255,255);opacity:1;"></polygon>
+        </g>
+    </svg>
+
+    <div class="gallery"_
+        data-_enter_features=     "opacity:0;visibility:hidden;"
+        data-_enter_features-600p="opacity:0;visibility:visible;"
+        data-_enter_features-610p="opacity:1;visibility:visible;">
     </div>
-    
+
 </section>

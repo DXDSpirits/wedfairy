@@ -1,0 +1,71 @@
+
+#global-footer {
+    position: fixed;
+    z-index: 0;
+    bottom:0;
+    left:0;
+    width:100%;
+    overflow: hidden;
+    padding-top: 20px;
+
+    background: $red-coral image-url("home/img-noise-200x200.png") repeat center;
+    background-size: 100px 100px;
+    @media (max-width: $screen-xs-max) {
+        background: $green-land;
+    }
+    color: #fff;
+
+    .footer-col {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .subtitle {
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+    a {
+        color: #fff;
+        &:hover, &:focus {
+            border-color: rgba(#fff,0.5);
+            color: rgba(#fff,0.5);
+        }
+    }
+    .social-icon {
+        cursor: pointer;
+        display: inline-block;
+        border-radius: 10px;
+        border: 1px solid #fff;
+        @include transition(all .35s ease-in-out);
+        text-align: center;
+        height: 50px;
+        width: 50px;
+        .fa {
+            line-height: 48px;
+        }
+        margin: 5px;
+    }
+    .wechat:hover {
+        @include transition(transform .1s ease-in-out);
+        @include transform(scale(3, 3));
+        @include transform-origin(100% 0%);
+        background: image-url("wechat-qrcode.jpg") no-repeat top right;
+        background-size: 43px 43px;
+        border-radius: 0;
+        border-color: rgba(#fff,0);
+        .fa { visibility: hidden; }
+    }
+    .qrcode-composer {
+        background-color: #fff;
+        background-size: auto;
+        width: 110px;
+        height: 110px;
+        margin: 0 auto;
+    }
+    .btn-composer {
+        margin: 30px auto;
+    }
+    .copyright {
+        border-top: 1px solid rgba(#fff, 0.35);
+        padding-top: 10px;
+    }
+}
