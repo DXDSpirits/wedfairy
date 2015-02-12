@@ -3,11 +3,15 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res) {
-    res.render('wedding');
+    res.render('home');
 });
 
 router.get('/newhome', function(req, res) {
     res.render('home');
+});
+
+router.get('/wedding', function(req, res) {
+    res.render('wedding');
 });
 
 router.get('/portfolio', function(req, res) {
