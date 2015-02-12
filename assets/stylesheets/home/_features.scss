@@ -169,7 +169,7 @@
                 color: #fff;
                 background-color: rgba(#000, 0.5);
                 opacity: 0;
-                @include transition(opacity .35s ease-in-out);
+                //@include transition(opacity .35s ease-in-out);
                 p {
                     text-align: center;
                     position: relative;
