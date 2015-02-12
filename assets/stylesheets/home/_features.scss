@@ -154,6 +154,10 @@
             right: 5%;
         }
         @media (max-width: $screen-xs-max) {
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
             padding: 2px;
         }
         @include clearfix();
