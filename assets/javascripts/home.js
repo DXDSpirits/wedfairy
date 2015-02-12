@@ -107,7 +107,7 @@
         constants.enter_products = '200p';
         constants.leave_products = '400p';
         constants.enter_features = '400p';
-        constants.leave_features = '1100p';
+        constants.leave_features = '1000p';
         
         var scroller = skrollr.init({
             constants: constants

@@ -176,6 +176,12 @@
                 height: 16.666667%;
                 padding: 2px;
             }
+            @media (max-width: $screen-xs-max) and (max-width: $screen-xs-max) {
+                height: 20%;
+                &:nth-child(n+11) {
+                    display: none;
+                }
+            }
         }
         .story-wrapper {
             width: 100%;
@@ -196,6 +202,11 @@
             }
             &:hover .text {
                 opacity: 1;
+            }
+            @media (max-width: $screen-xs-max) {
+                .text {
+                    display: none;
+                }
             }
         }
     }
