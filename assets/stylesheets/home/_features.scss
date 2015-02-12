@@ -59,9 +59,18 @@
         h2 {
             margin-bottom: 30px;
         }
-        @media (max-height: 900px) {
-            margin-left: 50%;
-            margin-right: 10%;
+        p {
+            font-size: 1.2em;
+        }
+        /*@media (max-height: 900px) {
+            margin-top: 50px;
+        }*/
+        //@media (max-height: 800px) {
+        @media (max-height: 1080px) {
+            h2, p {
+                margin-left: 50%;
+                margin-right: 10%;
+            }
         }
     }
     .iphone {
@@ -69,7 +78,7 @@
         height: 600px;
         position: absolute;
         right: 60%;
-        bottom: 100px;
+        bottom: 150px;
         @media (max-height: 710px) {
             bottom: 50px;
         }
@@ -117,6 +126,11 @@
     }
     .story-star {
         position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background-color: rgba(#fff, 0.9);
     }
     .gallery {
         visibility: hidden;

@@ -89,12 +89,14 @@
         var p = parseInt($('#global-footer').outerHeight() / winh * 100);
         $('#view-features').attr('data-_leave_features', 'transform:translate3d(0,-' + p + '%,0);')
 
+        /*
         var $star = $('#view-features svg');
         var $gallery = $('#view-features .gallery');
         var svgH = winh * 1;
         var svgW = winw * 1;
         $star.attr('data-_enter_features-600p',
             "top:50%;left:50%;width:" + svgW +"px;height:" + svgH + "px;margin-left:" + (-svgW/2) + "px;margin-top:" + (-svgH/2) + "px;");
+        */
     }
 
     function start() {

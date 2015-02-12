@@ -37,7 +37,7 @@
             border-radius: 50%;
             background-color: #fdfdfc;
             &:hover {
-                background-color: #000;
+                //background-color: #000;
             }
             @include transition(background-color .35s ease-in-out);
         }
