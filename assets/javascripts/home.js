@@ -9,40 +9,40 @@
 
     var gallery_stories = [{
         id: 1, name: 'naturalcurly', title: '蜂蜜罐头',
-        image: 'http://up.img.8yinhe.cn/o_18v2sopo9pbo1kt9tdj1g1nvg9c.jpg'
+        image: 'http://up.img.8yinhe.cn/o_18utie8c217e012rb1b461to5sr0m.jpg'
     }, {
-        id: 2, name: 'xiaolei', title: '当爱射进球门',
-        image: 'http://up.img.8yinhe.cn/o_18uq2tv092ou17jtmn1o571e3h9.jpg'
+        id: 2, name: 'gracemirage', title: 'A Never Ending Trip',
+        image: 'http://up.img.8yinhe.cn/wechat/-WvB6oagDADKzkmnndFBLGv8tgRMCeTL3afrtdU7MJmsZxkhNvYfbtYfv87Pl-bp'
     }, {
-        id: 3, name: 'qidlove', title: 'QiQi & XD',
-        image: 'http://up.img.8yinhe.cn/o_18s85df0c4iknei1jtd38mi9uj.jpg'
+        id: 3, name: 'we20150201', title: '有点潮，又有点萌',
+        image: 'http://up.img.8yinhe.cn/o_19agli2b7j7c1bovk4idh696t7.jpg'
     }, {
         id: 4, name: 'B18F79', title: '逆袭的爱情',
         image: 'http://up.img.8yinhe.cn/o_18uqqn6js1k9p6mj1qa81ap21jid7.jpg'
     }, {
-        id: 5, name: 'c92280', title: '择一城终老，遇一人白首',
-        image: 'http://up.img.8yinhe.cn/o_18ut953i51ig383fta0178k1ia87.jpg'
+        id: 5, name: 'DW20150117', title: '择一城终老，遇一人白首',
+        image: 'http://up.img.8yinhe.cn/o_19aiv35jm6e51a711cmg1pq6116117.jpg'
     }, {
         id: 6, name: 'FD2C14', title: '时常一起犯二！',
         image: 'http://up.img.8yinhe.cn/o_18ur3kp3jsqp10r51rcgao4jv97.jpg'
     }, {
-        id: 7, name: 'aef095', title: '藝叶知秋',
-        image: 'http://up.img.8yinhe.cn/o_18vfk2t5h1s781ott13r81pd3g1j7.jpg'
+        id: 7, name: 'xiaolei', title: '当爱射进球门',
+        image: 'http://up.img.8yinhe.cn/o_18uq2tv092ou17jtmn1o571e3h9.jpg'
     }, {
         id: 8, name: 'fxfdz', title: '扬起风帆，铮爱启程',
         image: 'http://up.img.8yinhe.cn/o_191f51sggrsa18la24c1nv8141k1f.jpg'
     }, {
-        id: 9, name: 'c92280', title: '择一城终老，遇一人白首',
-        image: 'http://up.img.8yinhe.cn/o_18ut953i51ig383fta0178k1ia87.jpg'
+        id: 9, name: 'bef0a2', title: '长腿叔叔&小鱼老师',
+        image: 'http://up.img.8yinhe.cn/o_196ebkt1p9l093odgnr7p1sn47.jpeg'
     }, {
-        id: 10, name: 'FD2C14', title: '时常一起犯二！',
-        image: 'http://up.img.8yinhe.cn/o_18ur3kp3jsqp10r51rcgao4jv97.jpg'
+        id: 10, name: 'd66cc9', title: '相遇 相识 相知 相恋 相爱 相伴',
+        image: 'http://up.img.8yinhe.cn/o_1995u1cto17u71afm11blb6157h7.jpg'
     }, {
-        id: 11, name: 'aef095', title: '藝叶知秋',
-        image: 'http://up.img.8yinhe.cn/o_18vfk2t5h1s781ott13r81pd3g1j7.jpg'
+        id: 11, name: 'cbc823', title: '我心目中最美的太阳花',
+        image: 'http://up.img.8yinhe.cn/o_199tc77ld1onllrr10f2h37181tn.png'
     }, {
-        id: 12, name: 'fxfdz', title: '扬起风帆，铮爱启程',
-        image: 'http://up.img.8yinhe.cn/o_191f51sggrsa18la24c1nv8141k1f.jpg'
+        id: 12, name: 'a3149a', title: '天佑阳光',
+        image: 'http://up.img.8yinhe.cn/o_193ntjnpkjk61g4jb7b1sfsl52f.jpg'
     }];
 
     var galleryView = new (Amour.View.extend({
@@ -91,8 +91,8 @@
 
         var $star = $('#view-features svg');
         var $gallery = $('#view-features .gallery');
-        var svgH = winh * 0.9;
-        var svgW = winw * 0.9;
+        var svgH = winh * 1;
+        var svgW = winw * 1;
         $star.attr('data-_enter_features-600p',
             "top:50%;left:50%;width:" + svgW +"px;height:" + svgH + "px;margin-left:" + (-svgW/2) + "px;margin-top:" + (-svgH/2) + "px;");
     }

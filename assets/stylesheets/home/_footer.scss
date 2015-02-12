@@ -11,7 +11,7 @@
     background: $red-coral image-url("home/img-noise-200x200.png") repeat center;
     background-size: 100px 100px;
     @media (max-width: $screen-xs-max) {
-        background: $green-land;
+        //background: $green-land;
     }
     color: #fff;
 

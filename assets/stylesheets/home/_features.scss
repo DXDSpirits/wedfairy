@@ -5,7 +5,7 @@
     background-color: $blue-sky;
     box-shadow: 0 0 10px rgba(#000, 0.7);
     @media (max-width: $screen-xs-max) {
-        box-shadow: none;
+        //box-shadow: none;
     }
     .fg, .bg {
         background-position: bottom;
@@ -60,7 +60,8 @@
             margin-bottom: 30px;
         }
         @media (max-height: 900px) {
-            margin-left: 30%;
+            margin-left: 50%;
+            margin-right: 10%;
         }
     }
     .iphone {
@@ -120,15 +121,28 @@
     .gallery {
         visibility: hidden;
         position: absolute;
-        top: 5%;
-        bottom: 5%;
-        left: 5%;
-        right: 5%;
+        //background-color: #fff;
         padding: 10px;
-        @include clearfix();
+        top: 15%;
+        bottom: 15%;
+        left: 15%;
+        right: 15%;
+        @media (max-width: $screen-md-max) {
+            top: 10%;
+            bottom: 10%;
+            left: 10%;
+            right: 10%;
+        }
+        @media (max-width: $screen-sm-max) {
+            top: 5%;
+            bottom: 5%;
+            left: 5%;
+            right: 5%;
+        }
         @media (max-width: $screen-xs-max) {
             padding: 2px;
         }
+        @include clearfix();
         .story-item {
             position: relative;
             float: left;
