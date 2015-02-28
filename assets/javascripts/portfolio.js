@@ -15,7 +15,8 @@
                       '<p class="title">{{title}}</p>',
             serializeData: function() {
                 var data = this.model ? this.model.toJSON() : {};
-                data.formatted_date = (new Date(data.time_created + '+0800')).toLocaleString();
+                //data.formatted_date = (new Date(data.time_created + '+0800')).toLocaleString();
+                data.formatted_date = moment(data.time_created).format('YYYY-MM-DD HH:mm');
                 return data;
             },
             onClick: function() {
@@ -76,7 +77,9 @@
     });
     
     $('input[name=featured]').on('change', function() {
-        if ($('input[name=featured]:checked').val() == 'on') {
+        var $checked = $('input[name=featured]:checked');
+        if ($checked.length == 0) return;
+        if ($checked.val() == 'on') {
             stories.fetch({
                 reset: true,
                 data: { featured: 'True' }
@@ -84,6 +87,20 @@
         } else {
             stories.fetch({
                 reset: true
+            });
+        }
+    });
+
+    $('.form-search').on('submit', function(e) {
+        e.preventDefault();
+        var $input = $(this).find('input[name=mobile]');
+        var mobile = $input.val();
+        $input.val('');
+        if (mobile) {
+            $('input[name=featured]').parent().removeClass('active');
+            stories.fetch({
+                reset: true,
+                data: { owner__username: mobile }
             });
         }
     });
