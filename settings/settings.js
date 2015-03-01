@@ -10,7 +10,8 @@ var CONFIG = {
     API_PORT : 80,
     API_PROTOCOL : 'http',
     
-    CDN_URL : 'http://wedfairy.qiniudn.com/',
+    //CDN_URL : 'http://wedfairy.qiniudn.com/',
+    CDN_URL : '/assets/',
     
     WECHAT: {
         APPID: '',
