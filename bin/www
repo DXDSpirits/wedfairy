@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 var debug = require('debug')('wedfairy');
 var app = require('../app');
+var settings = require('../settings/settings');
 
 app.set('port', process.env.PORT || 5000);
+app.set('hostname', settings.HOSTNAME || 'localhost');
 
-var server = app.listen(app.get('port'), function() {
+var server = app.listen(app.get('port'), app.get('hostname'), function() {
   debug('Express server listening on port ' + server.address().port);
 });
