@@ -110,6 +110,7 @@
         constants.leave_features = '1000p';
         
         var scroller = skrollr.init({
+            smoothScrolling: false,
             constants: constants
         });
         
