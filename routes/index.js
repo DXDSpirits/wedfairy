@@ -30,4 +30,8 @@ router.get('/contactus', function(req, res) {
     res.render('page/contact');
 });
 
+router.get('/aboutus', function(req, res) {
+    res.render('page/about');
+});
+
 module.exports = router;

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<% include ../includes/html %>
+<head>
+    <title>八音盒</title>
+    
+    <% include ../includes/metadata %>
+    <link rel="stylesheet" href="<%= static_url %>fonts/iconfont.css">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/bootstrap-custom.css?v=<%= build_no %>">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/page/page.css?v=<%= build_no %>">
+    
+    
+    <% include ../includes/capability %>
+    <% include ../includes/production %>
+</head>
+<body id="about">
+    <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Content Begins Here -->
+    <% include header %>
+    <div class="navbar">
+        <div class="nav-wrapper">
+            <a class="nav-item" href="/aboutus">关于我们</a>
+            <a class="nav-item" href="/joinus">加入我们</a>
+            <a class="nav-item active" href="/contactus">联系我们</a>
+        </div>
+    </div>
+    <div id="tip-container"></div>
+    
+    <div class="body">
+
+
+
+
+
+    </div>
+    <% include footer %>
+        <!-- Content Ends Here -->
+        <script src="<%= tat_static %>javascripts/vendor/jquery-2.1.1.min.js"></script>
+        <script src="<%= tat_static %>javascripts/vendor/underscore.min.js"></script>
+        <script src="<%= tat_static %>javascripts/vendor/mustache.min.js"></script>
+        <script src="<%= tat_static %>javascripts/vendor/backbone.min.js"></script>
+        <script src="<%= tat_static %>javascripts/vendor/bootstrap.min.js"></script>
+        <script src="<%= tat_static %>javascripts/plugins/fastclick.js"></script>
+        <script src="<%= tat_static %>javascripts/plugins/skrollr.min.js"></script>
+        <!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
+        <script src="<%= tat_static %>javascripts/amour.js?v=<%= build_no %>"></script>
+        <script src="<%= static_url %>javascripts/home.js?v=<%= build_no %>"></script>
+    </body>
+</html>
