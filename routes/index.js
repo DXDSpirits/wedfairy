@@ -22,6 +22,8 @@ router.get('/ranking', function(req, res) {
     res.render('ranking');
 });
 
+
+// some static pages
 router.get('/joinus', function(req, res) {
     res.render('page/job');
 });
@@ -34,4 +36,16 @@ router.get('/aboutus', function(req, res) {
     res.render('page/about');
 });
 
+// explore 
+router.get('/explore', function(req, res) {
+    res.render('explore');
+});
+
+
 module.exports = router;
+
+
+
+
+
+
