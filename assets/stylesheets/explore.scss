@@ -6,7 +6,6 @@
 @import "page/variables";
 @import "page/utils";
 
-
 .btn {
     border-radius: 4px;
 }
@@ -14,14 +13,61 @@
     @include button-variant(white, $main-color, $main-color);
 }
 //
+#explore {
+    color: $light-text-color;
 
-#wed-carousel{
-    height: 420px;
+    #wed-carousel {
+        height: 420px;
+    }
+    .filter-container {
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgba($border-color, .5);
+
+        .filter {
+            padding: 10px;
+            background-color: white;
+            display: inline-block;
+            @extend .pointer;
+        }
+    }
+    .story-container {
+        margin-top: 15px;
+        width: 860px;
+        height: 780px;
+
+        .col-md-3 {
+            padding: 0px;
+        }
+        .story-shower {
+            width: 200px;
+            height: 220px;
+            background-color: white;
+            border-radius: 4px;
+            padding-top: 12px;
+
+            .story-cover {
+                width: 176px;
+                height: 176px;
+                margin-left: 12px;
+                margin-bottom: 2px;
+                background-color: whitesmoke;
+            }
+            .extra-info {
+                font-size: 12px;
+                padding-left: 12px;
+                padding-top: 3px;
+                span{
+                    margin-right: 5px;
+                }
+
+                .iconfont {
+                    font-size: 17px;
+                    color: $light-text-color;
+                }
+            }
+        }
+    }
 }
-
-
-
-
 html, body {
     // background-color: white;
     font-family: "Microsoft YaHei", 微软雅黑, "Microsoft JhengHei", 华文细黑, STHeiti, MingLiu;
@@ -121,8 +167,7 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
         border-color: $main-color;
     }
     @include placeholder {
-            color: $light-text-color;
-        
+        color: $light-text-color;
     }
 }
 .control-label {
