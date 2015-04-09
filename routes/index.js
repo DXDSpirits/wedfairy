@@ -26,4 +26,8 @@ router.get('/joinus', function(req, res) {
     res.render('page/job');
 });
 
+router.get('/contactus', function(req, res) {
+    res.render('page/contact');
+});
+
 module.exports = router;

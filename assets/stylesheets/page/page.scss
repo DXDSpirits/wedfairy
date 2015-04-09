@@ -8,6 +8,7 @@
 
 // pages
 @import "job";
+@import "contact";
 
 .btn {
     border-radius: 4px;
@@ -222,6 +223,8 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
     bottom: 0;
     height: 200px !important;
     margin-top: 60px;
+    // position: absolute;
+    // bottom: 0;
 
     .footer-link-container {
         margin: 0 auto;
