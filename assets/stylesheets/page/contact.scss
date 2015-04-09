@@ -1,0 +1,31 @@
+#contact {
+    .page-title {
+        margin-top: 50px;
+        margin-left: 50px;
+    }
+    .img-container {
+        float: right;
+
+        .map {
+            width: 260px;
+            height: 260px;
+            margin-top: 19px;
+        }
+        .addr-text {
+            font-size: 14px;
+            color: $light-text-color;
+        }
+    }
+    .content {
+        margin-left: 50px;
+        color: $light-text-color;
+        margin-top: 30px;
+        margin-bottom: 60px;
+        width: 620px;
+    }
+    .contact-info {
+        margin-left: 100px;
+        margin-bottom: 100px;
+        color: $light-text-color;
+    }
+}
