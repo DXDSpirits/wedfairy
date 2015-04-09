@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<% include includes/html %>
+<head>
+    <title>八音盒</title>
+    
+    <% include includes/metadata %>
+    <link rel="stylesheet" href="<%= static_url %>fonts/iconfont.css">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/bootstrap-custom.css?v=<%= build_no %>">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/explore.css?v=<%= build_no %>">
+    
+    
+    <% include includes/capability %>
+    <% include includes/production %>
+</head>
+<body id="explore">
+    <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Content Begins Here -->
+    <% include page/header %>
+    <div id="tip-container"></div>
+
+    <div id="wed-carousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#wed-carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#wed-carousel" data-slide-to="1"></li>
+            <li data-target="#wed-carousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="" alt="...">
+                <div class="carousel-caption">
+                    ...
+                </div>
+            </div>
+            <div class="item">
+                <img src="" alt="...">
+                <div class="carousel-caption">
+                    ...
+                </div>
+            </div>
+            <div class="item">
+                <img src="" alt="...">
+                <div class="carousel-caption">
+                    ...
+                </div>
+            </div>
+        </div>
+        <!-- Controls -->
+        
+    </div>
+
+    <div class="body">
+        
+    </div>
+    <% include page/footer %>
+    <!-- Content Ends Here -->
+    <script src="<%= tat_static %>javascripts/vendor/jquery-2.1.1.min.js"></script>
+    <script src="<%= tat_static %>javascripts/vendor/underscore.min.js"></script>
+    <script src="<%= tat_static %>javascripts/vendor/mustache.min.js"></script>
+    <script src="<%= tat_static %>javascripts/vendor/backbone.min.js"></script>
+    <script src="<%= tat_static %>javascripts/vendor/bootstrap.min.js"></script>
+    <script src="<%= tat_static %>javascripts/plugins/fastclick.js"></script>
+    <script src="<%= tat_static %>javascripts/plugins/skrollr.min.js"></script>
+    <!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
+    <script src="<%= tat_static %>javascripts/amour.js?v=<%= build_no %>"></script>
+    <script src="<%= static_url %>javascripts/home.js?v=<%= build_no %>"></script>
+</body>
+</html>
