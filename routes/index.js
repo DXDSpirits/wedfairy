@@ -22,4 +22,8 @@ router.get('/ranking', function(req, res) {
     res.render('ranking');
 });
 
+router.get('/joinus', function(req, res) {
+    res.render('page/job');
+});
+
 module.exports = router;
