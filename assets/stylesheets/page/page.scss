@@ -3,10 +3,11 @@
 
 @import "bootstrap/bootstrap-compass";
 @import "bootstrap/bootstrap";
-
-
 @import "variables";
 @import "utils";
+
+// pages
+@import "job";
 
 .btn {
     border-radius: 4px;
@@ -114,9 +115,10 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
         @include box-shadow(none);
         border-color: $main-color;
     }
-    // @include placeholder {
-    //     color: $light-text-color;
-    // }
+    @include placeholder {
+            color: $light-text-color;
+        
+    }
 }
 .control-label {
     color: $label-color;
@@ -161,10 +163,9 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
         padding-left: 7px;
         padding-top: 3px;
     }
-    .icon-iconyonghumorentouxiang{
+    .icon-iconyonghumorentouxiang {
         font-size: 17px;
     }
-
     .icon-jiantou {
         position: absolute;
         right: 0;
@@ -262,14 +263,15 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
         color: $footer-color !important;
 
         .social-icon {
-            a:hover{
+            a:hover {
                 .iconfont {
                     color: darken($footer-color, 10) !important;
                 }
             }
             .iconfont {
                 color: $footer-color !important;
-                &:hover{
+
+                &:hover {
                     color: darken($footer-color, 10) !important;
                 }
             }
@@ -282,6 +284,7 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
     height: 32px;
     min-height: 32px;
     margin-top: 10px;
+    margin-bottom: 0px;
 
     .nav-wrapper {
         width: 960px;
@@ -290,16 +293,17 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
     }
     .nav-item {
         &:first-child {
-            margin-left: 50px;
+            // margin-left: 50px;
         }
         &.active, &:hover {
             background-color: #899092;
         }
-        // @extend .pointer;
         height: inherit;
         padding: 6px 15px;
         color: white;
         display: inline-block;
+        padding-top: 7px;
+        margin-top: -1px;
     }
 }
 // for timepicker
@@ -321,16 +325,15 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
         content: "\e605";
     }
 }
-
-.datepicker-days .day.active, .datepicker-months .month.active{
+.datepicker-days .day.active, .datepicker-months .month.active {
     background-color: $main-color !important;
     background-image: none !important;
-} 
-
-[contentEditable=true]:empty:not(:focus):before{
-    content:attr(data-ph);
-    color:lighten(grey, 10);
 }
+[contentEditable=true]:empty:not(:focus):before {
+    content: attr(data-ph);
+    color: lighten(grey, 10);
+}
+
 /* Turn on custom 8px wide scrollbar */
 ::-webkit-scrollbar {
     width: 10px; /* 1px wider than Lion. */
@@ -361,4 +364,3 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
     background: rgba(0, 0, 0, 0.61); /* Some darker color when you click it */
     -webkit-border-radius: 100px;
 }
-
