@@ -7,16 +7,11 @@
                 'click .fa-check-circle': 'feature'
             },
             className: 'story-item text-center col-xs-6 col-sm-3 col-md-2',
-            template: '<div class="cover img" data-bg-src="{{data.coverImage}}"></div>' +
-                      '<p class="small">{{formatted_date}}</p>' +
-                      '<p class="name">{{name}}</p>' +
-                      '<p class="{{#featured}}text-primary{{/featured}}">{{progress}} <i class="fa fa-lg fa-check-circle"></i></p>' +
-                      '<p>{{owner}}</p>' +
-                      '<p class="title">{{title}}</p>',
+            template: $('#template-story-item').html(),
             serializeData: function() {
                 var data = this.model ? this.model.toJSON() : {};
-                //data.formatted_date = (new Date(data.time_created + '+0800')).toLocaleString();
                 data.formatted_date = moment(data.time_created).format('YYYY-MM-DD HH:mm');
+                data.likes = data.likes || 0;
                 return data;
             },
             onClick: function() {
