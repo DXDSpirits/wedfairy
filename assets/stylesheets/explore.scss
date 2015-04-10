@@ -32,34 +32,45 @@
     }
     .story-container {
         margin-top: 15px;
-        width: 860px;
-        height: 780px;
+        width: 960px;
+        height: 600px;
 
-        .col-md-3 {
+        .story-item {
             padding: 0px;
+            margin-bottom: 30px;
         }
         .story-shower {
-            width: 200px;
-            height: 220px;
+            width: 215px;
+            height: 280px;
             background-color: white;
             border-radius: 4px;
             padding-top: 12px;
 
+            .story-title {
+                width: 190px;
+                height: 45px;
+                margin-left: 12px;
+                margin-top: 8px;
+                border-bottom: 1px solid rgba($border-color, .5);
+            }
             .story-cover {
-                width: 176px;
-                height: 176px;
+                width: 190px;
+                height: 190px;
                 margin-left: 12px;
                 margin-bottom: 2px;
-                background-color: whitesmoke;
+                @extend .pointer;                
             }
             .extra-info {
                 font-size: 12px;
                 padding-left: 12px;
                 padding-top: 3px;
-                span{
+                .icon-container{
                     margin-right: 5px;
                 }
 
+                span {
+                    margin-right: 5px;
+                }
                 .iconfont {
                     font-size: 17px;
                     color: $light-text-color;
@@ -67,7 +78,43 @@
             }
         }
     }
+
+    .pagination-controller{
+          text-align: center;
+          margin-bottom: 60px;
+        .btn{
+            border-radius: 50%;
+              margin-right: 50px;
+              margin-left: 35px;
+            @include hoverable-bg($light-text-color);
+            .iconfont::before{
+                color: white;
+            }
+        }
+    }
 }
+.scene-type-icon {
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+}
+
+[data-scene-type=friendship]{
+    background-image: url('/assets/images/scene/confidante.png');
+}
+[data-scene-type=wedding]{
+    background-image: url('/assets/images/scene/wedding.png');
+}
+[data-scene-type=lover]{
+    background-image: url('/assets/images/scene/lover.png');
+}
+[data-scene-type*='idol']{
+    background-image: url('/assets/images/scene/idol.png');
+}
+[data-scene-type=yearbook]{
+    background-image: url('/assets/images/scene/personal.png');
+}
+
 html, body {
     // background-color: white;
     font-family: "Microsoft YaHei", 微软雅黑, "Microsoft JhengHei", 华文细黑, STHeiti, MingLiu;

@@ -53,7 +53,7 @@
     </div>
 
     <div class="body">
-        <div class="filter-container">
+        <div class="filter-container view-hide">
             <div class="scene-filter filter">
                 <div class="selected-scene">故事场景</div>
                 <div class="scene-filter-shower">
@@ -77,7 +77,8 @@
         </div>
 
         <div class="pagination-controller">
-
+            <div class="btn prev-btn"><i class="iconfont icon-back"></i></div>
+            <div class="btn next-btn"><i class="iconfont icon-right"></i></div>
 
         </div>
 
@@ -85,6 +86,12 @@
         
     </div>
     <% include page/footer %>
+    <div class="view-hide template-view">
+        <% include template/explore-story-template %>
+
+    </div>
+
+
     <!-- Content Ends Here -->
     <script src="<%= tat_static %>javascripts/vendor/jquery-2.1.1.min.js"></script>
     <script src="<%= tat_static %>javascripts/vendor/underscore.min.js"></script>
@@ -95,6 +102,6 @@
     <script src="<%= tat_static %>javascripts/plugins/skrollr.min.js"></script>
     <!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
     <script src="<%= tat_static %>javascripts/amour.js?v=<%= build_no %>"></script>
-    <script src="<%= static_url %>javascripts/home.js?v=<%= build_no %>"></script>
+    <script src="<%= static_url %>javascripts/explore.js?v=<%= build_no %>"></script>
 </body>
 </html>
