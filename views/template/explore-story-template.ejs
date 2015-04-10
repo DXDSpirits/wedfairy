@@ -1,10 +1,14 @@
 <div id="explore-story-template">
     <div class="story-shower">
-        <div class="story-cover" data-bg-src="{{data.coverImage}}"></div>
+        <div class="story-cover img" data-bg-src="{{data.coverImage}}"></div>
+        <div class="story-title">{{title}}</div>
+
         <div class="extra-info">
-            <span><i class="iconfont icon-yanjing"></i> 1222</span>
-            <span><i class="iconfont icon-shixinxinxing"></i> 2333</span>
-            <span class="scene-type-icon"data-scene-type=""></span>
+            <div class="icon-container pull-right">
+            <span><i class="iconfont icon-yanjing"></i> <span>1222</span></span>
+            <span><i class="iconfont icon-shixinxinxing"></i> <span>2333</span></span>
+            </div>
+            <div class="scene-type-icon" data-scene-type="{{schemaName}}"></div>
         </div>
     </div>
 </div>
