@@ -18,34 +18,61 @@
 
     #wed-carousel {
         height: 420px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+
+        .slide-img {
+            height: 420px;
+            width: 100%;
+        }
     }
     .filter-container {
         padding-bottom: 15px;
         border-bottom: 1px solid rgba($border-color, .5);
+        // max-width: 960px;
+
+        max-width: 960px;
+        margin: 0 auto;
 
         .filter {
-            padding: 10px;
+            color: $label-color;
+            border-radius: 1px;
+            padding: 20px;
             padding-bottom: 8px;
+            padding-top: 11px;
             background-color: white;
             display: inline-block;
+            margin-left: 12px;
             @extend .pointer;
+            box-shadow: 0 0px 1px rgba(0, 0, 0, 0.2);
+            .iconfont::before{
+                @include hoverable($label-color);
+            }
         }
-        .filter-menu{
-              display: none;
-              position: absolute;
-              width: 92.5px;
-              background-color: white;
-              z-index: 10;
-              margin-left: -10px;
-              a{
-                  padding: 10px 30px;
-              }
+        .filter-menu {
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+            margin-top: 9px;
+            display: none;
+            position: absolute;
+            width: 112.5px;
+            background-color: white;
+            z-index: 10;
+            margin-left: -20px;
+            padding-bottom: 10px;
+            padding-top: 9px;
+
+            a {
+                font-size: 12px;
+                padding: 10px 20px;
+                @include hoverable($light-text-color);
+            }
         }
-        .icon-jiantou{
-              font-size: 13px;
-              &::before{
+        .icon-jiantou {
+            font-size: 13px;
+
+            &::before {
                 color: $light-text-color;
-              }
+            }
         }
     }
     .story-container {
@@ -55,7 +82,6 @@
         // height: 600px;
         margin-bottom: 40px;
         min-height: 600px;
-
 
         .story-item {
             padding: 0px;
@@ -67,14 +93,18 @@
             background-color: white;
             border-radius: 4px;
             padding-top: 12px;
-              margin: 0 auto;
+            margin: 0 auto;
+            box-shadow: 0 0px 1px rgba(0, 0, 0, 0.2);
 
             .story-title {
+                color: $label-color;
                 width: 190px;
-                height: 45px;
+                height: 42px;
                 margin-left: 12px;
-                margin-top: 8px;
+                margin-top: 6px;
                 border-bottom: 1px solid rgba($border-color, .5);
+                font-size: 12px;
+                padding-left: 5px;
             }
             .story-cover {
                 width: 190px;
@@ -84,6 +114,7 @@
                 @extend .pointer;
             }
             .extra-info {
+                color: $label-color;
                 font-size: 12px;
                 padding-left: 12px;
                 padding-top: 3px;
@@ -96,8 +127,9 @@
                 }
                 .iconfont {
                     font-size: 17px;
-                    &::before{
-                        color: $light-text-color;
+
+                    &::before {
+                        color: #BBBBBB;
                     }
                 }
             }
@@ -109,10 +141,12 @@
         left: 50%;
         margin-top: -365px;
         margin-left: -540px;
-        @include hoverable-bg($light-text-color);
+        width: 46px;
+        height: 45px;
+        @include hoverable-bg(lighten($light-text-color, 10));
 
         &.next-btn {
-            margin-left: 470px;
+            margin-left: 490px;
         }
         .iconfont::before {
             color: white;
@@ -120,14 +154,15 @@
     }
 }
 .scene-type-icon {
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     background-size: cover;
-    &::before{
-        content:attr(title); 
-        display:none; 
-    }
+    margin-top: -4px;
 
+    &::before {
+        content: attr(title);
+        display: none;
+    }
     &:hover::before {
         display: block;
         background: white;
@@ -140,34 +175,33 @@
         position: absolute;
     }
 }
-
 [data-scene-type=friendship] {
-    &::before{
-        content:'友情故事'; 
+    &::before {
+        content: '友情故事';
     }
     background-image: url('/assets/images/scene/confidante.png');
 }
 [data-scene-type=wedding] {
-    &::before{
-        content:'婚礼邀请函'; 
+    &::before {
+        content: '婚礼邀请函';
     }
     background-image: url('/assets/images/scene/wedding.png');
 }
 [data-scene-type=lover] {
-    &::before{
-        content:'爱人故事'; 
+    &::before {
+        content: '爱人故事';
     }
     background-image: url('/assets/images/scene/lover.png');
 }
 [data-scene-type*='idol'] {
-    &::before{
-        content:'偶像故事'; 
+    &::before {
+        content: '偶像故事';
     }
     background-image: url('/assets/images/scene/idol.png');
 }
 [data-scene-type=yearbook] {
-    &::before{
-        content:'新年书'; 
+    &::before {
+        content: '新年书';
     }
     background-image: url('/assets/images/scene/personal.png');
 }
@@ -179,7 +213,6 @@ html, body {
 body {
     background-color: $background-color;
     @extend .center;
-    @extend .container;
     padding-top: 1px;
 }
 a {
@@ -292,13 +325,14 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
 }
 .body {
     margin: 0 auto;
+    @extend .container;
 }
 .header {
     margin-top: -8px;
 }
 .logo-container {
     margin-left: 20px;
-    margin-top: 10px;
+    margin-top: 12px;
 }
 .avatar-container {
     position: absolute;
@@ -386,7 +420,7 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
             padding-left: 45px;
         }
         .footer-item {
-            color: $footer-color !important;
+            color: white !important;
             padding-top: 15px;
 
             .qr-container {
@@ -404,7 +438,7 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
                 }
             }
             a {
-                @include hoverable($footer-color);
+                @include hoverable(white);
             }
         }
     }
@@ -412,9 +446,14 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
         padding-top: 11px;
         width: 100%;
         height: 70px;
-        border-top: 3px solid $footer-color;
+        border-top: 1px solid rgba($footer-color, .5);
         text-align: center;
         color: $footer-color !important;
+        max-width: 540px;
+        margin: 0 auto;
+        .copyright-text{
+            font-size: 12px;
+        }
 
         .social-icon {
             a:hover {
@@ -424,6 +463,8 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
             }
             .iconfont {
                 color: $footer-color !important;
+                margin-left: 15px;
+                margin-right: 10px;
 
                 &:hover {
                     color: darken($footer-color, 10) !important;

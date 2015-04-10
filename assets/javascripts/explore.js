@@ -24,8 +24,16 @@ $(function() {
             },
             onClick: function() {
                 window.open('http://wedfairy.com/story/' + this.model.get('name'), '_blank');
-            }
-        })
+            },
+
+        }),
+        addAll: function(_collection, options) {
+            var self = this;
+            self.$el.fadeOut(function(){
+                Amour.CollectionView.prototype.addAll.call(self, _collection, options);
+                self.$el.fadeIn();
+            })
+        }
     });
 
     var stories = new(Amour.Collection.extend({
