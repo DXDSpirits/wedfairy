@@ -5,6 +5,7 @@ $(function() {
     var curPage = 1;
     var totoalPage = 1;
     var isFetching = false;
+    var sceneFilter = null;
 
     var StoryGalleryView = Amour.CollectionView.extend({
         ModelView: Amour.ModelView.extend({
@@ -54,13 +55,13 @@ $(function() {
 
     function showPagination(){
         // show pagination if necessary
-        $('.pagination-controller .btn').css("visibility" ,"visible");
+        $('.pagination-btn').css("visibility" ,"visible");
         if(curPage == 1){
-            $('.pagination-controller .prev-btn').css("visibility" ,"hidden");
+            $('.prev-btn').css("visibility" ,"hidden");
         }
 
         if(!stories.next && curPage == totoalPage){
-            $('.pagination-controller .next-btn').css("visibility" ,"hidden");
+            $('.next-btn').css("visibility" ,"hidden");
         }
 
     }
@@ -82,6 +83,7 @@ $(function() {
             isFetching = true;
             stories.fetchNext({
                 remove: false, 
+                data: {schema: sceneFilter},
                 success: function() {
                     isFetching = false;
                     totoalPage = ((stories.length-1)/8 | 0) + 1;
@@ -130,8 +132,41 @@ $(function() {
 
 
     // backbone router stuff
+    var ROUTER = new (Backbone.Router.extend({
+        routes: {':schemaFilter': 'schemaFilter'},
+        schemaFilter: function(filterName){
+            console.log(filterName);
+            $('.scene-filter-menu').hide();
+            if(filterName == "all"){
+                filterName = null;
+            }
+            sceneFilter = filterName;
+            stories.fetch({
+                data:{schema: filterName},
+                reset: true,
+                silent: true,
+                success: function(){
+                    curPage = 1;
+                    totoalPage = ((stories.length-1)/8 | 0) + 1;
+                    Backbone.trigger("render");
+                }                
+            });
+
+        }
+    }))()
 
 
-
+    Backbone.history.start()
 
 })
+
+
+
+
+
+
+
+
+
+
+
