@@ -31,10 +31,13 @@
         }
     }
     .story-container {
+        margin: 0 auto;
         margin-top: 15px;
-        width: 960px;
-        height: 600px;
+        max-width: 960px;
+        // height: 600px;
         margin-bottom: 40px;
+        min-height: 600px;
+
 
         .story-item {
             padding: 0px;
@@ -46,6 +49,7 @@
             background-color: white;
             border-radius: 4px;
             padding-top: 12px;
+              margin: 0 auto;
 
             .story-title {
                 width: 190px;
@@ -157,6 +161,7 @@ html, body {
 body {
     background-color: $background-color;
     @extend .center;
+    @extend .container;
     padding-top: 1px;
 }
 a {
@@ -268,8 +273,6 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
     content: "\e606";
 }
 .body {
-    width: 960px;
-    min-width: 960px;
     margin: 0 auto;
 }
 .header {
@@ -359,7 +362,7 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
     .footer-link-container {
         margin: 0 auto;
         height: 130px;
-        width: 540px;
+        max-width: 540px;
 
         .qr-section {
             padding-left: 45px;

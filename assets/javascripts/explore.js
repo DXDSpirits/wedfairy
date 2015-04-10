@@ -10,7 +10,7 @@ $(function() {
             events: {
                 'click .story-cover': 'onClick'
             },
-            className: 'col-md-3 story-item',
+            className: 'col-xs-12 col-sm-4 col-md-3 story-item',
             template: $("#explore-story-template").html(),
 
             serializeData: function() {
