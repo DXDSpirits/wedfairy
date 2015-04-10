@@ -4,6 +4,7 @@ $(function() {
 
     var curPage = 1;
     var totoalPage = 1;
+    var isFetching = false;
 
     var StoryGalleryView = Amour.CollectionView.extend({
         ModelView: Amour.ModelView.extend({
@@ -78,9 +79,12 @@ $(function() {
         }
         if(curPage == totoalPage && stories.next ){
             needRender = false;
+            isFetching = true;
             stories.fetchNext({
                 remove: false, 
                 success: function() {
+                    isFetching = false;
+                    totoalPage = ((stories.length-1)/8 | 0) + 1;
                     Backbone.trigger("render");
                 }
             });    
@@ -91,6 +95,41 @@ $(function() {
         }
 
     })
+
+    $(document).on('click', '.scene-filter .selected-scene', function(){
+        var $menu = $('.scene-filter-menu');
+        if($menu.is(":visible")){
+            $menu.hide();
+        }else{
+            $menu.show();
+        }
+
+    })
+
+
+    // infinite scroll
+    if(!$(".pagination-btn").is(":visible")){
+        Backbone.off("render");
+        Backbone.on("render", function(){
+            renderStories.reset(stories.models);
+        })
+
+
+        var throttle = function() {
+            var scrollTop = $(window).scrollTop();
+            if(isFetching){
+                _.delay(throttle, 200);
+            }
+            if ($(window).scrollTop() + $(window).height() >= $('body').height() - 150) {
+                $('.next-btn').click();
+            }
+        };
+        $(window).scroll(throttle);
+    }
+
+
+
+    // backbone router stuff
 
 
 
