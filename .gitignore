@@ -29,6 +29,7 @@ node_modules
 .sass-cache
 *.css
 !assets/stylesheets/vendor/*.css
+!assets/fonts/iconfont.css
 
 # JavaScripts
 assets/javascripts/*-built.js
