@@ -125,7 +125,8 @@ $(function() {
             $('.scene-filter-menu').hide();
             $('.scene-filter-menu a').removeClass('active');
             $('.scene-filter-menu [filter-name=' + filterName +"]").addClass("active");
-            if(filterName == "all"){
+            
+            if(filterName == "all"){ // 'all' means we do not need schema-filter
                 filterName = null;
             }
             sceneFilter = filterName;

@@ -5,44 +5,18 @@
     50% { @include transform(translate3d(0,-7px,0)); }
 }
 
-@include keyframes(drumming-up) {
-     0% { background-position: right 0px; }
-    95% { background-position: right 5px; }
-}
-
-@include keyframes(soar-fairy-fire) {
-     50% { @include transform(rotate(5deg)); }
-}
-
-@include keyframes(soar-fairy-air) {
-      0% { @include transform(translate3d( 0px, 0px,0px)); }
-     20% { @include transform(translate3d( 5px, 6px,0px)); }
-     40% { @include transform(translate3d(10px, 0px,0px)); }
-     60% { @include transform(translate3d(15px, 8px,0px)); }
-     80% { @include transform(translate3d(20px, 0px,0px)); }
-    100% { @include transform(translate3d(25px,10px,0px)); }
-}
-
-@include keyframes(fairyAnim) {
-        0% { background-position:     0px 0px; }
-    16.67% { background-position:  -100px 0px; }
-    33.33% { background-position:  -200px 0px; }
-       50% { background-position:  -300px 0px; }
-    66.67% { background-position:  -400px 0px; }
-    83.33% { background-position:  -500px 0px; }
-      100% { background-position:  -600px 0px; }
-}
 
 /******************************************************************************/
 
 #view-hero {
     height: 100%;
     z-index: 2;
-    background-color: $blue-sky;
-    color: $brown-text;
+    color: white;
+    height: 500px;
+    margin-top: -55px;
+    padding-top: 100px;
     > header {
         position: relative;
-        margin-top: 200px;
         padding: 0 20px;
         .slogan {
             margin-top: 30px;
@@ -64,16 +38,7 @@
             }
         }
     }
-    .fairy-fire {
-        position: absolute;
-        height: 80px;
-        width: 80px;
-        top: -30px;
-        left: 50%;
-        margin-left: -200px;
-        //@include animation(soar-fairy-fire 4s ease-in-out infinite);
-        //@include transform-origin(30% 100%);
-    }
+
     .compose-button {
         background-color: $red-coral;
         color: #fff;
@@ -102,77 +67,8 @@
             width: 44px;
         }
     }
-    .fairy-air-wrapper {
-        position: absolute;
-        left: 70%;
-        top: 20%;
-        //@include animation(soar-fairy-air 6s linear alternate infinite);
-    }
-    .fairy-air {
-        height: 200px;
-        width: 200px;
-        background-position: 0 0;
-        //@include animation(fairyAnim 1s step-start infinite);
-    }
-    .fairy-earth-wrapper {
-        position: absolute;
-        right: 80%;
-        bottom: 30%;
-        //@include animation(soar-fairy-air 6s linear alternate infinite);
-    }
-    .fairy-earth {
-        height: 80px;
-        width: 80px;
-    }
-    .laputa-wrapper {
-        position: relative;
-        z-index: -1;
-        height: 45%;
-        width: 100%;
-    }
-    .laputa, .clouds {
-        height: 100%;
-        width: 100%;
-    }
-    .clouds {
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-size: auto 100%;
-    }
-    .laputa {
-        @include animation(soar 4s ease-in-out infinite);
-    }
-    .scroll-down {
-        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAdCAYAAABMr4eBAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2REU5RUIxRThEMDMxMUUyQjcyREZBMkZDNzQyOTEyNSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2REU5RUIxRjhEMDMxMUUyQjcyREZBMkZDNzQyOTEyNSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjZERTlFQjFDOEQwMzExRTJCNzJERkEyRkM3NDI5MTI1IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjZERTlFQjFEOEQwMzExRTJCNzJERkEyRkM3NDI5MTI1Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+E26VYwAAAUpJREFUeNpi+P//PwMWvBqIfwMxBw55FMzEgB08AWIWIC5iIAbgMF0EiP8C8TViXMIIInCAr1AsRsghTHjkvgExJzG+IWQIG6WGfIYGLgclhjwEYkYglqTEkLdQQ6QpMeQplBamxJA3UJqiMHkCpeUpMQQGuCkx5Dk1DPkHpSlK9t9B+RMazRTHDj81ApaHGENsgFgAi9x7qHeIKpT+APF7IGbDUuCACqazeAokFiD2BzH2/oeAezgMuYSn9PsAUgMTuAM1aDeawt84DDEF4u9QS8qRnQXy0j8g7iBgSCxU/CcQu4KLVyRJcajpoDAyh4r9QjOkD2r7FyCWh4mjO9MNSREbmiGboS59A8Q8yPqwBdhaaPicRjLkAtSA+0DMhK4HV9S9grroN5QGGXACV1TjMkQPGjb/oQYsw1d54avZLkC9U0yoBgQIMABaPbNTu/+xIAAAAABJRU5ErkJggg==');
-        background-size: auto 35px;
-        background-repeat: no-repeat;
-        background-position: right;
-        height: 40px;
-        padding-top: 10px;
-        padding-right: 30px;
-        position: absolute;
-        bottom: 100px;
-        right: 100px;
-        color: #fff;
-        @include animation(drumming-up .8s linear infinite);
-    }
-    .story-star {
-        @include transition(all 2s ease-in-out);
-        position: absolute;
-        z-index: -1;
-        left: 70%;
-        top: 20%;
-        width: 50px;
-        height: 50px;
-        margin-left: 100px;
-        margin-top: 135px;
-        background: image-url("home/star-dark.svg") no-repeat center;
-        background-size: contain;
-        &.dropping {
-            top:120%;
-            left:65%;
-            @include transition(all 5s ease-in-out);
-        }
-    }
+
+
+    
+   
 }
