@@ -51,7 +51,7 @@ $(function() {
         addAll: function(_collection, options) {
             var self = this;
             console.log("add all")
-            $(".loading").css("visibility", "visible");
+            
             _.delay(function(){
                 Amour.CollectionView.prototype.addAll.call(self, _collection, options);
                 $(".loading").css("visibility", "hidden");
@@ -98,7 +98,7 @@ $(function() {
 
     Backbone.on('next-page', function(){
         var needRender = false;
-
+        $(".loading").css("visibility", "visible");
         if(curPage < totoalPage ){
             curPage ++;
             needRender = true;
@@ -115,6 +115,10 @@ $(function() {
                     // Backbone.trigger("render");
                 }
             });    
+        }
+
+        if(!stories.next){
+            $(".loading").css("visibility", "hidden");
         }
 
         if(needRender){
