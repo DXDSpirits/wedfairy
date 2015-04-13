@@ -15,15 +15,6 @@ $(function() {
             }, wait);
         }
     }
-
-    // _.repeat(function(){
-    //     console.log("imscolling")
-    //     var scrollTop = $(window).scrollTop();
-    //     $(window).scrollTop(scrollTop - 1);
-    //     $(window).scrollTop(scrollTop);
-    // }, 200);
-
-
     
 
     var StoryGalleryView = Amour.CollectionView.extend({
@@ -44,17 +35,16 @@ $(function() {
             onClick: function() {
                 window.open('http://wedfairy.com/story/' + this.model.get('name'), '_blank');
             },
-
         }),
-        addAll: function(_collection, options) {
+        addOne: function(item){
+            console.log("add one");
             var self = this;
-            console.log("add all")
-            
             _.delay(function(){
-                Amour.CollectionView.prototype.addAll.call(self, _collection, options);
+                Amour.CollectionView.prototype.addOne.call(self, item);
                 $(".loading").css("visibility", "hidden");
             }, 500)
-        }
+        },
+       
     });
 
     var stories = new(Amour.Collection.extend({
@@ -113,7 +103,7 @@ $(function() {
             console.log("delay");
             return ;
         }
-        if ($(window).scrollTop() + $(window).height() >= $('body').height() - 150) {
+        if ($(window).scrollTop() + $(window).height() >= $('body').height() - 50) {
             // console.log("trigger");
             // console.log("isFetching:"+ isFetching);
             Backbone.trigger('next-page');
