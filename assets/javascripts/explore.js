@@ -7,6 +7,28 @@ $(function() {
     var isFetching = false;
     var sceneFilter = null;
 
+    _.repeat = function(func, wait) {
+        var wait = wait || 1000;
+
+        function _wrapper() {
+            func();
+            _.delay(function() {
+                _wrapper();
+            }, wait);
+        }
+        _wrapper();
+    }
+
+    // _.repeat(function(){
+    //     console.log("imscolling")
+    //     var scrollTop = $(window).scrollTop();
+    //     $(window).scrollTop(scrollTop - 1);
+    //     $(window).scrollTop(scrollTop);
+    // }, 200);
+
+
+    
+
     var StoryGalleryView = Amour.CollectionView.extend({
         ModelView: Amour.ModelView.extend({
             events: {
@@ -27,13 +49,13 @@ $(function() {
             },
 
         }),
-        addAll: function(_collection, options) {
-            var self = this;
-            self.$el.fadeOut(function(){
-                Amour.CollectionView.prototype.addAll.call(self, _collection, options);
-                self.$el.fadeIn();
-            })
-        }
+        // addAll: function(_collection, options) {
+        //     var self = this;
+        //     self.$el.fadeOut(function(){
+        //         Amour.CollectionView.prototype.addAll.call(self, _collection, options);
+        //         self.$el.fadeIn();
+        //     })
+        // }
     });
 
     var stories = new(Amour.Collection.extend({
@@ -54,11 +76,11 @@ $(function() {
         Backbone.trigger("render");
     });
 
-    Backbone.on("render", function(){
-        totoalPage = ((stories.length-1)/8 | 0) + 1;
-        renderStories.reset(stories.slice(curPage*8-8,curPage*8));
-        showPagination();
-    })
+    // Backbone.on("render", function(){
+    //     totoalPage = ((stories.length-1)/8 | 0) + 1;
+    //     renderStories.reset(stories.slice(curPage*8-8,curPage*8));
+    //     showPagination();
+    // })
 
 
     function showPagination(){
@@ -74,12 +96,9 @@ $(function() {
 
     }
 
-    $(document).on('click', '.prev-btn', function(){
-        curPage --;
-        Backbone.trigger("render");
-    })
 
-    $(document).on('click', '.next-btn', function(){
+
+    Backbone.on('next-page', function(){
         var needRender = false;
 
         if(curPage < totoalPage ){
@@ -118,24 +137,25 @@ $(function() {
 
 
     // infinite scroll
-    if(!$(".pagination-btn").is(":visible")){
-        Backbone.off("render");
-        Backbone.on("render", function(){
-            renderStories.reset(stories.models);
-        })
+    Backbone.on("render", function(){
+        renderStories.reset(stories.models);
+    })
 
 
-        var throttle = function() {
-            var scrollTop = $(window).scrollTop();
-            if(isFetching){
-                _.delay(throttle, 200);
-            }
-            if ($(window).scrollTop() + $(window).height() >= $('body').height() - 150) {
-                $('.next-btn').click();
-            }
-        };
-        $(window).scroll(throttle);
-    }
+    var throttle = function() {
+        var scrollTop = $(window).scrollTop();
+        if(isFetching){
+            console.log("delay");
+            _.delay(throttle, 0);
+            return ;
+        }
+        if ($(window).scrollTop() + $(window).height() >= $('body').height() - 150) {
+            console.log("trigger");
+            console.log("isFetching:"+ isFetching);
+            Backbone.trigger('next-page');
+        }
+    };
+    _.repeat(throttle, 200);
 
 
 
