@@ -3,7 +3,7 @@
     z-index: 3;
     top: 100%;
     background-color: $content-bg-color;
-    box-shadow: 0 0 10px rgba(darken($content-bg-color, 10%), 0.9);
+    // box-shadow: 0 0 10px rgba(darken($content-bg-color, 10%), 0.9);
     padding: 80px 0;
     @media (max-width: $screen-md-max) {
         padding: 50px 0;
