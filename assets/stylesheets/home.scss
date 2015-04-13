@@ -1,6 +1,7 @@
 @import "bourbon/bourbon";
 
 @import "variables";
+@import "page/variables";
 
 /******************************************************************************/
 
@@ -9,10 +10,11 @@
 @import "home/products";
 @import "home/features";
 
-@import "page/variables";
+
 @import "page/utils";
 @import "page/footer";
 @import "home/header";
+@import "sprite/spritestyle";
 
 .footer{
     position: fixed;
