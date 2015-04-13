@@ -31,34 +31,41 @@
         padding-bottom: 15px;
         border-bottom: 1px solid rgba($border-color, .5);
         // max-width: 960px;
-
         max-width: 960px;
         margin: 0 auto;
 
         .filter {
             color: $label-color;
             border-radius: 1px;
-            padding: 20px;
-            padding-bottom: 8px;
-            padding-top: 11px;
+            // padding: 20px;
+            // padding-bottom: 8px;
+            // padding-top: 11px;
             background-color: white;
             display: inline-block;
             margin-left: 12px;
             @extend .pointer;
             box-shadow: 0 0px 1px rgba(0, 0, 0, 0.2);
-            .iconfont::before{
+
+            .iconfont::before {
                 @include hoverable($label-color);
             }
         }
+        .selected-scene {
+            width: 112.5px;
+            // padding-left: 20px;
+            padding-top: 11px;
+            padding-bottom: 8px;
+            padding-left: 20px;
+        }
         .filter-menu {
             box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-            margin-top: 9px;
+            margin-top: 1px;
             display: none;
             position: absolute;
             width: 112.5px;
             background-color: white;
             z-index: 10;
-            margin-left: -20px;
+            margin-left: 0px;
             padding-bottom: 10px;
             padding-top: 9px;
 
@@ -70,7 +77,8 @@
                 width: inherit;
                 color: $light-text-color;
                 @include hoverable-bg(white);
-                &.active{
+
+                &.active {
                     background-color: darken(white, 10) !important;
                 }
             }
@@ -411,7 +419,6 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
         }
     }
 }
-
 .navbar, .footer {
     background-color: $navbar-bg-color;
     border-radius: 0px;
