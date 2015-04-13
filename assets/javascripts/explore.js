@@ -163,8 +163,11 @@ $(function() {
 
     // backbone router stuff
     var ROUTER = new (Backbone.Router.extend({
-        routes: {':schemaFilter': 'schemaFilter'},
+
+        routes: {':schemaFilter': 'schemaFilter',
+                '': 'schemaFilter'},
         schemaFilter: function(filterName){
+            var filterName = filterName || "all";
             // console.log(filterName);
             $('.scene-filter-menu').hide();
             $('.scene-filter-menu a').removeClass('active');
