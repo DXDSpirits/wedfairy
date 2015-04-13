@@ -65,6 +65,29 @@
                     color: darken($footer-color, 10) !important;
                 }
             }
+
+            .weixin-container{
+                cursor: pointer;
+                display: inline-block;
+                //border-radius: 10px;
+                //border: 1px solid #fff;
+                @include transition(all .35s ease-in-out);
+                text-align: center;
+                height: 41px;
+                width: 41px;
+
+                &:hover{
+
+                    @include transition(transform .1s ease-in-out);
+                    @include transform(scale(3, 3));
+                    @include transform-origin(0% 120%);
+                    background: image-url("weixin-qrcode.jpg") no-repeat center;
+                    background-size: 43px 43px;
+                    border-radius: 0;
+                    border-color: rgba(#fff,0);
+                    .icon-weixin { visibility: hidden; }
+                }
+            }
         }
     }
 }
