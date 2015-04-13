@@ -16,6 +16,9 @@
 //
 #explore {
     color: $light-text-color;
+    .loading{
+        visibility: hidden;
+    }
 
     #wed-carousel {
         height: 420px;

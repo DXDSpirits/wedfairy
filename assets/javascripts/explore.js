@@ -10,13 +10,12 @@ $(function() {
     _.repeat = function(func, wait) {
         var wait = wait || 1000;
 
-        function _wrapper() {
+        return function _wrapper() {
             func();
             _.delay(function() {
                 _wrapper();
             }, wait);
         }
-        _wrapper();
     }
 
     // _.repeat(function(){
@@ -49,13 +48,15 @@ $(function() {
             },
 
         }),
-        // addAll: function(_collection, options) {
-        //     var self = this;
-        //     self.$el.fadeOut(function(){
-        //         Amour.CollectionView.prototype.addAll.call(self, _collection, options);
-        //         self.$el.fadeIn();
-        //     })
-        // }
+        addAll: function(_collection, options) {
+            var self = this;
+            console.log("add all")
+            $(".loading").css("visibility", "visible");
+            _.delay(function(){
+                Amour.CollectionView.prototype.addAll.call(self, _collection, options);
+                $(".loading").css("visibility", "hidden");
+            }, 500)
+        }
     });
 
     var stories = new(Amour.Collection.extend({
@@ -70,11 +71,8 @@ $(function() {
         el: $('.story-container')
     });
 
-    stories.fetch();
+    // stories.fetch();
 
-    stories.on('reset add', function() {
-        Backbone.trigger("render");
-    });
 
     // Backbone.on("render", function(){
     //     totoalPage = ((stories.length-1)/8 | 0) + 1;
@@ -110,11 +108,11 @@ $(function() {
             isFetching = true;
             stories.fetchNext({
                 remove: false, 
-                data: {schema: sceneFilter},
+                // data: {schema: sceneFilter},
                 success: function() {
                     isFetching = false;
                     totoalPage = ((stories.length-1)/8 | 0) + 1;
-                    Backbone.trigger("render");
+                    // Backbone.trigger("render");
                 }
             });    
         }
@@ -146,16 +144,16 @@ $(function() {
         var scrollTop = $(window).scrollTop();
         if(isFetching){
             console.log("delay");
-            _.delay(throttle, 0);
             return ;
         }
         if ($(window).scrollTop() + $(window).height() >= $('body').height() - 150) {
-            console.log("trigger");
-            console.log("isFetching:"+ isFetching);
+            // console.log("trigger");
+            // console.log("isFetching:"+ isFetching);
             Backbone.trigger('next-page');
         }
     };
-    _.repeat(throttle, 200);
+    var _run = _.repeat(throttle, 200);
+    _run();
 
 
 
