@@ -86,7 +86,7 @@
             });
         }
 
-        var p = parseInt($('#global-footer').outerHeight() / winh * 100);
+        var p = parseInt($('.footer').outerHeight() / winh * 100);
         $('#view-features').attr('data-_leave_features', 'transform:translate3d(0,-' + p + '%,0);')
     }
 

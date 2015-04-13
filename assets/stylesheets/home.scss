@@ -9,5 +9,17 @@
 @import "home/products";
 @import "home/features";
 
-@import "home/footer";
+@import "page/variables";
+@import "page/utils";
+@import "page/footer";
 @import "home/header";
+
+.footer{
+    position: fixed;
+    z-index: 0;
+    bottom:0;
+    left:0;
+    width:100%;
+    overflow: hidden;
+    padding-top: 20px;
+}

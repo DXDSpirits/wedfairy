@@ -429,7 +429,7 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
         }
     }
 }
-.navbar, .footer {
+.navbar{
     background-color: $navbar-bg-color;
     border-radius: 0px;
     height: 32px;
