@@ -145,6 +145,8 @@ $(function() {
         schemaFilter: function(filterName){
             console.log(filterName);
             $('.scene-filter-menu').hide();
+            $('.scene-filter-menu a').removeClass('active');
+            $('.scene-filter-menu [filter-name=' + filterName +"]").addClass("active");
             if(filterName == "all"){
                 filterName = null;
             }

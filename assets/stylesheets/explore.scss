@@ -63,9 +63,16 @@
             padding-top: 9px;
 
             a {
+                display: inline-block;
                 font-size: 12px;
-                padding: 10px 20px;
-                @include hoverable($light-text-color);
+                padding: 6px 20px;
+                padding-top: 7px;
+                width: inherit;
+                color: $light-text-color;
+                @include hoverable-bg(white);
+                &.active{
+                    background-color: darken(white, 10) !important;
+                }
             }
         }
         .icon-jiantou {
