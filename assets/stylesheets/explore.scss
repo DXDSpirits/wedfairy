@@ -21,6 +21,8 @@
         margin-bottom: 30px;
         .icon-loading{
             display: inline-block;
+            margin-right: 6px;
+            @include transform-origin(51% 47%);
             &::before{
                 color: $navbar-bg-color;
             }

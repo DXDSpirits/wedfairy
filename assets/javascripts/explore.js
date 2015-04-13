@@ -2,8 +2,6 @@ $(function() {
 
 
 
-    var curPage = 1;
-    var totoalPage = 1;
     var isFetching = false;
     var sceneFilter = null;
 
@@ -64,46 +62,17 @@ $(function() {
         model: Amour.Models.Story
     }))();
 
-    var renderStories = new Amour.Collection();
 
     var storyGalleryView = new StoryGalleryView({
-        collection: renderStories,
+        collection: stories,
         el: $('.story-container')
     });
 
-    // stories.fetch();
-
-
-    // Backbone.on("render", function(){
-    //     totoalPage = ((stories.length-1)/8 | 0) + 1;
-    //     renderStories.reset(stories.slice(curPage*8-8,curPage*8));
-    //     showPagination();
-    // })
-
-
-    function showPagination(){
-        // show pagination if necessary
-        $('.pagination-btn').css("visibility" ,"visible");
-        if(curPage == 1){
-            $('.prev-btn').css("visibility" ,"hidden");
-        }
-
-        if(!stories.next && curPage == totoalPage){
-            $('.next-btn').css("visibility" ,"hidden");
-        }
-
-    }
-
-
 
     Backbone.on('next-page', function(){
-        var needRender = false;
         $(".loading").css("visibility", "visible");
-        if(curPage < totoalPage ){
-            curPage ++;
-            needRender = true;
-        }
-        if(curPage == totoalPage && stories.next ){
+ 
+        if(stories.next ){
             needRender = false;
             isFetching = true;
             stories.fetchNext({
@@ -111,18 +80,12 @@ $(function() {
                 // data: {schema: sceneFilter},
                 success: function() {
                     isFetching = false;
-                    totoalPage = ((stories.length-1)/8 | 0) + 1;
-                    // Backbone.trigger("render");
                 }
             });    
         }
 
         if(!stories.next){
             $(".loading").css("visibility", "hidden");
-        }
-
-        if(needRender){
-            Backbone.trigger("render");
         }
 
     })
@@ -139,9 +102,9 @@ $(function() {
 
 
     // infinite scroll
-    Backbone.on("render", function(){
-        renderStories.reset(stories.models);
-    })
+    // Backbone.on("render", function(){
+    //     renderStories.reset(stories.models);
+    // })
 
 
     var throttle = function() {
@@ -179,11 +142,8 @@ $(function() {
             stories.fetch({
                 data:{schema: filterName},
                 reset: true,
-                silent: true,
                 success: function(){
-                    curPage = 1;
-                    totoalPage = ((stories.length-1)/8 | 0) + 1;
-                    Backbone.trigger("render");
+                    // Backbone.trigger("render")
                 }                
             });
 
@@ -194,12 +154,6 @@ $(function() {
     Backbone.history.start()
 
 })
-
-
-
-
-
-
 
 
 
