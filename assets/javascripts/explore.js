@@ -143,7 +143,7 @@ $(function() {
     var ROUTER = new (Backbone.Router.extend({
         routes: {':schemaFilter': 'schemaFilter'},
         schemaFilter: function(filterName){
-            console.log(filterName);
+            // console.log(filterName);
             $('.scene-filter-menu').hide();
             $('.scene-filter-menu a').removeClass('active');
             $('.scene-filter-menu [filter-name=' + filterName +"]").addClass("active");
