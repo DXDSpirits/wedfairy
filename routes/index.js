@@ -24,6 +24,20 @@ router.get('/ranking', function(req, res) {
 
 
 
+// some static pages
+router.get('/joinus', function(req, res) {
+    res.render('page/job');
+});
+
+router.get('/contactus', function(req, res) {
+    res.render('page/contact');
+});
+
+router.get('/aboutus', function(req, res) {
+    res.render('page/about');
+});
+
+
 // explore 
 router.get('/explore', function(req, res) {
     res.render('explore');
