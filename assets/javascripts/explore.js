@@ -80,11 +80,27 @@ $(function() {
 
     })
 
+    Backbone.on("close-scene-filter-menu", (function(){
+        var $menu = $('.scene-filter-menu');
+        return function(){
+            $menu.hide();
+        }
+    })());
+
+
     $(document).on('click', '.scene-filter .selected-scene', function(){
         var $menu = $('.scene-filter-menu');
         if($menu.is(":visible")){
-            $menu.hide();
+            Backbone.trigger("close-scene-filter-menu");
         }else{
+            $("html").off("click");
+            $("html").on("click", function(e){
+                var $target = $(e.target);
+                if($target.closest(".scene-filter").length == 0 && $menu.is(":visible")){
+                    Backbone.trigger("close-scene-filter-menu");
+                    $("html").off("click");
+                }
+            });
             $menu.show();
         }
 
