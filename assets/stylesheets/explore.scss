@@ -45,6 +45,16 @@
             }
         }
 
+        .carousel-control{
+              padding-top: 175px;
+              .iconfont{
+                font-size: 40px;
+                &::before{
+                    color: white;
+                }
+              }
+        }
+
         .slide-img {
             height: 420px;
             width: 100%;
