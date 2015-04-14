@@ -121,10 +121,13 @@ $(function() {
                 '': 'schemaFilter'},
         schemaFilter: function(filterName){
             var filterName = filterName || "all";
+            var $selectedScene = $('.selected-scene');
             // console.log(filterName);
             $('.scene-filter-menu').hide();
             $('.scene-filter-menu a').removeClass('active');
-            $('.scene-filter-menu [filter-name=' + filterName +"]").addClass("active");
+            var $temp = $('.scene-filter-menu [filter-name=' + filterName +"]");
+            $temp.addClass("active");
+            $selectedScene.find(".text").html($temp.html());
             
             if(filterName == "all"){ // 'all' means we do not need schema-filter
                 filterName = null;

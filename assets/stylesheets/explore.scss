@@ -91,7 +91,8 @@
                 @include hoverable-bg(white);
 
                 &.active {
-                    background-color: darken(white, 10) !important;
+                    // background-color: darken(white, 10) !important;
+                    display: none;
                 }
             }
         }
