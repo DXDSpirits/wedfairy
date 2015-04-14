@@ -33,6 +33,17 @@
         height: 420px;
         margin-top: 5px;
         margin-bottom: 20px;
+        @media (max-width: 400px) {
+            .item:nth-child(1) .slide-img{
+                background-image: url("/assets/images/slide/0s.png") !important;
+            }
+            .item:nth-child(2) .slide-img{
+                background-image: url("/assets/images/slide/1s.png") !important;
+            }
+            .item:nth-child(3) .slide-img{
+                background-image: url("/assets/images/slide/2s.png") !important;
+            }
+        }
 
         .slide-img {
             height: 420px;
