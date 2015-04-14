@@ -1,0 +1,64 @@
+#view-community {
+    background-color: $content-bg-color;
+
+    > header {
+        padding: 20px;
+
+        h3 {
+            color: $label-color;
+        }
+        p {
+            margin-top: 30px;
+            color: $light-text-color;
+        }
+    }
+    .story-container {
+        width: 900px;
+        height: 130px;
+        padding-bottom: 30px;
+
+        .sprite {
+            transform: scale(.4) translateY(-77%);
+            margin-left: -6%;
+        }
+        .story-left-boder {
+            background-image: url("/assets/images/home/divisor.png");
+            height: 130px;
+            background-repeat: no-repeat;
+            position: absolute;
+            width: 30px;
+            background-size: cover;
+        }
+        .content {
+            height: 130px;
+            width: 750px;
+            position: absolute;
+            margin-top: -300px;
+            margin-left: 180px;
+        }
+    }
+    .story-case-cover {
+        width: 900px;
+        height: 500px;
+        margin: 0 auto;
+    }
+    .type-case-container {
+        width: 900px;
+        height: 120px;
+
+        .type-case {
+            height: 120px;
+
+            &::before {
+                background-image: url("/assets/images/home/divisor.png");
+                height: 120px;
+                background-repeat: no-repeat;
+                position: absolute;
+                width: 30px;
+                background-size: cover;
+                content: "";
+                left: 0;
+            }
+        }
+    }
+}
