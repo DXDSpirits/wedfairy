@@ -2,10 +2,20 @@ $(function() {
 
 
 
-    var curPage = 1;
-    var totoalPage = 1;
     var isFetching = false;
     var sceneFilter = null;
+
+    _.repeat = function(func, wait) {
+        var wait = wait || 1000;
+
+        return function _wrapper() {
+            func();
+            _.delay(function() {
+                _wrapper();
+            }, wait);
+        }
+    }
+    
 
     var StoryGalleryView = Amour.CollectionView.extend({
         ModelView: Amour.ModelView.extend({
@@ -25,15 +35,16 @@ $(function() {
             onClick: function() {
                 window.open('http://wedfairy.com/story/' + this.model.get('name'), '_blank');
             },
-
         }),
-        addAll: function(_collection, options) {
+        addOne: function(item){
+            console.log("add one");
             var self = this;
-            self.$el.fadeOut(function(){
-                Amour.CollectionView.prototype.addAll.call(self, _collection, options);
-                self.$el.fadeIn();
-            })
-        }
+            _.delay(function(){
+                Amour.CollectionView.prototype.addOne.call(self, item);
+                $(".loading").css("visibility", "hidden");
+            }, 500)
+        },
+       
     });
 
     var stories = new(Amour.Collection.extend({
@@ -41,67 +52,30 @@ $(function() {
         model: Amour.Models.Story
     }))();
 
-    var renderStories = new Amour.Collection();
 
     var storyGalleryView = new StoryGalleryView({
-        collection: renderStories,
+        collection: stories,
         el: $('.story-container')
     });
 
-    stories.fetch();
 
-    stories.on('reset add', function() {
-        Backbone.trigger("render");
-    });
-
-    Backbone.on("render", function(){
-        totoalPage = ((stories.length-1)/8 | 0) + 1;
-        renderStories.reset(stories.slice(curPage*8-8,curPage*8));
-        showPagination();
-    })
-
-
-    function showPagination(){
-        // show pagination if necessary
-        $('.pagination-btn').css("visibility" ,"visible");
-        if(curPage == 1){
-            $('.prev-btn').css("visibility" ,"hidden");
-        }
-
-        if(!stories.next && curPage == totoalPage){
-            $('.next-btn').css("visibility" ,"hidden");
-        }
-
-    }
-
-    $(document).on('click', '.prev-btn', function(){
-        curPage --;
-        Backbone.trigger("render");
-    })
-
-    $(document).on('click', '.next-btn', function(){
-        var needRender = false;
-
-        if(curPage < totoalPage ){
-            curPage ++;
-            needRender = true;
-        }
-        if(curPage == totoalPage && stories.next ){
+    Backbone.on('next-page', function(){
+        $(".loading").css("visibility", "visible");
+ 
+        if(stories.next ){
             needRender = false;
             isFetching = true;
             stories.fetchNext({
                 remove: false, 
-                data: {schema: sceneFilter},
+                // data: {schema: sceneFilter},
                 success: function() {
                     isFetching = false;
-                    totoalPage = ((stories.length-1)/8 | 0) + 1;
-                    Backbone.trigger("render");
                 }
             });    
         }
 
-        if(needRender){
-            Backbone.trigger("render");
+        if(!stories.next){
+            $(".loading").css("visibility", "hidden");
         }
 
     })
@@ -118,45 +92,49 @@ $(function() {
 
 
     // infinite scroll
-    if(!$(".pagination-btn").is(":visible")){
-        Backbone.off("render");
-        Backbone.on("render", function(){
-            renderStories.reset(stories.models);
-        })
+    // Backbone.on("render", function(){
+    //     renderStories.reset(stories.models);
+    // })
 
 
-        var throttle = function() {
-            var scrollTop = $(window).scrollTop();
-            if(isFetching){
-                _.delay(throttle, 200);
-            }
-            if ($(window).scrollTop() + $(window).height() >= $('body').height() - 150) {
-                $('.next-btn').click();
-            }
-        };
-        $(window).scroll(throttle);
-    }
+    var throttle = function() {
+        var scrollTop = $(window).scrollTop();
+        if(isFetching){
+            console.log("delay");
+            return ;
+        }
+        if ($(window).scrollTop() + $(window).height() >= $('body').height() - 150) {
+            // console.log("trigger");
+            // console.log("isFetching:"+ isFetching);
+            Backbone.trigger('next-page');
+        }
+    };
+    var _run = _.repeat(throttle, 200);
+    _run();
 
 
 
     // backbone router stuff
     var ROUTER = new (Backbone.Router.extend({
-        routes: {':schemaFilter': 'schemaFilter'},
+
+        routes: {':schemaFilter': 'schemaFilter',
+                '': 'schemaFilter'},
         schemaFilter: function(filterName){
-            console.log(filterName);
+            var filterName = filterName || "all";
+            // console.log(filterName);
             $('.scene-filter-menu').hide();
-            if(filterName == "all"){
+            $('.scene-filter-menu a').removeClass('active');
+            $('.scene-filter-menu [filter-name=' + filterName +"]").addClass("active");
+            
+            if(filterName == "all"){ // 'all' means we do not need schema-filter
                 filterName = null;
             }
             sceneFilter = filterName;
             stories.fetch({
                 data:{schema: filterName},
                 reset: true,
-                silent: true,
                 success: function(){
-                    curPage = 1;
-                    totoalPage = ((stories.length-1)/8 | 0) + 1;
-                    Backbone.trigger("render");
+                    // Backbone.trigger("render")
                 }                
             });
 
@@ -167,12 +145,6 @@ $(function() {
     Backbone.history.start()
 
 })
-
-
-
-
-
-
 
 
 

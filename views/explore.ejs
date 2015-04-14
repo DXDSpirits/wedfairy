@@ -57,11 +57,11 @@
                     <span class="text">故事场景</span> <i class="iconfont icon-jiantou"></i>
                 </div>
                 <div class="scene-filter-menu filter-menu">
-                    <a href="#all">选择全部</a>
-                    <a href="#wedding">婚礼故事</a>
-                    <a href="#friendship">友情故事</a>
-                    <a href="#idol">偶像故事</a>
-                    <a href="#lover">爱人礼物</a>
+                    <a href="#all" filter-name="all">选择全部</a>
+                    <a href="#wedding" filter-name="wedding">婚礼故事</a>
+                    <a href="#friendship" filter-name="friendship">友情故事</a>
+                    <a href="#idol" filter-name="idol">偶像故事</a>
+                    <a href="#lover" filter-name="lover">爱人礼物</a>
                 </div>
             </div>
 
@@ -75,17 +75,21 @@
         </div>
 
 
-        <div class="story-container">
+        <div class="story-container clearfix">
         <!-- .col-md-3 -->
         </div>
-        <div class="btn prev-btn pagination-btn visible-md-block visible-lg-block"><i class="iconfont icon-back"></i></div>
-        <div class="btn next-btn pagination-btn visible-md-block visible-lg-block"><i class="iconfont icon-right"></i></div>
-
-
+<!--         <div class="btn prev-btn pagination-btn visible-md-block visible-lg-block"><i class="iconfont icon-back"></i></div>
+        <div class="btn next-btn pagination-btn visible-md-block visible-lg-block"><i class="iconfont icon-right"></i></div> -->
 
         
     </div>
+
     <div class="clearfix"></div>
+
+    <div class="center-block loading text-center">
+            <i class="iconfont icon-loading spin"></i>正在加载中...
+    </div>
+
 
     <% include page/footer %>
     <div class="view-hide template-view">
