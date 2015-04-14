@@ -1,0 +1,127 @@
+#view-community {
+    background-color: $content-bg-color;
+    padding-bottom: 150px;
+
+    > header {
+        padding: 20px;
+
+        h3 {
+            color: $label-color;
+        }
+        p {
+            margin-top: 30px;
+            color: $light-text-color;
+        }
+    }
+    .story-container {
+        width: 900px;
+        height: 130px;
+        padding-bottom: 30px;
+
+        .sprite {
+            transform: translateX(15%) translateY(-10%);
+        }
+        .story-left-boder {
+            background-image: url("/assets/images/home/divisor.png");
+            height: 130px;
+            background-repeat: no-repeat;
+            position: absolute;
+            width: 30px;
+            background-size: cover;
+        }
+        .content {
+            height: 130px;
+            width: 750px;
+            position: absolute;
+            margin-top: -140px;
+            margin-left: 180px;
+        }
+    }
+    .story-case-cover {
+        width: 900px;
+        height: 500px;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+    .type-case-container {
+        width: 900px;
+        height: 120px;
+        // margin-bottom: 20px;
+
+        .type-case {
+            height: 120px;
+
+            &::before {
+                background-image: url("/assets/images/home/divisor.png");
+                height: 120px;
+                background-repeat: no-repeat;
+                position: absolute;
+                width: 30px;
+                background-size: cover;
+                content: "";
+                left: 0;
+            }
+            .image-shower {
+                .sprite {
+                    transform: scale(.8) translateX(-14%) translateY(-13%);
+                }
+            }
+            .content {
+                position: absolute;
+                margin-top: -160px;
+                width: 180px;
+                margin-left: 114px;
+
+                .text {
+                    color: $light-text-color;
+                }
+            }
+        }
+    }
+    .story-box-container {
+        margin-top: 30px;
+        width: 900px;
+        height: 330px;
+        margin-bottom: 60px;
+
+        .story-box {
+            padding: 0;
+            padding-left: 30px;
+
+            .img-shower {
+                width: 270px;
+                height: 270px;
+            }
+        }
+        .text-box {
+            color: $light-text-color;
+            text-align: center;
+            padding-top: 13px;
+            height: 50px;
+            width: 270px;
+            background-color: $navbar-bg-color;
+
+            &::before {
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 15px 30px 0 0;
+                border-color: white transparent transparent transparent;
+                content: "";
+                position: absolute;
+                left: 0;                
+                margin-left: 30px;
+                margin-top: -13px;
+            }
+        }
+    }
+
+    .community-btn{
+        background-color: $red-coral;
+        color: #fff;
+        padding: 10px 20px;
+        margin-bottom: 200px;
+    }
+
+
+}
