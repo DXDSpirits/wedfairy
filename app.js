@@ -49,6 +49,7 @@ app.use(wechat());
 
 // routes
 app.use('/', require('./routes/index'));
+app.use('/about', require('./routes/about'));
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
