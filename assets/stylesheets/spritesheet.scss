@@ -1,5 +1,4 @@
 @media (min-width:$screen-sm-min) {
-    .img { margin: 30px auto }
     .img-wed { @include icon(160px, 2, 4) }
     .img-lover { @include icon(160px, 1, 1) }
     .img-idol { @include icon(160px, 1, 2) }
@@ -10,7 +9,6 @@
     .img-travel { @include icon(160px, 2, 2) }
 }
 @media (max-width:$screen-xs-max) {
-    .img { margin: 20px auto }
     .img-wed { @include icon(100px, 2, 4) }
     .img-lover { @include icon(100px, 1, 1) }
     .img-idol { @include icon(100px, 1, 2) }

@@ -31,14 +31,24 @@
         }
         p {
             height: 5em;
+            font-size: .8em;
+            opacity: .7;
         }
         .img {
             display: block;
             border-radius: 50%;
             background-color: #fdfdfc;
+
             &:hover {
                 //background-color: #000;
                 @include transform(scale(1.1,1.1));
+            }
+            @media (min-width:$screen-sm-min) {
+                margin: 30px auto 
+            }
+
+            @media (max-width:$screen-xs-max) {
+                margin: 20px auto 
             }
             //@include transition(background-color .35s ease-in-out);
             @include transition(transform .35s ease-in-out);

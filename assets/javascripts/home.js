@@ -102,7 +102,7 @@
         var $community = $('#view-community');
         var winh = $(window).height();
         var h = $community.outerHeight();
-        var footerH = $('#global-footer').outerHeight();
+        var footerH = $('#global-footer').height();
         // $community.attr('data-_enter_community', 'transform:translate3d(0,' + (-winh) + 'px,0);');
         $community.attr('data-_leave_community', 'transform:translate3d(0,' + ((winh-h) - footerH) + 'px,0);');
     }

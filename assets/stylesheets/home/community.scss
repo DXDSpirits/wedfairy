@@ -1,6 +1,10 @@
 #view-community {
+    .container{
+        max-width: $container-md;
+    }
+
     background-color: $content-bg-color;
-    padding-bottom: 100px;
+    padding-bottom: 60px;
     padding-top: 40px;
     z-index: 1;
 
@@ -16,79 +20,93 @@
         }
     }
     .story-container {
-        max-width: 900px;
-        height: 130px;
-        padding-bottom: 30px;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+        position: relative;
 
-        .light-text.hidden-lg {
-            margin-bottom: 30px;
-        }
-        .sprite {
-            transform: translateX(15%) translateY(-10%);
-        }
-        .story-left-boder {
+        &::before{
             background-image: url("/assets/images/home/divisor.png");
-            height: 130px;
+            height: 90px;
             background-repeat: no-repeat;
             position: absolute;
             width: 30px;
-            background-size: cover;
-
-            @media (max-width:$screen-xs-max) {
-                height: 88px;
+            background-size: contain;
+            content: "";
+            margin-top: 18px;
+            @media (max-width:$screen-sm-max) {
+                display: none;
             }
         }
-        .content {
-            height: 130px;
-            max-width: 720px;
-            position: absolute;
-            margin-top: -140px;
-            margin-left: 180px;
 
-            @media (max-width:$screen-xs-max) {
-                margin-top: -95px;
+        .title{
+            margin-top: 12px;
+            @media (max-width:$screen-sm-max) {
+                text-align: center;
             }
         }
+
+        .content{
+              margin-top: 20px;
+              font-size: .9em;
+
+        }
+
+        .img-wed {
+            // @include icon(30px, 2, 4);
+            margin-top: -22px;
+            margin-left: 10px;
+            transform: scale(.7);
+            @media (max-width:$screen-sm-max) {
+                margin: 0 auto;
+            }
+        }
+        
+    
     }
     .story-case-cover {
-        width: 900px;
+        // width: 900px;
+        display: block;
         min-height: 500px;
         margin: 0 auto;
         margin-bottom: 50px;
 
         @media (max-width:$screen-xs-max) {
             width: inherit;
+            min-height: initial;
+            padding-top: 100%;
+            margin-bottom: 10px;
             background-image: url("/assets/images/home/case/story-case-cover-m.png") !important;
         }
     }
+    .content.visible-xs-block{
+        margin-bottom: 20px;
+    }
+
     .type-case-container {
-        width: 900px;
-        min-height: 120px;
+        max-width: $container-md;
         // margin-bottom: 20px;
 
         .type-case {
-            height: 120px;
 
             &::before {
                 background-image: url("/assets/images/home/divisor.png");
-                height: 120px;
+                height: 90px;
                 background-repeat: no-repeat;
                 position: absolute;
                 width: 30px;
-                background-size: cover;
+                background-size: contain;
+
                 content: "";
                 left: 0;
+                margin-left: 3px;
+
             }
             .image-shower {
                 .sprite {
-                    transform: scale(.8) translateX(-14%) translateY(-13%);
+                    transform: scale(.6) translateX(-22%) translateY(-35%);
                 }
             }
             .content {
-                position: absolute;
                 margin-top: -160px;
-                width: 180px;
                 margin-left: 114px;
 
                 .text {
@@ -98,6 +116,7 @@
         }
     }
     .story-box-xs-container {
+
         .story-box-xs {
             padding: 0;
             margin: 0 auto;
@@ -105,9 +124,9 @@
             margin-bottom: 50px;
 
             .img-shower {
-                width: 270px;
-                height: 270px;
+                display: block;
                 margin-bottom: 0px;
+                padding-top: 100%;
             }
             .type-case {
                 padding: 0;
@@ -115,33 +134,10 @@
                 .image-shower {
                     margin-left: -10px;
 
-                    &::before {
-                        background-image: url("/assets/images/home/divisor.png");
-                        height: 100px;
-                        background-repeat: no-repeat;
-                        position: absolute;
-                        width: 30px;
-                        background-size: cover;
-                        content: "";
-                        left: 0;
-                        margin-left: -20px;
-                    }
-                    &::after {
-                        background-image: url("/assets/images/home/divisor.png");
-                        height: 100px;
-                        background-repeat: no-repeat;
-                        position: absolute;
-                        width: 30px;
-                        background-size: cover;
-                        content: "";
-                        right: 0;
-                        top: 0;
-                        margin-right: -15px;
-                    }
                 }
                 .content {
                     position: absolute;
-                    margin-top: -100px;
+                    margin-top: -88px;
                     width: 155px;
                     margin-left: 100px;
                 }
@@ -150,26 +146,23 @@
     }
     .story-box-container {
         margin-top: 30px;
-        width: 900px;
+        max-width: $container-md;
         min-height: 330px;
         margin-bottom: 60px;
 
         .story-box {
-            padding: 0;
-            padding-left: 30px;
 
             .img-shower {
-                width: 270px;
-                height: 270px;
+                display: block;
                 margin-bottom: 0;
+                padding-top: 100%;
             }
         }
         .text-box {
             color: $light-text-color;
             text-align: center;
-            padding-top: 13px;
-            height: 50px;
-            width: 270px;
+            padding-top: 1em;
+            padding-bottom: 1em;
             background-color: $navbar-bg-color;
 
             &::before {
@@ -181,15 +174,15 @@
                 content: "";
                 position: absolute;
                 left: 0;
-                margin-left: 30px;
-                margin-top: -13px;
+                margin-left: 15px;
+                margin-top: -14px;
             }
         }
     }
     .community-btn {
         background-color: $red-coral;
         color: #fff;
-        padding: 10px 20px;
-        margin-bottom: 200px;
+        padding: 10px 100px;
+        margin-bottom: 50px;
     }
 }
