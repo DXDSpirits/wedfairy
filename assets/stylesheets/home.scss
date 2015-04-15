@@ -12,3 +12,8 @@
 @import "home/footer";
 @import "home/header";
 @import "spritesheet";
+
+// some help class
+.img-grey{
+    @include filter(grayscale(100%));
+}

@@ -59,7 +59,7 @@ $yellow-text: #f9d097;
 
 @mixin icon($size, $offsetX, $offsetY) {
     background-image: image-url("home/homepage-icon.svg");
-    background-size: ($size * 10) ($size * 10);
+    background-size: ($size * 4) ($size * 2);
     background-repeat: no-repeat;
     width: $size;
     height: $size;
