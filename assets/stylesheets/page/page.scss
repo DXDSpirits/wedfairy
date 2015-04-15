@@ -9,6 +9,7 @@
 
 
 // pages
+@import "header";
 @import "job";
 @import "contact";
 @import "about";
@@ -147,13 +148,7 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
     min-width: 960px;
     margin: 0 auto;
 }
-.header {
-    margin-top: -8px;
-}
-.logo-container {
-    margin-left: 20px;
-    margin-top: 10px;
-}
+
 .avatar-container {
     position: absolute;
     right: 0;
@@ -229,7 +224,7 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
     border-radius: 0px;
     height: 32px;
     min-height: 32px;
-    margin-top: 10px;
+// margin-top: 10px;
     margin-bottom: 0px;
 
     .nav-wrapper {
