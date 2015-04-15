@@ -254,6 +254,13 @@
     }
     background-image: url('/assets/images/scene/personal.png');
 }
+[data-scene-type=voyage] {
+    &::before {
+        content: '旅游故事';
+    }
+    background-image: url('/assets/images/scene/travel.png');
+}
+
 html, body {
     // background-color: white;
     font-family: "Microsoft YaHei", 微软雅黑, "Microsoft JhengHei", 华文细黑, STHeiti, MingLiu;
@@ -332,6 +339,7 @@ div[contenteditable=true] {
         }
     }
 }
+
 [data-wysihtml5-command=underline] {
     display: none;
 }

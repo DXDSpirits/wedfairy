@@ -25,36 +25,39 @@
 
         &::before{
             background-image: url("/assets/images/home/divisor.png");
-            height: 90px;
+            height: 100px;
             background-repeat: no-repeat;
             position: absolute;
             width: 30px;
             background-size: contain;
             content: "";
-            margin-top: 18px;
+            margin-top: 0px;
             @media (max-width:$screen-sm-max) {
                 display: none;
             }
         }
 
         .title{
-            margin-top: 12px;
+            margin-top: 5px;
             @media (max-width:$screen-sm-max) {
+                margin-top: 0px;
                 text-align: center;
             }
         }
 
         .content{
-              margin-top: 20px;
+              margin-top: 10px;
               font-size: .9em;
+              @media (max-width:$screen-sm-max) {
+                // margin-bottom: 30px;
+            }
 
         }
 
         .img-wed {
             // @include icon(30px, 2, 4);
-            margin-top: -22px;
-            margin-left: 10px;
-            transform: scale(.7);
+            margin-left: 20px;
+            @include icon(100px, 2, 4);
             @media (max-width:$screen-sm-max) {
                 margin: 0 auto;
             }
@@ -78,7 +81,7 @@
         }
     }
     .content.visible-xs-block{
-        margin-bottom: 20px;
+        margin-bottom: 50px;
     }
 
     .type-case-container {
@@ -102,12 +105,18 @@
             }
             .image-shower {
                 .sprite {
-                    transform: scale(.6) translateX(-22%) translateY(-35%);
+                    @include transform(scale(.6) translateX(-22%) translateY(-35%));
                 }
             }
             .content {
                 margin-top: -160px;
                 margin-left: 114px;
+
+                @media (max-width:$screen-sm-max) and (min-width:$screen-xs-max) {
+                    margin-top: -70px;
+                    margin-left: 5px;
+                }
+
 
                 .text {
                     color: $light-text-color;
@@ -159,7 +168,7 @@
             }
         }
         .text-box {
-            color: $light-text-color;
+            color: $content-bg-color;
             text-align: center;
             padding-top: 1em;
             padding-bottom: 1em;
@@ -170,7 +179,7 @@
                 height: 0;
                 border-style: solid;
                 border-width: 15px 30px 0 0;
-                border-color: white transparent transparent transparent;
+                border-color: $content-bg-color transparent transparent transparent;
                 content: "";
                 position: absolute;
                 left: 0;
