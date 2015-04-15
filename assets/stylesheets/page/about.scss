@@ -1,0 +1,31 @@
+#about {
+    color: $light-text-color;
+    .page-title {
+        margin-top: 50px;
+        margin-left: 50px;
+        margin-bottom: 30px;
+    }
+    .sub-title{
+        margin-left: 50px;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    .content{
+        margin-left: 50px;
+        margin-bottom: 50px;
+    }
+
+    .img-container{
+        margin-left: 100px;
+        .img{
+            width: 245px;
+            height: 245px;
+        }
+        .avatar{
+            width: 140px !important;
+            height: 140px !important;
+        }
+    }
+
+
+}

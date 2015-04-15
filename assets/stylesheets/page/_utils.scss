@@ -1,0 +1,93 @@
+
+
+.full-height{
+    height:100%;
+    min-height:100%;
+}
+
+.img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center; 
+}
+ 
+
+.img-loading {
+  background-color: white;
+  background-size: 32px 32px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important; 
+}
+
+
+.center{
+    margin: 0 auto;
+}
+
+
+.text-title{
+  color:$title-color;
+  font-size: 25px;
+}
+
+.view-hide{
+  display: none !important;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.border{
+  border: 1px solid rgba($border-color, .5);
+    // box-shadow: 0 0 4px rgba(0,0,0,.2);
+}
+.box-shadow{
+  box-shadow: 0 0 4px rgba(0,0,0,.2);
+}
+.radius{
+  border-radius: 2px;
+}
+
+@mixin hoverable-bg($color) {
+  background-color: $color;
+  &:hover{
+    background-color: darken($color, 10) !important;
+  }
+}
+@mixin hoverable($color) {
+  color: $color;
+  &:hover{
+    color: darken($color, 10) !important;
+  }
+}
+
+@include keyframes(spin) {
+  0% {
+    @include transform(rotate(0deg));
+  }
+  100% {
+    @include transform(rotate(359deg));
+  }
+}
+
+.spin{
+   @include animation(spin 2s infinite linear);
+}
+
+@include keyframes(input-bg-change) {
+  0% {
+    color: #656666;
+  }
+  50% {
+    color: $main-color;
+  }
+}
+
+.color-animation{
+   @include animation(input-bg-change .3s 1 steps(1));
+}
+
+
+
+

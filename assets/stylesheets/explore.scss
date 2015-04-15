@@ -1,0 +1,540 @@
+@import "bourbon/bourbon";
+//======================================== Bootstrap ========================================
+
+@import "bootstrap/bootstrap-compass";
+@import "bootstrap/bootstrap";
+@import "page/variables";
+@import "page/utils";
+@import "page/footer";
+
+.btn {
+    border-radius: 4px;
+}
+.btn-default {
+    @include button-variant(white, $main-color, $main-color);
+}
+//
+#explore {
+    color: $light-text-color;
+    .loading{
+        margin-bottom: 30px;
+        .icon-loading{
+            display: inline-block;
+            margin-right: 6px;
+            @include transform-origin(51% 47%);
+            &::before{
+                color: $navbar-bg-color;
+            }
+        }
+    }
+
+    #wed-carousel {
+        height: 420px;
+        margin-top: 5px;
+        margin-bottom: 20px;
+        @media (max-width: 400px) {
+            .item:nth-child(1) .slide-img{
+                background-image: url("/assets/images/slide/0s.png") !important;
+            }
+            .item:nth-child(2) .slide-img{
+                background-image: url("/assets/images/slide/1s.png") !important;
+            }
+            .item:nth-child(3) .slide-img{
+                background-image: url("/assets/images/slide/2s.png") !important;
+            }
+        }
+
+        .carousel-control{
+              padding-top: 175px;
+              .iconfont{
+                font-size: 40px;
+                &::before{
+                    color: white;
+                }
+              }
+        }
+
+        .slide-img {
+            height: 420px;
+            width: 100%;
+        }
+    }
+    .filter-container {
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgba($border-color, .5);
+        // max-width: 960px;
+        max-width: 960px;
+        margin: 0 auto;
+
+        .filter {
+            color: $label-color;
+            border-radius: 1px;
+            // padding: 20px;
+            // padding-bottom: 8px;
+            // padding-top: 11px;
+            background-color: white;
+            display: inline-block;
+            margin-left: 12px;
+            @extend .pointer;
+            box-shadow: 0 0px 1px rgba(0, 0, 0, 0.2);
+
+            .iconfont::before {
+                @include hoverable($label-color);
+            }
+        }
+        .selected-scene {
+            width: 112.5px;
+            // padding-left: 20px;
+            padding-top: 11px;
+            padding-bottom: 8px;
+            padding-left: 20px;
+        }
+        .filter-menu {
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+            margin-top: 1px;
+            display: none;
+            position: absolute;
+            width: 112.5px;
+            background-color: white;
+            z-index: 10;
+            margin-left: 0px;
+            padding-bottom: 10px;
+            padding-top: 9px;
+
+            a {
+                display: inline-block;
+                font-size: 12px;
+                padding: 6px 20px;
+                padding-top: 7px;
+                width: inherit;
+                color: $light-text-color;
+                @include hoverable-bg(white);
+
+                &.active {
+                    // background-color: darken(white, 10) !important;
+                    display: none;
+                }
+            }
+        }
+        .icon-jiantou {
+            font-size: 13px;
+
+            &::before {
+                color: $light-text-color;
+            }
+        }
+    }
+    .story-container {
+        margin: 0 auto;
+        margin-top: 15px;
+        max-width: 960px;
+        // height: 600px;
+        margin-bottom: 40px;
+        min-height: 600px;
+
+        .story-item {
+            padding: 0px;
+            margin-bottom: 30px;
+        }
+        .story-shower {
+            width: 215px;
+            height: 280px;
+            background-color: white;
+            border-radius: 4px;
+            padding-top: 12px;
+            margin: 0 auto;
+            box-shadow: 0 0px 1px rgba(0, 0, 0, 0.2);
+
+            .story-title {
+                color: $label-color;
+                width: 190px;
+                height: 42px;
+                margin-left: 12px;
+                margin-top: 6px;
+                border-bottom: 1px solid rgba($border-color, .5);
+                font-size: 12px;
+                padding-left: 5px;
+            }
+            .story-cover {
+                width: 190px;
+                height: 190px;
+                margin-left: 12px;
+                margin-bottom: 2px;
+                @extend .pointer;
+            }
+            .extra-info {
+                color: $label-color;
+                font-size: 12px;
+                padding-left: 12px;
+                padding-top: 3px;
+
+                .icon-container {
+                    margin-right: 5px;
+                }
+                span {
+                    margin-right: 5px;
+                }
+                .iconfont {
+                    font-size: 17px;
+
+                    &::before {
+                        color: #BBBBBB;
+                    }
+                }
+            }
+        }
+    }
+    .pagination-btn {
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        margin-top: -365px;
+        margin-left: -540px;
+        width: 46px;
+        height: 45px;
+        @include hoverable-bg(lighten($light-text-color, 10));
+
+        &.next-btn {
+            margin-left: 490px;
+        }
+        .iconfont::before {
+            color: white;
+        }
+    }
+}
+.scene-type-icon {
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    margin-top: -4px;
+
+    &::before {
+        content: attr(title);
+        display: none;
+    }
+    &:hover::before {
+        display: block;
+        background: white;
+        // border: 1px solid black;
+        padding: 8px;
+        padding-top: 3px;
+        padding-bottom: 2px;
+        margin: 25px 0 0 10px;
+        border-radius: 4px;
+        position: absolute;
+    }
+}
+[data-scene-type=friendship] {
+    &::before {
+        content: '友情故事';
+    }
+    background-image: url('/assets/images/scene/confidante.png');
+}
+[data-scene-type=wedding] {
+    &::before {
+        content: '婚礼邀请函';
+    }
+    background-image: url('/assets/images/scene/wedding.png');
+}
+[data-scene-type=lover] {
+    &::before {
+        content: '爱人故事';
+    }
+    background-image: url('/assets/images/scene/lover.png');
+}
+[data-scene-type*='idol'] {
+    &::before {
+        content: '偶像故事';
+    }
+    background-image: url('/assets/images/scene/idol.png');
+}
+[data-scene-type=yearbook] {
+    &::before {
+        content: '新年书';
+    }
+    background-image: url('/assets/images/scene/personal.png');
+}
+html, body {
+    // background-color: white;
+    font-family: "Microsoft YaHei", 微软雅黑, "Microsoft JhengHei", 华文细黑, STHeiti, MingLiu;
+    font-size: 14px;
+}
+body {
+    background-color: $background-color;
+    @extend .center;
+    padding-top: 1px;
+}
+a {
+    color: $main-color;
+    text-decoration: none !important;
+
+    &:hover {
+        color: darken($main-color, 10);
+        text-decoration: none;
+    }
+}
+.alert-tip {
+    display: none;
+    z-index: 100000;
+    width: 620px;
+    border-radius: 0px !important;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    position: absolute;
+    left: 50%;
+    margin-left: -365px;
+    // background-color: $content-bg-color;
+    // color: black;
+    // border-color: darken($content-bg-color, 10);
+
+    button.close {
+        font-size: 14px;
+    }
+}
+.black-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .4);
+    z-index: 9998;
+}
+div[contenteditable=true] {
+    border: 1px solid rgba($border-color, .5);
+    padding: 10px;
+    color: $label-color;
+    font-size: 13px;
+    line-height: 1.7em;
+    background-color: white;
+    border-radius: 4px;
+
+    &:focus {
+        @include box-shadow(none);
+        border-color: $main-color;
+        outline: none;
+    }
+}
+.wysihtml5-toolbar {
+    position: absolute;
+
+    .btn-default {
+        padding: 2px 7px;
+        border-radius: 4px !important;
+        background-color: #E9E7E7;
+        border: none;
+        color: rgba(black, .5);
+        font-size: 10px;
+        @include hoverable-bg(#E9E7E7);
+
+        &:first-child {
+            margin-right: 5px;
+        }
+    }
+}
+[data-wysihtml5-command=underline] {
+    display: none;
+}
+input[type=tel], input[type=url], input[type=text], input[type=email], input[type=search], input[type=number], input[type=password], input[type=date], input[type=time], input[type=datetime-local], textarea {
+    height: 40px;
+
+    &.form-control {
+        border-radius: 4px;
+        -webkit-appearance: none;
+        font-size: 13px;
+        background-color: white;
+        resize: none;
+        color: $label-color;
+        line-height: 1.7em;
+        @include box-shadow(none);
+    }
+    &.form-control:focus {
+        @include box-shadow(none);
+        border-color: $main-color;
+    }
+    @include placeholder {
+        color: $light-text-color;
+    }
+}
+.control-label {
+    color: $label-color;
+}
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 22px;
+    font-style: normal;
+    color: $main-color;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+    @include hoverable($main-color);
+}
+.icon-huanyipi:before {
+    content: "\e606";
+}
+.body {
+    margin: 0 auto;
+    @extend .container;
+}
+.header {
+    margin-top: -8px;
+}
+.logo-container {
+    margin-left: 20px;
+    margin-top: 12px;
+}
+.avatar-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 6px;
+    margin-right: 45px;
+
+    .avatar-round {
+        width: 30px;
+        height: 30px;
+        background-color: #D7D7D5;
+        border-radius: 15px;
+        padding-left: 7px;
+        padding-top: 3px;
+    }
+    .icon-iconyonghumorentouxiang {
+        font-size: 17px;
+    }
+    .icon-jiantou {
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin-right: -30px;
+        margin-top: 7px;
+        font-size: 18px;
+        @include hoverable($light-text-color);
+    }
+}
+.user-menu {
+    height: 99px;
+    background-color: $content-bg-color;
+    width: 125px;
+    position: absolute;
+    right: 0px;
+    z-index: 1;
+    top: 0;
+    margin-top: 40px;
+
+    .user-menu-item {
+        @include hoverable($title-color);
+        @extend .pointer;
+        color: #656666;
+        padding-left: 16px;
+        padding-top: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba($border-color, .5);
+
+        &:hover {
+            color: $main-color !important;
+
+            .iconfont:before {
+                color: $main-color;
+            }
+        }
+        .iconfont {
+            color: #656666;
+            font-size: 16px;
+        }
+        .icon-tuichu {
+            font-size: 17px;
+        }
+        &:first-child {
+            padding-top: 15px;
+        }
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
+.navbar{
+    background-color: $navbar-bg-color;
+    border-radius: 0px;
+    height: 32px;
+    min-height: 32px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+
+    .nav-wrapper {
+        width: 960px;
+        min-width: 960px;
+        margin: 0 auto;
+    }
+    .nav-item {
+        &:first-child {
+            // margin-left: 50px;
+        }
+        &.active, &:hover {
+            background-color: #899092;
+        }
+        height: inherit;
+        padding: 6px 15px;
+        color: white;
+        display: inline-block;
+        padding-top: 7px;
+        margin-top: -1px;
+    }
+}
+// for timepicker
+.icon-chevron-up {
+    @extend .iconfont;
+    @include transform(rotate(270deg));
+    display: block;
+
+    &:before {
+        content: "\e605";
+    }
+}
+.icon-chevron-down {
+    @extend .iconfont;
+    @include transform(rotate(90deg));
+    display: block;
+
+    &:before {
+        content: "\e605";
+    }
+}
+.datepicker-days .day.active, .datepicker-months .month.active {
+    background-color: $main-color !important;
+    background-image: none !important;
+}
+[contentEditable=true]:empty:not(:focus):before {
+    content: attr(data-ph);
+    color: lighten(grey, 10);
+}
+
+/* Turn on custom 8px wide scrollbar */
+::-webkit-scrollbar {
+    width: 10px; /* 1px wider than Lion. */
+
+    /* This is more usable for users trying to click it. */
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0);
+    -webkit-border-radius: 100px;
+}
+
+/* The scrollbar 'thumb' ...that marque oval shape in a scrollbar */
+::-webkit-scrollbar-thumb {
+
+    /* This is the EXACT color of Mac OS scrollbars. 
+       Yes, I pulled out digital color meter */
+    background: rgba(0, 0, 0, 0.5);
+    -webkit-border-radius: 100px;
+    background-clip: padding-box;
+    border: 2px solid rgba(0, 0, 0, 0);
+    min-height: 10px; /*Prevent it from getting too small */
+    height: 30px;
+}
+::-webkit-scrollbar:horizontal, ::-webkit-scrollbar-thumb:horizontal {
+    min-height: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-thumb:active {
+    background: rgba(0, 0, 0, 0.61); /* Some darker color when you click it */
+    -webkit-border-radius: 100px;
+}
