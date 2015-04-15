@@ -1,6 +1,8 @@
 #view-community {
     background-color: $content-bg-color;
-    padding-bottom: 150px;
+    padding-bottom: 100px;
+    padding-top: 40px;
+    z-index: 1;
 
     > header {
         padding: 20px;
@@ -14,10 +16,14 @@
         }
     }
     .story-container {
-        width: 900px;
+        max-width: 900px;
         height: 130px;
         padding-bottom: 30px;
+        margin-bottom: 30px;
 
+        .light-text.hidden-lg {
+            margin-bottom: 30px;
+        }
         .sprite {
             transform: translateX(15%) translateY(-10%);
         }
@@ -31,7 +37,7 @@
         }
         .content {
             height: 130px;
-            width: 750px;
+            max-width: 720px;
             position: absolute;
             margin-top: -140px;
             margin-left: 180px;
@@ -39,13 +45,13 @@
     }
     .story-case-cover {
         width: 900px;
-        height: 500px;
+        min-height: 500px;
         margin: 0 auto;
         margin-bottom: 50px;
     }
     .type-case-container {
         width: 900px;
-        height: 120px;
+        min-height: 120px;
         // margin-bottom: 20px;
 
         .type-case {
@@ -78,10 +84,62 @@
             }
         }
     }
+    .story-box-xs-container {
+        .story-box-xs {
+            padding: 0;
+            margin: 0 auto;
+            width: 270px;
+            margin-bottom: 50px;
+
+            .img-shower {
+                width: 270px;
+                height: 270px;
+                margin-bottom: 0px;
+            }
+            .type-case {
+                padding: 0;
+
+                .image-shower {
+                    margin-left: -10px;
+
+                    &::before {
+                        background-image: url("/assets/images/home/divisor.png");
+                        height: 120px;
+                        background-repeat: no-repeat;
+                        position: absolute;
+                        width: 30px;
+                        background-size: cover;
+                        content: "";
+                        left: 0;
+                        margin-left: -20px;
+                    }
+                    &::after {
+                        background-image: url("/assets/images/home/divisor.png");
+                        height: 120px;
+                        background-repeat: no-repeat;
+                        position: absolute;
+                        width: 30px;
+                        background-size: cover;
+                        content: "";
+                        right: 0;
+                        top: 0;
+                        margin-right: -15px;
+                    }
+                }
+                .content {
+                    position: absolute;
+                    margin-top: -100px;
+                    width: 155px;
+                    margin-left: 100px;
+                }
+            }
+        }
+    }
+
     .story-box-container {
         margin-top: 30px;
         width: 900px;
-        height: 330px;
+        min-height: 330px;
         margin-bottom: 60px;
 
         .story-box {
@@ -91,6 +149,7 @@
             .img-shower {
                 width: 270px;
                 height: 270px;
+                margin-bottom: 0;
             }
         }
         .text-box {
@@ -109,19 +168,16 @@
                 border-color: white transparent transparent transparent;
                 content: "";
                 position: absolute;
-                left: 0;                
+                left: 0;
                 margin-left: 30px;
                 margin-top: -13px;
             }
         }
     }
-
-    .community-btn{
+    .community-btn {
         background-color: $red-coral;
         color: #fff;
         padding: 10px 20px;
         margin-bottom: 200px;
     }
-
-
 }
