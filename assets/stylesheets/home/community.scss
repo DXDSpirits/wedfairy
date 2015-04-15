@@ -34,6 +34,10 @@
             position: absolute;
             width: 30px;
             background-size: cover;
+
+            @media (max-width:$screen-xs-max) {
+                height: 88px;
+            }
         }
         .content {
             height: 130px;
@@ -41,6 +45,10 @@
             position: absolute;
             margin-top: -140px;
             margin-left: 180px;
+
+            @media (max-width:$screen-xs-max) {
+                margin-top: -95px;
+            }
         }
     }
     .story-case-cover {
@@ -48,6 +56,11 @@
         min-height: 500px;
         margin: 0 auto;
         margin-bottom: 50px;
+
+        @media (max-width:$screen-xs-max) {
+            width: inherit;
+            background-image: url("/assets/images/home/case/story-case-cover-m.png") !important;
+        }
     }
     .type-case-container {
         width: 900px;
@@ -104,7 +117,7 @@
 
                     &::before {
                         background-image: url("/assets/images/home/divisor.png");
-                        height: 120px;
+                        height: 100px;
                         background-repeat: no-repeat;
                         position: absolute;
                         width: 30px;
@@ -115,7 +128,7 @@
                     }
                     &::after {
                         background-image: url("/assets/images/home/divisor.png");
-                        height: 120px;
+                        height: 100px;
                         background-repeat: no-repeat;
                         position: absolute;
                         width: 30px;
@@ -135,7 +148,6 @@
             }
         }
     }
-
     .story-box-container {
         margin-top: 30px;
         width: 900px;

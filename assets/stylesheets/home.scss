@@ -17,3 +17,8 @@
 .img-grey{
     @include filter(grayscale(100%));
 }
+
+.light-text{
+    color: $light-text-color;
+}
+
