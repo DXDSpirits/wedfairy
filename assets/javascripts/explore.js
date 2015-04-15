@@ -36,8 +36,8 @@ $(function() {
     var isFetching = false;
     Backbone.on('next-page', function() {
         if (isFetching) return;
-        isFetching = true;
         if (stories.next) {
+            isFetching = true;
             stories.fetchNext({
                 remove: false, 
                 success: function() {

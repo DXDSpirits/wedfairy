@@ -144,9 +144,8 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
     content: "\e606";
 }
 .body {
-    width: 960px;
-    min-width: 960px;
     margin: 0 auto;
+    @extend .container;
 }
 
 .avatar-container {
