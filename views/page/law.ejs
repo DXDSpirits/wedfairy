@@ -11,6 +11,7 @@
     
     <% include ../includes/capability %>
     <% include ../includes/production %>
+    <script src="<%= tat_static %>javascripts/vendor/modernizr-2.7.1.min.js"></script>
 </head>
 <body id="law">
     <!--[if lt IE 7]>
@@ -95,6 +96,7 @@ c) 通过本网站所设cookies所取得的有关信息，将适用本政策；
     <script src="<%= tat_static %>javascripts/plugins/fastclick.js"></script>
     <script src="<%= tat_static %>javascripts/plugins/skrollr.min.js"></script>
     <!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
+    <% include ../includes/analytics %>
     <script src="<%= tat_static %>javascripts/amour.js?v=<%= build_no %>"></script>
     <script src="<%= static_url %>javascripts/home.js?v=<%= build_no %>"></script>
 </body>
