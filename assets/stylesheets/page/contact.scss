@@ -2,6 +2,8 @@
     .page-title {
         margin-top: 50px;
         margin-left: 50px;
+        margin-right: 50px;
+
         @media (max-width:$screen-sm-max) {
             text-align: center;
             margin-left: 0px;
@@ -9,16 +11,20 @@
     }
     .img-container {
         float: right;
-         @media (max-width:$screen-sm-max) {
-                float: none;
-                .map{
-                    margin: 0 auto;
-                }
-                .addr-text{
-                    text-align: center;
-                }
-        }
+        margin-left: 20px;
+        margin-right: 20px;
 
+        @media (max-width:$screen-sm-max) {
+            float: none;
+            margin-left: 0px;
+
+            .map {
+                margin: 0 auto;
+            }
+            .addr-text {
+                text-align: center;
+            }
+        }
         .map {
             width: 260px;
             height: 260px;
@@ -27,18 +33,27 @@
         .addr-text {
             font-size: 14px;
             color: $light-text-color;
+            margin-top: 10px;
+            text-align: center;
         }
     }
     .content {
         margin-left: 50px;
+        margin-right: 50px;
         color: $light-text-color;
         margin-top: 30px;
         margin-bottom: 60px;
-        width: 620px;
+        max-width: 620px;
     }
     .contact-info {
         margin-left: 100px;
+        margin-right: 100px;
         margin-bottom: 100px;
         color: $light-text-color;
+
+        @media (max-width:$screen-sm-max) {
+            margin-left: 50px;
+            margin-right: 50px;
+        }
     }
 }
