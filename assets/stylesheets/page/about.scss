@@ -16,16 +16,18 @@
     }
 
     .img-container{
-        margin-left: 100px;
         .img{
-            width: 245px;
-            height: 245px;
+            padding-top: 100%;
+            margin-bottom: 30px;
         }
+    }
+    .img-avatar-container{
         .avatar{
             width: 140px !important;
             height: 140px !important;
+            margin: 0 auto;
         }
+        
     }
-
 
 }
