@@ -24,4 +24,8 @@ router.get('/help', function(req, res) {
     res.render('page/help');
 });
 
+router.get('/faq', function(req, res) {
+    res.render('page/faq');
+});
+
 module.exports = router;

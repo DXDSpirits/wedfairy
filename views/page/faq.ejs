@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<% include ../includes/html %>
+<head>
+    <title>八音盒 - 法律声明</title>
+    
+    <% include ../includes/metadata %>
+    <link rel="stylesheet" href="<%= static_url %>fonts/iconfont.css">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/bootstrap-custom.css?v=<%= build_no %>">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/page/page.css?v=<%= build_no %>">
+    
+    
+    <% include ../includes/capability %>
+    <% include ../includes/production %>
+    <script src="<%= tat_static %>javascripts/vendor/modernizr-2.7.1.min.js"></script>
+</head>
+<body id="faq">
+    <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Content Begins Here -->
+    <% include header %>
+    <div class="navbar">
+        <div class="nav-wrapper">
+            <a class="nav-item " href="/about/law">法律声明</a>
+            <a class="nav-item active" href="/about/faq">FAQ</a>
+            <!-- <a class="nav-item" href="javascripts:void(0);">帮助</a> -->
+        </div>
+    </div>
+    <div id="tip-container"></div>
+    
+    <div class="body">
+        <h1 class="page-title">FAQ</h1>
+        <pre>Q：请问音乐怎么上传？
+A：“音乐上传”的功能正在开发中，目前我们挑选了部分主流音乐供用户选择，如这些音乐都不能满足你的需求，可以加“八音盒轻故事”的微信公众号，把需要上传的音乐给到小编上传服务器。
+
+Q：请问为什么我上传图片会显示“文件验证失败”？
+A： 因为工具会检查图片尺寸和图片类型进行压缩，目前在部分手机上只支持1200像素宽以下的图片。但很多用户上传的是由专业摄像师拍摄的原图，导致上传图片的像素宽过高。所以调整图片像素宽低于1200像素即可。
+
+Q：请问为什么我的图片老是显示在加载中？
+A：由于用户当前网络环境不稳定，导致图片还在加载中，也可尝试更换网络。如果尝试三次以上都失败，请加“八音盒轻故事”的微信公众号，把问题反馈给小编，会有专业小编进行解答。
+
+Q：为什么我预览后写的文字没有改过来？
+A：请检查预览前是否有保存过，但请注意保存后不能撤销。
+
+Q：请问有app吗？
+A：正在紧锣密鼓的开发中，如需手机编辑，可以加“八音盒轻故事”的微信公众号，就可以用“微信”快速进行制作。
+
+Q：请问分享到朋友圈或者微博需要收费吗？
+A：本产品目前所有功能都不收费，如需收费会另行通知。
+
+Q：为什么我周末微信小编没有人回答？
+A：小编上班时间为工作日10:00-17:00，而微信一般超过48小时就不能再回复用户，请注意留言及咨询时间。
+</pre>
+        <div class="clearfix"></div>
+        <br />
+
+    </div>
+    <% include footer %>
+    <!-- Content Ends Here -->
+    <script src="<%= tat_static %>javascripts/vendor/jquery-2.1.1.min.js"></script>
+    <script src="<%= tat_static %>javascripts/vendor/underscore.min.js"></script>
+    <script src="<%= tat_static %>javascripts/vendor/mustache.min.js"></script>
+    <script src="<%= tat_static %>javascripts/vendor/backbone.min.js"></script>
+    <script src="<%= tat_static %>javascripts/vendor/bootstrap.min.js"></script>
+    <script src="<%= tat_static %>javascripts/plugins/fastclick.js"></script>
+    <script src="<%= tat_static %>javascripts/plugins/skrollr.min.js"></script>
+    <!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
+    <% include ../includes/analytics %>
+    <script src="<%= tat_static %>javascripts/amour.js?v=<%= build_no %>"></script>
+    <script src="<%= static_url %>javascripts/home.js?v=<%= build_no %>"></script>
+</body>
+</html>
