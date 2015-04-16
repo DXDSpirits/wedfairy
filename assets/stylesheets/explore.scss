@@ -34,13 +34,13 @@
         margin-bottom: 20px;
         @media (max-width: 400px) {
             .item:nth-child(1) .slide-img{
-                background-image: url("/assets/images/slide/0s.png") !important;
+                background-image: url("/assets/images/slide/0s.jpg") !important;
             }
             .item:nth-child(2) .slide-img{
-                background-image: url("/assets/images/slide/1s.png") !important;
+                background-image: url("/assets/images/slide/1s.jpg") !important;
             }
             .item:nth-child(3) .slide-img{
-                background-image: url("/assets/images/slide/2s.png") !important;
+                background-image: url("/assets/images/slide/2s.jpg") !important;
             }
         }
 
@@ -224,41 +224,49 @@
         position: absolute;
     }
 }
+@mixin icon($size, $offsetX, $offsetY) {
+    background-image: image-url("home/homepage-icon.svg");
+    background-size: ($size * 4) ($size * 2);
+    background-repeat: no-repeat;
+    width: $size;
+    height: $size;
+    background-position: (-$size * ($offsetY - 1)) (-$size * ($offsetX - 1));
+}
 [data-scene-type=friendship] {
     &::before {
         content: '友情故事';
     }
-    background-image: url('/assets/images/scene/confidante.png');
+    @include icon(30px, 1, 4);
 }
 [data-scene-type=wedding] {
     &::before {
         content: '婚礼邀请函';
     }
-    background-image: url('/assets/images/scene/wedding.png');
+    @include icon(30px, 2, 4);
 }
 [data-scene-type=lover] {
     &::before {
         content: '爱人故事';
     }
-    background-image: url('/assets/images/scene/lover.png');
+    @include icon(30px, 1, 1);
 }
 [data-scene-type*='idol'] {
     &::before {
         content: '偶像故事';
     }
-    background-image: url('/assets/images/scene/idol.png');
+    @include icon(30px, 1, 2);
 }
 [data-scene-type=yearbook] {
     &::before {
         content: '新年书';
     }
-    background-image: url('/assets/images/scene/personal.png');
+    @include icon(30px, 2, 3);
 }
 [data-scene-type=voyage] {
     &::before {
         content: '旅游故事';
     }
-    background-image: url('/assets/images/scene/travel.png');
+    @include icon(30px, 2, 2);
 }
 
 html, body {
