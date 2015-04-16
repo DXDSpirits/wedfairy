@@ -2,9 +2,22 @@
     .page-title {
         margin-top: 50px;
         margin-left: 50px;
+        @media (max-width:$screen-sm-max) {
+            text-align: center;
+            margin-left: 0px;
+        }
     }
     .img-container {
         float: right;
+         @media (max-width:$screen-sm-max) {
+                float: none;
+                .map{
+                    margin: 0 auto;
+                }
+                .addr-text{
+                    text-align: center;
+                }
+        }
 
         .map {
             width: 260px;
