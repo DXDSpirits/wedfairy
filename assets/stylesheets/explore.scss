@@ -5,6 +5,7 @@
 @import "bootstrap/bootstrap";
 @import "page/variables";
 @import "page/utils";
+@import "page/header";
 @import "page/footer";
 
 .btn {
@@ -392,13 +393,7 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
     margin: 0 auto;
     @extend .container;
 }
-.header {
-    margin-top: -8px;
-}
-.logo-container {
-    margin-left: 20px;
-    margin-top: 12px;
-}
+
 .avatar-container {
     position: absolute;
     right: 0;
