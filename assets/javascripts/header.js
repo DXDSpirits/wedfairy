@@ -18,18 +18,7 @@ $(function() {
         }
     }
 
-    function initPage() {
-
-        if (isLogin()) {
-            user.fetch({
-                success: function() {
-                    $(".show-mobile-number").html("手机号: " + user.get('username'));
-                    _renderRightNav();
-                }
-            })
-        }
-
-
+    function _loginEventBind(){
         Backbone.on("login-user", function() {
             var username = $('#modal-container .login-form .username-input').val() || null;
             var password = $('#modal-container .login-form .password-input').val() || null;
@@ -58,17 +47,32 @@ $(function() {
 
         $(document).on('click', '#login-modal .login-btn', function() {
             Backbone.trigger('login-user');
-        })
-
-        $('.user-menu-btn').on('click', function() {
-            $('.header .user-menu').toggleClass('view-hide');
-        })
+        });
 
         $(document).on('click', '.login-btn', function() {
             var $container = $('#modal-container');
             $container.html($('#login-modal').clone());
             $container.fadeIn();
         });
+
+    }
+
+    function initPage() {
+
+        if (isLogin()) {
+            user.fetch({
+                success: function() {
+                    $(".show-mobile-number").html("手机号: " + user.get('username'));
+                    _renderRightNav();
+                }
+            })
+        }
+
+        _loginEventBind();
+
+        $('.user-menu-btn').on('click', function() {
+            $('.header .user-menu').toggleClass('view-hide');
+        })
 
         $(document).on('click', '.register-btn', function() {
             var $container = $('#modal-container');
