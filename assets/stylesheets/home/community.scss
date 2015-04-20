@@ -7,21 +7,25 @@
     padding-bottom: 60px;
     padding-top: 40px;
     z-index: 1;
+    color: $navbar-bg-color !important;
 
     > header {
         padding: 20px;
 
         h3 {
-            color: $label-color;
+            color: $navbar-bg-color;
         }
         p {
             margin-top: 30px;
-            color: $light-text-color;
+            color: $navbar-bg-color;
         }
     }
     .story-container {
         margin-bottom: 20px;
         position: relative;
+        .date{
+            color: $navbar-bg-color;
+        }
 
         &::before{
             background-image: url("/assets/images/home/divisor.png");
@@ -39,6 +43,7 @@
 
         .title{
             margin-top: 5px;
+            color: $navbar-bg-color !important;
             @media (max-width:$screen-sm-max) {
                 margin-top: 0px;
                 text-align: center;
@@ -48,6 +53,7 @@
         .content{
               margin-top: 10px;
               font-size: .9em;
+              color: $navbar-bg-color !important;
               @media (max-width:$screen-sm-max) {
                 // margin-bottom: 30px;
             }
@@ -119,7 +125,8 @@
 
 
                 .text {
-                    color: $light-text-color;
+                    color: $navbar-bg-color;
+                    font-size: .9em;
                 }
             }
         }
