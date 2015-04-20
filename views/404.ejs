@@ -9,7 +9,6 @@
 <% include includes/metadata %>
 
 <link rel="stylesheet" href="<%= tat_static %>stylesheets/bootstrap.css">
-<link rel="stylesheet" href="<%= tat_static %>stylesheets/font-awesome.css">
 <style type="text/css">
     .link-container{
         text-align: center;
@@ -49,7 +48,7 @@
         if(number == 0){
             clearInterval(interval);
             console.log("done");
-            // window.location.href = "/";
+            window.location.href = "/";
             document.getElementById("link").innerHTML = "正在跳转..."
             return 
         }
