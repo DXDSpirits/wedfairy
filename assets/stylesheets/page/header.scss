@@ -29,3 +29,14 @@
         }
     }
 }
+#modal-container {
+    position: fixed;
+    top: 22%;
+    left: 50%;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+    z-index: 100000;
+    background-color: #F0F0EF;
+    padding: 20px;
+    display: none;
+    opacity: 0;
+}

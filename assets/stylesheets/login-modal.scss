@@ -1,0 +1,19 @@
+.login-form {
+    margin: 0 auto;
+    width: 220px;
+
+    .form-title {
+        margin-bottom: 25px;
+    }
+    .forget-password {
+        margin-left: 11px;
+    }
+    input {
+        background-color: white;
+    }
+    button.close{
+          margin-top: -10px;
+  margin-right: -8px;
+    }
+
+}
