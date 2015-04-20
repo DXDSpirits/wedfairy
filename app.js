@@ -52,9 +52,10 @@ app.use('/', require('./routes/index'));
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
+    res.status(404);
+    res.render('404');
+    return ;
+    // next(err);
 });
 
 /// error handlers
