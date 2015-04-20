@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<% include includes/html %>
+
+<head>
+    
+<title>找不到该页面</title>
+
+<% include includes/metadata %>
+
+<link rel="stylesheet" href="<%= tat_static %>stylesheets/bootstrap.css">
+<style type="text/css">
+    .link-container{
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .link-container a{
+          /*margin-left: -90px;*/
+    }
+
+
+</style>
+<% include includes/production %>
+
+<script src="<%= tat_static %>javascripts/vendor/modernizr-2.7.1.min.js"></script>
+    
+</head>
+<body>
+
+<div class="container">
+   
+    <h3 class="text-center" style="margin-top: 68px;">抱歉! 小盒子好像迷路了!</h3>
+    <div class="link-container"><a id="link" href="/">► <span id="timing">5</span>秒后返回首页</a></div>
+    <div class="col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 " >
+        <img src="/assets/images/404.jpg" style="width: 100%" />
+
+    </div>
+
+</div>
+
+<% include includes/analytics %>
+<script>
+    var $timing = document.getElementById("timing");
+    var interval = setInterval(function(){
+        var number = parseInt($timing.innerHTML);
+        number --;
+        if(number == 0){
+            clearInterval(interval);
+            console.log("done");
+            window.location.href = "/";
+            document.getElementById("link").innerHTML = "正在跳转..."
+            return 
+        }
+        $timing.innerHTML = number;
+    }, 1000);
+
+    
+
+
+
+</script>
+
+</body>
+</html>
