@@ -6,6 +6,75 @@
     .logo-container {
         margin-left: 20px;
     }
+
+    .avatar-container {
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin-top: 11px;
+        margin-right: 45px;
+
+        .avatar-round {
+            width: 30px;
+            height: 30px;
+            background-color: #D7D7D5;
+            border-radius: 15px;
+            padding-left: 7px;
+        }
+        .icon-touxiang {
+            font-size: 20px;
+            margin-left: -2px;
+        }
+        .icon-jiantou {
+            position: absolute;
+            right: 0;
+            top: 0;
+            margin-right: -30px;
+            margin-top: 7px;
+            font-size: 18px;
+            @include hoverable($light-text-color);
+        }
+    }
+    .user-menu {
+        background-color: $content-bg-color;
+        width: 125px;
+        position: absolute;
+        right: 0px;
+        z-index: 1;
+        top: 0;
+        margin-top: 46px;
+
+        .user-menu-item {
+            @include hoverable($title-color);
+            @extend .pointer;
+            color: #656666;
+            padding-left: 16px;
+            padding-top: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba($border-color, .5);
+
+            &:hover {
+                color: $main-color !important;
+
+                .iconfont:before {
+                    color: $main-color;
+                }
+            }
+            .iconfont {
+                color: #656666;
+                font-size: 16px;
+            }
+            .icon-tuichu {
+                font-size: 17px;
+            }
+            &:first-child {
+                padding-top: 15px;
+            }
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
     .right-nav {
         float: right;
         width: 180px;
@@ -37,6 +106,5 @@
     z-index: 100000;
     background-color: #F0F0EF;
     padding: 20px;
-    // display: none;
-    // opacity: 0;
+    display: none;
 }
