@@ -11,7 +11,7 @@
         right: 0;
         top: 0;
         margin-top: 11px;
-        margin-right: 45px;
+        margin-right: 100px;
         @extend .pointer;
 
         .avatar-round {
@@ -30,10 +30,17 @@
             position: absolute;
             right: 0;
             top: 0;
-            margin-right: -30px;
+            margin-right: -33px;
             margin-top: 7px;
             font-size: 18px;
             @include hoverable($light-text-color);
+        }
+        .icon-menu {
+            font-size: 16px;
+            margin-top: -22px;
+            position: absolute;
+            right: 0;
+            margin-right: -65px;
         }
     }
     .extra-menu {
@@ -56,14 +63,14 @@
             padding-left: 10px;
             padding-bottom: 2px;
             display: block;
-            &:hover{
+
+            &:hover {
                 color: $main-color !important;
             }
-            a{
+            a {
                 color: $label-color !important;
             }
-
-            &:hover a{
+            &:hover a {
                 color: $main-color !important;
             }
         }
@@ -75,7 +82,7 @@
         background-color: $content-bg-color;
         width: 125px;
         position: absolute;
-        right: 0px;
+        right: 33px;
         z-index: 1;
         top: 0;
         margin-top: 46px;

@@ -124,8 +124,9 @@ $(function() {
         _loginEventBind();
         _registerEventBind();
 
-        $('.user-menu-btn, .avatar-container').on('click', function(e) {
+        $('.user-menu-btn, .avatar-round').on('click', function(e) {
             e.stopPropagation();
+            $('.extra-menu:not(.view-hide)').addClass('view-hide');
             $('.header .user-menu').toggleClass('view-hide');
         })
 
@@ -154,7 +155,8 @@ $(function() {
                 }
         });
 
-        $(document).on('click', '.right-nav .menu-btn', function(){
+        $(document).on('click', '.right-nav .menu-btn, .avatar-container .icon-menu', function(){
+            $('.user-menu:not(.view-hide)').addClass('view-hide');
             $('.header .extra-menu').toggleClass('view-hide');
         });
 
