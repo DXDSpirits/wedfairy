@@ -61,6 +61,7 @@
     }
     .theme-previewer {
         text-align: center;
+        margin: 0 auto;
         margin-top: 32px;
         max-width: 425px;
 
@@ -84,6 +85,9 @@
     .theme-header {
         text-align: center;
         font-size: 19px;
+        @media (max-width: $screen-sm-max) { 
+            margin-top: 30px;
+        }
     }
     .theme-container {
         width: 520px;
@@ -92,6 +96,8 @@
 
         [data-theme] {
             @extend .col-md-4;
+            @extend .col-sm-6;
+            @extend .col-xs-6;
             @extend .pointer;
             margin-top: 20px;
 
@@ -103,5 +109,8 @@
     }
     .pagination-container {
         text-align: center;
+        @media (max-width: $screen-sm-max) { 
+            display: none;
+        }
     }
 }

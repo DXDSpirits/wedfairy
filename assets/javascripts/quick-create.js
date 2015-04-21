@@ -49,7 +49,13 @@ $(function() {
     function renderThemes(){
         var template = $("#theme-template").html();
         var $themeContainer = $('.theme-container').html('');
-        _.each(THEMES.slice(curPage*9 - 9, curPage*9), function(theme){
+        var sliceThemes = THEMES.slice(curPage*9 - 9, curPage*9);
+
+        if($('.container').outerWidth() < 960){
+            sliceThemes = THEMES.slice();
+        }
+
+        _.each(sliceThemes, function(theme){
             var rendered = Mustache.render(template, theme.attributes);
             $themeContainer.append(rendered);
         })
