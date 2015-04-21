@@ -152,7 +152,12 @@ $(function() {
                 if (13 == e.keyCode) { // 27 is the ESC key
                     Backbone.trigger('login-user');
                 }
-            });
+        });
+
+        $(document).on('click', '.right-nav .menu-btn', function(){
+            $('.header .extra-menu').toggleClass('view-hide');
+        });
+
     }
 
 
