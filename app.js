@@ -23,6 +23,7 @@ app.locals.static_url = '/assets/';
 app.locals.cdn_url = settings.CDN_URL;
 app.locals.api_root = settings.API_ROOT;
 app.locals.tat_static = settings.TAT_STATIC;
+app.locals.story_host = settings.STORY_HOST;
 
 // misc
 //app.use(favicon(__dirname + '/assets/images/favicon.png'));

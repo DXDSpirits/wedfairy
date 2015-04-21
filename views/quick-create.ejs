@@ -20,44 +20,30 @@
     <!-- Content Begins Here -->
     <% include page/header %>
     <div class="container"><div class="row">
-        <div class="col-md-4 theme-previewer">
-            <div class="img mobile-container" data-bg-src="images/iphone.png"></div>
+        <div class="col-md-5 col-lg-6 theme-previewer">
+            <div class="iframe pull-left">
+                <div id="iframe-wrapper">
+                    <iframe src="<%= story_host %>/story/" width="320" height="568"></iframe>
+                </div>
+            </div>
             <button class="btn btn-default create-btn">制作你的故事</button>
-
         </div>
-
-        <div class="col-md-8" class="theme-view">
+        <div class="col-md-7 col-lg-6" class="theme-view">
             <div class="theme-header">婚礼邀请函模板</div>
             <div class="theme-container">
-                <div data-theme="tianmimi"><div class="img"></div></div>
-                <div data-theme="tianmimi"><div class="img"></div></div>
-                <div data-theme="tianmimi"><div class="img"></div></div>
-                <div data-theme="tianmimi"><div class="img"></div></div>
-                <div data-theme="tianmimi"><div class="img"></div></div>
-                <div data-theme="tianmimi"><div class="img"></div></div>
-                <div data-theme="tianmimi"><div class="img"></div></div>
-                <div data-theme="tianmimi"><div class="img"></div></div>
-                <div data-theme="tianmimi"><div class="img"></div></div>
+                
             </div>
-
             <div class="pagination-container">
-                <button class="btn prev-page"><i class="iconfont icon-back"></i></button>
-                <button class="btn next-page"><i class="iconfont icon-right"></i></button>
-
+                <button class="btn prev-page-btn"><i class="iconfont icon-back"></i></button>
+                <button class="btn next-page-btn"><i class="iconfont icon-right"></i></button>
             </div>
-
-
-
         </div>
-
     </div></div>
     
-
-
     <% include page/footer %>
-    <div class="view-hide template-view">
-    </div>
-
+    <script id="theme-template" type="text/x-mustache-template">
+    <div data-theme="{{name}}"><div class="img"></div></div>
+    </script>
     <!-- Content Ends Here -->
     <script src="<%= tat_static %>javascripts/vendor/jquery-2.1.1.min.js"></script>
     <script src="<%= tat_static %>javascripts/vendor/underscore.min.js"></script>
