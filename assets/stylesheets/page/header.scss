@@ -6,7 +6,6 @@
     .logo-container {
         margin-left: 20px;
     }
-
     .avatar-container {
         position: absolute;
         right: 0;
@@ -37,6 +36,34 @@
             @include hoverable($light-text-color);
         }
     }
+    .extra-menu {
+        background-color: $content-bg-color;
+        width: 140px;
+        position: absolute;
+        right: 0px;
+        z-index: 1;
+        top: 0;
+        margin-top: 45px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-right: 35px;
+        padding-left: 10px;
+
+        .extra-menu-item, .extra-menu-small-item {
+            @extend .pointer;
+            color: $label-color;
+            padding-top: 7px;
+            padding-left: 10px;
+            padding-bottom: 2px;
+
+            &:hover {
+                color: $main-color;
+            }
+        }
+        .extra-menu-small-item {
+            font-size: .8em;
+        }
+    }
     .user-menu {
         background-color: $content-bg-color;
         width: 125px;
@@ -49,7 +76,7 @@
         .user-menu-item {
             @include hoverable($title-color);
             @extend .pointer;
-            color: #656666;
+            color: $label-color;
             padding-left: 16px;
             padding-top: 15px;
             padding-bottom: 10px;
@@ -91,7 +118,7 @@
                     color: darken($label-color, 20) !important;
                 }
             }
-            a, i {
+            a {
                 color: $label-color !important;
             }
             i {
@@ -109,4 +136,5 @@
     background-color: #F0F0EF;
     padding: 20px;
     display: none;
+    margin-left: -125px;
 }
