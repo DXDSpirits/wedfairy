@@ -122,7 +122,8 @@ $(function() {
         _loginEventBind();
         _registerEventBind();
 
-        $('.user-menu-btn').on('click', function() {
+        $('.user-menu-btn, .avatar-container').on('click', function(e) {
+            e.stopPropagation();
             $('.header .user-menu').toggleClass('view-hide');
         })
 
