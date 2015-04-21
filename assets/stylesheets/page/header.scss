@@ -55,9 +55,16 @@
             padding-top: 7px;
             padding-left: 10px;
             padding-bottom: 2px;
+            display: block;
+            &:hover{
+                color: $main-color !important;
+            }
+            a{
+                color: $label-color !important;
+            }
 
-            &:hover {
-                color: $main-color;
+            &:hover a{
+                color: $main-color !important;
             }
         }
         .extra-menu-small-item {
