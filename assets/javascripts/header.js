@@ -10,6 +10,7 @@ $(function() {
 
     function _renderRightNav() {
         if (isLogin()) {
+            $(".show-mobile-number").html("手机号: " + user.get('username'));
             $('.right-nav').addClass("view-hide");
             $('.avatar-container').removeClass("view-hide");
         } else {
@@ -20,8 +21,8 @@ $(function() {
 
     function _loginEventBind() {
         Backbone.on("login-user", function() {
-            var username = $('#modal-container .login-form .username-input').val() || null;
-            var password = $('#modal-container .login-form .password-input').val() || null;
+            var username = $('#global-header-modal-container .login-form .username-input').val() || null;
+            var password = $('#global-header-modal-container .login-form .password-input').val() || null;
             if (username && password) {
                 user.login({
                     username: username,
@@ -31,7 +32,7 @@ $(function() {
                         alert('手机号或者密码错误，请重新输入');
                     },
                     "success": function() {
-                        $('#modal-container').html("登录成功");
+                        $('#global-header-modal-container').html("登录成功");
                         _.delay(function() {
                             _renderRightNav();
                             Backbone.trigger('close-modal');
@@ -45,23 +46,24 @@ $(function() {
         });
 
 
-        $(document).on('click', '#login-modal .login-btn', function() {
+        $(document).on('click', '#global-header-modal-container .login-btn', function() {
             Backbone.trigger('login-user');
         });
 
-        $(document).on('click', '.right-nav .login-btn', function() {
-            var $container = $('#modal-container');
-            $container.html($('#login-modal').clone());
+        $(document).on('click', '.right-nav .login-btn,'
+                     + '#global-header-modal-container .register-form .to-login-btn', function() {
+            var $container = $('#global-header-modal-container');
+            $container.html($('.modal-template-container .login-form').clone());
             $container.fadeIn();
         });
 
     }
 
     function _registerEventBind() {
-        $(document).on('click', '#register-modal .register-btn', function() {
-            var username = $('#modal-container .username-input').val() || null;
-            var password = $('#modal-container .password-input').val() || null;
-            var surePassword = $('#modal-container .password-input2').val() || null;
+        $(document).on('click', '.register-form .register-btn', function() {
+            var username = $('#global-header-modal-container .username-input').val() || null;
+            var password = $('#global-header-modal-container .password-input').val() || null;
+            var surePassword = $('#global-header-modal-container .password-input2').val() || null;
 
 
             if (password !== surePassword) {
@@ -82,7 +84,7 @@ $(function() {
                         // redirect
                         user.login(auth, {
                             "success": function() {
-                                $('#modal-container').html("注册成功");
+                                $('#global-header-modal-container').html("注册成功");
                                 _.delay(function() {
                                     _renderRightNav();
                                     Backbone.trigger('close-modal');
@@ -101,9 +103,10 @@ $(function() {
 
 
 
-        $(document).on('click', '.right-nav .register-btn', function() {
-            var $container = $('#modal-container');
-            $container.html($('#register-modal').clone());
+        $(document).on('click', '.right-nav .register-btn,'
+                              + '#global-header-modal-container .login-form .to-register-btn', function() {
+            var $container = $('#global-header-modal-container');
+            $container.html($('.modal-template-container .register-form').clone());
             $container.fadeIn();
         });
     }
@@ -113,7 +116,6 @@ $(function() {
         if (isLogin()) {
             user.fetch({
                 success: function() {
-                    $(".show-mobile-number").html("手机号: " + user.get('username'));
                     _renderRightNav();
                 }
             })
@@ -129,13 +131,13 @@ $(function() {
 
 
         Backbone.on('close-modal', function() {
-            var $container = $('#modal-container');
+            var $container = $('#global-header-modal-container');
             $container.fadeOut(function() {
                 $container.html('');
             });
         })
 
-        $(document).on('click', '#modal-container .close', function() {
+        $(document).on('click', '#global-header-modal-container .close', function() {
             Backbone.trigger('close-modal');
         })
 
@@ -145,8 +147,8 @@ $(function() {
             _renderRightNav();
         })
 
-        $(document).on('keydown', '#login-modal .password-input,' +
-            '#register-modal .password-input2', function(e) {
+        $(document).on('keydown', '.login-form .password-input,' +
+            '.register-form .password-input2', function(e) {
                 if (13 == e.keyCode) { // 27 is the ESC key
                     Backbone.trigger('login-user');
                 }
