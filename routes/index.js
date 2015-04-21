@@ -27,6 +27,10 @@ router.get('/explore', function(req, res) {
     res.render('explore');
 });
 
+router.get('/quick-create', function(req, res) {
+    res.render('quick-create');
+});
+
 
 
 
