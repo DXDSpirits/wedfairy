@@ -77,7 +77,7 @@
         if ($checked.val() == 'on') {
             stories.fetch({
                 reset: true,
-                data: { featured: 'True' }
+                data: { featured: 2 }
             });
         } else {
             stories.fetch({
