@@ -86,7 +86,15 @@
     </p>
     <p>{{formatted_date}}</p>
     <p class="name"><samp>8yinhe.cn/s/{{name}}</samp></p>
-    <p class="{{#featured}}text-primary{{/featured}}">{{progress}} <i class="fa fa-lg fa-check-circle"></i></p>
+    <p class="{{#isFeatured}}text-primary{{/isFeatured}}{{#isFinished}}text-success{{/isFinished}}">
+        <span>{{progress}}</span>
+        <i class="fa fa-lg fa-check-circle"></i>
+        <select>
+            <option value="0" {{#isNew}}selected{{/isNew}}>未完成</option>
+            <option value="1" {{#isFinished}}selected{{/isFinished}}>已完成</option>
+            <option value="2" {{#isFeatured}}selected{{/isFeatured}}>推荐</option>
+        </select>
+    </p>
     <p>{{owner}}</p>
     <p class="title">{{title}}</p>
 </script>

@@ -4,7 +4,8 @@
         ModelView: Amour.ModelView.extend({
             events: {
                 'click .cover': 'onClick',
-                'click .fa-check-circle': 'feature'
+                //'click .fa-check-circle': 'feature'
+                'change select': 'modifyFeatured'
             },
             className: 'story-item text-center col-xs-6 col-sm-3 col-md-2',
             template: $('#template-story-item').html(),
@@ -12,19 +13,32 @@
                 var data = this.model ? this.model.toJSON() : {};
                 data.formatted_date = moment(data.time_created).format('YYYY-MM-DD HH:mm');
                 data.likes = data.likes || 0;
+                data.isNew = (data.featured == 0);
+                data.isFinished = (data.featured == 1);
+                data.isFeatured = (data.featured == 2);
                 return data;
             },
             onClick: function() {
                 window.open('http://wedfairy.com/story/' + this.model.get('name') + '/?from=portfolio', '_blank');
             },
-            feature: function(e) {
-                if (!this.model.get('featured')) {
-                    this.model.save({}, {
+            // feature: function(e) {
+            //     if (!this.model.get('featured')) {
+            //         this.model.save({}, {
+            //             url: this.model.url() + 'feature/'
+            //         });
+            //     } else {
+            //         this.model.save({}, {
+            //             url: this.model.url() + 'unfeature/'
+            //         });
+            //     }
+            // },
+            modifyFeatured: function() {
+                var featured = +this.$('select').val();
+                if (this.model.get('featured') != featured) {
+                    this.model.save({
+                        featured: featured
+                    }, {
                         url: this.model.url() + 'feature/'
-                    });
-                } else {
-                    this.model.save({}, {
-                        url: this.model.url() + 'unfeature/'
                     });
                 }
             }
