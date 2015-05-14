@@ -44,9 +44,11 @@
 
     .scene-story-container{
         padding-right: 15%;
+        height: 420px;
         .scene-story{
-            transform: translateY(-50%);
-            margin-top: 45%;
+            @include transform(translate3D(0, -50%, 0));
+            position: relative;
+            top: 50%;
             .scene-story-header{
                 font-size: 18px;
                 color: $text-color;
