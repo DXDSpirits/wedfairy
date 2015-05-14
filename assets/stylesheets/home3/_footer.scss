@@ -1,0 +1,43 @@
+#footer {
+    position: relative;
+
+    .bg {
+        background: image-url("home3/footer.jpg") no-repeat center;
+        background-size: cover;
+        padding-top: 50%;
+        position: relative;
+
+        &::before {
+            background-color: black;
+            width: 100%;
+            height: 100%;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: .85;
+        }
+    }
+    .content-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 125px 15%;
+
+        .subtitle {
+            text-align: center;
+        }
+        .qrcode-composer {
+            background: image-url("home3/qrcode-composer.png") no-repeat center;
+            width: 110px;
+            height: 110px;
+            background-size: 100px 100px;
+            margin: 0 auto;
+            background-color: white;
+        }
+    }
+
+
+
+    
+}
