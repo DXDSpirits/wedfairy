@@ -1,0 +1,39 @@
+#hero{
+    position: relative;
+    margin-top: 128px;
+    .text-container{
+        width: 250px;
+        margin: 0 auto;
+        margin-top: 150px;
+        .start-make-btn{
+            background-color: #D5573D;
+            color: white;
+            border-radius: 0px;
+            margin-top: 30px;
+        }
+    }
+    .logo-text{
+        font-size: 52px;
+        color: $text-color;
+    }
+
+    .logo-subtext{
+        font-size: 24px;
+        color: $text-color;
+    }
+
+
+    .hero-image{
+        width: 730px;
+        position: absolute;
+        margin-left: 36%;
+        .img-shower{
+            background: image-url("home3/hero.jpg") no-repeat center;
+            height: 410px;
+            background-size: contain;
+            margin: 0 auto;
+        }
+    }
+
+
+}
