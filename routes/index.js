@@ -6,6 +6,10 @@ router.get('/', function(req, res) {
     res.render('home');
 });
 
+router.get('/home3', function(req, res) {
+    res.render('home3');
+});
+
 router.get('/newhome', function(req, res) {
     res.render('home');
 });

@@ -1,0 +1,42 @@
+@include keyframes(logoAnim) {
+      0% { @include transform(rotate(  0deg)); }
+     50% { @include transform(rotate(180deg)); }
+    100% { @include transform(rotate(360deg)); }
+}
+
+#loading-screen {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    .logo {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        width: 50px;
+        height: 50px;
+        margin-left: -25px;
+        margin-top: -25px;
+        background: image-url("home3/logo.svg") no-repeat center;
+        background-size: contain;
+    }
+    .logo-circle {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        width: 80px;
+        height: 80px;
+        margin-left: -40px;
+        margin-top: -40px;
+        background: image-url("home3/logo-circle.svg") no-repeat center;
+        background-size: contain;
+        @include animation(logoAnim 3s linear infinite);
+    }
+}
+
+.img-loading {
+    background-color: rgba(0,0,0,0);
+}
