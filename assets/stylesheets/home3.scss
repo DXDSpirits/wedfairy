@@ -8,13 +8,18 @@
 @import "home3/loading";
 @import "home3/header";
 @import "home3/hero";
+@import "home3/scene";
 
 
+
+@import "home3/utils";
 
 
 body{
     background-color: $bg-color;
     color: $light-text-color;
+    line-height: 2em;
+    overflow-x: hidden;
 }
 
 

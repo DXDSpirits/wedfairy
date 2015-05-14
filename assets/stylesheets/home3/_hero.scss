@@ -1,39 +1,50 @@
-#hero{
+#hero {
     position: relative;
     margin-top: 128px;
-    .text-container{
+
+    .text-container {
         width: 250px;
         margin: 0 auto;
-        margin-top: 150px;
-        .start-make-btn{
-            background-color: #D5573D;
+        margin-top: 130px;
+
+        .start-make-btn {
+            background-color: $red;
             color: white;
             border-radius: 0px;
             margin-top: 30px;
+            padding: 15px 30px;
         }
     }
-    .logo-text{
+    .logo-text {
         font-size: 52px;
         color: $text-color;
     }
-
-    .logo-subtext{
+    .logo-subtext {
         font-size: 24px;
         color: $text-color;
     }
-
-
-    .hero-image{
+    .hero-image {
         width: 730px;
         position: absolute;
         margin-left: 36%;
-        .img-shower{
+
+        .img-shower {
             background: image-url("home3/hero.jpg") no-repeat center;
             height: 410px;
             background-size: contain;
             margin: 0 auto;
         }
     }
+    .intro-container {
+        margin: 0 auto;
+        margin-top: 300px;
+        width: 70%;
 
-
+        .intro-header {
+            font-size: 24px;
+            color: $text-color;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    }
 }

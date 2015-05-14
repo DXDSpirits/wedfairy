@@ -1,0 +1,64 @@
+#scene {
+    margin-top: 450px;
+    position: relative;
+    padding-bottom: 260px;
+
+    .image-shower {
+        background-size: contain;
+    }
+    .ipad {
+        background: image-url("home3/ipad.jpg") no-repeat center;
+        height: 410px;
+        background-size: contain;
+        padding-top: 42px;
+
+        .scene-container{
+            height: 325px;
+            overflow: hidden;
+            .scene {
+                background: image-url("home3/ipad-scene1.jpg") no-repeat center;
+                height: 325px;
+                background-size: contain;
+            }
+        }
+    }
+    .iphone {
+        background: image-url("home3/iphone.png") no-repeat center;
+        height: 300px;
+        padding-top: 38px;
+        background-size: contain;
+        position: absolute;
+        width: 100%;
+        top: 135px;
+        margin-left: 172px;
+        .scene-container{
+            height: 227px;
+            overflow: hidden;
+            .scene {
+                background: image-url("home3/iphone-scene1.jpg") no-repeat center;
+                height: 227px;
+                background-size: contain;
+            }
+        }
+    }
+
+    .scene-story-container{
+        padding-right: 15%;
+        .scene-story{
+            transform: translateY(-50%);
+            margin-top: 45%;
+            .scene-story-header{
+                font-size: 18px;
+                color: $text-color;
+            }
+            .scene-story-content{
+                margin-top: 50px;
+            }
+        }
+    }
+
+
+
+
+
+}
