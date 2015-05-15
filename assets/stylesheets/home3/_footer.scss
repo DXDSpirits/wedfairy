@@ -4,7 +4,8 @@
     .bg {
         background: image-url("home3/footer.jpg") no-repeat center;
         background-size: cover;
-        padding-top: 50%;
+        // padding-top: 50%;
+        height: 600px;
         position: relative;
 
         &::before {
@@ -26,6 +27,7 @@
 
         .subtitle {
             text-align: center;
+            margin-bottom: 30px;
         }
         .qrcode-composer {
             background: image-url("home3/qrcode-composer.png") no-repeat center;
@@ -37,21 +39,87 @@
             margin-top: 20px;
             &::before{
                 content: "";
-                width: 130px;
-                height: 130px;
+                width: 140px;
+                height: 140px;
                 display: block;
-                padding: 10px;
+                padding: 15px;
                 /* margin-top: -19px; */
-                margin-left: -10px;
+                margin-left: -15px;
                 border: 1px white solid;
                 position: absolute;
-                margin-top: -10px;
+                margin-top: -15px;
             }
 
         }
+
     }
 
 
+    .social-icon-container{
+        margin-top: 35px;
+        text-align: center;
+        color: white;
+        .iconfont{
+            padding: 0 5px;
+            &::before{
+                font-size: 20px;
+                border: 1px solid white;
+                border-radius: 50%;
+            }
+        }
+        .icon-weixin::before{
+            padding: 6px 5px 8px 5px;
+        }
+        .icon-weibo::before{
+            padding: 6px 5px 8px 5px;
+        }
+        .icon-rss::before{
+            padding: 6px 5px 8px 5px;
+        }
+
+    }
+
+    .footer-link-container{
+        margin-top: 45px;
+        padding-top: 15px;
+        border-top: 1px solid white;
+        padding-left: 0;
+        padding-right: 0;
+        .link-container{
+            display: inline-block;
+            // width: calc((100% - 16px) / 5);
+            // text-align: center;
+            margin-left: calc((100% - 18em - 16px)/8);
+            margin-right: calc((100% - 18em - 16px)/8);
+            &:first-child{
+                margin-left: 0px !important;
+            }
+            &:nth-child(2){
+                margin-right: calc((100% - 18em - 16px)/8 - 2em);
+            }
+            &:nth-child(3){
+                margin-left: calc((100% - 18em - 16px)/8 + 1em);
+                margin-right: calc((100% - 18em - 16px)/8 + 1em);
+            }
+
+            &:last-child{
+                margin-right: 0px !important;
+            }
+
+            a{
+                color: $light-text-color;
+            }
+        }
+        .link-container + .link-container{
+            // margin-left: calc((100% - 18em)/4);
+        }
+    }
 
     
 }
+
+
+
+
+
+
