@@ -85,15 +85,18 @@
         <span class="col-xs-6"><i class="fa fa-comment-o"></i> {{comments}}</span>
     </p>
     <p>{{formatted_date}}</p>
-    <p class="name"><samp>8yinhe.cn/s/{{name}}</samp></p>
+    <!--<p class="name"><samp>8yinhe.cn/s/{{name}}</samp></p>-->
+    <p class="name"><samp>{{name}}</samp></p>
     <p class="{{#isFeatured}}text-primary{{/isFeatured}}{{#isFinished}}text-success{{/isFinished}}">
         <span>{{progress}}</span>
         <i class="fa fa-lg fa-check-circle"></i>
+        {{^isPrototype}}
         <select>
             <option value="0" {{#isNew}}selected{{/isNew}}>未完成</option>
             <option value="1" {{#isFinished}}selected{{/isFinished}}>已完成</option>
             <option value="2" {{#isFeatured}}selected{{/isFeatured}}>推荐</option>
         </select>
+        {{/isPrototype}}
     </p>
     <p>{{owner}}</p>
     <p class="title">{{title}}</p>

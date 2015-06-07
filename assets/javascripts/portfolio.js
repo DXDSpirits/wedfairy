@@ -16,6 +16,7 @@
                 data.isNew = (data.featured == 0);
                 data.isFinished = (data.featured == 1);
                 data.isFeatured = (data.featured == 2);
+                data.isPrototype = (data.featured == 3);
                 return data;
             },
             onClick: function() {
