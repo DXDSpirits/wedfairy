@@ -1,9 +1,11 @@
 @import "bourbon/bourbon";
-//======================================== Bootstrap ========================================
 
-@import "bootstrap/bootstrap-compass";
-@import "bootstrap/bootstrap";
+@import "variables";
 @import "page/variables";
+@import "bootstrap/bootstrap/mixins";
+
+/******************************************************************************/
+
 @import "page/utils";
 @import "page/footer";
 

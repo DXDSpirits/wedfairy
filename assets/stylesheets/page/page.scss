@@ -1,12 +1,13 @@
 @import "bourbon/bourbon";
-//======================================== Bootstrap ========================================
 
-@import "bootstrap/bootstrap-compass";
-@import "bootstrap/bootstrap";
 @import "variables";
+@import "../variables";
+@import "bootstrap/bootstrap/mixins";
+
+/******************************************************************************/
+
 @import "utils";
 @import "footer";
-
 
 // pages
 @import "header";
@@ -15,7 +16,6 @@
 @import "about";
 @import "law";
 @import "faq";
-
 
 .btn {
     border-radius: 4px;

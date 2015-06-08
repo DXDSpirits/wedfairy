@@ -1,6 +1,7 @@
 @import "bourbon/bourbon";
 
 @import "variables";
+@import "page/variables";
 
 /******************************************************************************/
 
@@ -21,6 +22,3 @@
 .light-text{
     color: $light-text-color;
 }
-
-
-
