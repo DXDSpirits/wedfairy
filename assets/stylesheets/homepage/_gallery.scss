@@ -1,0 +1,78 @@
+
+#view-gallery {
+    background-color: #f0f0f0;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    > header {
+        margin-bottom: 50px;
+        line-height: 2;
+        p {
+            margin-top: 10px;
+        }
+    }
+    .in {
+        font-size: 1.5em;
+    }
+    .gallery {
+        .col {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+        }
+        .item {
+            padding: 3px;
+            cursor: pointer;
+            position: relative;
+            &:hover .text-hover {
+                opacity: 1;
+            }
+            > .img {
+                background-color: #fff;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    .text-hover {
+        @include position(absolute, 3px 3px 3px 3px);
+        background-color: rgba($brand-primary, 0.9);
+        opacity: 0;
+        @include transition(opacity .2s ease-in-out);
+        &::after {
+            content: "";
+            @include position(absolute, 7px 7px 7px 7px);
+            border: 1px solid $gray-lighter;
+        }
+        font-size: 0.8em;
+        color: $gray-lighter;
+        h5 {
+            display: inline-block;
+            color: $gray-lighter;
+            border-bottom: 1px solid $gray-lighter;
+            padding-bottom: 3px;
+            margin-bottom: 5px;
+        }
+        > .text {
+            @include position(absolute, auto 17px 5px 17px);
+        }
+    }
+    .gallery-left, .gallery-right {
+        width: 50%;
+        padding-top: 40%;
+        position: relative;
+        @media (max-width: $screen-sm-max) {
+            width: 100%;
+            padding-top: 80%;
+        }
+    }
+    .gallery-left {
+        .col:nth-child(1) { left:  0; width:25%; }
+        .col:nth-child(2) { left:25%; width:45%; }
+        .col:nth-child(3) { left:70%; width:30%; }
+    }
+    .gallery-right {
+        .col:nth-child(1) { left:  0; width:35%; }
+        .col:nth-child(2) { left:35%; width:40%; }
+        .col:nth-child(3) { left:75%; width:25%; }
+    }
+}

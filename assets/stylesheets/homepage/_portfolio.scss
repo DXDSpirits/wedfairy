@@ -1,0 +1,91 @@
+
+#view-portfolio-fixed {
+    .fixed-wrapper {
+        overflow: hidden;
+        z-index: 9998;
+        @include position(fixed, 0 0 0 0);
+        @include transform(translate3d(0,100%,0));
+        @include clearfix();
+    }
+    .device-screens {
+        float: left;
+        width: 60%;
+        height: 100%;
+        position: relative;
+        .screen {
+            position: relative;
+            > .img {
+                @include position(absolute, 0 0 0 0);
+            }
+        }
+    }
+    .description {
+        float: left;
+        width: 40%;
+        height: 100%;
+        position: relative;
+        h4 + p {
+            //font-size: 0.9em;
+            font-family: $font-family-serif;
+            margin: 1.5em auto;
+            color: $gray;
+            &::before, &::after {
+                content: "\"";
+                line-height: 1;
+                display: inline-block;
+                padding: 0 0.1em;
+            }
+            &::before { content: "“"; }
+            &::after { content: "”"; }
+        }
+    }
+    article {
+        max-width: 360px;
+        width: 50%;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        @include transform(translate3d(0, -50%, 0));
+    }
+    .ipad-mockup {
+        position: absolute;
+        right: 35%;
+        width: 40%;
+        top: 50%;
+        margin-top: -33%;
+    }
+    .iphone-mockup {
+        position: absolute;
+        right: 15%;
+        width: 24%;
+        top: 50%;
+        margin-top: -18%;
+    }
+    @media (max-width: $screen-xs-max) {
+        .description, .device-screens {
+            float: none;
+            width: 100%;
+            height: auto;
+        }
+        .device-screens {
+            z-index: 1;
+            height: 50%;
+        }
+        .description {
+            z-index: 0;
+            height: 50%;
+            //overflow: hidden;
+        }
+        article {
+            width: 100%;
+            max-width: none;
+            padding: 15px;
+        }
+        .ipad-mockup {
+            width: 45%;
+        }
+        .iphone-mockup {
+            width: 28%;
+        }
+    }
+}

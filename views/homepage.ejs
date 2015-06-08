@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<% include includes/html %>
+
+<head>
+    
+    <% include includes/metadata %>
+    
+    <title>八音盒轻故事 - 我们在创造一种爱的语言，让你和这个世界聊天</title>
+    
+    <meta name="description" content="八音盒轻故事官方网站。DIY自己的故事，爱情，友情，个人，宝贝，宠物，旅行……精美的模板选择，自定义音乐，多平台分享，实时与好友互动。">
+    
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/bootstrap-custom.css?v=<%= build_no %>">
+    
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/iconfont.css">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/font-awesome.css">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/animate.min.css">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/amour.css">
+    
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/homepage.css?v=<%= build_no %>">
+    
+    <% include includes/capability %>
+    <% include includes/production %>
+    
+    <script src="<%= tat_static %>javascripts/vendor/modernizr-2.7.1.min.js"></script>
+</head>
+<body>
+
+<div id="loading-screen">
+    <div class="logo"></div>
+    <div class="logo-circle"></div>
+</div>
+
+<!-- The story begins here -->
+<% include homepage/header %>
+<% include homepage/portfolio-fixed %>
+<div id="skrollr-body">
+    <% include homepage/hero %>
+    <% include homepage/prologue %>
+    <% include homepage/portfolio %>
+    <% include homepage/gallery %>
+    <% include homepage/features %>
+    <% include homepage/footer %>
+</div>
+<!-- The story ends -->
+
+<script>
+    var WX_CONFIG = <%- JSON.stringify(wx_config) %>
+</script>
+
+<script src="<%= tat_static %>javascripts/vendor/jquery-2.1.1.min.js"></script>
+<script src="<%= tat_static %>javascripts/vendor/underscore.min.js"></script>
+<script src="<%= tat_static %>javascripts/vendor/mustache.min.js"></script>
+<script src="<%= tat_static %>javascripts/vendor/backbone.min.js"></script>
+<script src="<%= tat_static %>javascripts/vendor/bootstrap.min.js"></script>
+
+<script src="<%= tat_static %>javascripts/plugins/fastclick.js"></script>
+<script src="<%= tat_static %>javascripts/plugins/skrollr.min.js"></script>
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+<script src="<%= tat_static %>javascripts/amour.js?v=<%= build_no %>"></script>
+
+<script src="<%= static_url %>javascripts/homepage.js?v=<%= build_no %>"></script>
+
+<% include includes/analytics %>
+
+</body>
+</html>

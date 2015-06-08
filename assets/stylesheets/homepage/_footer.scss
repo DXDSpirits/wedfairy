@@ -1,0 +1,90 @@
+
+$qrcode-size: 150px;
+
+#global-footer {
+    padding-top: 80px;
+    padding-bottom: 10px;
+    position: relative;
+    color: $gray-lighter;
+    a { color: $gray-lighter; }
+    .background {
+        @include position(absolute, 0 0 0 0);
+        &::after {
+            content: "";
+            @include position(absolute, 0 0 0 0);
+            background-color: rgba(#222, 0.9);
+        }
+    }
+    .ready-to-compose {
+        font-size: 1.2em;
+        line-height: 2;
+    }
+    .qrcode {
+        margin: 0 auto;
+        width: $qrcode-size + 22px;
+        height: $qrcode-size + 22px;
+        padding: 10px;
+        border: 1px solid #fff;
+        > .img {
+            width: $qrcode-size;
+            height: $qrcode-size;
+            background-size: $qrcode-size $qrcode-size;
+        }
+    }
+    .social {
+        margin: 30px auto;
+        .social-icon {
+            display: inline-block;
+            color: $gray-lighter;
+            border: 1px solid $gray-lighter;
+            border-radius: 50%;
+            font-size: 20px;
+            width: 45px;
+            height: 45px;
+            //padding-top: (45px - 20px - 2px) / 2 - 1px;
+            //padding-bottom: (45px - 20px - 2px) / 2 + 1px;
+            margin: 5px;
+            .fa {
+                line-height: 45px;
+            }
+        }
+        .wechat:hover {
+            @include transition(transform .1s ease-in-out);
+            @include transform(scale(4, 4));
+            @include transform-origin(100% 0);
+            background: #fff image-url("weixin-qrcode.jpg") no-repeat center;
+            background-size: 43px 43px;
+            border-color: transparent;
+            border-radius: 0;
+            .fa { visibility: hidden; }
+        }
+    }
+    .links {
+        display: inline-block;
+        padding-top: 1em;
+        border-top: 1px solid $gray-lighter;
+        margin-bottom: 80px;
+        font-size: 0.9em;
+        > a + a {
+            margin-left: 15em;
+            @media (max-width: $screen-md-max) {
+                margin-left: 10em;
+            }
+            @media (max-width: $screen-sm-max) {
+                margin-left: 7em;
+            }
+        }
+        @media (max-width: $screen-xs-max) {
+            font-size: 1em;
+            > a {
+                display: block;
+                margin: 1em 7em;
+            }
+        }
+    }
+    .copyright, .made-with-love {
+        font-size: 0.8em;
+        color: $gray-light;
+        letter-spacing: 0.05em;
+    }
+}

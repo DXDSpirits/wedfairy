@@ -6,19 +6,22 @@ $gray:                   lighten(#000, 33.5%) !default; // #555
 $gray-light:             lighten(#000, 60%) !default;   // #999
 $gray-lighter:           lighten(#000, 93.5%) !default; // #eee
 
-$brand-primary:         #fe5858 !default;
-$brand-success:         #5cb85c !default;
-$brand-info:            #5bc0de !default;
-$brand-warning:         #f0ad4e !default;
-$brand-danger:          #d9534f !default;
+$brand-primary:          #fe5858 !default;
+$brand-success:          #5cb85c !default;
+$brand-info:             #5bc0de !default;
+$brand-warning:          #f0ad4e !default;
+$brand-danger:           #d9534f !default;
 
 
 //== Scaffolding
-$text-color:            $gray !default;
+$text-color:             $gray !default;
 
 
 //== Typography
-$font-family-sans-serif:  "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif:  "Helvetica Neue", Arial, 
+                          "Hiragino Sans GB", "Hiragino Sans GB W3",
+                          "Microsoft YaHei", "Wenquanyi Micro Hei"
+                          sans-serif !default;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 
 $font-family-base:        $font-family-sans-serif !default;

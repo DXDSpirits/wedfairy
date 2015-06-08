@@ -7,7 +7,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/newhome', function(req, res) {
-    res.render('home');
+    res.render('homepage');
 });
 
 router.get('/wedding', function(req, res) {
@@ -27,11 +27,4 @@ router.get('/explore', function(req, res) {
     res.render('explore');
 });
 
-
 module.exports = router;
-
-
-
-
-
-

@@ -1,0 +1,18 @@
+
+#view-features {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    .feature {
+        padding-top: 2em;
+        padding-bottom: 2em;
+        h4 + p {
+            max-width: 200px;
+            margin: 10px auto;
+            @media (max-width: $screen-xs-max) {
+                max-width: none;
+                padding-left: 3em;
+                padding-right: 3em;
+            }
+        }
+    }
+}

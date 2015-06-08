@@ -1,0 +1,79 @@
+
+#view-hero {
+    padding-top: 15%;
+    .brand-slogan {
+        float: left;
+        width: 38.2%;
+        position: relative;
+    }
+    .device-screens {
+        float: left;
+        width: 61.8%;
+        padding-top: 38.2%;
+        position: relative;
+        .screen {
+            position: relative;
+            > .img {
+                @include position(absolute, 0 0 0 0);
+            }
+        }
+    }
+    @media (max-width: $screen-xs-max) {
+        .brand-slogan, .device-screens {
+            float: none;
+            width: 100%;
+        }
+        .device-screens {
+            margin: 40% auto 10%;
+        }
+    }
+    .slogan-text {
+        top: 50%;
+        right: 50%;
+        width: 300px;
+        margin: 10% auto;
+        font-size: $font-size-small;
+    }
+    .brand-name {
+        background-position: top left;
+        height: 110px;
+        margin-bottom: 40px;
+        text-indent: -9999px;
+    }
+    .links {
+        margin-top: 3em;
+    }
+    .compose-button {
+        padding: 10px 30px;
+        border-radius: 2px;
+        letter-spacing: 0.15em;
+    }
+    .learn-more {
+        cursor: pointer;
+        display: inline-block;
+        letter-spacing: 0.2em;
+        border-bottom: 1px solid $gray-light;
+        margin-left: 3em;
+    }
+    .iphone-mockup {
+        position: absolute;
+        width: 20%;
+        left: 0;
+        top: 50%;
+        margin-top: -19%;
+    }
+    .macbook-mockup {
+        position: absolute;
+        width: 70%;
+        left: 15%;
+        top: 50%;
+        margin-top: -30%;
+    }
+    .ipad-mockup {
+        position: absolute;
+        width: 35%;
+        right: -5%;
+        top: 50%;
+        margin-top: -26%;
+    }
+}

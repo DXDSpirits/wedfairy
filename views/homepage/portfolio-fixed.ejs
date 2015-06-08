@@ -1,0 +1,104 @@
+
+<% var articles=[{
+    imagePhone: "images/homepage/portfolio/wedding-iphone.jpg",
+    imagePad: "images/homepage/portfolio/wedding-ipad.jpg",
+    title:"婚礼邀请函",
+    content:"<p>我爱你的诺言，我与你的婚礼，我想让全世界都知道</p><p>用几句话说不清的爱情故事，“八音盒”却能让你用一个简单的模板，一个唯美的主题，说一个有故事的电子婚礼邀请函，并能让这份爱得最真诚的祝福。</p>"
+}, {
+    imagePhone: "images/homepage/portfolio/food-iphone.jpg",
+    imagePad: "images/homepage/portfolio/food-ipad.jpg",
+    title:"爱人的礼物",
+    content:"<p>最美的回忆，是你写给我的情书</p><p>也许只是一段久藏在心里的回忆，也许只是一段想说的情话，也许只是一封煽情的电子情书；用八音盒来记录下你的故事，无论赠与谁，让这份爱变成一份特别的礼物。</p>"
+}, {
+    imagePhone: "images/homepage/portfolio/voyage-iphone.jpg",
+    imagePad: "images/homepage/portfolio/voyage-ipad.jpg",
+    title:"旅行的故事",
+    content:"<p>旅行就像一本书，承载着我的世界观</p><p>热爱旅行的人，永远会把自己看成宇宙中的一叶扁舟，谦卑的心态让他们接受到来自大自然的洗礼，这段经历值得用“八音盒”来记录。</p>"
+}, {
+    imagePhone: "images/homepage/portfolio/graduation-iphone.jpg",
+    imagePad: "images/homepage/portfolio/graduation-ipad.jpg",
+    title:"友情的故事",
+    content:"<p>时光不老，友情不散</p><p>追溯那些随时光流走的岁月，一定会有那么一位陪伴在你身边的挚友。或疯狂，或哭闹，或嬉笑，这就是青春，你一定会想用“八音盒”对她说一声“感谢”。</p>"
+}, {
+    imagePhone: "images/homepage/portfolio/idol-iphone.jpg",
+    imagePad: "images/homepage/portfolio/idol-ipad.jpg",
+    title:"偶像的故事",
+    content:"<p>陪伴青春的正能量</p><p>小时候，都会有一个梦想，想成为一个像“他”一样的人。这股力量，伴随着你成长，如果你想告诉给更多人，“八音盒”为你圆梦。</p>"
+}]; %>
+
+<section class="view" id="view-portfolio-fixed">
+    <div class="fixed-wrapper window-height"
+        data-anchor-target="#view-portfolio"
+        data-bottom-top="transform:translate3d(0,100%,0);"
+        data--100p-bottom-top="transform:translate3d(0,0%,0);"
+        data-bottom-bottom="transform:translate3d(0,0%,0);"
+        data--100p-bottom-bottom="transform:translate3d(0,-100%,0);">
+        <div class="device-screens">
+            <div class="ipad-mockup">
+                <div class="top"></div>
+                <div class="screen">
+                    <% for(var i=0; i<articles.length; i++) { %>
+                        <div class="img" data-bg-src="<%= articles[i].imagePad %>"
+                            data-anchor-target="#view-portfolio-anchor-<%= i+1 %>"
+                            data--25p-bottom-top="opacity:0;"
+                            data-center-top="opacity:1;"
+                            <% if (i < articles.length - 1) { %>
+                                data-center-center="opacity:1;"
+                                data-25p-center-bottom="opacity:1;"
+                                data-center-bottom="opacity:0;"
+                            <% } %> ></div>
+                    <% } %>
+                </div>
+                <div class="bottom"></div>
+            </div>
+            <div class="iphone-mockup">
+                <div class="top"></div>
+                <div class="screen">
+                    <% for(var i=0; i<articles.length; i++) { %>
+                        <div class="img" data-bg-src="<%= articles[i].imagePhone %>"
+                            data-anchor-target="#view-portfolio-anchor-<%= i+1 %>"
+                            data--25p-bottom-top="opacity:0;"
+                            data-center-top="opacity:1;"
+                            <% if (i < articles.length - 1) { %>
+                                data-center-center="opacity:1;"
+                                data-25p-center-bottom="opacity:1;"
+                                data-center-bottom="opacity:0;"
+                            <% } %> ></div>
+                    <% } %>
+                </div>
+                <div class="bottom"></div>
+            </div>
+        </div>
+        <div class="description hidden-xs">
+            <% for(var i=0; i<articles.length; i++) { %>
+                <article
+                    data-anchor-target="#view-portfolio-anchor-<%= i+1 %>"
+                    data-center-top="opacity:0;transform:translate3d(0,50%,0);"
+                    data-25p-center-center="opacity:1;transform:translate3d(0,-50%,0);"
+                    <% if (i < articles.length - 1) { %>
+                        data-center-center="opacity:1;transform:translate3d(0,-80%,0);"
+                        data-25p-center-bottom="opacity:1;transform:translate3d(0,-150%,0);"
+                        data-center-bottom="opacity:0;transform:translate3d(0,-200%,0);"
+                    <% } %> >
+                    <h4><%- articles[i].title %></h4>
+                    <%- articles[i].content %>
+                </article>
+            <% } %>
+        </div>
+        <div class="description visible-xs">
+            <% for(var i=0; i<articles.length; i++) { %>
+                <article
+                    data-anchor-target="#view-portfolio-anchor-<%= i+1 %>"
+                    data-25p-center-top="opacity:0;transform:translate3d(0,0%,0);"
+                    data-center-center="opacity:1;transform:translate3d(0,-50%,0);"
+                    <% if (i < articles.length - 1) { %>
+                        data--25p-center-center="opacity:1;transform:translate3d(0,-80%,0);"
+                        data-center-bottom="opacity:0;transform:translate3d(0,-100%,0);"
+                    <% } %> >
+                    <h4 class="text-center"><%- articles[i].title %></h4>
+                    <%- articles[i].content %>
+                </article>
+            <% } %>
+        </div>
+    </div>
+</section>

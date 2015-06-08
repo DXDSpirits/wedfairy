@@ -1,0 +1,45 @@
+
+#global-header {
+    @include position(fixed, 0 0 auto 0);
+    z-index: 1;
+    .logo-brand {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        font-size: 20px;
+        color: #323a45;
+    }
+    .icon-logo-brand::before { /*color: #f56262;*/ }
+    .icon-logo-brand::after { /*color: #f57676;*/ }
+    .icon-logo {
+        color: #fff;
+        background-color: $brand-primary;
+        text-align: center;
+        padding: 4px 3px 3px;
+        border-radius: 2px;
+        font-size: 30px;
+    }
+    .compose-button {
+        position: absolute;
+        top: 50px;
+        right: 60px;
+        padding: 13px 30px 11px;
+        background-color: transparent;
+        border: 1px solid $gray;
+        color: $gray;
+        border-radius: 2px;
+        &:active, &.active, &:hover, &:focus, &.focus {
+            outline: 0;
+            box-shadow: none;
+            color: $gray-light;
+            border-color: $gray-light;
+        }
+    }
+    nav {
+        padding-top: 30px;
+        a {
+            display: inline-block;
+            margin: 0 2em;
+        }
+    }
+}

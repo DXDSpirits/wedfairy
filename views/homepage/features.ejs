@@ -1,0 +1,50 @@
+
+<% var features=[{
+    title:"用户自主创作",
+    content:"明确的故事主线分类，清晰的故事模块组合，根据提示就能快速生成自己的网页故事。"
+}, {
+    title:"灵感文字预设",
+    content:"大量的灵感性文字，“选择+修改=原创”的简单操作模式，短时间内就能制作出高品质的故事。"
+}, {
+    title:"海量主题选择",
+    content:"视觉系的风格主题设计，海量的精美主题选择，保证每一个故事的呈现感都具有高识别率。"
+}, {
+    title:"多平台分享",
+    content:"无缝隙的平台对接，跨平台的简单操作，扫一扫就能把所制作故事分享到各大社交平台。"
+}, {
+    title:"轻社交实时互动",
+    content:"便捷的移动实时互动功能，流畅的HTML5交互传播技术，大幅增加了页面的使用和创作乐趣。"
+}, {
+    title:"7*24实时客服",
+    content:"全年无休的贴心服务，1对1在线解答，操作中遇到的任何问题都能在线提出并得到解答。"
+}]; %>
+
+<section class="view" id="view-features">
+    <div class="container">
+        <div class="row hidden-xs">
+            <% for(var i=0; i<features.length; i++) { %>
+                <div class="col-sm-4 feature"
+                    data-anchor-target="#view-features"
+                    <% if (i >= features.length / 2) { %>
+                        data-center-top="transform:translate3d(0,100%,0);"
+                    <% } else { %>
+                        data-bottom-top="transform:translate3d(0,100%,0);"
+                    <% } %>
+                    data-bottom-bottom="transform:translate3d(0,0%,0);">
+                    <p class="text-center"><span class="fa fa-rss fa-3x"></span><p>
+                    <h4 class="text-center"><%= features[i].title %></h4>
+                    <p><%= features[i].content %></p>
+                </div>
+            <% } %>
+        </div>
+        <div class="row visible-xs">
+            <% for(var i=0; i<features.length; i++) { %>
+                <div class="feature text-center">
+                    <p><span class="fa fa-rss fa-3x"></span><p>
+                    <h4><%= features[i].title %></h4>
+                    <p><%= features[i].content %></p>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</section>

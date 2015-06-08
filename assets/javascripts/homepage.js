@@ -1,0 +1,50 @@
+
+(function() {
+    var $style = $('<style></style>');
+    $style.text('.window-height{height:'+$(window).height()+'px;}').appendTo('head');
+    $(window).resize(_.debounce(function() {
+        $style.text('.window-height{height:'+$(window).height()+'px;}')
+    }, 100));
+
+    if (!Amour.isMobile) {
+        $('.wechat').attr('href', null);
+    } else {
+        $('.wechat').removeClass('wechat');
+    }
+    $('.visible-wechat').toggleClass('hidden', !Amour.isWeixin);
+
+    function start() {
+        // var constants = {};
+        var scroller = skrollr.init({
+            // constants: constants,
+            smoothScrolling: false
+        });
+        // $(window).resize(_.debounce(function() {
+        //     scroller.refresh();
+        // }, 100));
+        $('body').on('click', 'a', function(e) {
+            var target = $(e.currentTarget).attr('href');
+            console.log(target)
+            if (target && target[0] == '#') {
+                e.preventDefault && e.preventDefault();
+                // $('body,html').animate({
+                //     scrollTop: $(target).offset().top
+                // }, 500);
+                var offset = $(target).offset().top;
+                scroller.animateTo(offset, {
+                    duration: 500,
+                    easing: 'sqrt'
+                });
+            }
+        });
+    }
+
+    _.delay(start, 0);
+    _.delay(function() {
+        $('#loading-screen').animate({
+            opacity: 0
+        }, 1000, function() {
+            $(this).remove();
+        });
+    }, 0);
+})();
