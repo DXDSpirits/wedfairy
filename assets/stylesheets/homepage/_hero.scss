@@ -1,5 +1,10 @@
 
 #view-hero {
+    @media (max-width: $screen-xs-max) {
+        .iphone-mockup, .ipad-mockup, .macbook-mockup {
+            border-radius: 10px;
+        }
+    }
     padding-top: 15%;
     .brand-slogan {
         float: left;
@@ -40,8 +45,8 @@
             margin: 40% auto 10%;
         }
         .brand-name {
-            height: 80px;
-            margin-left: 37px;
+            height: 90px;
+            //margin-left: 37px;
         }
     }
     .links {

@@ -1,5 +1,10 @@
 
 #view-portfolio-fixed {
+    @media (max-width: $screen-xs-max) {
+        .iphone-mockup, .ipad-mockup, .macbook-mockup {
+            border-radius: 10px;
+        }
+    }
     .fixed-wrapper {
         overflow: hidden;
         z-index: 9998;
