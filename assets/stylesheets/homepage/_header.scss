@@ -8,6 +8,11 @@
         left: 30px;
         font-size: 20px;
         color: #323a45;
+        &.logo-brand-small {
+            top: 10px;
+            right: 10px;
+            left: auto;
+        }
     }
     .icon-logo-brand::before { /*color: #f56262;*/ }
     .icon-logo-brand::after { /*color: #f57676;*/ }
@@ -33,6 +38,11 @@
             box-shadow: none;
             color: $gray-light;
             border-color: $gray-light;
+        }
+        @media (max-width: $screen-xs-max) {
+            right: 15px;
+            top: 15px;
+            padding: 8px 16px;
         }
     }
     nav {

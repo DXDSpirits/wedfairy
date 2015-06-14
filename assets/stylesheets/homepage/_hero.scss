@@ -18,15 +18,6 @@
             }
         }
     }
-    @media (max-width: $screen-xs-max) {
-        .brand-slogan, .device-screens {
-            float: none;
-            width: 100%;
-        }
-        .device-screens {
-            margin: 40% auto 10%;
-        }
-    }
     .slogan-text {
         top: 50%;
         right: 50%;
@@ -39,6 +30,19 @@
         height: 110px;
         margin-bottom: 40px;
         text-indent: -9999px;
+    }
+    @media (max-width: $screen-xs-max) {
+        .brand-slogan, .device-screens {
+            float: none;
+            width: 100%;
+        }
+        .device-screens {
+            margin: 40% auto 10%;
+        }
+        .brand-name {
+            height: 80px;
+            margin-left: 37px;
+        }
     }
     .links {
         margin-top: 3em;
