@@ -23,10 +23,14 @@
                     themeOption = match[2];
                 }
                 var themeModel = themes.findWhere({name: themeName});
-                data.themeTitle = themeModel.get('title');
-                data.themeImage = themeOption ?
-                                    _.findWhere(themeModel.get('options'), {name: themeOption}).image :
-                                    themeModel.get('image');
+                if (themeModel) {
+                    data.themeTitle = themeModel.get('title');
+                    data.themeImage = themeOption ?
+                                       _.findWhere(themeModel.get('options'), {name: themeOption}).image :
+                                        themeModel.get('image');
+                } else {
+                    data.themeTitle = data.theme;
+                }
             },
             serializeData: function() {
                 var data = this.model ? this.model.toJSON() : {};
