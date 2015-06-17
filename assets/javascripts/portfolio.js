@@ -1,5 +1,11 @@
 (function() {
     
+    var themes = new (Amour.Collection.extend({
+        url: Amour.APIRoot + 'sites/theme/'
+    }))();
+
+    themes.fetch();
+
     var StoryGalleryView = Amour.CollectionView.extend({
         ModelView: Amour.ModelView.extend({
             events: {
@@ -9,6 +15,19 @@
             },
             className: 'story-item text-center col-xs-6 col-sm-3 col-md-2',
             template: $('#template-story-item').html(),
+            serializeThemeData: function(data) {
+                var themeName = data.theme, themeOption = '';
+                var match = data.theme.match(/^(.*)\[(.+)\]$/);
+                if (match) {
+                    themeName = match[1];
+                    themeOption = match[2];
+                }
+                var themeModel = themes.findWhere({name: themeName});
+                data.themeTitle = themeModel.get('title');
+                data.themeImage = themeOption ?
+                                    _.findWhere(themeModel.get('options'), {name: themeOption}).image :
+                                    themeModel.get('image');
+            },
             serializeData: function() {
                 var data = this.model ? this.model.toJSON() : {};
                 data.formatted_date = moment(data.time_created).format('YYYY-MM-DD HH:mm');
@@ -17,6 +36,7 @@
                 data.isFinished = (data.featured == 1);
                 data.isFeatured = (data.featured == 2);
                 data.isPrototype = (data.featured == 3);
+                this.serializeThemeData(data);
                 return data;
             },
             onClick: function() {
@@ -54,7 +74,8 @@
         parse: function(response) {
             var collection = Amour.Collection.prototype.parse.call(this, response);
             var nonzero = _.filter(collection, function(item) {
-                return item.progress != '0.0%';
+                //return item.progress != '0.0%';
+                return true;
             });
             if (nonzero.length == 0) {
                 this.fetchNext({

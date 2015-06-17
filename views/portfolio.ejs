@@ -79,14 +79,16 @@
 <!-- / Login Modal -->
 
 <script id="template-story-item" type="text/x-mustache-template">
-    <div class="cover img" data-bg-src="{{data.coverImage}}"></div>
+    <div class="cover img" data-bg-src="{{data.coverImage}}">
+        <div class="theme-image img" data-bg-src="{{themeImage}}"></div>
+    </div>
     <p class="row">
         <span class="col-xs-6"><i class="fa fa-heart-o text-primary"></i> {{likes}}</span>
         <span class="col-xs-6"><i class="fa fa-comment-o"></i> {{comments}}</span>
     </p>
     <p>{{formatted_date}}</p>
     <!--<p class="name"><samp>8yinhe.cn/s/{{name}}</samp></p>-->
-    <p class="name"><samp>{{name}}</samp></p>
+    <p class="name"><samp>{{name}}</samp> | <strong>{{themeTitle}}</strong></p>
     <p class="{{#isFeatured}}text-primary{{/isFeatured}}{{#isFinished}}text-success{{/isFinished}}">
         <span>{{progress}}</span>
         <i class="fa fa-lg fa-check-circle"></i>

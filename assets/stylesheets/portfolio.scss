@@ -18,6 +18,15 @@ body {
         padding-top: 100%;
         margin-bottom: 10px;
         cursor: pointer;
+        position: relative;
+    }
+    .theme-image {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        width: 40px;
+        height: 40px;
+        box-shadow: 0 0 0 1px #fff;
     }
     .title {
         height: 3em;
