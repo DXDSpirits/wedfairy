@@ -16,18 +16,17 @@
             className: 'story-item text-center col-xs-6 col-sm-3 col-md-2',
             template: $('#template-story-item').html(),
             serializeThemeData: function(data) {
-                var themeName = data.theme, themeOption = '';
+                var themeName = data.theme, themeOptionName = '';
                 var match = data.theme.match(/^(.*)\[(.+)\]$/);
                 if (match) {
                     themeName = match[1];
-                    themeOption = match[2];
+                    themeOptionName = match[2];
                 }
                 var themeModel = themes.findWhere({name: themeName});
                 if (themeModel) {
                     data.themeTitle = themeModel.get('title');
-                    data.themeImage = themeOption ?
-                                       _.findWhere(themeModel.get('options'), {name: themeOption}).image :
-                                        themeModel.get('image');
+                    var themeOption = _.findWhere(themeModel.get('options'), {name: themeOptionName});
+                    data.themeImage = themeOption ? themeOption.image : themeModel.get('image');
                 } else {
                     data.themeTitle = data.theme;
                 }
