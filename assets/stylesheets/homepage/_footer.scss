@@ -24,7 +24,7 @@ $qrcode-size: 150px;
         width: $qrcode-size + 22px;
         height: $qrcode-size + 22px;
         padding: 10px;
-        border: 1px solid #fff;
+        border: 1px solid transparent; //#fff;
         > .img {
             width: $qrcode-size;
             height: $qrcode-size;
@@ -36,9 +36,10 @@ $qrcode-size: 150px;
         .social-icon {
             display: inline-block;
             color: $gray-lighter;
-            border: 1px solid $gray-lighter;
+            //border: 1px solid $gray-lighter;
+            border: 0;
             border-radius: 50%;
-            font-size: 20px;
+            font-size: 30px;
             width: 45px;
             height: 45px;
             //padding-top: (45px - 20px - 2px) / 2 - 1px;
@@ -62,7 +63,7 @@ $qrcode-size: 150px;
     .links {
         display: inline-block;
         padding-top: 1em;
-        border-top: 1px solid $gray-lighter;
+        border-top: 1px solid $gray-light;
         margin-bottom: 80px;
         font-size: 0.9em;
         > a + a {

@@ -24,7 +24,6 @@
         // }, 100));
         $('body').on('click', 'a', function(e) {
             var target = $(e.currentTarget).attr('href');
-            console.log(target)
             if (target && target[0] == '#') {
                 e.preventDefault && e.preventDefault();
                 // $('body,html').animate({
