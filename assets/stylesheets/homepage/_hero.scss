@@ -1,5 +1,6 @@
 
 #view-hero {
+    line-height: 1.7;
     @media (max-width: $screen-xs-max) {
         height: auto !important;
         .iphone-mockup, .ipad-mockup, .macbook-mockup {
@@ -41,7 +42,7 @@
         right: 50%;
         width: 300px;
         margin: 10% auto;
-        font-size: $font-size-small;
+        //font-size: $font-size-small;
         .in {
             font-size: 1.5em;
             padding: 0 0.2em;

@@ -41,8 +41,9 @@
             }
         }
         h4 + p {
-            //font-size: 0.9em;
-            font-family: $font-family-serif;
+            font-size: 1.2em;
+            font-family: $font-family-quote;
+            line-height: 1.4;
             margin: 1.5em auto;
             color: $gray;
             &::before, &::after {
