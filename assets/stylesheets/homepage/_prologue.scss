@@ -8,9 +8,25 @@
         margin-left: auto;
         margin-right: auto;
     }
-    h3 {
-        margin-top: 1.5em;
-        margin-bottom: 2em;
+    .title, .title2 {
+        margin: 1.5em auto 2em;
+    }
+    .title2 {
+        display: none;
+        font-size: 2em;
+    }
+    @media (max-width: 650px) {
+        .title {
+            display: none;
+        }
+        .title2 {
+            display: block;
+        }
+    }
+    @media (max-width: 400px) {
+        .title2 {
+            font-size: 1.5em;
+        }
     }
     p {
         line-height: 2.5;

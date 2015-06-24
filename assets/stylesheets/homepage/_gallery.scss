@@ -9,7 +9,6 @@
         }
     }
     > header {
-        margin-bottom: 50px;
         line-height: 2;
         p {
             margin-top: 10px;
@@ -29,7 +28,22 @@
     .in {
         font-size: 1.5em;
     }
+    .explore-button {
+        margin-top: 50px;
+        padding: 13px 30px 11px;
+        background-color: transparent;
+        border: 1px solid $gray;
+        color: $gray;
+        border-radius: 2px;
+        &:active, &.active, &:hover, &:focus, &.focus {
+            outline: 0;
+            box-shadow: none;
+            color: $gray-light;
+            border-color: $gray-light;
+        }
+    }
     .gallery {
+        margin-top: 50px;
         .col {
             position: absolute;
             top: 0;
