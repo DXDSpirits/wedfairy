@@ -38,12 +38,12 @@
         });
     }
 
-    _.delay(start, 0);
+    _.delay(start, 3000);
     _.delay(function() {
         $('#loading-screen').animate({
             opacity: 0
         }, 1000, function() {
             $(this).remove();
         });
-    }, 0);
+    }, 3000);
 })();
