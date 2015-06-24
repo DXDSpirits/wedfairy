@@ -1,7 +1,7 @@
 
 #global-header {
     @include position(fixed, 0 0 auto 0);
-    z-index: 9999;
+    z-index: 9998;
     .logo-brand {
         position: absolute;
         top: 30px;
@@ -20,7 +20,7 @@
         color: #fff;
         background-color: $brand-primary;
         text-align: center;
-        padding: 4px 3px 3px;
+        padding: 5px 4px;
         border-radius: 2px;
         font-size: 30px;
     }

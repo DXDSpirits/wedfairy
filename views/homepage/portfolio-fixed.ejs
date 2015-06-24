@@ -73,12 +73,12 @@
             <% for(var i=0; i<articles.length; i++) { %>
                 <article
                     data-anchor-target="#view-portfolio-anchor-<%= i+1 %>"
-                    data-center-top="opacity:0;transform:translate3d(0,50%,0);"
-                    data-25p-center-center="opacity:1;transform:translate3d(0,-50%,0);"
+                    data-center-top="opacity:0;transform:translate3d(0,150px,0);"
+                    data-25p-center-center="opacity:1;transform:translate3d(0,0px,0);"
                     <% if (i < articles.length - 1) { %>
-                        data-center-center="opacity:1;transform:translate3d(0,-80%,0);"
-                        data-25p-center-bottom="opacity:1;transform:translate3d(0,-150%,0);"
-                        data-center-bottom="opacity:0;transform:translate3d(0,-200%,0);"
+                        data-center-center="opacity:1;transform:translate3d(0,-70px,0);"
+                        data-25p-center-bottom="opacity:1;transform:translate3d(0,-200px,0);"
+                        data-center-bottom="opacity:0;transform:translate3d(0,-250px,0);"
                     <% } %> >
                     <h4><%- articles[i].title %></h4>
                     <%- articles[i].content %>
@@ -89,11 +89,11 @@
             <% for(var i=0; i<articles.length; i++) { %>
                 <article
                     data-anchor-target="#view-portfolio-anchor-<%= i+1 %>"
-                    data-25p-center-top="opacity:0;transform:translate3d(0,0%,0);"
-                    data-center-center="opacity:1;transform:translate3d(0,-50%,0);"
+                    data-25p-center-top="opacity:0;transform:translate3d(0,150px,0);"
+                    data-center-center="opacity:1;transform:translate3d(0,0px,0);"
                     <% if (i < articles.length - 1) { %>
-                        data--25p-center-center="opacity:1;transform:translate3d(0,-100%,0);"
-                        data-center-bottom="opacity:0;transform:translate3d(0,-120%,0);"
+                        data--25p-center-center="opacity:1;transform:translate3d(0,-50px,0);"
+                        data-center-bottom="opacity:0;transform:translate3d(0,-100px,0);"
                     <% } %> >
                     <h4 class="text-center"><%- articles[i].title %></h4>
                     <%- articles[i].content %>

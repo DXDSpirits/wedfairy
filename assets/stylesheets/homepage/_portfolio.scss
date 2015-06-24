@@ -7,7 +7,7 @@
     }
     .fixed-wrapper {
         overflow: hidden;
-        z-index: 9998;
+        z-index: 9997;
         @include position(fixed, 0 0 0 0);
         @include transform(translate3d(0,100%,0));
         @include clearfix();
@@ -57,12 +57,14 @@
         }
     }
     article {
-        max-width: 360px;
-        width: 50%;
+        //max-width: 360px;
+        //width: 50%;
+        width: 260px;
         position: absolute;
         top: 50%;
         left: 0;
-        @include transform(translate3d(0, -50%, 0));
+        margin-top: -150px;
+        //@include transform(translate3d(0, -50%, 0));
     }
     .ipad-mockup {
         position: absolute;
@@ -96,7 +98,7 @@
         article {
             width: 100%;
             max-width: none;
-            padding: 15px;
+            padding: 15px 7%;
         }
         .ipad-mockup {
             width: 45%;

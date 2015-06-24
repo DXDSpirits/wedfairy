@@ -6,6 +6,9 @@ body {
     color: #303233;
     background-color: #fff;
     font-size: 16px;
+    @media (max-width: $screen-xs-max) {
+        font-size: 14px;
+    }
     a {
         color: $gray;
         &:focus, &:hover, &:active {
@@ -20,7 +23,7 @@ body {
     line-height: 2;
     h1, .h1, h2, .h2, h3, .h3,
     h4, .h4, h5, .h5, h6, .h6 {
-        color: $gray-dark;
+        color: $gray-darker;
         line-height: 1.7;
     }
 }

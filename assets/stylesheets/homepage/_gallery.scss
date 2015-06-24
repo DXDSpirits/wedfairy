@@ -76,8 +76,7 @@
             }
         }
         @media (max-width: $screen-xs-max) {
-            p { display: none; }
-            h5 { border-bottom: 0; }
+            h5::after, p { display: none; }
         }
         > .text {
             @include position(absolute, auto 17px 5px 17px);
