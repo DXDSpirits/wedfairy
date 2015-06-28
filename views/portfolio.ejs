@@ -28,9 +28,11 @@
     <div class="text-center menu">
         <p class="btn-group" data-toggle="buttons">
             <label class="btn btn-primary">
-                <input type="radio" name="featured" value="on">只看推荐的故事</label>
+                <input type="radio" name="featured" value="2">只看推荐的故事</label>
+            <label class="btn btn-primary">
+                <input type="radio" name="featured" value="1">只看完成的故事</label>
             <label class="btn btn-primary active">
-                <input type="radio" name="featured" value="off" checked>浏览全部故事</label>
+                <input type="radio" name="featured" value="0" checked>浏览全部故事</label>
         </p>
         <p>点击故事完成百分比旁边的 <i class="fa fa-check-circle"></i> 可以推荐或者取消推荐</p>
         <form class="form-inline form-search">
@@ -42,6 +44,7 @@
             </div>
             <button type="submit" class="btn btn-primary">确认</button>
         </form>
+        <div class="schema-list"></div>
     </div>
     <div class="row story-list"></div>
     <button id="btn-more" data-loading-text="Loading..." class="btn btn-block">更多</button>

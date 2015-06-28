@@ -1,16 +1,19 @@
 (function() {
     
+    var router;
+
     var themes = new (Amour.Collection.extend({
         url: Amour.APIRoot + 'sites/theme/'
     }))();
 
-    themes.fetch();
+    var schemas = new (Amour.Collection.extend({
+        url: Amour.APIRoot + 'sites/schema/'
+    }))();
 
     var StoryGalleryView = Amour.CollectionView.extend({
         ModelView: Amour.ModelView.extend({
             events: {
                 'click .cover': 'onClick',
-                //'click .fa-check-circle': 'feature'
                 'change select': 'modifyFeatured'
             },
             className: 'story-item text-center col-xs-6 col-sm-3 col-md-2',
@@ -45,17 +48,6 @@
             onClick: function() {
                 window.open('http://wedfairy.com/story/' + this.model.get('name') + '/?from=portfolio', '_blank');
             },
-            // feature: function(e) {
-            //     if (!this.model.get('featured')) {
-            //         this.model.save({}, {
-            //             url: this.model.url() + 'feature/'
-            //         });
-            //     } else {
-            //         this.model.save({}, {
-            //             url: this.model.url() + 'unfeature/'
-            //         });
-            //     }
-            // },
             modifyFeatured: function() {
                 var featured = +this.$('select').val();
                 if (this.model.get('featured') != featured) {
@@ -81,9 +73,7 @@
                 return true;
             });
             if (nonzero.length == 0) {
-                this.fetchNext({
-                    remove: false
-                });
+                this.fetchNext({ remove: false });
             }
             return nonzero;
         }
@@ -94,11 +84,27 @@
         el: $('.story-list')
     });
     
-    stories.fetch();
     stories.on('reset add', function() {
         $('#btn-more').toggleClass('hidden', stories.next == null);
     });
     
+    var schemasFilterView = new(Amour.CollectionView.extend({
+        ModelView: Amour.ModelView.extend({
+            events: {
+                'click': 'onClick'
+            },
+            tagName: 'span',
+            className: 'schema-item',
+            template: '{{title}}',
+            onClick: function() {
+                router.navigate('schema/' + this.model.get('name'));
+            }
+        })
+    }))({
+        collection: schemas,
+        el: $('.schema-list')
+    });
+
     $('#btn-more').on('click', function () {
         var btn = $(this);
         btn.button('loading');
@@ -113,16 +119,9 @@
     $('input[name=featured]').on('change', function() {
         var $checked = $('input[name=featured]:checked');
         if ($checked.length == 0) return;
-        if ($checked.val() == 'on') {
-            stories.fetch({
-                reset: true,
-                data: { featured: 2 }
-            });
-        } else {
-            stories.fetch({
-                reset: true
-            });
-        }
+        var val = +$checked.val();
+        var status = ['all', 'complete', 'featured'];
+        router.navigate(status[val]);
     });
 
     $('.form-search').on('submit', function(e) {
@@ -132,10 +131,7 @@
         $input.val('');
         if (mobile) {
             $('input[name=featured]').parent().removeClass('active');
-            stories.fetch({
-                reset: true,
-                data: { owner__username: mobile }
-            });
+            router.navigate('owner/' + mobile);
         }
     });
     
@@ -161,4 +157,46 @@
         }
     });
     
+    var router = new (Backbone.Router.extend({
+        routes : {
+            'all': 'filterAll',
+            'featured': 'filterFeatured',
+            'complete': 'filterComplete',
+            'owner/:owner': 'filterOwner',
+            'schema/:schema': 'filterSchema',
+            '*path': 'index'
+        },
+        initialize: function() {},
+        navigate: function(fragment, options) {
+            options = options || {};
+            options.trigger = !(options.trigger === false);
+            Backbone.Router.prototype.navigate.call(this, fragment, options);
+        },
+        index: function() {
+            this.navigate('all');
+        },
+        filterAll: function() {
+            stories.fetch({ reset: true });
+        },
+        filterFeatured: function() {
+            stories.fetch({ reset: true, data: { featured: 2 } });
+        },
+        filterComplete: function() {
+            stories.fetch({ reset: true, data: { featured: 1 } });
+        },
+        filterOwner: function(owner) {
+            stories.fetch({ reset: true, data: { owner__username: owner } });
+        },
+        filterSchema: function(schema) {
+            stories.fetch({ reset: true, data: { schema: schema } });
+        }
+    }))();
+
+    (function start() {
+        stories.fetch();
+        themes.fetch();
+        schemas.fetch();
+        Backbone.history.start();
+    })();
+
 })();
