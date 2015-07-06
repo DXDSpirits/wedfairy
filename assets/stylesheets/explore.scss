@@ -30,74 +30,40 @@
         }
     }
 
-    #wed-carousel {
-        height: 420px;
-        margin-top: 5px;
-        margin-bottom: 20px;
-        @media (max-width: 400px) {
-            .item:nth-child(1) .slide-img{
-                background-image: url("/assets/images/slide/0s.jpg") !important;
-            }
-            .item:nth-child(2) .slide-img{
-                background-image: url("/assets/images/slide/1s.jpg") !important;
-            }
-            .item:nth-child(3) .slide-img{
-                background-image: url("/assets/images/slide/2s.jpg") !important;
-            }
-        }
-
-        .carousel-control{
-              padding-top: 175px;
-              .iconfont{
-                font-size: 40px;
-                &::before{
-                    color: white;
-                }
-              }
-        }
-
-        .slide-img {
-            height: 420px;
-            width: 100%;
-        }
-    }
     .filter-container {
-        padding-bottom: 15px;
-        border-bottom: 1px solid rgba($border-color, .5);
-        // max-width: 960px;
-        max-width: 960px;
+        padding-top: 25px;
         margin: 0 auto;
+        font-size:10px;
+        width: 100%;
+        display: inline-block;
 
         .filter {
-            color: $label-color;
+            // color: $label-color;
             border-radius: 1px;
-            // padding: 20px;
-            // padding-bottom: 8px;
-            // padding-top: 11px;
-            background-color: white;
             display: inline-block;
             margin-left: 12px;
             @extend .pointer;
-            box-shadow: 0 0px 1px rgba(0, 0, 0, 0.2);
+            // box-shadow: 0 0px 1px rgba(0, 0, 0, 0.2);
 
             .iconfont::before {
                 @include hoverable($label-color);
+            };
+            // li.a {
+            //     color: $text-color;
+            // }
+            .nav>li>a:hover {
+                background-color:transparent;
+                color: $gray;
             }
         }
-        .selected-scene {
-            width: 112.5px;
-            // padding-left: 20px;
-            padding-top: 11px;
-            padding-bottom: 8px;
-            padding-left: 20px;
-        }
+
         .filter-menu {
             box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
             margin-top: 1px;
             display: none;
             position: absolute;
             width: 112.5px;
-            background-color: white;
+            // background-color: white;
             z-index: 10;
             margin-left: 0px;
             padding-bottom: 10px;
@@ -110,7 +76,7 @@
                 padding-top: 7px;
                 width: inherit;
                 color: $light-text-color;
-                @include hoverable-bg(white);
+                // @include hoverable-bg(white);
 
                 &.active {
                     // background-color: darken(white, 10) !important;
@@ -118,18 +84,19 @@
                 }
             }
         }
-        .icon-jiantou {
-            font-size: 13px;
+        // .icon-jiantou {
+        //     font-size: 13px;
 
-            &::before {
-                color: $light-text-color;
-            }
-        }
+        //     &::before {
+        //         color: $light-text-color;
+        //     }
+        // }
     }
     .story-container {
         margin: 0 auto;
-        margin-top: 15px;
-        max-width: 960px;
+        padding: 10px;
+        // margin-top: 15px;
+        // max-width: 960px;
         // height: 600px;
         margin-bottom: 40px;
         min-height: 600px;
@@ -139,19 +106,19 @@
             margin-bottom: 30px;
         }
         .story-shower {
-            width: 215px;
+            width: 190px;
             height: 280px;
             background-color: white;
-            border-radius: 4px;
-            padding-top: 12px;
+            border-radius: 0;
+            padding-top: 0;
             margin: 0 auto;
-            box-shadow: 0 0px 1px rgba(0, 0, 0, 0.2);
+            // box-shadow: 0 0px 1px rgba(0, 0, 0, 0.2);
 
             .story-title {
                 color: $label-color;
                 width: 190px;
                 height: 42px;
-                margin-left: 12px;
+                // margin-left: 12px;
                 margin-top: 6px;
                 border-bottom: 1px solid rgba($border-color, .5);
                 font-size: 12px;
@@ -160,7 +127,7 @@
             .story-cover {
                 width: 190px;
                 height: 190px;
-                margin-left: 12px;
+                // margin-left: 12px;
                 margin-bottom: 2px;
                 @extend .pointer;
             }
@@ -279,16 +246,21 @@ html, body {
 body {
     background-color: $background-color;
     @extend .center;
-    padding-top: 1px;
+    padding: 10px 30px;
 }
 a {
-    color: $main-color;
+    // color: $main-color;
+    color: $text-color;
     text-decoration: none !important;
 
     &:hover {
-        color: darken($main-color, 10);
+        color: darken($text-color, 10);
         text-decoration: none;
-    }
+    };
+    &:focus, &:active, &:visited {
+        background-color: transparent;
+        text-decoration: none;
+    };
 }
 .alert-tip {
     display: none;
@@ -391,6 +363,7 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
     content: "\e606";
 }
 .body {
+    background-color: darken($background-color, 5);
     margin: 0 auto;
     @extend .container;
 }

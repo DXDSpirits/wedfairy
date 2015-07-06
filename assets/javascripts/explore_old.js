@@ -3,8 +3,7 @@ $(function() {
     var StoryGalleryView = Amour.CollectionView.extend({
         ModelView: Amour.ModelView.extend({
             events: {
-                'click .story-cover': 'onClick',
-                'hover .story-cover': 'onHover'
+                'click .story-cover': 'onClick'
             },
             className: 'animated fadeIn col-sm-4 col-md-3 story-item',
             template: $("#explore-story-template").html(),
@@ -18,9 +17,6 @@ $(function() {
             onClick: function() {
                 window.open('http://wedfairy.com/story/' + this.model.get('name'), '_blank');
             },
-            onHover: function() {
-            	
-            }
         })
     });
 
