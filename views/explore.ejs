@@ -5,6 +5,9 @@
     
     <% include includes/metadata %>
     <link rel="stylesheet" href="<%= static_url %>fonts/iconfont.css">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/font-awesome.css">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/animate.min.css">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/amour.css">
     <link rel="stylesheet" href="<%= static_url %>stylesheets/bootstrap-custom.css?v=<%= build_no %>">
     <link rel="stylesheet" href="<%= static_url %>stylesheets/explore.css?v=<%= build_no %>">
     
@@ -26,8 +29,7 @@
     <div class="body">
         <div class="filter-container">
             <div class="filter">
-                <!-- <div class=''> -->
-                    <ul class="nav navbar-nav pull-left">
+                    <ul class="pull-left">
                         <li><a href="#all" filter-name="all">全部</a></li>
                         <li><a href="#wedding" filter-name="wedding">婚礼邀请函</a></li>
                         <li><a href="#friendship" filter-name="friendship">友情故事</a></li>
@@ -35,21 +37,26 @@
                         <li><a href="#idol" filter-name="idol">偶像故事</a></li>
                         <li><a href="#lover" filter-name="lover">情感故事</a></li>
                     </ul>
-                <!-- </div> -->
             </div>
 
             <div class="search-box pull-right">
-              <form class="navbar-form navbar-left" role="search">
-                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search"><span class="glyphicon glyphicon-search"></span>
+              <form role="search">
+                 <div >
+                    <input type="text" class="form-control" placeholder="搜索">
+                    <!-- <span class="glyphicon glyphicon-search"></span> -->
                  </div>
                  <!-- <button type="submit" class="btn btn-default">提交</button> -->
               </form>    
            </div>
         </div>
-        <div class="story-container clearfix">
-        <!-- .col-md-3 -->
+        <div class="container">
+            <div class="row story-container">
+                <!-- <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div> -->
+
+            </div>
+
         </div>
+
 <!--         <div class="btn prev-btn pagination-btn visible-md-block visible-lg-block"><i class="iconfont icon-back"></i></div>
         <div class="btn next-btn pagination-btn visible-md-block visible-lg-block"><i class="iconfont icon-right"></i></div> -->    
     </div>
