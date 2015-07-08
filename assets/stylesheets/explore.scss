@@ -73,6 +73,7 @@
 
         .search-box {
             // border: 1px dashed red;
+            display: none;
             background-color: white;
             border-radius: 4px;
             padding: 0;
@@ -141,18 +142,15 @@
                 }
                 .story-popup {
                     // background: white;
-                    position: absolute;
+                    bottom: 16%;
                     font-size: 0.5em;
                     height: 30px;
                     width: 100%;
-                    opacity: 0.6;
+                    // opacity: 0.6;
                     overflow: hidden;
-                    
-                    transition:opacity 0.35s;
-                    -moz-transition:opacity 0.35s; /* Firefox 4 */
-                    -webkit-transition:opacity 0.35s; /* Safari and Chrome */
-                    -o-transition:opacity 0.35s; /* Opera */
-
+                    position: absolute;
+                                        
+                    @include transition(all .35s);
                     @extend .pointer;
 
 
@@ -170,8 +168,6 @@
                         padding-left: 5px;
                         padding-right: 5px;
                         color: $text-color;
-                        // background-color: white;
-
                     }
 
                 }
@@ -209,10 +205,14 @@
             }
             &:hover {
                 .story-popup {
-                    top: 0px;
+                    bottom: 20%;
                     height: 80%;
-                    opacity: 1;
+                    // opacity: 1;
                     background-color:white;
+
+                    .story-title {
+                        margin-top: 15px;
+                    }
 
                 }
             }
@@ -448,6 +448,10 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
         display: inline-block;
 
     i {
+        display: none;
+        color: $wedfairy-color;
+    }
+    a:hover {
         color: $wedfairy-color;
     }
 }

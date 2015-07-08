@@ -54,6 +54,8 @@ $(function() {
         }
     });
 
+
+
     Backbone.on("close-scene-filter-menu", (function() {
         var $menu = $('.scene-filter-menu');
         return function() {
@@ -77,6 +79,8 @@ $(function() {
     //         $menu.show();
     //     }
     // });
+
+
 
     // infinite scroll
     var throttle = _.throttle(function() {
