@@ -79,25 +79,17 @@
 
     }
     .story-container {
-        // margin: 0 auto;
-        // padding: 10px;
-        // margin-top: 15px;
-        // max-width: 960px;
-        // height: 600px;
-        // margin-bottom: 40px;
-        // min-height: 600px;
 
         .story-item {
             // padding: 0px;
             margin-bottom: 30px;
         }
         .story-shower {
-            // width: 190px;
-            // height: 280px;
             background-color: white;
             border-radius: 0;
             padding-top: 0;
             margin: 0 auto;
+            position: relative;
             // box-shadow: 0 0px 1px rgba(0, 0, 0, 0.2);
 
 
@@ -107,12 +99,14 @@
                 // margin-left: 12px;
                 margin-bottom: 2px;
                 @extend .pointer;
+
+
             }
 
             .story-info {
                 .triangle {
                     margin-left: 30px;
-                    margin-top: -15px;
+                    margin-top: -10px;
                     display: block;
                     border-color: transparent transparent #fff;
                     border-style: dashed dashed solid;
@@ -123,43 +117,84 @@
                     position: absolute;
 
                 }
-     
-                .story-title {
-                    color: $label-color;
-                    height: 42px;
-                    margin-top: 6px;
-                    // border-bottom: 1px solid rgba($border-color, .5);
-                    font-size: 5px;
-                    padding-left: 5px;
-                    padding-right: 5px;
+                .story-popup {
+                    // background: white;
+                    position: absolute;
+                    font-size: 0.5em;
+                    height: 30px;
+                    width: 100%;
+                    opacity: 0.6;
+                    overflow: hidden;
+                    
+                    transition:opacity 0.35s;
+                    -moz-transition:opacity 0.35s; /* Firefox 4 */
+                    -webkit-transition:opacity 0.35s; /* Safari and Chrome */
+                    -o-transition:opacity 0.35s; /* Opera */
+
+                    @extend .pointer;
+
+
+                    .story-title {
+                        color: $label-color;
+                        height: 42px;
+                        margin-top: 6px;
+                        // border-bottom: 1px solid rgba($border-color, .5);
+                        font-size: 5px;
+                        padding-left: 5px;
+                        padding-right: 5px;
+                    }
+
+                    .story-desc {
+                        height: 0;
+                        padding-left: 5px;
+                        padding-right: 5px;
+                        color: $text-color;
+                        background-color: white;
+
+                    }
+
                 }
-                .extra-info {
-                    color: $label-color;
-                    font-size: 5px;
-                    padding-left: 12px;
-                    padding-top: 3px;
 
-                    .icon-container {
-                        overflow: hidden;
-                        // margin-right: 5px;
-                        span {
-                            margin-right: 5px;
 
-                        i.icon-shixinxinxing {
-                            &::before {
-                                color: $wedfairy-color;
-                            }
-                        }
+            }
+            .extra-info {
+                color: $label-color;
+                font-size: 5px;
+                padding-left: 12px;
+                padding-top: 3px;
+                margin-top: 3.4em;
 
-                    }
-                    }
-                    .iconfont {
-                        font-size: 17px;
+                .icon-container {
+                    overflow: hidden;
+                    // margin-right: 5px;
+                    span {
+                        margin-right: 5px;
 
+                    i.icon-shixinxinxing {
                         &::before {
-                            color: #BBBBBB;
+                            color: $wedfairy-color;
                         }
                     }
+
+                }
+                }
+                .iconfont {
+                    font-size: 17px;
+
+                    &::before {
+                        color: #BBBBBB;
+                    }
+                }
+            }
+            &:hover {
+                .story-popup {
+                    top: 0px;
+                    height: 80%;
+                    opacity: 1;
+                    background-color:white;
+                    // .story-desc {
+                    //     height: 50%;
+                    // }
                 }
             }
             
@@ -250,14 +285,8 @@
     @include icon(30px, 2, 2);
 }
 
-html, body {
-    // background-color: white;
-    font-family: "Microsoft YaHei", 微软雅黑, "Microsoft JhengHei", 华文细黑, STHeiti, MingLiu;
-    font-size: 14px;
-}
 body {
     background-color: $background-color;
-    @extend .center;
     // padding: 0 30px;
 }
 a {

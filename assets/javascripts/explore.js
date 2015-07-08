@@ -3,7 +3,7 @@ $(function() {
     var StoryGalleryView = Amour.CollectionView.extend({
         ModelView: Amour.ModelView.extend({
             events: {
-                'click .story-cover': 'onClick',
+                'click .story-shower': 'onClick',
                 // 'hover .story-cover': 'onHover'
             },
             className: 'animated fadeIn col-lg-2 col-md-3 col-sm-6 col-xs-6 story-item',
