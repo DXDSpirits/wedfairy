@@ -142,11 +142,11 @@
                 }
                 .story-popup {
                     // background: white;
-                    bottom: 16%;
+                    bottom: 9%;
                     font-size: 0.5em;
-                    height: 30px;
+                    height: 3.4em;
                     width: 100%;
-                    // opacity: 0.6;
+                    opacity: 1;
                     overflow: hidden;
                     position: absolute;
                                         
@@ -157,15 +157,15 @@
                     .story-title {
                         color: $label-color;
                         height: 42px;
-                        margin-top: 6px;
+                        margin-top: 3%;
                         font-size: 5px;
-                        padding-left: 5px;
+                        padding-left: 10px;
                         padding-right: 5px;
                     }
 
                     .story-desc {
                         height: 0;
-                        padding-left: 5px;
+                        padding-left: 10px;
                         padding-right: 5px;
                         color: $text-color;
                     }
@@ -205,13 +205,15 @@
             }
             &:hover {
                 .story-popup {
-                    bottom: 20%;
-                    height: 80%;
+                    bottom: 15%;
+                    height: 85%;
                     // opacity: 1;
                     background-color:white;
 
                     .story-title {
-                        margin-top: 15px;
+                        font-size: 1.8em;
+                        font-weight: 100;
+                        padding-top: 15px;
                     }
 
                 }
@@ -436,7 +438,7 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
 
 .logo-container {
     margin-left: 30px;
-    margin-top: 12px;
+    margin-top: 8px;
 }
  .login-container {
     margin-right: 30px;
