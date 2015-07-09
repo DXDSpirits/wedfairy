@@ -34,15 +34,15 @@
         // padding-top: 25px;
         margin-top: 20px;
         margin-bottom: 10px;
-        font-size:10px;
+        font-size:14px;
         width: 100%;
         display: inline-block;
 
         .filter {
             // color: $label-color;
             // padding-bottom: 17.5px;
-            height: 70px;
-            line-height: 70px;
+            // height: 70px;
+            // line-height: 70px;
             border-radius: 1px;
             display: inline-block;
             // padding: 26px 0 18px 0;
@@ -52,11 +52,6 @@
             .iconfont::before {
                 @include hoverable($label-color);
             };
-            ul {
-                margin-left: -10px;
-                // margin-top: 3px;
-                // margin-bottom: 0;
-            }
             li {
                 color: lighten(grey, 10);
                 margin-right: 10px;
@@ -137,14 +132,14 @@
                     width: 0;
                     height: 0;
                     line-height: 0;
-                    position: absolute;
+                    // position: absolute;
 
                 }
                 .story-popup {
                     // background: white;
-                    bottom: 9%;
-                    font-size: 0.5em;
-                    height: 3.4em;
+                    bottom: 0%;
+                    font-size: 14px;
+                    height: 4em;
                     width: 100%;
                     opacity: 1;
                     overflow: hidden;
@@ -156,18 +151,18 @@
 
                     .story-title {
                         color: $label-color;
-                        height: 42px;
-                        margin-top: 3%;
-                        font-size: 5px;
+                        max-height: 2em;
                         padding-left: 10px;
                         padding-right: 5px;
                     }
 
                     .story-desc {
                         height: 0;
+                        padding-top:0;
                         padding-left: 10px;
                         padding-right: 5px;
                         color: $text-color;
+                        display: none;
                     }
 
                 }
@@ -205,15 +200,20 @@
             }
             &:hover {
                 .story-popup {
-                    bottom: 15%;
-                    height: 85%;
+                    bottom: 9%;
+                    height: 91%;
                     // opacity: 1;
                     background-color:white;
 
                     .story-title {
-                        font-size: 1.8em;
+                        // font-size: 1.8em;
                         font-weight: 100;
                         padding-top: 15px;
+                    }
+                    .story-desc {
+                        padding-top: 3em;
+                        display: inherit;
+                        height: 4em;
                     }
 
                 }
@@ -308,6 +308,7 @@
 
 body {
     background-color: $background-color;
+    min-width: 300px;
     // padding: 0 30px;
 }
 a {
@@ -320,7 +321,7 @@ a {
         text-decoration: none;
     };
     &:hover, &:focus, &:visited {
-        background-color: transparent;
+        // background-color: transparent;
         text-decoration: none;
     };
 }
@@ -425,7 +426,7 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
     content: "\e606";
 }
 .body {
-    background-color: darken($background-color, 5);
+    // background-color: darken($background-color, 5);
     margin: 0 30px;
     @extend .container;
 }

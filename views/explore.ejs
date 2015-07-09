@@ -27,33 +27,32 @@
 
     <div class="clearfix"></div>
     <div class="body">
-        <div class="filter-container">
-            <div class="filter">
-                    <ul class="pull-left">
-                        <li><a href="#all" filter-name="all">全部</a></li>
-                        <li><a href="#wedding" filter-name="wedding">婚礼</a></li>
-                        <li><a href="#lover" filter-name="lover">爱情纪念日</a></li>
-                        <li><a href="#idol" filter-name="idol">偶像故事</a></li>
-                        <li><a href="#friendship" filter-name="friendship">友情故事</a></li>
-                        <li><a href="#yearbook" filter-name="yearbook">新年书</a></li>
-                        <li><a href="#voyage" filter-name="voyage">旅行故事</a></li>
-                        <li><a href="#family" filter-name="family">家人故事</a></li>
-                        <li><a href="#baby" filter-name="baby">宝贝故事</a></li>
-                        <li><a href="#personal" filter-name="personal">个人故事</a></li>
-                        <!-- <li><a href="#food" filter-name="food">美食故事</a></li> -->
-                        <li><a href="#universal" filter-name="universal">通用</a></li>
+        <div class="container">
+            <div class="row filter-container">
+                <div class="filter">
+                        <ul class="nav nav-pills pull-left">
+                            <li><a href="#all" filter-name="all">全部</a></li>
+                            <li><a href="#wedding" filter-name="wedding">婚礼</a></li>
+                            <li><a href="#lover" filter-name="lover">爱情纪念日</a></li>
+                            <li><a href="#idol" filter-name="idol">偶像故事</a></li>
+                            <li><a href="#friendship" filter-name="friendship">友情故事</a></li>
+                            <li><a href="#yearbook" filter-name="yearbook">新年书</a></li>
+                            <li><a href="#voyage" filter-name="voyage">旅行故事</a></li>
+                            <li><a href="#family" filter-name="family">家人故事</a></li>
+                            <li><a href="#baby" filter-name="baby">宝贝故事</a></li>
+                            <li><a href="#personal" filter-name="personal">个人故事</a></li>
+                            <!-- <li><a href="#food" filter-name="food">美食故事</a></li> -->
+                            <li><a href="#universal" filter-name="universal">通用</a></li>
+                        </ul>
+                </div>
 
 
+                <form class="search-box pull-right" role="search">
+                    <button type="submit" class="pull-right"><i class="fa fa-search fa-2x"></i></button>
+                    <input type="text" class="form-control pull-left" name="title" placeholder="搜索" />
+                </form>    
 
-                    </ul>
             </div>
-
-
-            <form class="search-box pull-right" role="search">
-                <button type="submit" class="pull-right"><i class="fa fa-search fa-2x"></i></button>
-                <input type="text" class="form-control pull-left" name="title" placeholder="搜索" />
-            </form>    
-
         </div>
         <div class="container">
             <div class="row story-container">
@@ -69,7 +68,7 @@
 
     <div class="clearfix"></div>
 
-    <div class="center-block loading text-center">
+    <div class="center-block loading text-center hidden">
             <i class="iconfont icon-loading spin"></i>正在加载中...
     </div>
 

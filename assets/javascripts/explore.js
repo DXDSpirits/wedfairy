@@ -1,12 +1,14 @@
 $(function() {
-
+    if(Amour.isMobile) {
+        document.location.href="http://www.wedfairy.com/ranking";
+    };
     var StoryGalleryView = Amour.CollectionView.extend({
         ModelView: Amour.ModelView.extend({
             events: {
                 'click .story-popup': 'onClick',
-                // 'hover .story-cover': 'onHover'
+                'click .story-cover': 'onClick',
             },
-            className: 'animated fadeIn col-lg-2 col-md-3 col-sm-6 col-xs-6 story-item',
+            className: 'animated fadeIn col-lg-3 col-md-3 col-sm-4 col-xs-12 story-item',
             template: $("#explore-story-template").html(),
             serializeData: function() {
                 var data = this.model ? this.model.toJSON() : {};
@@ -18,9 +20,7 @@ $(function() {
             onClick: function() {
                 window.open('http://wedfairy.com/story/' + this.model.get('name'), '_blank');
             },
-            // onHover: function() {
-            	
-            // }
+
         })
     });
 
@@ -34,23 +34,28 @@ $(function() {
         el: $('.story-container')
     });
 
-    stories.on('reset add', function() {
-        $(".loading").toggleClass("hidden", stories.next == null);
-    });
+    // stories.on('reset add', function() {
+
+    // });
     var isFetching = false;
     Backbone.on('next-page', function() {
         if (isFetching) return;
         if (stories.next) {
             isFetching = true;
-            stories.fetchNext({
-                remove: false, 
-                success: function() {
-                    isFetching = false;
-                },
-                error: function() {
-                    isFetching = false;
-                }
-            });    
+            $(".loading").removeClass("hidden");
+            _.delay(function() {
+                stories.fetchNext({
+                    remove: false, 
+                    success: function() {
+                        isFetching = false;
+                        $(".loading").addClass("hidden");
+                    },
+                    error: function() {
+                        isFetching = false;
+                        $(".loading").addClass("hidden");
+                    }
+                });
+            }, 200);
         }
     });
 
@@ -84,6 +89,7 @@ $(function() {
 
     // infinite scroll
     var throttle = _.throttle(function() {
+
         if ($(window).scrollTop() + $(window).height() >= $('body').height() - 260) {
             Backbone.trigger('next-page');
         }
@@ -107,6 +113,7 @@ $(function() {
             if (filterName == "all") { // 'all' means we do not need schema-filter
                 filterName = null;
             }
+            
             stories.fetch({
                 data: { schema: filterName },
                 reset: true
