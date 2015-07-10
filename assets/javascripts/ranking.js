@@ -20,7 +20,35 @@
             }
         })
     });
-    
+
+
+    // filter 
+    Backbone.on("close-scene-filter-menu", (function() {
+        var $menu = $('.scene-filter-menu');
+        return function() {
+            $menu.hide();
+        }
+    })());
+
+    $(document).on('click', '.scene-filter .selected-scene', function() {
+        var $menu = $('.scene-filter-menu');
+        if ($menu.is(":visible")) {
+            Backbone.trigger("close-scene-filter-menu");
+        } else {
+            $("html").off("click");
+            $("html").on("click", function(e) {
+                var $target = $(e.target);
+                if ($target.closest(".scene-filter").length == 0 && $menu.is(":visible")) {
+                    Backbone.trigger("close-scene-filter-menu");
+                    $("html").off("click");
+                }
+            });
+            $menu.show();
+        }
+    });
+
+
+
     var stories = new (Amour.Collection.extend({
         url: Amour.APIRoot + 'sites/storylist/',
         model: Amour.Models.Story
@@ -55,5 +83,31 @@
         }
     }, 200);
     $(window).scroll(throttle);
+
+        var ROUTER = new (Backbone.Router.extend({
+        routes: {
+            ':schemaFilter': 'schemaFilter',
+            '': 'schemaFilter'
+        },
+        schemaFilter: function(filterName) {
+            var filterName = filterName || "all";
+            var $selectedScene = $('.selected-scene');
+            $('.scene-filter-menu').hide();
+            $('.scene-filter-menu a').removeClass('active');
+            var $temp = $('.scene-filter-menu [filter-name=' + filterName +"]");
+            $temp.addClass("active");
+            $selectedScene.find(".text").html($temp.html());
+            if (filterName == "all") { // 'all' means we do not need schema-filter
+                filterName = null;
+            }
+            stories.fetch({
+                data: { schema: filterName },
+                reset: true
+            });
+        }
+    }))();
+
+    Backbone.history.start();
+
     
 })();

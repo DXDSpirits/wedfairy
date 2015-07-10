@@ -1,7 +1,13 @@
 @import "bourbon/bourbon";
 
 @import "variables";
+@import "page/variables";
+@import "bootstrap/bootstrap/mixins";
 
+/******************************************************************************/
+
+@import "page/utils";
+@import "page/footer";
 body {
     background: image-url("ranking/ranking-bg.jpg") repeat;
     background-size: 160px 160px;
@@ -24,7 +30,81 @@ body > header {
         top: 10px;
         left: 20px;
     }
+    // .filter {
+    //     position: absolute;
+    //     left: 20px;
+    //     bottom: 10px;
+    //     margin-bottom: 10px;
+
+    //     .selectpicker {
+    //         border: 0;
+    //         background: $wedfairy-color;
+    //     }
+    // }
+    .filter-container {
+            // padding-bottom: 15px;
+            // border-bottom: 1px solid rgba($border-color, .5);
+            // max-width: 960px;
+            // max-width: 960px;
+            // margin: 0 auto;
+
+            .filter {
+                // color: $label-color;
+                color: white;
+                border-radius: 3px;
+                // padding: 20px;
+                // padding-bottom: 8px;
+                // padding-top: 11px;
+                left: 10px;
+                position: absolute;
+                bottom: 10px;
+                background: #f68181;
+                display: inline-block;
+                // margin-left: 12px;
+                @extend .pointer;
+                box-shadow: 0 0px 1px rgba(0, 0, 0, 0.2);
+
+                .iconfont::before {
+                    @include hoverable($label-color);
+                }
+            }
+            .selected-scene {
+                width: 112.5px;
+                // padding-left: 20px;
+                padding-top: 11px;
+                padding-bottom: 8px;
+                padding-left: 20px;
+            }
+            .filter-menu {
+                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+                margin-top: 1px;
+                display: none;
+                position: absolute;
+                width: 112.5px;
+                background-color: white;
+                z-index: 10;
+                margin-left: 0px;
+                padding-bottom: 10px;
+                padding-top: 9px;
+
+                a {
+                    display: inline-block;
+                    font-size: 12px;
+                    padding: 6px 20px;
+                    padding-top: 7px;
+                    width: inherit;
+                    color: $light-text-color;
+                    @include hoverable-bg(white);
+
+                    &.active {
+                        background-color: darken(white, 10) !important;
+                        display: none;
+                    }
+                }
+            }
+    }
 }
+
 
 body > footer {
     padding: 20px;
