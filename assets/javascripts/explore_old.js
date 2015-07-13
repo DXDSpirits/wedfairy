@@ -1,28 +1,55 @@
-(function() {
-    
+$(function() {
+
     var StoryGalleryView = Amour.CollectionView.extend({
         ModelView: Amour.ModelView.extend({
             events: {
-                'click': 'onClick'
+                'click .story-cover': 'onClick'
             },
-            className: 'story-item clearfix',
-            template: '<div class="img pull-left" data-bg-src="{{data.coverImage}}"></div>' + 
-                      '<div class="text pull-left"><p>{{title}}</p><div class="desc">{{description}}</div></div>' + 
-                      '<div class="index"></div>' +
-                      '<i class="fa fa-angle-right"></i>',
+            className: 'animated fadeIn col-sm-4 col-md-3 story-item',
+            template: $("#explore-story-template").html(),
             serializeData: function() {
                 var data = this.model ? this.model.toJSON() : {};
                 data.formatted_date = (new Date(data.time_created + '+0800')).toLocaleString();
+                data.likes = data.likes || 0
+                data.views = (data.likes * 3 + data.comments * 7) || 0;
                 return data;
             },
             onClick: function() {
                 window.open('http://wedfairy.com/story/' + this.model.get('name'), '_blank');
-            }
+            },
         })
     });
 
+    var stories = new (Amour.Collection.extend({
+        url: Amour.APIRoot + 'sites/storylist/',
+        model: Amour.Models.Story
+    }))();
 
-    // filter 
+    var storyGalleryView = new StoryGalleryView({
+        collection: stories,
+        el: $('.story-container')
+    });
+
+    stories.on('reset add', function() {
+        $(".loading").toggleClass("hidden", stories.next == null);
+    });
+    var isFetching = false;
+    Backbone.on('next-page', function() {
+        if (isFetching) return;
+        if (stories.next) {
+            isFetching = true;
+            stories.fetchNext({
+                remove: false, 
+                success: function() {
+                    isFetching = false;
+                },
+                error: function() {
+                    isFetching = false;
+                }
+            });    
+        }
+    });
+
     Backbone.on("close-scene-filter-menu", (function() {
         var $menu = $('.scene-filter-menu');
         return function() {
@@ -47,44 +74,16 @@
         }
     });
 
-
-
-    var stories = new (Amour.Collection.extend({
-        url: Amour.APIRoot + 'sites/storylist/',
-        model: Amour.Models.Story
-    }))();
-    
-    var storyGalleryView = new StoryGalleryView({
-        collection: stories,
-        el: $('.story-list')
-    });
-    
-    stories.fetch();
-    stories.on('reset add', function() {
-        $('#btn-more').toggleClass('hidden', stories.next == null);
-    });
-    
-    var fetchMore = function() {
-        var btn = $('#btn-more');
-        btn.button('loading');
-        stories.fetchNext({
-            remove: false,
-            success: function () {
-                btn.button('reset');
-            }
-        });
-    };
-    
-    $('#btn-more').click(fetchMore);
+    // infinite scroll
     var throttle = _.throttle(function() {
-        var scrollTop = $(window).scrollTop();
-        if ($(window).scrollTop() + $(window).height() >= $('body').height() - 150) {
-            fetchMore();
+        if ($(window).scrollTop() + $(window).height() >= $('body').height() - 260) {
+            Backbone.trigger('next-page');
         }
     }, 200);
     $(window).scroll(throttle);
 
-        var ROUTER = new (Backbone.Router.extend({
+    // backbone router stuff
+    var ROUTER = new (Backbone.Router.extend({
         routes: {
             ':schemaFilter': 'schemaFilter',
             '': 'schemaFilter'
@@ -109,5 +108,4 @@
 
     Backbone.history.start();
 
-    
-})();
+});

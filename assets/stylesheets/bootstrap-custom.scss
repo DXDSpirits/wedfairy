@@ -6,7 +6,8 @@
 //===========================================================================================
 
 a:hover, a:focus {
-    color: $link-hover-color;
+    // color: $link-hover-color;
+    color: $gray-darker;
     text-decoration: none;
 }
 

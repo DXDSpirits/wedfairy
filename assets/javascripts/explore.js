@@ -1,11 +1,16 @@
 $(function() {
-
+    // if(Amour.isMobile) {
+    if(window.screen.width <= 400) {
+        // document.location.href="http://www.wedfairy.com/ranking";
+        document.location.href="/ranking";
+    };
     var StoryGalleryView = Amour.CollectionView.extend({
         ModelView: Amour.ModelView.extend({
             events: {
-                'click .story-cover': 'onClick'
+                'click .story-popup': 'onClick',
+                'click .story-cover': 'onClick',
             },
-            className: 'animated fadeIn col-sm-4 col-md-3 story-item',
+            className: 'animated fadeIn col-lg-3 col-md-3 col-sm-4 col-xs-12 story-item',
             template: $("#explore-story-template").html(),
             serializeData: function() {
                 var data = this.model ? this.model.toJSON() : {};
@@ -17,6 +22,7 @@ $(function() {
             onClick: function() {
                 window.open('http://wedfairy.com/story/' + this.model.get('name'), '_blank');
             },
+
         })
     });
 
@@ -30,25 +36,32 @@ $(function() {
         el: $('.story-container')
     });
 
-    stories.on('reset add', function() {
-        $(".loading").toggleClass("hidden", stories.next == null);
-    });
+    // stories.on('reset add', function() {
+
+    // });
     var isFetching = false;
     Backbone.on('next-page', function() {
         if (isFetching) return;
         if (stories.next) {
             isFetching = true;
-            stories.fetchNext({
-                remove: false, 
-                success: function() {
-                    isFetching = false;
-                },
-                error: function() {
-                    isFetching = false;
-                }
-            });    
+            $(".loading").removeClass("hidden");
+            _.delay(function() {
+                stories.fetchNext({
+                    remove: false, 
+                    success: function() {
+                        isFetching = false;
+                        $(".loading").addClass("hidden");
+                    },
+                    error: function() {
+                        isFetching = false;
+                        $(".loading").addClass("hidden");
+                    }
+                });
+            }, 200);
         }
     });
+
+
 
     Backbone.on("close-scene-filter-menu", (function() {
         var $menu = $('.scene-filter-menu');
@@ -57,25 +70,28 @@ $(function() {
         }
     })());
 
-    $(document).on('click', '.scene-filter .selected-scene', function() {
-        var $menu = $('.scene-filter-menu');
-        if ($menu.is(":visible")) {
-            Backbone.trigger("close-scene-filter-menu");
-        } else {
-            $("html").off("click");
-            $("html").on("click", function(e) {
-                var $target = $(e.target);
-                if ($target.closest(".scene-filter").length == 0 && $menu.is(":visible")) {
-                    Backbone.trigger("close-scene-filter-menu");
-                    $("html").off("click");
-                }
-            });
-            $menu.show();
-        }
-    });
+    // $(document).on('click', '.scene-filter .selected-scene', function() {
+    //     var $menu = $('.scene-filter-menu');
+    //     if ($menu.is(":visible")) {
+    //         Backbone.trigger("close-scene-filter-menu");
+    //     } else {
+    //         $("html").off("click");
+    //         $("html").on("click", function(e) {
+    //             var $target = $(e.target);
+    //             if ($target.closest(".scene-filter").length == 0 && $menu.is(":visible")) {
+    //                 Backbone.trigger("close-scene-filter-menu");
+    //                 $("html").off("click");
+    //             }
+    //         });
+    //         $menu.show();
+    //     }
+    // });
+
+
 
     // infinite scroll
     var throttle = _.throttle(function() {
+
         if ($(window).scrollTop() + $(window).height() >= $('body').height() - 260) {
             Backbone.trigger('next-page');
         }
@@ -99,6 +115,7 @@ $(function() {
             if (filterName == "all") { // 'all' means we do not need schema-filter
                 filterName = null;
             }
+            
             stories.fetch({
                 data: { schema: filterName },
                 reset: true
