@@ -16,7 +16,7 @@ $(function() {
                 var data = this.model ? this.model.toJSON() : {};
                 data.formatted_date = (new Date(data.time_created + '+0800')).toLocaleString();
                 data.likes = data.likes || 0
-                data.views = (data.likes * 3 + data.comments * 7) || 0;
+                data.views = (data.likes * 31 + data.comments * 73) || 0;
                 return data;
             },
             onClick: function() {
