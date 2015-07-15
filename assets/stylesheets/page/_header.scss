@@ -1,8 +1,31 @@
+
 .header {
-    // margin-top: -8px;
+    // margin-top: 0;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
+    overflow: hidden;
 }
+
 .logo-container {
-    margin-left: 20px;
+    margin-left: 30px;
+    margin-top: 8px;
+}
+.login-container {
+    margin-right: 30px;
+    margin-top: 15px;
+
+    li{
+        margin-left: 15px;
+        color: black;
+        display: inline-block;
+
+        i {
+            display: none;
+            color: $wedfairy-color;
+        }
+        a:hover {
+            color: $wedfairy-color;
+        }
+    }
+
 }
