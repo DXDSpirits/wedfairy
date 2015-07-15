@@ -69,18 +69,40 @@ body > header {
                 }
             }
             .selected-scene {
-                width: 112.5px;
+                width: 102.5px;
                 // padding-left: 20px;
                 padding-top: 10px;
                 padding-bottom: 10px;
-                padding-left: 20px;
+                padding-left: 10px;
+                .text {
+                    display: inline-block;
+                }
+                .sanjiao {
+                    overflow: hidden;
+                    position: absolute;
+                    right: 7px;
+                    top: 16px;
+                    display: inline-block;
+                    height: 8px;
+                    // line-height: 8px;
+                }
+                .sanjiao-icon {
+                    border-width: 8px;
+                    width: 0px;
+                    height: 0px;
+                    border: 8px solid transparent;
+                    border-top: 8px solid white;
+                    /* transform: rotate(-180deg); */
+                    /* margin-left: 45px; */
+                    background: transparent;    
+                }
             }
             .filter-menu {
                 box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
                 margin-top: 1px;
                 display: none;
                 position: absolute;
-                width: 112.5px;
+                width: 102.5px;
                 background-color: white;
                 z-index: 10;
                 margin-left: 0px;
@@ -90,7 +112,7 @@ body > header {
                 a {
                     display: inline-block;
                     font-size: 12px;
-                    padding: 6px 20px;
+                    padding: 6px 10px;
                     padding-top: 7px;
                     width: inherit;
                     color: $light-text-color;
