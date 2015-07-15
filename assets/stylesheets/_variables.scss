@@ -1,4 +1,8 @@
 
+@function image-url($path) {
+    @return url("/assets/images/" + $path);
+}
+
 //== Colors
 $gray-darker:            lighten(#000, 13.5%) !default; // #222
 $gray-dark:              lighten(#000, 20%) !default;   // #333
