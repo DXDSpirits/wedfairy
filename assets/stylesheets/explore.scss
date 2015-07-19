@@ -447,13 +447,13 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
 
     li{
         margin-left: 15px;
-        color: black;
+        color: $gray;
         display: inline-block;
+        i {
+            display: none;
+            color: $wedfairy-color;
+        }
 
-    i {
-        display: none;
-        color: $wedfairy-color;
-    }
     a:hover {
         color: $wedfairy-color;
     }

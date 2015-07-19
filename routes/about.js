@@ -28,4 +28,8 @@ router.get('/faq', function(req, res) {
     res.render('page/faq');
 });
 
+router.get('/reports', function(req, res) {
+    res.render('page/reports');
+});
+
 module.exports = router;

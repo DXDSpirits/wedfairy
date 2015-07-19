@@ -1,7 +1,9 @@
-#law {
+#reports {
     color: $light-text-color;
     // .header {
-    //     // border-bottom: 1px solid grey;
+    //     border-bottom: 1px solid $gray-light;
+    // }
+    // hr {
     //     border-bottom: 1px solid $gray-light;
     // }
     // .nav-container {
@@ -22,7 +24,42 @@
     //             color: $wedfairy-color;
     //         }
     //     }
+
     // }
+
+    .container-fluid {
+
+        .report-item {
+            border-top: 1px solid $gray-light;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            position: relative;
+            // padding-right: 40%;
+
+            &:first-child {
+                margin-top: 50px;
+            }
+
+            .item-cotent {
+                // padding-left: 0;
+                // padding-right: 0;
+            }
+            h4 {
+                font-size: 1.2em;
+            }
+            span {
+                color: $wedfairy-color;
+
+            }
+
+            .item-img {
+                background-position: center right;
+                height: 180px;
+            }
+        }
+
+
+    }
     .page-title {
         // margin-top: 50px;
         // margin-left: 50px;
@@ -35,15 +72,6 @@
 
         background-color: #EDEBEB;
 
-    }
-    pre {
-        // margin-left: 50px;
-        margin: 20px 0;
-        padding: 0;
-        color: $light-text-color;
-        background-color: inherit;
-        border: none;
-        overflow: hidden;
     }
 
     .grey-bg {
