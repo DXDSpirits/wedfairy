@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <% include ../includes/html %>
 <head>
-    <title>八音盒 - 帮助</title>
+    <title>八音盒 - 法律声明</title>
     
     <% include ../includes/metadata %>
     <link rel="stylesheet" href="<%= static_url %>fonts/iconfont.css">
     <link rel="stylesheet" href="<%= static_url %>stylesheets/bootstrap-custom.css?v=<%= build_no %>">
-    <link rel="stylesheet" href="<%= static_url %>stylesheets/page/page.css?v=<%= build_no %>">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/page.css?v=<%= build_no %>">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/font-awesome.css">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/animate.min.css">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/amour.css">
+
     
     
     <% include ../includes/capability %>
@@ -18,18 +22,18 @@
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <!-- Content Begins Here -->
-    <% include header %>
-    <div class="navbar">
-        <div class="nav-wrapper">
-            <a class="nav-item " href="/about/law">法律声明</a>
-            <a class="nav-item active" href="/about/faq">FAQ</a>
-            <!-- <a class="nav-item" href="javascripts:void(0);">帮助</a> -->
+    <% include navlaw %>
+    <div class="container-fluid">
+        <div class="row grey-bg">
+            <div class="col-lg-3 col-md-3 col-sm-12"></div>
+            <div class="page-title col-lg-6 col-md-6 col-sm-12">FAQ</div>
+            <div class="col-lg-3 col-md-3 col-sm-12"></div>
         </div>
-    </div>
-    <div id="tip-container"></div>
-    
-    <div class="body container">
-        <h1 class="page-title">FAQ</h1>
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-12"></div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+            
+
         <pre>Q：请问音乐怎么上传？
 A：“音乐上传”的功能正在开发中，目前我们挑选了部分主流音乐供用户选择，如这些音乐都不能满足你的需求，可以加“八音盒轻故事”的微信公众号，把需要上传的音乐给到小编上传服务器。
 
@@ -46,9 +50,13 @@ Q：请问有 app 吗？
 A：正在紧锣密鼓的开发中，如需手机编辑，可以加“八音盒轻故事”的微信公众号，就可以用“微信”快速进行制作。
 
 Q：请问分享到朋友圈或者微博需要收费吗？
-A：本产品目前所有功能都不收费，如需收费会另行通知。
+A：本产品目前所有功能都不收费，如需收费会另行通知。</pre>
+            </div>
 
-</pre>
+            <div class="col-lg-3 col-md-3 col-sm-12"></div>
+        </div>
+       
+
         <div class="clearfix"></div>
         <br />
 

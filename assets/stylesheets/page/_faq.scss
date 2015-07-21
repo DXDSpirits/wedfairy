@@ -1,5 +1,9 @@
 #faq {
     color: $light-text-color;
+    .grey-bg {
+        background-color: #EDEBEB;
+    }
+
     .page-title {
         color: $navbar-bg-color;
         margin-top: 50px;
@@ -12,8 +16,17 @@
         font-size: 18px;
         margin-bottom: 20px;
     }
+    .page-title {
+        font-size: 30px;
+        margin:0;
+        height: 100px;
+        line-height: 100px;
+        background-color: #EDEBEB;
+    }
     pre {
-        margin-left: 50px;
+        // margin-left: 50px;
+        margin: 20px 0;
+        padding: 0;
         color: $light-text-color;
         background-color: inherit;
         border: none;
