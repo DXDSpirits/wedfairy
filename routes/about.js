@@ -32,4 +32,9 @@ router.get('/reports', function(req, res) {
     res.render('page/reports');
 });
 
+router.get('/usage', function(req, res) {
+    res.render('page/usage');
+});
+
+
 module.exports = router;

@@ -1,0 +1,133 @@
+#usage {
+    position: relative;
+    color: $light-text-color;
+    h4{
+        margin-top: 50px;
+        font-weight: 800;
+    }
+
+    h5 {
+        // font-weight: 500;
+        color: darken($text-color, 3);
+        margin-top: 18px;
+        font-size: 16px;
+    }
+
+    .tips {
+        color: $wedfairy-color;
+    }
+    .page-title {
+        font-size: 30px;
+        margin:0;
+        height: 100px;
+        line-height: 100px;
+
+        background-color: #EDEBEB;
+
+    }
+
+    .affix {
+        // position: static;
+        top: 40px;
+    }
+
+    .affix-bottom {
+      position: absolute;
+      // top: auto;
+      width: 180px;
+      // bottom: 400px;
+    }
+    .sidebar {
+        // position: fixed;
+        // top: 140px;
+        border: 0;
+        width: 180px;
+        margin-left: 100px;
+        // margin: 30px 80px;
+
+        li {
+            // text-align: center;
+            border-radius:0;
+            border-left: 2px solid transparent;
+
+            &.active>a {
+                color: $wedfairy-color;
+                background: transparent;
+                border-radius:0;
+                border: 0;
+                border-left: 2px solid $wedfairy-color;
+            }
+            &>a {
+                padding-top: 5px;
+                padding-bottom: 5px;
+                background: transparent;
+
+                &:hover {
+                    color: $wedfairy-color;
+                    border: 2px solid transparent;
+                    background: transparent;
+                    border-left: 2px solid $wedfairy-color;
+                    color: $text-color;
+                }
+            }
+
+
+        }
+        #myScrollspy {
+
+            li {
+                background: transparent;
+                text-align: center;
+            // font-size: 1.1em;
+
+            a {
+                padding: 5px;
+                color: $text-color;
+                background: transparent;
+                &:hover, &:active, &:visited {
+                    border-left: 2px solid $wedfairy-color;
+                }
+            }
+
+        }
+
+
+        }
+
+    }
+
+    #login-panel {
+
+    }
+    pre {
+        // margin-left: 50px;
+        margin: 20px 0;
+        padding: 0;
+        color: $light-text-color;
+        background-color: inherit;
+        border: none;
+        overflow: hidden;
+    }
+    .usage-img {
+        border: 1px solid $gray-light;
+        margin: 15px auto;
+        // width: 100%;
+        padding-top: 50%;
+        box-shadow: 10px 10px 5px $gray-light;
+        background-size:100% 100%;
+        // height: 450px;
+        // padding-bottom: 0;
+    }
+    #img-phone-bg {
+        margin: 15px auto;
+        border: 1px solid $gray-light;
+        // width: 100%;
+        padding-top: 50%;
+        box-shadow: 10px 10px 5px $gray-light;
+        // background-size:100% 100%;
+
+    }
+    .grey-bg {
+        background-color: #EDEBEB;
+    }
+}

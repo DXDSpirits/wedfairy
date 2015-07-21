@@ -18,6 +18,7 @@
 @import "page/reports";
 @import "page/faq";
 @import "page/navlaw";
+@import "page/usage";
 
 .btn {
     border-radius: 4px;
@@ -33,7 +34,7 @@ body {
     padding-top: 1px;
 }
 a {
-    color: $main-color;
+    color: $text-color;
     text-decoration: none !important;
 
     &:hover {
