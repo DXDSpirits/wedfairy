@@ -153,44 +153,35 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
     color: $wedfairy-color;
     font-size: 30px;
 }
-// .icon-logo {
-//     color: $wedfairy-color;
-//     font-size: 30px;
-//     &::before {
-//         color: $wedfairy-color;
-//         font-size: 30px;
-//     }
-// }
-.icon-huanyipi:before {
-    content: "\e606";
-}
 .body {
     margin: 0 auto;
     @extend .container;
 }
 
+.container {
+    max-width: $container-sm;
+}
+
 .about-section {
     line-height: 2;
-    padding: 0 150px;
+    // padding: 0 150px;
         // width: 80%;
     overflow: hidden;
     .about-item {
         width: 100%;
         display: inline-block;
-        border-top: 1px solid $gray-light;
+        border-top: 1px solid $gray-lighter;
         margin: 25px auto 25px;
         padding-top: 30px;
 
-        h4 {
-            font-size: 1.5em;
-            font-weight: 600;
+        h2 {
+            text-align: center;
+            // font-size: 2em;
             margin: 30px auto 30px;
-            // color: darken($text-color, 8);
         }
-        h5 {
-            // font-weight: 600;
-            font-size: 1.2em;
-            // color: darken($text-color, 5);
+        h3, h4 {
+            text-align: center;
+            // font-size: 1.5em;
         }
         p {
             margin-bottom: 18px;
@@ -202,7 +193,9 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
         }
     }
 }
-
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.7em;
+}
 .avatar-container {
     position: absolute;
     right: 0;
@@ -296,7 +289,7 @@ pre {
         margin: 0 auto;
     }
     .nav-item {
-        font-size: 1.2em;
+        // font-size: 1.2em;
         color: $text-color;
         &:first-child {
             // margin-left: 50px;
