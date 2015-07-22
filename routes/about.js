@@ -20,20 +20,16 @@ router.get('/law', function(req, res) {
     res.render('page/law');
 });
 
-// router.get('/help', function(req, res) {
-//     res.render('page/help');
-// });
-
 router.get('/faq', function(req, res) {
     res.render('page/faq');
 });
 
-router.get('/reports', function(req, res) {
-    res.render('page/reports');
+router.get('/press', function(req, res) {
+    res.render('page/press');
 });
 
-router.get('/usage', function(req, res) {
-    res.render('page/usage');
+router.get('/guide', function(req, res) {
+    res.render('page/guide');
 });
 
 router.get('/team', function(req, res) {

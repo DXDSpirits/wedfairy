@@ -28,4 +28,10 @@ router.get('/explore', function(req, res) {
     res.render('explore');
 });
 
+
+//contact
+router.get('/contact', function(req, res) {
+    res.render('page/contact');
+});
+
 module.exports = router;
