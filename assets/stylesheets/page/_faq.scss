@@ -1,15 +1,5 @@
 #faq {
     color: $light-text-color;
-    .grey-bg {
-        background-color: #EDEBEB;
-    }
-
-    .page-title {
-        color: $navbar-bg-color;
-        margin-top: 50px;
-        margin-left: 50px;
-        margin-bottom: 30px;
-    }
     .sub-title{
         color: $navbar-bg-color;
         margin-left: 50px;
@@ -17,11 +7,12 @@
         margin-bottom: 20px;
     }
     .page-title {
+        color: $navbar-bg-color;
         font-size: 30px;
         margin:0;
         height: 100px;
         line-height: 100px;
-        background-color: #EDEBEB;
+        // background-color: #EDEBEB;
     }
     pre {
         // margin-left: 50px;

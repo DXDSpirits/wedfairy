@@ -4,74 +4,93 @@
 
     <title>八音盒 - 联系我们</title>
 
+    <title>八音盒</title>
+
     
     <% include ../includes/metadata %>
-    <link rel="stylesheet" href="<%= static_url %>fonts/iconfont.css">
+    <!-- <link rel="stylesheet" href="<%= static_url %>fonts/iconfont.css"> -->
     <link rel="stylesheet" href="<%= static_url %>stylesheets/bootstrap-custom.css?v=<%= build_no %>">
-    <link rel="stylesheet" href="<%= static_url %>stylesheets/page/page.css?v=<%= build_no %>">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/page.css?v=<%= build_no %>">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/iconfont.css">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/font-awesome.css">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/animate.min.css">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/amour.css">
     
     
     <% include ../includes/capability %>
     <% include ../includes/production %>
     <script src="<%= tat_static %>javascripts/vendor/modernizr-2.7.1.min.js"></script>
 </head>
-<body id="contact">
+<body id="contactus">
     <!--[if lt IE 7]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <!-- Content Begins Here -->
-    <% include header %>
-    <div class="navbar">
-        <div class="nav-wrapper">
+    <% include navabout %>
+
+    <div id="tip-container"></div>
+    
+    <div class="body container" id="about-body">
+        <div class="navbar">
             <a class="nav-item" href="/about">关于我们</a>
+            <a class="nav-item" href="/about/team">团队成员</a>
             <a class="nav-item" href="/about/joinus">加入我们</a>
             <a class="nav-item active" href="/about/contactus">联系我们</a>
             <!-- <a class="nav-item" href="/about/followus">关注我们</a> -->
+            <!-- <a href="/about/"></a> -->
         </div>
-    </div>
-    <div id="tip-container"></div>
-    
-    <div class="body container">
-        <h1 class="page-title">联系八音盒</h1>
-        <div class="img-container">
-            <div class="map img" data-bg-src="images/map.png">
+        <div class="contariner-fluid">
+            <div class="about-section" id="aboutus">
+                <div class="about-item">
+                    <h4>联系八音盒</h4>
+                    <p>我们高度注重产品的质量，所以我们不会想错过每一个对我们产品出发声音的人。无论你是想给我提意见，还是想加入我们的团队，又或者想和我们聊聊合作，这里将开启你和八音盒对话的大门。我们相信，只要有志同道合的朋友在，八音盒就能够做的更好。</p>
 
+                </div>
+                <div class="about-item">
+                    <!-- <h4>创始人</h4> -->
+                    <!-- <br /> -->
+                    <div class="contariner">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <h5>八音盒地址</h5>
+                                <p>上海市黄浦区马当路新天地复兴soho广场D栋3层</p>
+                                <br />
+                                <h5>客服邮箱</h5>
+                                <p>contact@wedfairy.com</p>
+                                <h5>商务合作</h5>
+                                <p>business@wedfairy.com</p>
+                                <h5>招聘邮箱</h5>
+                                <p>jobs@wedfairy.com</p>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="img img-cover map-img" data-bg-src="images/aboutus/map.png">
+                                    <div class="text-center team-sign">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>                <br />
             </div>
-            <address class="addr-text">
-                上海市杨浦区宁国路218号<br />郡江国际A栋1409室
-            </address>
 
         </div>
 
-        <p class="content">我们高度注重产品的质量，所以我们不会想错过每一个对我们产品出发声音的人。无论你是想给我提意见，还是想加入我们的团队，
-又或者想和我们聊聊合作，这里将开启你和八音盒对话的大门。我们相信，只要有志同道合的朋友在，八音盒就能够做的更好。</p>
-        <div class="contact-info">
-            客服邮箱：<br />
-            <a href="mailto:contact@wedfairy">contact@wedfairy.com</a><br />
-            <br />
-            商务合作：<br />
-            <a href="mailto:business@wedfairy">business@wedfairy.com</a><br />
-            <br />
-            招聘邮箱：<br />
-            <a href="mailto:jobs@wedfairy">jobs@wedfairy.com</a><br />
-
-
-        </div>
-
-
-
+        <div class="clearfix"></div>
+        <br />
 
     </div>
     <% include footer %>
-        <!-- Content Ends Here -->
-        <script src="<%= tat_static %>javascripts/vendor/jquery-2.1.1.min.js"></script>
-        <script src="<%= tat_static %>javascripts/vendor/underscore.min.js"></script>
-        <script src="<%= tat_static %>javascripts/vendor/mustache.min.js"></script>
-        <script src="<%= tat_static %>javascripts/vendor/backbone.min.js"></script>
-        <script src="<%= tat_static %>javascripts/vendor/bootstrap.min.js"></script>
-        <script src="<%= tat_static %>javascripts/plugins/fastclick.js"></script>
-        <!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
-        <% include ../includes/analytics %>
-        <script src="<%= tat_static %>javascripts/amour.js?v=<%= build_no %>"></script>
-    </body>
+    <!-- Content Ends Here -->
+    <script src="<%= tat_static %>javascripts/vendor/jquery-2.1.1.min.js"></script>
+    <script src="<%= tat_static %>javascripts/vendor/underscore.min.js"></script>
+    <script src="<%= tat_static %>javascripts/vendor/mustache.min.js"></script>
+    <script src="<%= tat_static %>javascripts/vendor/backbone.min.js"></script>
+    <script src="<%= tat_static %>javascripts/vendor/bootstrap.min.js"></script>
+    <script src="<%= tat_static %>javascripts/plugins/fastclick.js"></script>
+    <!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
+    <% include ../includes/analytics %>
+    <script src="<%= tat_static %>javascripts/amour.js?v=<%= build_no %>"></script>
+</body>
 </html>

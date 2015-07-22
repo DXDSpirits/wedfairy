@@ -1,42 +1,10 @@
 #about {
-    color: $light-text-color;
+    color: $text-color;
     .page-title {
         margin-top: 50px;
         margin-left: 50px;
         margin-right: 50px;
         margin-bottom: 30px;
-        color: $navbar-bg-color;
+        // color: $navbar-bg-color;
     }
-    .sub-title{
-        margin-left: 50px;
-        margin-right: 50px;
-        font-size: 18px;
-        margin-bottom: 20px;
-        color: $navbar-bg-color;
-    }
-    .content{
-        margin-left: 50px;
-        margin-right: 50px;
-        margin-bottom: 50px;
-    }
-
-    .img-container{
-        .img{
-            padding-top: 100%;
-            margin-bottom: 30px;
-        }
-    }
-    .img-avatar-container{
-        .avatar{
-            width: 140px !important;
-            height: 140px !important;
-            margin: 0 auto;
-            border-radius: 50%;
-        }
-        
-    }
-    .text-name{
-        margin-top: 5px;
-    }
-
 }

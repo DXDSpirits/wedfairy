@@ -18,7 +18,9 @@
 @import "page/reports";
 @import "page/faq";
 @import "page/navlaw";
+@import "page/navabout";
 @import "page/usage";
+@import "page/team";
 
 .btn {
     border-radius: 4px;
@@ -29,9 +31,10 @@
 //
 
 body {
-    background-color: $background-color;
+    font-size: 16px;
+    // background-color: $background-color;
     // @extend .center;
-    padding-top: 1px;
+    // padding-top: 1px;
 }
 a {
     color: $text-color;
@@ -43,16 +46,11 @@ a {
     }
 }
 
-// .page-title {
-//     font-size: 30px;
-//     margin:0;
-//     height: 100px;
-//     line-height: 100px;
-
-//     background-color: #EDEBEB;
-
-// }
-
+.grey-bg {
+    background-color: #fafafa;
+    // margin-top: 30px;
+    margin-bottom: 50px;
+}
 .alert-tip {
     display: none;
     z-index: 100000;
@@ -140,22 +138,69 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
 .control-label {
     color: $label-color;
 }
+// .iconfont {
+//     font-family: "iconfont" !important;
+//     font-size: 22px;
+//     font-style: normal;
+//     // color: $main-color;
+//     -webkit-font-smoothing: antialiased;
+//     -webkit-text-stroke-width: 0.2px;
+//     -moz-osx-font-smoothing: grayscale;
+//     @include hoverable($main-color);
+// }
+
 .iconfont {
-    font-family: "iconfont" !important;
-    font-size: 22px;
-    font-style: normal;
-    color: $main-color;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-stroke-width: 0.2px;
-    -moz-osx-font-smoothing: grayscale;
-    @include hoverable($main-color);
+    color: $wedfairy-color;
+    font-size: 30px;
 }
+// .icon-logo {
+//     color: $wedfairy-color;
+//     font-size: 30px;
+//     &::before {
+//         color: $wedfairy-color;
+//         font-size: 30px;
+//     }
+// }
 .icon-huanyipi:before {
     content: "\e606";
 }
 .body {
     margin: 0 auto;
     @extend .container;
+}
+
+.about-section {
+    line-height: 2;
+    padding: 0 150px;
+        // width: 80%;
+    overflow: hidden;
+    .about-item {
+        width: 100%;
+        display: inline-block;
+        border-top: 1px solid $gray-light;
+        margin: 25px auto 25px;
+        padding-top: 30px;
+
+        h4 {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin: 30px auto 30px;
+            // color: darken($text-color, 8);
+        }
+        h5 {
+            // font-weight: 600;
+            font-size: 1.2em;
+            // color: darken($text-color, 5);
+        }
+        p {
+            margin-bottom: 18px;
+        }
+
+        .map-img {
+            width: 100%;
+            padding-top: 100%;
+        }
+    }
 }
 
 .avatar-container {
@@ -227,12 +272,21 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
         }
     }
 }
+pre {
+  font-size: 16px;  
+}
 
+.text-name {
+    margin-top: 10px;
+}
 .navbar {
-    background-color: $navbar-bg-color;
+    // background-color: $navbar-bg-color;
+    // margin: 0 auto;
+    text-align: center;
     border-radius: 0px;
     margin-bottom: 0px;
     height: 32px;
+    line-height: 100%;
     min-height: 32px;
 
     .nav-wrapper {
@@ -242,18 +296,22 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
         margin: 0 auto;
     }
     .nav-item {
+        font-size: 1.2em;
+        color: $text-color;
         &:first-child {
             // margin-left: 50px;
         }
         &.active, &:hover {
-            background-color: #899092;
+            // background-color: #899092;
+            // font-weight: 800;
+            color: lighten($wedfairy-color, 10);
+            // border-bottom: 2px solid $wedfairy-color;
         }
         height: inherit;
         padding: 6px 15px;
-        color: white;
         display: inline-block;
-        padding-top: 7px;
-        margin-top: -1px;
+        // padding-top: 7px;
+        // margin-top: -1px;
     }
 }
 // for timepicker

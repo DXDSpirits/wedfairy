@@ -20,9 +20,9 @@ router.get('/law', function(req, res) {
     res.render('page/law');
 });
 
-router.get('/help', function(req, res) {
-    res.render('page/help');
-});
+// router.get('/help', function(req, res) {
+//     res.render('page/help');
+// });
 
 router.get('/faq', function(req, res) {
     res.render('page/faq');
@@ -36,5 +36,8 @@ router.get('/usage', function(req, res) {
     res.render('page/usage');
 });
 
+router.get('/team', function(req, res) {
+    res.render('page/team');
+});
 
 module.exports = router;

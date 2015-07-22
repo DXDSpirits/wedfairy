@@ -14,6 +14,7 @@
     }
 
     .tips {
+        display: none;
         color: $wedfairy-color;
     }
     .page-title {
@@ -21,9 +22,6 @@
         margin:0;
         height: 100px;
         line-height: 100px;
-
-        background-color: #EDEBEB;
-
     }
 
     .affix {
@@ -122,8 +120,5 @@
         box-shadow: 10px 10px 5px $gray-light;
         // background-size:100% 100%;
 
-    }
-    .grey-bg {
-        background-color: #EDEBEB;
     }
 }

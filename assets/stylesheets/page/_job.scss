@@ -1,39 +1,22 @@
-#job {
-
-    .landscope {
-        width: 100%;
-        height: 424px;
-        padding-top: 130px;
-        margin-bottom: 50px;
-
-        .text-container {
-            color: white;
-            text-align: center;
-
-            h1 {
-                margin-top: 0px;
-                margin-bottom: 40px;
-            }
-        }
+#joinus {
+    color: $text-color;
+    .page-title {
+        margin-top: 50px;
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-bottom: 30px;
+        // color: $navbar-bg-color;
+    }
+    .mail-addr {
+        &>a {color: $wedfairy-color;}
     }
 
-    .body{
-        color: $light-text-color;
-        max-width: $container-sm;
-    }
-
-
-    .job-container{
-        color: $light-text-color;
-        .job-title{
-            font-size: 16px;
-            color: $main-color;
+    .job-desc {
+        padding-top: 0;
+        h5 {
+            font-weight: 600;
+            margin: 60px auto 30px;
         }
 
-        pre {
-            color: $light-text-color;
-            background-color: inherit;
-            border: none;
-        }
     }
 }

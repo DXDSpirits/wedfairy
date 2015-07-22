@@ -1,98 +1,104 @@
-.footer {
-    width: 100%;
-    bottom: 0;
-    margin-top: 60px;
-    // position: absolute;
-    // bottom: 0;
-    background-color: $navbar-bg-color;
-    border-radius: 0px;
-    margin-bottom: 0px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    @extend .clearfix;
 
-    .footer-link-container {
-        margin: 0 auto;
-        // height: 130px;
-        max-width: 830px;
+$qrcode-size: 150px;
 
-        .qr-section {
+#global-footer {
+    padding-top: 80px;
+    padding-bottom: 10px;
+    position: relative;
+    color: $gray-lighter;
+    a { color: $gray-lighter; }
+    .background {
+        @include position(absolute, 0 0 0 0);
+        &::after {
+            content: "";
+            @include position(absolute, 0 0 0 0);
+            background-color: rgba(#222, 0.9);
         }
-        .footer-item {
-            color: white !important;
-            text-align: center;
-            padding-top: 10px;
-
-            .qr-container {
-                width: 55px;
-                height: 55px;
-                background-color: white;
-                margin: 0 auto;
-                margin-top: 10px;
-
-                img {
-                    width: 45px;
-                    height: 45px;
-                    margin-top: 5px;
-                }
+    }
+    .ready-to-compose {
+        font-size: 1.2em;
+        line-height: 2;
+    }
+    .compose-button {
+        padding: 13px 30px 11px;
+        background-color: transparent;
+        border: 1px solid $gray-lighter;
+        color: $gray-lighter;
+        border-radius: 2px;
+        &:active, &.active, &:hover, &:focus, &.focus {
+            outline: 0;
+            box-shadow: none;
+            color: $gray-light;
+            border-color: $gray-light;
+        }
+    }
+    .qrcode {
+        margin: 0 auto;
+        width: $qrcode-size + 22px;
+        height: $qrcode-size + 22px;
+        padding: 10px;
+        border: 1px solid transparent; //#fff;
+        > .img {
+            width: $qrcode-size;
+            height: $qrcode-size;
+            background-size: $qrcode-size $qrcode-size;
+        }
+    }
+    .social {
+        margin: 30px auto;
+        .social-icon {
+            display: inline-block;
+            color: $gray-lighter;
+            //border: 1px solid $gray-lighter;
+            border: 0;
+            border-radius: 50%;
+            font-size: 30px;
+            width: 45px;
+            height: 45px;
+            //padding-top: (45px - 20px - 2px) / 2 - 1px;
+            //padding-bottom: (45px - 20px - 2px) / 2 + 1px;
+            margin: 5px;
+            .fa {
+                line-height: 45px;
             }
-            a {
-                @include hoverable(white);
+        }
+        .wechat:hover {
+            @include transition(transform .1s ease-in-out);
+            @include transform(scale(4, 4));
+            @include transform-origin(100% 0);
+            background: #fff image-url("weixin-qrcode.jpg") no-repeat center;
+            background-size: 43px 43px;
+            border-color: transparent;
+            border-radius: 0;
+            .fa { visibility: hidden; }
+        }
+    }
+    .links {
+        display: inline-block;
+        padding-top: 1em;
+        border-top: 1px solid $gray-light;
+        margin-bottom: 80px;
+        font-size: 0.9em;
+        > a + a {
+            margin-left: 15em;
+            @media (max-width: $screen-md-max) {
+                margin-left: 10em;
+            }
+            @media (max-width: $screen-sm-max) {
+                margin-left: 7em;
+            }
+        }
+        @media (max-width: $screen-xs-max) {
+            font-size: 1em;
+            > a {
+                display: block;
+                margin: 1em 7em;
             }
         }
     }
-    .footer-copyright {
-        padding-top: 20px;
-        margin: 0 auto;
-        margin-top: 30px;
-        width: 100%;
-        border-top: 1px solid rgba($footer-color, .5);
-        text-align: center;
-        color: $footer-color !important;
-        max-width: 800px;
-        
-        .copyright-text{
-            font-size: 12px;
-        }
-
-        .social-icon {
-            a:hover {
-                .iconfont {
-                    color: darken($footer-color, 10) !important;
-                }
-            }
-            .iconfont {
-                color: $footer-color !important;
-                margin-left: 15px;
-                margin-right: 10px;
-
-                &:hover {
-                    color: darken($footer-color, 10) !important;
-                }
-            }
-
-            .weixin-container{
-                cursor: pointer;
-                display: inline-block;
-                //border-radius: 10px;
-                //border: 1px solid #fff;
-                @include transition(all .35s ease-in-out);
-                text-align: center;
-                height: 41px;
-                width: 41px;
-
-                &:hover{
-
-                    @include transition(transform .1s ease-in-out);
-                    @include transform(scale(3, 3));
-                    @include transform-origin(0% 120%);
-                    background: image-url("weixin-qrcode.jpg") no-repeat center;
-                    background-size: 43px 43px;
-                    border-radius: 0;
-                    border-color: rgba(#fff,0);
-                    .icon-weixin { visibility: hidden; }
-                }
-            }
-        }
+    .copyright, .made-with-love {
+        font-size: 0.8em;
+        color: $gray-light;
+        letter-spacing: 0.05em;
     }
 }

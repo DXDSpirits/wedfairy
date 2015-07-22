@@ -1,31 +1,5 @@
 #reports {
     color: $light-text-color;
-    // .header {
-    //     border-bottom: 1px solid $gray-light;
-    // }
-    // hr {
-    //     border-bottom: 1px solid $gray-light;
-    // }
-    // .nav-container {
-    //     margin-right: 30px;
-    //     margin-top: 15px;
-
-    //     li{
-    //         margin-left: 60px;
-    //         color: black;
-    //         display: inline-block;
-    //         a {
-    //             color: $gray-light;
-    //         }
-    //         a:hover {
-    //             color: $gray;
-    //         }
-    //         i {
-    //             color: $wedfairy-color;
-    //         }
-    //     }
-
-    // }
 
     .container-fluid {
 
@@ -40,14 +14,10 @@
                 margin-top: 50px;
             }
 
-            .item-cotent {
-                // padding-left: 0;
-                // padding-right: 0;
-            }
             h4 {
                 font-size: 1.2em;
             }
-            span {
+            a {
                 color: $wedfairy-color;
 
             }
@@ -61,20 +31,11 @@
 
     }
     .page-title {
-        // margin-top: 50px;
-        // margin-left: 50px;
-        // margin-bottom: 30px;
-        // padding-left: 
         font-size: 30px;
         margin:0;
         height: 100px;
         line-height: 100px;
 
-        background-color: #EDEBEB;
 
-    }
-
-    .grey-bg {
-        background-color: #EDEBEB;
     }
 }

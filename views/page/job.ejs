@@ -4,151 +4,149 @@
 
     <title>八音盒 - 加入我们</title>
 
+    <title>八音盒</title>
+
     
     <% include ../includes/metadata %>
-    <link rel="stylesheet" href="<%= static_url %>fonts/iconfont.css">
     <link rel="stylesheet" href="<%= static_url %>stylesheets/bootstrap-custom.css?v=<%= build_no %>">
-    <link rel="stylesheet" href="<%= static_url %>stylesheets/page/page.css?v=<%= build_no %>">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/page.css?v=<%= build_no %>">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/iconfont.css">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/font-awesome.css">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/animate.min.css">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/amour.css">
     
     
     <% include ../includes/capability %>
     <% include ../includes/production %>
     <script src="<%= tat_static %>javascripts/vendor/modernizr-2.7.1.min.js"></script>
 </head>
-<body id="job">
+<body id="joinus">
     <!--[if lt IE 7]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <!-- Content Begins Here -->
-    <% include header %>
-    <div class="navbar">
-        <div class="nav-wrapper">
+    <% include navabout %>
+
+    <div id="tip-container"></div>
+    
+    <div class="body container" id="about-body">
+        <div class="navbar">
             <a class="nav-item" href="/about">关于我们</a>
+            <a class="nav-item" href="/about/team">团队成员</a>
             <a class="nav-item active" href="/about/joinus">加入我们</a>
             <a class="nav-item" href="/about/contactus">联系我们</a>
             <!-- <a class="nav-item" href="/about/followus">关注我们</a> -->
+            <!-- <a href="/about/"></a> -->
         </div>
+        <div class="contariner-fluid">
+            <div class="about-section" id="aboutus">
+                <div class="about-item">
+                    <h4>加入八音盒</h4>
+                    <p>公司的核心成员是由各国海归精英组成，开放性的空间、自由个性化的文化在公司随处可见。</p>
+                    <p>不打卡的弹性上班时间，办公地点自由选择的人性化管理，领养安静、可爱的小宠物的特权，收集热门玩偶也是大部分的人选择。</p>
+                    <p>周五的Brain stoming是公司最大特色，使得每个人都有对产品发表自己意见的权利。</p>
+                    <p>简历请发至邮箱：<span class="mail-addr"><a href="mailto:jobs@wedfairy.com">jobs@wedfairy.com</a></span>
+                    </p>
+                </div>
+                <div class="about-item job-desc">
+
+                    <h5>Web前端</h5>
+                    <p>职位描述:<br />
+                        我们寻找对建站工具开发感兴趣的工程师和设计师。希望应聘者关注互联网产品，热衷于改善用户体验，注重外观设计和交互设计；<br />
+                        同时学习能力强，能快速适应环境，并具有基本的英语读写水平。</p>
+                    <p>岗位职责:<br />
+                        1、负责开发简单易用功能完善的网页版建站工具<br /> 
+                        2、与设计师和产品经理沟通，优化页面设计<br />
+                        3、参与产品测试，不断改善网页性能和兼容性</p>
+                    <p>任职要求：<br />
+                        1、熟悉HTML5，了解手机浏览器最前沿的开发技术<br />
+                        2、熟悉LESS和SASS，了解样式框架的设计<br />
+                        3、熟悉JavaScript，了解BackboneJS, EmberJS, AngularJS等前台框架<br />
+                        4、有REST API开发经验，代码规范易读，思路清晰，参加或贡献过开源项目者优先<br />
+                        5、了解Python, Node.js等任一种服务器脚本语言<br />
+                        6、重视细节，有团队合作意识，责任心强，沟通能力强
+                    </p>
+
+                    <h5>网页设计师</h5>
+                    <p>岗位职责:<br />
+                        1、手机网页和PC网页的交互和界面设计<br />
+                        2、产品主题模板设计<br />
+                        3、协助开发人员测试产品并完善产品质量</p>
+                    <p>岗位职责:<br />
+                        1、熟悉Adobe Photoshop和Illustrator等软件<br />
+                        2、具备较强的团队合作意识，重视细节，责任心强<br />
+                        3、关注互联网产品与各类电子产品，熟悉手机平台优先<br />
+                        4、有线上作品者优先
+                    </p>
+
+                    <h5>社会化运营专家</h5>
+                    <p>职位描述:<br />
+                        你是八音盒的布道者，负责在通过社交网络平台向全世界各地传播八音盒的爱。你述说的内容感动我们的客户，给他们带来欢笑和泪水，鼓励他们制作和分享自己爱的故事。你负责在社交网络中宣传八音盒的良好口碑，把快乐，乐于分享的精神带给我们的用户，并与他们分享我们的产品，同时你也要把用户的激情、建议和梦想加入到我们的产品中。你坚信哪怕在半夜想到什么创意都要急于分享出来。你就是这类人！</p>
+                    <p>岗位职责:<br />
+                        1、负责开发简单易用功能完善的网页版建站工具<br /> 
+                        2、与设计师和产品经理沟通，优化页面设计<br />
+                        3、参与产品测试，不断改善网页性能和兼容性</p>  
+                    <p>任职要求：<br />
+                        1、加入公司战略执行团队，与其他核心团队成员一起，制定八音盒社会化营销策略<br />
+                        2、负责微博、微信等社会化媒体全方位运营的工作，为公司整体品牌传播和营销服务<br /> 
+                        3、具体执行社会化媒体传播内容的编撰、发布；以及与粉丝的互动<br />
+                        4、策划并执行近期热门话题的社会化营销，并策划实施线上及线下活动<br />
+                        5、负责部门社会化营销实习生的培训。
+                    </p>
+
+                    <h5>资深文案策划师</h5>
+                    <p>岗位职责:<br />
+                        1、能够从女性视角完成八音盒不同场景（婚礼邀请函，亲子故事，单身故事，旅游故事）等多个模块的文字编辑和撰写工作<br />
+                        2、能够和市场部门完成项目所需要的任何写作工作，为所运营的品牌规范社交网络文字调性<br />
+                        3、能够独立产出活动创意、亮点结合创意内容<br />
+                        4、良好的互动，为品牌微博拓展及维护 KOL 关系<br />
+                        5、能够理解官方微博/微信公众号的运营工作，理解品牌内涵<br />
+                        6、配合核心产品部门工作，完成临时性的工作
+                    </p>
+                    <p>岗位职责:<br />
+                        1、大学本科及以上学历<br />
+                        2、网感好、善于沟通、社交媒体资深用户优先、网络红人优先<br />
+                        3、有趣，有一定的审美水平，文风灵活多变<br />
+                        4、具备清晰的逻辑思维<br />
+                        5、具备优秀的文字功底。
+                    </p>
+
+                    <h5>社会化运营实习生</h5>
+                    <p>岗位职责:<br />
+                        1、与运营核心团队一起制定八音盒社会化营销策略<br />
+                        2、负责微博、微信等社会化媒体全方位运营的工作，为公司整体品牌传播和营销服务；<br />
+                        3、具体执行社会化媒体传播内容的编撰、发布；以及与粉丝的互动<br />
+                        4、策划并执行近期热门话题的社会化营销，并策划实施线上及线下活动
+                    </p>
+                    <p>岗位职责:<br />
+                        1、大三以上，每周能来四天以上，专业越奇怪越不限，对某领域有特殊爱好者优先<br />
+                        2、深谙社交网络用户的特点，对“宅腐、败家、晒物、小清新、重口味、网络对战”等网络典型行为有深入的分析和自己的理解<br />
+                        3、对文字图片、创意事件有很强敏感度，以成功创造出网络热点事件案例为目标<br />
+                        4、善于沟通，能和社交网络意见领袖与达人建立联系，并形成良好互动关系<br />
+                        5、社交网络达人用户，微博名账户，网络重口味爱好者，舌尖上的吃货，有品潮流编辑，豆瓣资深用户，知识杂家者优先考虑<br />
+                        6、喜欢生活，相信创业/设计/科技改变生活
+                    </p>
+
+                </div>
+                <br />
+            </div>
+
+        </div>
+
+        <div class="clearfix"></div>
+        <br />
+
     </div>
-    <div id="tip-container"></div>
-    <div class="landscope img" data-bg-src="images/job-cover.jpg">
-        <div class="text-container">
-            <h1>我们寻找小伙伴</h1>
-            <p class="slogon">让我们共同创造爱的故事,用爱连接你我</p>
-        </div>
-    </div>
-    <div class="body container">
-        <p>对我们的产品有热情，认同我们的产品； 能够提出各类想法，帮助我们的产品不断前进； 有特别兴趣或者爱好，大脑有各种有趣的 idea；能接受吃不完的零食，无限好的风景，亲和有爱的小盒子团队； 平日喜
-            欢随手写写小故事，那不能更赞如果你已经符合我们上述要求，赶紧跟上我们魔鬼的步伐，来到小盒子的团队！ 请将简历和作品集发送到邮箱 <a href="mailto:jobs@wedfairy.com">jobs@wedfairy.com</a></p>
-            <h3>紧缺中的职位</h3>
-            <div class="job-container">
-                <a id="webfront" href="#webfront" class="job-title">Web前端</a>
-                <pre>
-岗位职责：
-我们寻找对建站工具开发感兴趣的工程师和设计师。希望应聘者关注互联网产品，热衷于改善用户体验，注重外观设计和交互设计；
-同时学习能力强，能快速适应环境，并具有基本的英语读写水平。
-1、负责开发简单易用功能完善的网页版建站工具
-2、与设计师和产品经理沟通，优化页面设计
-3、参与产品测试，不断改善网页性能和兼容性
-
-任职要求：
-1、熟悉 HTML5，了解手机浏览器最前沿的开发技术
-2、熟悉 LESS 和 SASS，了解样式框架的设计
-3、熟悉 JavaScript，了解 BackboneJS, EmberJS, AngularJS 等前台框架
-4、有 REST API 开发经验，代码规范易读，思路清晰，参加或贡献过开源项目者优先
-5、了解 Python, Node.js 等任一种服务器脚本语言
-6、重视细节，有团队合作意识，责任心强，沟通能力强
-                </pre>
-            </div>
-            <div class="job-container">
-                <a id="designer" href="#designer" class="job-title">网页设计师</a>
-                <pre>
-岗位职责：
-1、手机网页和 PC 网页的交互和界面设计
-2、产品主题模板设计
-3、协助开发人员测试产品并完善产品质量
-
-任职要求：
-1、熟悉 Adobe Photoshop 和 Illustrator 等软件
-2、具备较强的团队合作意识，重视细节，责任心强
-3、关注互联网产品与各类电子产品，熟悉手机平台优先
-4、有线上作品者优先
-                </pre>
-            </div>
-            <div class="job-container">
-                <a id="marketing" href="#marketing" class="job-title">社会化运营专家</a>
-                <pre>
-岗位职责：
-你是八音盒的布道者，负责在通过社交网络平台向全世界各地传播八音盒的爱。你述说的内容感动我们的客户，给他们带来欢笑和
-泪水，鼓励他们制作和分享自己爱的故事。你负责在社交网络中宣传八音盒的良好口碑，把快乐，乐于分享的精神带给我们的用户，
-并与他们分享我们的产品，同时你也要把用户的激情、建议和梦想加入到我们的产品中。你坚信哪怕在半夜想到什么创意都要急于
-分享出来。你就是这类人！
-
-职位描述：
-1、加入公司战略执行团队，与其他核心团队成员一起，制定八音盒社会化营销策略。
-2、负责微博、微信等社会化媒体全方位运营的工作，为公司整体品牌传播和营销服务； 
-3、具体执行社会化媒体传播内容的编撰、发布；以及与粉丝的互动。
-4、策划并执行近期热门话题的社会化营销，并策划实施线上及线下活动。
-5、负责部门社会化营销实习生的培训。
-
-任职要求：
-1、大学（含）以上，本科或以上学历，专业越奇怪越不限，对某领域有特殊爱好者优先；
-2、深谙社交网络用户的特点，对“宅腐、败家、晒物、小清新、重口味、网络对战”等网络典型行为有深入的分析和自己的理解。
-3、对文字图片、创意事件有很强敏感度，以成功创造出网络热点事件案例为目标；
-4、善于沟通，能和社交网络意见领袖与达人建立联系，并形成良好互动关系；
-5、社交网络达人用户，微博名账户，网络重口味爱好者，舌尖上的吃货，有品潮流编辑，豆瓣资深用户，知识杂家者优先考虑。
-6、喜欢生活，相信创业/设计/科技改变生活。
-                </pre>
-            </div>
-            <div class="job-container">
-                <a id="copywriter" href="#copywriter" class="job-title">资深文案策划师</a>
-                <pre>
-岗位职责：
-1、能够从女性视角完成八音盒不同场景（婚礼邀请函，亲子故事，单身故事，旅游故事）等多个模块的文字编辑和撰写工作；
-2、能够和市场部门完成项目所需要的任何写作工作，为所运营的品牌规范社交网络文字调性；
-3、能够独立产出活动创意、亮点结合创意内容；
-4、良好的互动，为品牌微博拓展及维护 KOL 关系；
-5、能够理解官方微博/微信公众号的运营工作，理解品牌内涵；
-6、配合核心产品部门工作，完成临时性的工作；
-
-任职要求：
-1、大学本科及以上学历；
-2、网感好、善于沟通、社交媒体资深用户优先、网络红人优先；
-3、有趣，有一定的审美水平，文风灵活多变；
-4、具备清晰的逻辑思维；
-5、具备优秀的文字功底。
-                </pre>
-            </div>
-
-            <div class="job-container">
-                <a id="intern" href="#intern" class="job-title">社会化运营实习生</a>
-                <pre>
-岗位职责：
-1、与运营核心团队一起制定八音盒社会化营销策略。
-2、负责微博、微信等社会化媒体全方位运营的工作，为公司整体品牌传播和营销服务； 
-3、具体执行社会化媒体传播内容的编撰、发布；以及与粉丝的互动。
-4、策划并执行近期热门话题的社会化营销，并策划实施线上及线下活动。
-
-任职要求：
-1、大三以上，每周能来四天以上，专业越奇怪越不限，对某领域有特殊爱好者优先；
-2、深谙社交网络用户的特点，对“宅腐、败家、晒物、小清新、重口味、网络对战”等网络典型行为有深入的分析和自己的理解。
-3、对文字图片、创意事件有很强敏感度，以成功创造出网络热点事件案例为目标；
-4、善于沟通，能和社交网络意见领袖与达人建立联系，并形成良好互动关系；
-5、社交网络达人用户，微博名账户，网络重口味爱好者，舌尖上的吃货，有品潮流编辑，豆瓣资深用户，知识杂家者优先考虑。
-6、喜欢生活，相信创业/设计/科技改变生活。
-                </pre>
-            </div>
-            
-        </div>
-        <% include footer %>
-        <!-- Content Ends Here -->
-        <script src="<%= tat_static %>javascripts/vendor/jquery-2.1.1.min.js"></script>
-        <script src="<%= tat_static %>javascripts/vendor/underscore.min.js"></script>
-        <script src="<%= tat_static %>javascripts/vendor/mustache.min.js"></script>
-        <script src="<%= tat_static %>javascripts/vendor/backbone.min.js"></script>
-        <script src="<%= tat_static %>javascripts/vendor/bootstrap.min.js"></script>
-        <script src="<%= tat_static %>javascripts/plugins/fastclick.js"></script>
-        <!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
-        <% include ../includes/analytics %>
-        <script src="<%= tat_static %>javascripts/amour.js?v=<%= build_no %>"></script>
-    </body>
+    <% include footer %>
+    <!-- Content Ends Here -->
+    <script src="<%= tat_static %>javascripts/vendor/jquery-2.1.1.min.js"></script>
+    <script src="<%= tat_static %>javascripts/vendor/underscore.min.js"></script>
+    <script src="<%= tat_static %>javascripts/vendor/mustache.min.js"></script>
+    <script src="<%= tat_static %>javascripts/vendor/backbone.min.js"></script>
+    <script src="<%= tat_static %>javascripts/vendor/bootstrap.min.js"></script>
+    <script src="<%= tat_static %>javascripts/plugins/fastclick.js"></script>
+    <!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
+    <% include ../includes/analytics %>
+    <script src="<%= tat_static %>javascripts/amour.js?v=<%= build_no %>"></script>
+</body>
 </html>

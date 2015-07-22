@@ -17,6 +17,10 @@
 }
 //
 #explore {
+    .body {
+        margin: 0;
+        background-color: #F0F0EF;
+    }
     color: $light-text-color;
     .loading{
         margin-bottom: 30px;
@@ -29,6 +33,12 @@
             }
         }
     }
+
+    .iconfont {
+    color: $wedfairy-color;
+    font-size: 30px;
+    }
+
 
     .filter-container {
         // padding-top: 25px;
@@ -174,15 +184,17 @@
                 // font-size: 5px;
                 padding-left: 12px;
                 padding-top: 3px;
+                padding-bottom: 8px;
                 margin-top: 3.4em;
 
                 .icon-container {
                     overflow: hidden;
                     // margin-right: 5px;
                     span {
-                        margin-right: 5px;
+                        margin-right: 6px;
+                        margin-left: 3px;
 
-                    i.icon-shixinxinxing {
+                    i.icon-like {
                         &::before {
                             color: $wedfairy-color;
                         }
@@ -425,11 +437,7 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
 .icon-huanyipi:before {
     content: "\e606";
 }
-.body {
-    // background-color: darken($background-color, 5);
-    margin: 0 30px;
-    @extend .container;
-}
+
 .header {
     // margin-top: 0;
     padding-top: 10px;
