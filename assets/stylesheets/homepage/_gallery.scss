@@ -31,10 +31,12 @@
     .explore-button {
         margin-top: 50px;
         padding: 13px 30px 11px;
+        border-radius: 2px;
+    }
+    .explore-button-xs {
         background-color: transparent;
         border: 1px solid $gray;
         color: $gray;
-        border-radius: 2px;
         &:active, &.active, &:hover, &:focus, &.focus {
             outline: 0;
             box-shadow: none;

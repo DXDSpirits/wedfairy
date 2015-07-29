@@ -12,6 +12,10 @@
         $('.wechat').removeClass('wechat');
     }
     $('.visible-wechat').toggleClass('hidden', !Amour.isWeixin);
+    
+    $('body').on('click', '.gallery .item', function() {
+        location.href = '/explore';
+    });
 
     function start() {
         // var constants = {};
