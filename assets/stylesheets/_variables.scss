@@ -10,14 +10,16 @@ $gray:                   lighten(#000, 33.5%) !default; // #555
 $gray-light:             lighten(#000, 60%) !default;   // #999
 $gray-lighter:           lighten(#000, 93.5%) !default; // #eee
 
-$brand-primary:          #fe5858 !default;
-$brand-success:          #5cb85c !default;
-$brand-info:             #5bc0de !default;
-$brand-warning:          #f0ad4e !default;
-$brand-danger:           #d9534f !default;
+$brand-primary:         #ff3265 !default;
+$brand-success:         #44c3aa !default;
+$brand-info:            #826c61 !default;
+$brand-warning:         #f6b901 !default;
+$brand-danger:          #a23c56 !default;
+
 
 //wedfairy
-$wedfairy-color:         #FE5B60 !default;
+$wedfairy-color:         $brand-primary !default;
+
 
 //== Scaffolding
 $text-color:             $gray !default;
