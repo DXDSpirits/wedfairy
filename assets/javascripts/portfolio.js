@@ -193,7 +193,7 @@
     }))();
 
     (function start() {
-        stories.fetch();
+        // stories.fetch();
         themes.fetch();
         schemas.fetch();
         Backbone.history.start();
