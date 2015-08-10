@@ -150,7 +150,7 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
 // }
 
 .iconfont {
-    color: $wedfairy-color;
+    color: $brand-primary;
     font-size: 30px;
 }
 .body {
@@ -297,8 +297,8 @@ pre {
         &.active, &:hover {
             // background-color: #899092;
             // font-weight: 800;
-            color: lighten($wedfairy-color, 10);
-            // border-bottom: 2px solid $wedfairy-color;
+            color: lighten($brand-primary, 10);
+            // border-bottom: 2px solid $brand-primary;
         }
         height: inherit;
         padding: 6px 15px;

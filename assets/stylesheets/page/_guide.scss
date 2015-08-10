@@ -15,7 +15,7 @@
 
     .tips {
         display: none;
-        color: $wedfairy-color;
+        color: $brand-primary;
     }
     .page-title {
         font-size: 30px;
@@ -49,11 +49,11 @@
             border-left: 2px solid transparent;
 
             &.active>a {
-                color: $wedfairy-color;
+                color: $brand-primary;
                 background: transparent;
                 border-radius:0;
                 border: 0;
-                border-left: 2px solid $wedfairy-color;
+                border-left: 2px solid $brand-primary;
             }
             &>a {
                 padding-top: 5px;
@@ -61,10 +61,10 @@
                 background: transparent;
 
                 &:hover {
-                    color: $wedfairy-color;
+                    color: $brand-primary;
                     border: 2px solid transparent;
                     background: transparent;
-                    border-left: 2px solid $wedfairy-color;
+                    border-left: 2px solid $brand-primary;
                     color: $text-color;
                 }
             }
@@ -83,7 +83,7 @@
                 color: $text-color;
                 background: transparent;
                 &:hover, &:active, &:visited {
-                    border-left: 2px solid $wedfairy-color;
+                    border-left: 2px solid $brand-primary;
                 }
             }
 
