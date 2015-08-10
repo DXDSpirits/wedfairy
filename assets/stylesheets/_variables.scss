@@ -4,6 +4,9 @@
 }
 
 //== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
 $gray-darker:            lighten(#000, 13.5%) !default; // #222
 $gray-dark:              lighten(#000, 20%) !default;   // #333
 $gray:                   lighten(#000, 33.5%) !default; // #555
@@ -16,41 +19,86 @@ $brand-info:            #826c61 !default;
 $brand-warning:         #f6b901 !default;
 $brand-danger:          #a23c56 !default;
 
-
-//wedfairy
-$wedfairy-color:         $brand-primary !default;
-
-
 //== Scaffolding
-$text-color:             $gray !default;
+$text-color:            $gray !default;
+$link-color:            lighten($text-color, 15%) !default;
+$link-hover-color:      darken($link-color, 15%) !default;
+$link-hover-decoration: none !default;
 
 
 //== Typography
+// $font-family-sans-serif:  "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif !default;
 $font-family-sans-serif:  "Helvetica Neue", Arial, 
                           "Hiragino Sans GB", "Hiragino Sans GB W3",
                           "Microsoft YaHei", "Wenquanyi Micro Hei",
                           sans-serif !default;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
-
-$font-family-quote:        Georgia, 'Times New Roman', STKaiti, BiauKai, KaiTi, 'DFKai-SB', 'KaiTi_GB2312', serif;
+$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-quote:       Georgia, 'Times New Roman', STKaiti, BiauKai, KaiTi, 'DFKai-SB', 'KaiTi_GB2312', serif;
 
 $font-family-base:        $font-family-sans-serif !default;
-$headings-font-family:    $font-family-sans-serif !default;
 
+$font-size-base:          14px !default;
+$font-size-large:         16px !default;
+$font-size-small:         12px !default;
+
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base:        1.428571429 !default; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
 
 //-- Iconography
 $icon-font-path: "../fonts/bootstrap/" !default;
 
 
-//== Components
-//$border-radius-base:        0 !default;
-//$border-radius-large:       0 !default;
-//$border-radius-small:       0 !default;
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+$btn-font-weight:                normal !default;
+
+$btn-default-color:              $gray !default;
+$btn-default-bg:                 #fff !default;
+$btn-default-border:             $gray-light !default;
+
+$btn-primary-color:              #fff !default;
+$btn-primary-bg:                 $brand-primary !default;
+// $btn-primary-border:             $brand-primary !default;
+$btn-primary-border:             transparent !default;
+
+$btn-success-color:              #fff !default;
+$btn-success-bg:                 $brand-success !default;
+// $btn-success-border:             $brand-success !default;
+$btn-success-border:             transparent !default;
+
+$btn-info-color:                 #fff !default;
+$btn-info-bg:                    $brand-info !default;
+// $btn-info-border:                $brand-info !default;
+$btn-info-border:                transparent !default;
+
+$btn-warning-color:              #fff !default;
+$btn-warning-bg:                 $brand-warning !default;
+// $btn-warning-border:             $brand-warning !default;
+$btn-warning-border:             transparent !default;
+
+$btn-danger-color:               #fff !default;
+$btn-danger-bg:                  $brand-danger !default;
+// $btn-danger-border:              $brand-danger !default;
+$btn-danger-border:              transparent !default;
+
+
+//== Forms
+$input-bg:                       #fff !default;
+$input-border:                   #ccc !default;
+
+$input-border-focus:             $input-border !default;
+
+$input-group-addon-bg:           #ccc !default;
+$input-group-addon-border-color: transparent !default;
 
 
 //== Type
-$headings-small-color:      inherit !default;
-
+$headings-small-color:        inherit !default;
 
 //===========================================================================================
 @import "bootstrap/bootstrap/variables";

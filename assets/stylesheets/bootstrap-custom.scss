@@ -8,11 +8,17 @@
 
 //===========================================================================================
 
+
 a:hover, a:focus {
-    // color: $link-hover-color;
-    color: $gray-darker;
+    color: $link-hover-color;
     text-decoration: none;
 }
+
+@include text-emphasis-variant('.text-primary', $brand-primary);
+@include text-emphasis-variant('.text-success', $brand-success);
+@include text-emphasis-variant('.text-info', $brand-info);
+@include text-emphasis-variant('.text-warning', $brand-warning);
+@include text-emphasis-variant('.text-danger', $brand-danger);
 
 h1, .h1,
 h2, .h2,
@@ -40,6 +46,15 @@ mark,
     }
 }
 
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    input[type="date"],
+    input[type="time"],
+    input[type="datetime-local"],
+    input[type="month"] {
+        line-height: 46px;
+    }
+}
+
 input[type=tel],
 input[type=url],
 input[type=text],
@@ -47,16 +62,82 @@ input[type=email],
 input[type=search],
 input[type=number],
 input[type=password],
+input[type=date],
+input[type=time],
+input[type=datetime-local],
 textarea {
     &.form-control {
         -webkit-appearance: none;
     }
 }
 
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"] {
+    &.form-control {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+}
+
+.input-group-addon {
+    color: #fff;
+}
+
 .btn {
-    //border-radius: 0;
+    &, &:hover, &:focus,
+    &:active, &.active,
+    .open > &.dropdown-toggle {
+        outline: 0;
+        box-shadow: none;
+    }
+    &:active, &.active {
+        &:focus, &.focus {
+            outline: 0;
+        }
+    }
+}
+
+.btn-primary {
+    &:hover,
+    &:focus,
+    &.focus, {
+        background-color: #f42156;
+    }
+    &:active,
+    &.active,
+    .open > &.dropdown-toggle {
+        background-color: #f42156;
+        &:hover,
+        &:focus,
+        &.focus {
+            background-color: #f42156;
+        }
+    }
+}
+
+.btn-outline {
+    color: $brand-primary;
+    background-color: transparent;
+    border-color: $brand-primary;
+    &:hover, &:focus, &:active {
+        color: #fff;
+        background-color: $brand-primary;
+        border-color: transparent;
+    }
+}
+
+.btn-outline-inverse {
+    color: #fff;
+    background-color: transparent;
+    border-color: #fff;
+    &:hover, &:focus, &:active {
+        color: $brand-primary;
+        background-color: #fff;
+        border-color: transparent;
+    }
 }
 
 .progress {
-    //border-radius: 0;
+    border-radius: 0;
 }
