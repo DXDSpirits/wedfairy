@@ -16,6 +16,10 @@ router.get('/wedding', function(req, res) {
     res.render('wedding');
 });
 
+router.get('/portfolio', function(req, res) {
+    res.redirect('/staff/portfolio');
+});
+
 router.get('/staff/portfolio', function(req, res) {
     res.render('portfolio');
 });
