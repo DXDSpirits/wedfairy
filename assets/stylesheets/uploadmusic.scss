@@ -1,0 +1,61 @@
+@import "bourbon/bourbon";
+
+@import "variables";
+
+@import "wedding/fonts";
+
+$body-fixed-width: 800px;
+
+body {
+    background: #eee;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.page-title {
+    padding: 30px;
+    color: $wedfairy-color;
+}
+.tips {
+    padding-left: 30px;
+    margin-bottom: 50px;
+}
+.body {
+    position: relative;
+    margin-left: 15px;
+    #piakfiles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    #file-input {
+        // font-size: 999px;
+        z-index: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 167px;
+        height: 46px;
+        overflow: hidden;
+
+        #btn-input {
+            font-size: 999px;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .info a {
+        color: #2a6496;
+    }
+    .miniPlayer {
+        height: 2em;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+}

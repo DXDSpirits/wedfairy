@@ -16,7 +16,15 @@ var CONFIG = {
     WECHAT: {
         APPID: '',
         APPSECRET: ''
-    }
+    },
+    
+    QINIUMUSIC: {
+        ACCESS_KEY: '',
+        SECRET_KEY: '',
+        BUCKET_NAME: '',
+        UPTOKEN_URL: '',
+        DOMAIN: ''
+    },
 };
 
 try {

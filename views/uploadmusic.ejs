@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<% include includes/html %>
+
+<head>
+    <title>八音盒</title>
+    
+    <% include includes/metadata %>
+    
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/bootstrap-custom.css?v=<%= build_no %>">
+    
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/font-awesome.css">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/animate.min.css">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/amour.css">
+    
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/uploadmusic.css?v=<%= build_no %>">
+    
+    <% include includes/capability %>
+    <% include includes/production %>
+    
+    <script src="<%= tat_static %>javascripts/vendor/modernizr-2.7.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="page-title">音乐上传</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="tips">
+                    <li>上传音乐文件仅限.mp3文件</li>
+                    <li>音乐大小不大于2MB</li>
+                </ul>
+            </div>
+        </div>
+        <div class="body">
+            <div class="col-md-12">
+                <div id="container">
+                    <a class="btn btn-primary btn-lg " id="pickfiles" href="#" >
+                        <i class="glyphicon glyphicon-plus"></i>
+                        <span>选择文件</span>
+                    </a>
+                    <div id="file-input">
+                        <!-- <input id="btn-input" type="file" multiple accept="audio/mpeg"> -->
+                        <input id="btn-input" type="file" accept="audio/mpeg">
+                    </div>
+                    <!-- <button class="pull-right" id="savebtn">保存</button> -->
+                </div>
+            </div>
+
+            <div style="display:none" id="success" class="col-md-12">
+                <div class="alert-success">
+                    队列全部文件处理完毕
+                </div>
+            </div>
+            <div class="col-md-12 ">
+                <table class="table table-striped table-hover text-left"   style="margin-top:40px;display:none">
+                    <thead>
+                      <tr>
+                        <th class="col-md-4">Filename</th>
+                        <th class="col-md-2">Size</th>
+                        <th class="col-md-6">Detail</th>
+                      </tr>
+                    </thead>
+                    <tbody id="fsUploadProgress">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="modal fade body" id="myModal-code" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">查看初始化代码</h4>
+              </div>
+              <div class="modal-body">
+                <pre><code>
+                    // uploader 为一个plupload对象，继承了所有plupload的方法，参考http://plupload.com/docs
+                </code></pre>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+<!-- Content Begins Here -->
+
+<!-- Login Modal -->
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">故事管理员登录</h4>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label class="control-label">用户名</label>
+                        <input class="form-control" type="text" name="username">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">密码</label>
+                        <input class="form-control" type="password" name="password">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="loginButton" type="button" class="btn btn-primary">登录</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- / Login Modal -->
+
+
+<script src="<%= tat_static %>javascripts/vendor/jquery-2.1.1.min.js"></script>
+<script src="<%= tat_static %>javascripts/vendor/underscore.min.js"></script>
+<script src="<%= tat_static %>javascripts/vendor/mustache.min.js"></script>
+<script src="<%= tat_static %>javascripts/vendor/backbone.min.js"></script>
+<script src="<%= tat_static %>javascripts/vendor/bootstrap.min.js"></script>
+
+<script src="<%= tat_static %>javascripts/plugins/fastclick.js"></script>
+<script src="<%= tat_static %>javascripts/plugins/plupload.full.min.js"></script>
+<script src="<%= tat_static %>javascripts/plugins/qiniu.js"></script>
+<script src="<%= tat_static %>javascripts/plugins/moment.js"></script>
+<script src="<%= tat_static %>javascripts/plugins/jquery.qrcode.min.js"></script>
+
+<script src="<%= tat_static %>javascripts/amour.js?v=<%= build_no %>"></script>
+<script src="<%= static_url %>javascripts/uploadmusic.js?v=<%= build_no %>"></script>
+<script src="<%= static_url %>javascripts/uploadmusicUI.js?v=<%= build_no %>"></script>
+<% include includes/analytics %>
+
+</body>
+</html>
