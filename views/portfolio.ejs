@@ -81,7 +81,7 @@
 
 <!-- / Login Modal -->
 
-<script id="template-story-item" type="text/x-mustache-template">
+<script id="template-story-item" type="text/x-handlebars-template">
     <div class="cover img" data-bg-src="{{data.coverImage}}">
         <div class="theme-image img" data-bg-src="{{themeImage}}"></div>
     </div>
@@ -92,16 +92,18 @@
     <p>{{formatted_date}}</p>
     <!--<p class="name"><samp>8yinhe.cn/s/{{name}}</samp></p>-->
     <p class="name"><samp>{{name}}</samp> | <strong>{{themeTitle}}</strong></p>
-    <p class="{{#isFeatured}}text-primary{{/isFeatured}}{{#isFinished}}text-success{{/isFinished}}">
+    <p class="{{#eq featured 2}}text-primary{{/eq}}{{#eq featured 1}}text-success{{/eq}}">
         <span>{{progress}}</span>
         <i class="fa fa-lg fa-check-circle"></i>
-        {{^isPrototype}}
+        {{#eq featured 3}}
+        <div class="text-danger">原型故事</div>
+        {{else}}
         <select>
-            <option value="0" {{#isNew}}selected{{/isNew}}>未完成</option>
-            <option value="1" {{#isFinished}}selected{{/isFinished}}>已完成</option>
-            <option value="2" {{#isFeatured}}selected{{/isFeatured}}>推荐</option>
+            <option value="0" {{#eq featured 0}}selected{{/eq}}>未完成</option>
+            <option value="1" {{#eq featured 1}}selected{{/eq}}>已完成</option>
+            <option value="2" {{#eq featured 2}}selected{{/eq}}>推荐</option>
         </select>
-        {{/isPrototype}}
+        {{/eq}}
     </p>
     <p>{{owner}}</p>
     <p class="title">{{title}}</p>
@@ -109,7 +111,7 @@
 
 <script src="<%= tat_static %>javascripts/vendor/jquery-2.1.1.min.js"></script>
 <script src="<%= tat_static %>javascripts/vendor/underscore.min.js"></script>
-<script src="<%= tat_static %>javascripts/vendor/mustache.min.js"></script>
+<script src="<%= tat_static %>javascripts/vendor/handlebars.min.js"></script>
 <script src="<%= tat_static %>javascripts/vendor/backbone.min.js"></script>
 <script src="<%= tat_static %>javascripts/vendor/bootstrap.min.js"></script>
 

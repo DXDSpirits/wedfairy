@@ -38,10 +38,10 @@
                 var data = this.model ? this.model.toJSON() : {};
                 data.formatted_date = moment(data.time_created).format('YYYY-MM-DD HH:mm');
                 data.likes = data.likes || 0;
-                data.isNew = (data.featured == 0);
-                data.isFinished = (data.featured == 1);
-                data.isFeatured = (data.featured == 2);
-                data.isPrototype = (data.featured == 3);
+                // data.isNew = (data.featured == 0);
+                // data.isFinished = (data.featured == 1);
+                // data.isFeatured = (data.featured == 2);
+                // data.isPrototype = (data.featured == 3);
                 this.serializeThemeData(data);
                 return data;
             },
