@@ -9,23 +9,45 @@
 .logo-container {
     margin-left: 30px;
     margin-top: 8px;
+    .icon-bayinhe {
+        // font-size: .6em;
+    }
 }
 .login-container {
-    margin-right: 30px;
-    margin-top: 15px;
-
-    li{
-        margin-left: 15px;
-        color: black;
-        display: inline-block;
-
-        i {
-            display: none;
-            color: $brand-primary;
+    margin: 8px 50px 0;
+    // margin-top: ;
+    ul {
+        margin: 0;
+        height: 100%;
+        li{
+            width: 100px;
+            height: 100%;
+            color: $gray;
+            text-align: center;
+            display: inline-block;
+            vertical-align:middle;
+            a {
+                color: white;
+            }
+            i {
+                display: none;
+                color: $brand-primary;
+                a {
+                    height: 30px;
+                    line-height: 30px;
+                }
+            }
+            a:hover {
+                color: $brand-primary;
+            }
         }
-        a:hover {
-            color: $brand-primary;
+        .register-box {
+            padding: 5px;
+            border: 1px solid $brand-primary;
+            border-radius: 3px;
+            a {
+                color: $brand-primary;
+            }
         }
-    }
-
+    }     
 }

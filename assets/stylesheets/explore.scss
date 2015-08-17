@@ -7,6 +7,7 @@
 /******************************************************************************/
 
 @import "page/utils";
+@import "page/header";
 @import "page/footer";
 
 .btn {
@@ -39,7 +40,9 @@
     font-size: 30px;
     }
 
-
+    .filter-nav {
+        background-color: #323a45;
+    }
     .filter-container {
         // padding-top: 25px;
         margin-top: 20px;
@@ -68,7 +71,9 @@
                 display: inline-block;
                 text-decoration: none;
                 // line-height: 100%;
-
+                a {
+                    color: white;
+                }
                 a:hover {
                 background-color:transparent;
                 // color: $gray;
@@ -440,34 +445,13 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
 
 .header {
     // margin-top: 0;
+    background-color: #323a45;
     padding-top: 10px;
     padding-bottom: 15px;
     overflow: hidden;
 }
 
-.logo-container {
-    margin-left: 30px;
-    margin-top: 8px;
-}
- .login-container {
-    margin-right: 30px;
-    margin-top: 15px;
 
-    li{
-        margin-left: 15px;
-        color: $gray;
-        display: inline-block;
-        i {
-            display: none;
-            color: $brand-primary;
-        }
-
-    a:hover {
-        color: $brand-primary;
-    }
-}
-
-}
 
 
 .avatar-container {
