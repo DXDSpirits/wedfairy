@@ -13,18 +13,13 @@ var CONFIG = {
     //CDN_URL : 'http://wedfairy.qiniudn.com/',
     CDN_URL : '/assets/',
     
-    WECHAT: {
-        APPID: '',
-        APPSECRET: ''
-    },
-    
     QINIUMUSIC: {
         ACCESS_KEY: '',
         SECRET_KEY: '',
         BUCKET_NAME: '',
         UPTOKEN_URL: '',
         DOMAIN: ''
-    },
+    }
 };
 
 try {
