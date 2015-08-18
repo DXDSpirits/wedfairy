@@ -45,7 +45,7 @@ app.use('/assets', express.static(path.join(__dirname, 'assets'), {
     maxAge: app.get('env') === 'development' ? 0 : 86400000
 }));
 
-app.use(wechat());
+app.use(wechat.signUrl());
 
 // routes
 app.use('/', require('./routes/index'));
