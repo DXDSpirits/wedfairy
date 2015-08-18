@@ -2,11 +2,13 @@ $(function() {
     var token = Amour.TokenAuth.get();
     if (token === null) {
         // $('.login-container').modal('show');
-        $(".login-container").removeClass("hidden");
+        $(".login-container").removeClass("hidden"); 
+        $(".avatar-container").addClass("hidden");
     };
     Amour.ajax.on('unauthorized', function() {
         // $('.login-container').modal('show');
-        $(".login-container").removeClass("hidden")
+        $(".login-container").removeClass("hidden");
+        $(".avatar-container").addClass("hidden");
     });
     // if(Amour.isMobile) {
     if(window.screen.width <= 400) {
@@ -79,22 +81,53 @@ $(function() {
         }
     })());
 
-    // $(document).on('click', '.scene-filter .selected-scene', function() {
-    //     var $menu = $('.scene-filter-menu');
-    //     if ($menu.is(":visible")) {
-    //         Backbone.trigger("close-scene-filter-menu");
-    //     } else {
-    //         $("html").off("click");
-    //         $("html").on("click", function(e) {
-    //             var $target = $(e.target);
-    //             if ($target.closest(".scene-filter").length == 0 && $menu.is(":visible")) {
-    //                 Backbone.trigger("close-scene-filter-menu");
-    //                 $("html").off("click");
-    //             }
-    //         });
-    //         $menu.show();
-    //     }
-    // });
+    $(document).ready(function() {
+        var $aStr = window.location.hash;
+        var dict = {
+            "#featured"  : "推荐故事",
+            "#hot"       : "热门故事",
+            "#wedding"   : "婚礼",
+            "#baby"      : "宝贝",
+            "#voyage"    : "旅行",
+            "#lover"     : "爱情纪念日",
+            "#idol"      : "偶像",
+            "#friendship": "友情",
+            "#yearbook"  : "新年书",
+            "#personal"  : "个人",
+            "#food"      : "美食",
+            "#universal" : "通用"
+        };
+        // var $aStr = $(this).html();
+        var $contentTitle = $('#content-title');
+        if($aStr !== "首页") {
+            $contentTitle.html("<h2>" + dict[$aStr] + "</h2>");
+        }
+    });
+
+    $(document).on('click', '.filter .nav li a', function() {
+        // var $aStr = window.location.hash;
+        var $aStr = $(this).html();
+        var $contentTitle = $('#content-title');
+        if($aStr === "首页") {
+            $contentTitle.html("");
+        } else {
+            $contentTitle.html("<h2>" + $aStr + "</h2>");
+        }
+        
+        // if ($menu.is(":visible")) {
+        //     Backbone.trigger("close-scene-filter-menu");
+        // } else {
+        //     $("html").off("click");
+        //     $("html").on("click", function(e) {
+        //         var $target = $(e.target);
+        //         if ($target.closest(".scene-filter").length == 0 && $menu.is(":visible")) {
+        //             Backbone.trigger("close-scene-filter-menu");
+        //             $("html").off("click");
+        //         }
+        //     });
+        //     $menu.show();
+        // }
+    });
 
 
 

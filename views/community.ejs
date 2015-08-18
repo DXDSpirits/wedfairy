@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="<%= tat_static %>stylesheets/animate.min.css">
     <link rel="stylesheet" href="<%= tat_static %>stylesheets/amour.css">
     <link rel="stylesheet" href="<%= static_url %>stylesheets/bootstrap-custom.css?v=<%= build_no %>">
-    <link rel="stylesheet" href="<%= static_url %>stylesheets/explore.css?v=<%= build_no %>">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/community.css?v=<%= build_no %>">
     
 
 
@@ -18,7 +18,7 @@
     <% include includes/production %>
     <script src="<%= tat_static %>javascripts/vendor/modernizr-2.7.1.min.js"></script>
 </head>
-<body id="explore">
+<body id="community">
     <!--[if lt IE 7]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -83,16 +83,73 @@
         </div>
 
         <div class="container">
-
+            <div class="row slider">
+                <div class="col-md-12 col-lg-12 hidden-xs">
+                    <!-- slider -->
+                    <div id="wed-carousel" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#wed-carousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#wed-carousel" data-slide-to="1"></li>
+                            <li data-target="#wed-carousel" data-slide-to="2"></li>
+                        </ol>
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" role="listbox">
+                            <div class="item active">
+                                <a href="http://story.wedfairy.com/story/de87cd" target="_blank">
+                                    <div class="img slide-img" data-bg-src="images/slide/0.jpg" alt=""></div>
+                                </a>
+                                <div class="carousel-caption">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <a href="http://story.wedfairy.com/story/b56e33" target="_blank">
+                                    <div class="img slide-img" data-bg-src="images/slide/1.jpg" alt=""></div>
+                                </a>
+                                <div class="carousel-caption">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <a href="http://story.wedfairy.com/story/b32ee6" target="_blank">
+                                    <div class="img slide-img" data-bg-src="images/slide/2.jpg" alt=""></div>
+                                </a>
+                                <div class="carousel-caption">
+                                </div>
+                            </div>
+                        </div>
+                         <!-- Controls -->
+                          <a class="left carousel-control hidden-xs" href="#wed-carousel" role="button" data-slide="prev">
+                            <span class="iconfont icon-back" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                          <a class="right carousel-control hidden-xs" href="#wed-carousel" role="button" data-slide="next">
+                            <span class="iconfont icon-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                          </a>
+                        
+                    </div>
+                </div>
+            </div>
 
             <!-- <div class="row"> -->
-            <div class="col-sm-12 col-md-12 col-lg-12" id="content-title"></div>
+            <!-- <div class="col-sm-12 col-md-12 col-lg-12" id="content-title"></div> -->
 
             <!-- </div> -->
-            <div class="row story-container">
+            <div class="row content-body">
                 <!-- <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 story-container"></div> -->
-                <!-- <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div> -->
-
+                <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                    <h3>推荐故事   <a href="explore#featured"><span class="moreStoried">更多>></span></a></h3>
+                    <div class="row">
+                        <div class="featured-story story-container"></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 hidden-sm">
+                    <div class="ranking">
+                        <h3>排行榜</h3>
+                        <!-- <div class="">本周</div> -->
+                        <div class="story-ranking-container"></div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -103,9 +160,9 @@
 
     <div class="clearfix"></div>
 
-    <div class="center-block loading text-center hidden">
+<!--     <div class="center-block loading text-center hidden">
             <i class="iconfont icon-loading spin"></i>正在加载中...
-    </div>
+    </div> -->
 
     <% include page/footer %>
     <div class="view-hide template-view">
@@ -123,6 +180,6 @@
     <!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
     <% include includes/analytics %>
     <script src="<%= tat_static %>javascripts/amour.js?v=<%= build_no %>"></script>
-    <script src="<%= static_url %>javascripts/explore.js?v=<%= build_no %>"></script>
+    <script src="<%= static_url %>javascripts/community.js?v=<%= build_no %>"></script>
 </body>
 </html>

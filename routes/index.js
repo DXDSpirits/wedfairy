@@ -37,6 +37,10 @@ router.get('/explore', function(req, res) {
     res.render('explore');
 });
 
+// community
+router.get('/community', function(req, res) {
+    res.render('community');
+});
 
 //contact
 router.get('/contact', function(req, res) {

@@ -17,7 +17,7 @@
     @include button-variant(white, $main-color, $main-color);
 }
 //
-#explore {
+#community {
     .body {
         margin: 0;
         background-color: #F0F0EF;
@@ -84,7 +84,6 @@
                 }
                 a:hover, a:visited, a:focus {
                 background-color:transparent;
-                // color: $gray;
                 }
             }
         }
@@ -122,8 +121,47 @@
         margin-top: 50px;
     }
 
+    #wed-carousel {
+        height: 360px;
+        margin-top: 5px;
+        // margin-bottom: 20px;
+        @media (max-width: 400px) {
+            .item:nth-child(1) .slide-img{
+                background-image: url("/assets/images/slide/0s.jpg") !important;
+            }
+            .item:nth-child(2) .slide-img{
+                background-image: url("/assets/images/slide/1s.jpg") !important;
+            }
+            .item:nth-child(3) .slide-img{
+                background-image: url("/assets/images/slide/2s.jpg") !important;
+            }
+        }
+        .carousel-control{
+            padding-top: 175px;
+            .iconfont{
+                font-size: 40px;
+                &::before{
+                    color: white;
+                }
+            }
+        }
+        .slide-img {
+            height: 360px;
+            width: 100%;
+        }
+    }
+
+    .content-body {
+        padding-top:  50px;
+        .moreStoried {
+            font-size: .6em;
+        }
+    }
+    
     #content-title {
         padding: 15px 0;
+        // font-size: 2em;
+        // color: $brand-primary;
         h2 {
             padding-left: 13px;
             border-left: 5px solid $brand-primary;
