@@ -8,6 +8,7 @@
         padding-bottom: 30px;
     }
     .qrcode {
+        @include position(absolute, 0 0 0 0);
         z-index: 2;
         opacity: 0;
     }

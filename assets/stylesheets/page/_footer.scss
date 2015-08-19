@@ -7,8 +7,9 @@ $qrcode-size: 150px;
     position: relative;
     color: $gray-lighter;
     a { color: $gray-lighter; }
-    .background {
+    .bg {
         @include position(absolute, 0 0 0 0);
+        z-index: -1;
         &::after {
             content: "";
             @include position(absolute, 0 0 0 0);
