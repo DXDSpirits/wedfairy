@@ -35,12 +35,12 @@
                 <div class="row filter-container">
                     <div class="filter pull-left">
                         <ul class="nav nav-pills ">
-                            <li><a href="community">首页</a></li>
-                            <li><a href="explore#featured" filter-name="featured">推荐故事</a></li>
-                            <li><a href="explore#hot" filter-name="hot">热门故事</a></li>
-                            <li><a href="explore#wedding" filter-name="wedding">婚礼</a></li>
-                            <li><a href="explore#baby" filter-name="baby">宝贝</a></li>
-                            <li><a href="explore#voyage" filter-name="voyage">旅行</a></li>
+                            <li><a href="/explore">首页</a></li>
+                            <li><a href="featured" filter-name="featured">推荐故事</a></li>
+                            <li><a href="hot" filter-name="hot">热门故事</a></li>
+                            <li><a href="wedding" filter-name="wedding">婚礼</a></li>
+                            <li><a href="baby" filter-name="baby">宝贝</a></li>
+                            <li><a href="voyage" filter-name="voyage">旅行</a></li>
 <!--                                 <li><a href="#lover" filter-name="lover">爱情纪念日</a></li>
                             <li><a href="#idol" filter-name="idol">偶像</a></li>
                             <li><a href="#friendship" filter-name="friendship">友情</a></li>
@@ -56,16 +56,16 @@
                                    <ul class="dropdown-menu" role="menu">
                                         <!-- <li><a href="#all" filter-name="all">全部</a></li>
                                         <li><a href="#wedding" filter-name="wedding">婚礼</a></li> -->
-                                        <li><a href="explore#lover" filter-name="lover">爱情纪念日</a></li>
-                                        <li><a href="explore#idol" filter-name="idol">偶像</a></li>
-                                        <li><a href="explore#friendship" filter-name="friendship">友情</a></li>
-                                        <li><a href="explore#yearbook" filter-name="yearbook">新年书</a></li>
+                                        <li><a href="lover" filter-name="lover">爱情纪念日</a></li>
+                                        <li><a href="idol" filter-name="idol">偶像</a></li>
+                                        <li><a href="friendship" filter-name="friendship">友情</a></li>
+                                        <li><a href="yearbook" filter-name="yearbook">新年书</a></li>
                                         <!-- <li><a href="#voyage" filter-name="voyage">旅行故事</a></li> -->
-                                        <li><a href="explore#family" filter-name="family">家人</a></li>
+                                        <li><a href="family" filter-name="family">家人</a></li>
                                         <!-- <li><a href="#baby" filter-name="baby">宝贝故事</a></li> -->
-                                        <li><a href="explore#personal" filter-name="personal">个人</a></li>
-                                        <li><a href="explore#food" filter-name="food">美食</a></li>
-                                        <li><a href="explore#universal" filter-name="universal">通用</a></li>
+                                        <li><a href="personal" filter-name="personal">个人</a></li>
+                                        <li><a href="food" filter-name="food">美食</a></li>
+                                        <li><a href="universal" filter-name="universal">通用</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -111,6 +111,10 @@
     <div class="view-hide template-view">
         <% include template/explore-story-template %>
     </div>
+
+    <script>
+        var EXPLORE_FILTER_NAME = "<%= filterName %>";
+    </script>
 
     <!-- Content Ends Here -->
     <script src="<%= tat_static %>javascripts/vendor/jquery-2.1.1.min.js"></script>

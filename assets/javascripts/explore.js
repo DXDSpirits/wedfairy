@@ -82,20 +82,20 @@ $(function() {
     })());
 
     $(document).ready(function() {
-        var $aStr = window.location.hash;
+        var $aStr = document.location.pathname.split("\/")[2];
         var dict = {
-            "#featured"  : "推荐故事",
-            "#hot"       : "热门故事",
-            "#wedding"   : "婚礼",
-            "#baby"      : "宝贝",
-            "#voyage"    : "旅行",
-            "#lover"     : "爱情纪念日",
-            "#idol"      : "偶像",
-            "#friendship": "友情",
-            "#yearbook"  : "新年书",
-            "#personal"  : "个人",
-            "#food"      : "美食",
-            "#universal" : "通用"
+            "featured"  : "推荐故事",
+            "hot"       : "热门故事",
+            "wedding"   : "婚礼",
+            "baby"      : "宝贝",
+            "voyage"    : "旅行",
+            "lover"     : "爱情纪念日",
+            "idol"      : "偶像",
+            "friendship": "友情",
+            "yearbook"  : "新年书",
+            "personal"  : "个人",
+            "food"      : "美食",
+            "universal" : "通用"
         };
         // var $aStr = $(this).html();
         var $contentTitle = $('#content-title');
@@ -147,16 +147,17 @@ $(function() {
             '': 'schemaFilter'
         },
         schemaFilter: function(filterName) {
-            var filterName = filterName || "all";
-            var $selectedScene = $('.selected-scene');
-            $('.scene-filter-menu').hide();
-            $('.scene-filter-menu a').removeClass('active');
-            var $temp = $('.scene-filter-menu [filter-name=' + filterName +"]");
-            $temp.addClass("active");
-            $selectedScene.find(".text").html($temp.html());
-            if (filterName == "all") { // 'all' means we do not need schema-filter
-                filterName = null;
-            }
+            var filterName = EXPLORE_FILTER_NAME;
+            // var filterName = filterName || "all";
+            // var $selectedScene = $('.selected-scene');
+            // $('.scene-filter-menu').hide();
+            // $('.scene-filter-menu a').removeClass('active');
+            // var $temp = $('.scene-filter-menu [filter-name=' + filterName +"]");
+            // $temp.addClass("active");
+            // $selectedScene.find(".text").html($temp.html());
+            // if (filterName == "all") { // 'all' means we do not need schema-filter
+            //     filterName = null;
+            // }
             
             stories.fetch({
                 data: { schema: filterName },

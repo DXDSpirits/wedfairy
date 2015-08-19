@@ -14,6 +14,7 @@ $qrcode-size: 150px;
             @include position(absolute, 0 0 0 0);
             background-color: rgba(#222, 0.9);
         }
+        z-index: -1;
     }
     .ready-to-compose {
         font-size: 1.2em;

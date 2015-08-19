@@ -1,18 +1,12 @@
 <script id="community-ranking-story-template" type="text/x-handlebars-template">
     <div class="story-shower">
-        <div class="story-cover img" data-bg-src="{{data.coverImage}}">
+        <div class="story-cover img pull-left" data-bg-src="{{data.coverImage}}">
         </div>
-        <div class="story-info">
-            <div class="triangle"></div>
-            <div class="story-popup">
-                <p class="story-title">{{title}}</p>
-                // <p class="story-desc">{{description}}</p>
-            </div>
-        </div>
-        <div class="extra-info">
+        <div class="story-info pull-right">
+            <p class="story-title">{{title}}</p>
             <div class="icon-container">
-            <span class="pull-right"><i class="iconfont icon-display"></i> <span>{{views}}</span></span>
-            <span class="pull-left"><i class="iconfont icon-like"></i> <span>{{likes}}</span></span>
+                <span class="pull-right"><i class="iconfont icon-display"></i> <span>{{views}}</span></span>
+                <span class="pull-left"><i class="iconfont icon-like"></i> <span>{{likes}}</span></span>
             </div>
         </div>
     </div>

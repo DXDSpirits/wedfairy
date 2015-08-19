@@ -27,12 +27,13 @@
     .affix {
         // position: static;
         top: 40px;
+        width: 100%;
     }
 
     .affix-bottom {
       position: absolute;
       // top: auto;
-      width: 180px;
+      width: 100%;
       // bottom: 400px;
     }
     .sidebar {

@@ -18,7 +18,7 @@
     <% include includes/production %>
     <script src="<%= tat_static %>javascripts/vendor/modernizr-2.7.1.min.js"></script>
 </head>
-<body id="community">
+<body id="community" data-spy="scroll" data-target="#myScrollspy">
     <!--[if lt IE 7]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -35,12 +35,12 @@
                 <div class="row filter-container">
                     <div class="filter pull-left">
                         <ul class="nav nav-pills ">
-                            <li><a href="community">首页</a></li>
-                            <li><a href="explore#featured" filter-name="featured">推荐故事</a></li>
-                            <li><a href="explore#hot" filter-name="hot">热门故事</a></li>
-                            <li><a href="explore#wedding" filter-name="wedding">婚礼</a></li>
-                            <li><a href="explore#baby" filter-name="baby">宝贝</a></li>
-                            <li><a href="explore#voyage" filter-name="voyage">旅行</a></li>
+                            <li><a href="explore">首页</a></li>
+                            <li><a href="explore/featured" filter-name="featured">推荐故事</a></li>
+                            <li><a href="explore/hot" filter-name="hot">热门故事</a></li>
+                            <li><a href="explore/wedding" filter-name="wedding">婚礼</a></li>
+                            <li><a href="explore/baby" filter-name="baby">宝贝</a></li>
+                            <li><a href="explore/voyage" filter-name="voyage">旅行</a></li>
 <!--                                 <li><a href="#lover" filter-name="lover">爱情纪念日</a></li>
                             <li><a href="#idol" filter-name="idol">偶像</a></li>
                             <li><a href="#friendship" filter-name="friendship">友情</a></li>
@@ -56,16 +56,16 @@
                                    <ul class="dropdown-menu" role="menu">
                                         <!-- <li><a href="#all" filter-name="all">全部</a></li>
                                         <li><a href="#wedding" filter-name="wedding">婚礼</a></li> -->
-                                        <li><a href="explore#lover" filter-name="lover">爱情纪念日</a></li>
-                                        <li><a href="explore#idol" filter-name="idol">偶像</a></li>
-                                        <li><a href="explore#friendship" filter-name="friendship">友情</a></li>
-                                        <li><a href="explore#yearbook" filter-name="yearbook">新年书</a></li>
+                                        <li><a href="explore/lover" filter-name="lover">爱情纪念日</a></li>
+                                        <li><a href="explore/idol" filter-name="idol">偶像</a></li>
+                                        <li><a href="explore/friendship" filter-name="friendship">友情</a></li>
+                                        <li><a href="explore/yearbook" filter-name="yearbook">新年书</a></li>
                                         <!-- <li><a href="#voyage" filter-name="voyage">旅行故事</a></li> -->
-                                        <li><a href="explore#family" filter-name="family">家人</a></li>
+                                        <li><a href="explore/family" filter-name="family">家人</a></li>
                                         <!-- <li><a href="#baby" filter-name="baby">宝贝故事</a></li> -->
-                                        <li><a href="explore#personal" filter-name="personal">个人</a></li>
-                                        <li><a href="explore#food" filter-name="food">美食</a></li>
-                                        <li><a href="explore#universal" filter-name="universal">通用</a></li>
+                                        <li><a href="explore/personal" filter-name="personal">个人</a></li>
+                                        <li><a href="explore/food" filter-name="food">美食</a></li>
+                                        <li><a href="explore/universal" filter-name="universal">通用</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -138,16 +138,44 @@
             <div class="row content-body">
                 <!-- <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 story-container"></div> -->
                 <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                    <h3>推荐故事   <a href="explore#featured"><span class="moreStoried">更多>></span></a></h3>
+                    <h3>推荐故事   <a href="/explore/featured"><span class="moreStoried">更多>></span></a></h3>
                     <div class="row">
-                        <div class="featured-story story-container"></div>
+                        <div class="story-container story-featured-container"></div>
+                    </div>
+
+                    <h3>热门故事   <a href="/explore/hot"><span class="moreStoried">更多>></span></a></h3>
+                    <div class="row">
+                        <div class="story-container story-hot-container"></div>
+                    </div>
+
+                    <h3>婚礼邀请函   <a href="/community/wedding"><span class="moreStoried">更多>></span></a></h3>
+                    <div class="row">
+                        <div class="story-container story-wedding-container"></div>
+                    </div>
+
+                    <h3>宝贝故事   <a href="/explore/baby"><span class="moreStoried">更多>></span></a></h3>
+                    <div class="row">
+                        <div class="story-container story-baby-container"></div>
+                    </div>
+
+                    <h3>旅行故事   <a href="/explore/voyage"><span class="moreStoried">更多>></span></a></h3>
+                    <div class="row">
+                        <div class="story-container story-voyage-container"></div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-3 hidden-sm">
+                <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs">
                     <div class="ranking">
                         <h3>排行榜</h3>
                         <!-- <div class="">本周</div> -->
                         <div class="story-ranking-container"></div>
+                    </div>
+                    <div id="myScrollspy">
+                        <div class="wedfairy-float" data-spy="affix" data-offset-top="1640" data-offset-bottom="680">
+                            <div class="img img-contain wedfairy-float-bg" data-bg-src="images/explore/logo.png">
+                                <a href="https://itunes.apple.com/cn/app/ba-yin-he-jie-hun-qing-jian/id1024494390" target="_blank"><img data-src="images/explore/download.png"></a>
+                                <a href="http://site.wedfairy.com/mystory" target="_blank"><img data-src="images/explore/start2make.png"></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -166,7 +194,10 @@
 
     <% include page/footer %>
     <div class="view-hide template-view">
-        <% include template/explore-story-template %>
+        <% include template/newexplore-story-template %>
+    </div>
+    <div class="view-hide template-view">
+        <% include template/community-ranking-story-template %>
     </div>
 
     <!-- Content Ends Here -->

@@ -34,13 +34,21 @@ router.get('/ranking', function(req, res) {
 
 // explore 
 router.get('/explore', function(req, res) {
-    res.render('explore');
+    res.render('community');
+});
+
+// explore 
+router.get('/explore/:filterName', function(req, res) {
+    var filterName = req.params.filterName;
+    res.render('explore', {
+        filterName: filterName
+    });
 });
 
 // community
-router.get('/community', function(req, res) {
-    res.render('community');
-});
+// router.get('/community', function(req, res) {
+//     res.render('community');
+// });
 
 //contact
 router.get('/contact', function(req, res) {
