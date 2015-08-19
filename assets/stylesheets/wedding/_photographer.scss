@@ -16,7 +16,9 @@
         @include user-select(none);
         position: relative;
         overflow: hidden;
-        padding-top: 100%;
+        > .img:first-child {
+            padding-top: 100%;
+        }
         &:before, &:after {
             content: "";
             position: absolute;
