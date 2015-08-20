@@ -64,7 +64,7 @@ $(function() {
                 'click .story-cover': 'onClick',
             },
             className: 'animated fadeIn col-lg-12 col-md-12 col-sm-12 col-xs-12 ranking-story-item',
-            template: $("#community-ranking-story-template").html(),
+            template: $("#ranking-story-template").html(),
             serializeData: function() {
                 var data = this.model ? this.model.toJSON() : {};
                 data.formatted_date = (new Date(data.time_created + '+0800')).toLocaleString();
@@ -144,19 +144,6 @@ $(function() {
         collection: storiesVoyage,
         el: $('.story-voyage-container')
     });
-
-
-    // var storyThreeGalleryView = new StoryGalleryView({
-    //     collection: storiesRanking,
-    //     el: $()
-    // });
-
-    // var storyGalleryView = new StoryGalleryView({
-    //     collection: storiesRanking,
-    //     el: $('.story-ranking-container')
-    // });
-
-
 
     // $(document).on('click', '.filter .nav li a', function() {
     //     // var $aStr = document.getElementsByTagName("a").html();

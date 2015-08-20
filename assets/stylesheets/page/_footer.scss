@@ -4,6 +4,7 @@ $qrcode-size: 150px;
 #global-footer {
     padding-top: 80px;
     padding-bottom: 10px;
+    z-index: 1;
     position: relative;
     color: $gray-lighter;
     a { color: $gray-lighter; }

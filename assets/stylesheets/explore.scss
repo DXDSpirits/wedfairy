@@ -45,21 +45,7 @@
     .container {
         width: 1170px;
     }
-    // .story-shower {
-    //     .story-cover {
-    //         padding-top: 100%;
-    //     }
-    // }
-    // .five-stories {
-    //     &:first-child {
-    //         width: 50%;
-    //         .story-shower {
-    //             .story-cover {
-    //                 padding-top: 481.75px;
-    //             }
-    //         }
-    //     }
-    // }
+
     .affix {
         position: fixed;
         top: 40px;
@@ -72,11 +58,6 @@
 }
 
 @media screen and (min-width: 960px) and (max-width: 1199px) {
-    // .story-shower {
-    //     .story-cover {
-    //         padding-top: 100%;
-    //     }
-    // }
     .affix {
         position: fixed;
         top: 40px;
@@ -87,14 +68,6 @@
         max-width: 180px;
     }
 }
-
-// @media screen and (max-width: 960px){
-//     .story-shower {
-//         .story-cover {
-//             padding-top: 100%;
-//         }
-//     }
-// }
 
 .btn {
     border-radius: 4px;
@@ -236,16 +209,24 @@
         }
     }
 
+    .content-body {
+        padding-top:  50px;
+        .moreStoried {
+            font-size: .6em;
+        }
+    }
     #content-title {
-        padding: 15px 0;
+        padding: 0 0 15px;
         h2 {
             padding-left: 13px;
             border-left: 5px solid $brand-primary;
         }
     }
     .story-container {
+        overflow: hidden;
+        height: 100%;
         .story-item {
-            margin-bottom: 30px;
+            margin-bottom: 33px;
         }
         .story-shower {
             background-color: white;
@@ -253,104 +234,152 @@
             padding-top: 0;
             margin: 0 auto;
             position: relative;
-
+            &:hover {
+                box-shadow: 1px 3px 20px #555;
+            }
             .story-cover {
                 padding-top: 100%;
-                margin-bottom: 2px;
+                position: relative;
                 @extend .pointer;
+                &:hover {
+                    .story-info {
+                        background: rgba(0, 0, 0, 0.4);
+                        .story-title {
+                            color: white;
+                        }
+                    }
+                }
             }
 
             .story-info {
-                .triangle {
-                    margin-left: 30px;
-                    margin-top: -10px;
-                    display: block;
-                    border-color: transparent transparent #fff;
-                    border-style: dashed dashed solid;
-                    border-width: 0 9px 9px;
-                    width: 0;
-                    height: 0;
-                    line-height: 0;
+                bottom: 0;
+                height: 100%;
+                width: 100%;
+                padding-top: 50%;
+                // background-color: white;
+                // opacity: 1;
+                overflow: hidden;
+                position: absolute;             
+                @include transition(all .35s);
+                @extend .pointer;
+                .story-title {
+                    color: transparent;
+                    // display: none;
+                    font-weight: bold;
+                    max-height: 4em;
+                    padding-left: 10px;
+                    padding-right: 5px;
                 }
-                .story-popup {
-                    bottom: 0%;
-                    height: 4.5em;
-                    width: 100%;
-                    opacity: 1;
-                    overflow: hidden;
-                    position: absolute;             
-                    @include transition(all .35s);
-                    @extend .pointer;
-                    .story-title {
-                        color: $label-color;
-                        font-weight: bold;
-                        max-height: 2em;
-                        padding-left: 10px;
-                        padding-right: 5px;
-                    }
 
-                    .story-desc {
-                        height: 0;
-                        padding-top:0;
-                        padding-left: 10px;
-                        padding-right: 5px;
-                        color: $text-color;
-                        display: none;
-                    }
+                .story-desc {
+                    height: 0;
+                    padding-top:0;
+                    padding-left: 10px;
+                    padding-right: 5px;
+                    color: $text-color;
+                    display: none;
                 }
             }
             .extra-info {
                 color: $label-color;
-                // font-size: 5px;
-                padding-left: 12px;
-                padding-top: 3px;
-                padding-bottom: 8px;
-                margin-top: 3.4em;
-
+                padding: 12px;
                 .icon-container {
                     overflow: hidden;
-                    // margin-right: 5px;
                     span {
                         margin-right: 6px;
                         margin-left: 3px;
-
-                    i.icon-like {
-                        &::before {
-                            color: $brand-primary;
+                        i.icon-like {
+                            &::before {
+                                color: $brand-primary;
+                            }
                         }
                     }
-
-                }
                 }
                 .iconfont {
                     font-size: 17px;
-
                     &::before {
                         color: #BBBBBB;
                     }
                 }
             }
-            &:hover {
-                .story-popup {
-                    bottom: 9%;
-                    height: 91%;
-                    // opacity: 1;
-                    background-color:white;
+        }
+    }
 
-                    .story-title {
-                        // font-size: 1.8em;
-                        // font-weight: 100;
-                        padding-top: 15px;
-                    }
-                    .story-desc {
-                        padding-top: 3em;
-                        display: inherit;
-                        height: 4em;
-                    }
+    .story-ranking-container {
+        overflow: hidden;
+        .ranking-story-item{
+            padding: 10px 0;
+            height: 80px;
+            width: 100%;
+            border-bottom: 1px dashed lighten($text-color, 50);
+            display: block;
+        }
+        .story-item {
+            margin-bottom: 30px;
+        }
+        .story-shower {
+            // background-color: white;
+            border-radius: 0;
+            padding-top: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            overflow: hidden;
 
+            .story-cover {
+                padding-top: 60px;
+                width: 60px;
+                margin-bottom: 2px;
+                @extend .pointer;
+            }
+        }
+        .story-info {
+            // min-width: 150px;
+            width: 60%;
+            min-width: 100px;
+            height: 100%;
+            // overflow: hidden;
+            display: inline-block;
+            position: relative;
+            .story-title {
+                position: absolute;
+                top: 0;
+                word-wrap: break-word; 
+            }
+            .icon-container {
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                span {
+                    width: 50%;
                 }
             }
-            
+            i {
+                color: $light-text-color;
+                font-size: 15px;
+            }
+        }
+    }
+
+    #myScrollspy {
+        overflow: hidden;
+        width: 100%;
+    }
+    .wedfairy-float {
+        margin-top: 25px;
+        padding: 30px;
+        background-color: white;
+        width: 100%;
+        border-radius: 10px;
+        .wedfairy-float-bg {
+            padding-top: 50%;
+            background-position: top;
+        }
+
+        img {
+            width: 100%;
+            height: 50%;
+            margin-bottom: 15px;
         }
     }
     .pagination-btn {

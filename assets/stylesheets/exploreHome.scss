@@ -103,7 +103,7 @@
     @include button-variant(white, $main-color, $main-color);
 }
 //
-#community {
+#newexplore, #explore {
     .body {
         margin: 0;
         background-color: #F0F0EF;
@@ -256,7 +256,7 @@
         overflow: hidden;
         .ranking-story-item{
             padding: 10px 0;
-            height: 100px;
+            height: 80px;
             width: 100%;
             border-bottom: 1px dashed lighten($text-color, 50);
             display: block;
@@ -265,17 +265,15 @@
             margin-bottom: 30px;
         }
         .story-shower {
-            // background-color: white;
             border-radius: 0;
             padding-top: 0;
             width: 100%;
             height: 100%;
             margin: 0 auto;
             overflow: hidden;
-
             .story-cover {
-                padding-top: 80px;
-                width: 80px;
+                padding-top: 60px;
+                width: 60px;
                 margin-bottom: 2px;
                 @extend .pointer;
             }
@@ -350,7 +348,9 @@
             padding-top: 0;
             margin: 0 auto;
             position: relative;
-
+            &:hover {
+                box-shadow: 1px 3px 5px #555;
+            }
             .story-cover {
                 // padding-top: 100%;
                 position: relative;
@@ -417,45 +417,6 @@
                 }
             }
         }
-    }
-    .pagination-btn {
-        border-radius: 50%;
-        position: absolute;
-        left: 50%;
-        margin-top: -365px;
-        margin-left: -540px;
-        width: 46px;
-        height: 45px;
-        @include hoverable-bg(lighten($light-text-color, 10));
-
-        &.next-btn {
-            margin-left: 490px;
-        }
-        .iconfont::before {
-            color: white;
-        }
-    }
-}
-.scene-type-icon {
-    width: 30px;
-    height: 30px;
-    background-size: cover;
-    margin-top: -4px;
-
-    &::before {
-        content: attr(title);
-        display: none;
-    }
-    &:hover::before {
-        display: block;
-        background: white;
-        // border: 1px solid black;
-        padding: 8px;
-        padding-top: 3px;
-        padding-bottom: 2px;
-        margin: 25px 0 0 10px;
-        border-radius: 4px;
-        position: absolute;
     }
 }
 

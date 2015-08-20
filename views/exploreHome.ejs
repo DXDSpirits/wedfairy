@@ -18,7 +18,7 @@
     <% include includes/production %>
     <script src="<%= tat_static %>javascripts/vendor/modernizr-2.7.1.min.js"></script>
 </head>
-<body id="community" data-spy="scroll" data-target="#myScrollspy">
+<body id="newexplore" data-spy="scroll" data-target="#myScrollspy">
     <!--[if lt IE 7]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -64,8 +64,6 @@
                             </li>
                         </ul>
                     </div>
-
-
                     <form class="search-box pull-right" role="search">
                         <button type="submit" class="pull-right"><i class="fa fa-search fa-2x"></i></button>
                         <input type="text" class="form-control pull-left" name="title" placeholder="搜索" />
@@ -186,7 +184,7 @@
         <% include template/newexplore-story-template %>
     </div>
     <div class="view-hide template-view">
-        <% include template/community-ranking-story-template %>
+        <% include template/ranking-story-template %>
     </div>
 
     <!-- Content Ends Here -->

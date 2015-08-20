@@ -20,7 +20,7 @@ $(function() {
                 'click .story-cover': 'onClick',
             },
             className: 'animated fadeIn col-lg-3 col-md-3 col-sm-4 col-xs-12 story-item',
-            template: $("#explore-story-template").html(),
+            template: $("#newexplore-story-template").html(),
             serializeData: function() {
                 var data = this.model ? this.model.toJSON() : {};
                 data.formatted_date = (new Date(data.time_created + '+0800')).toLocaleString();
@@ -31,11 +31,36 @@ $(function() {
             onClick: function() {
                 window.open('http://wedfairy.com/story/' + this.model.get('name'), '_blank');
             },
+        })
+    });
 
+    // ranking stories
+    var RankingStoryGalleryView = Amour.CollectionView.extend({
+        ModelView: Amour.ModelView.extend({
+            events: {
+                'click .story-cover': 'onClick',
+            },
+            className: 'animated fadeIn col-lg-12 col-md-12 col-sm-12 col-xs-12 ranking-story-item',
+            template: $("#ranking-story-template").html(),
+            serializeData: function() {
+                var data = this.model ? this.model.toJSON() : {};
+                data.formatted_date = (new Date(data.time_created + '+0800')).toLocaleString();
+                data.likes = data.likes || 0
+                data.views = (data.likes * 31 + data.comments * 73) || 0;
+                return data;
+            },
+            onClick: function() {
+                window.open('http://wedfairy.com/story/' + this.model.get('name'), '_blank');
+            },
         })
     });
 
     var stories = new (Amour.Collection.extend({
+        url: Amour.APIRoot + 'sites/storylist/',
+        model: Amour.Models.Story
+    }))();
+
+    var storiesRanking = new (Amour.Collection.extend({
         url: Amour.APIRoot + 'sites/storylist/',
         model: Amour.Models.Story
     }))();
@@ -45,9 +70,11 @@ $(function() {
         el: $('.story-container')
     });
 
-    // stories.on('reset add', function() {
+    var storyRankingGalleryView = new RankingStoryGalleryView({
+        collection: storiesRanking,
+        el: $('.story-ranking-container')
+    });
 
-    // });
     var isFetching = false;
     Backbone.on('next-page', function() {
         if (isFetching) return;
@@ -70,30 +97,21 @@ $(function() {
         }
     });
 
-
-
-    Backbone.on("close-scene-filter-menu", (function() {
-        var $menu = $('.scene-filter-menu');
-        return function() {
-            $menu.hide();
-        }
-    })());
-
     $(document).ready(function() {
         var $aStr = document.location.pathname.split("\/")[2];
         var dict = {
             "featured"  : "推荐故事",
             "hot"       : "热门故事",
-            "wedding"   : "婚礼",
-            "baby"      : "宝贝",
-            "voyage"    : "旅行",
+            "wedding"   : "婚礼邀请函",
+            "baby"      : "宝贝故事",
+            "voyage"    : "旅行故事",
             "lover"     : "爱情纪念日",
-            "idol"      : "偶像",
-            "friendship": "友情",
+            "idol"      : "偶像故事",
+            "friendship": "友情故事",
             "yearbook"  : "新年书",
-            "personal"  : "个人",
-            "food"      : "美食",
-            "universal" : "通用"
+            "personal"  : "个人故事",
+            "food"      : "美食故事",
+            "universal" : "通用故事"
         };
         // var $aStr = $(this).html();
         var $contentTitle = $('#content-title');
@@ -166,6 +184,17 @@ $(function() {
             });
         }
     }))();
+
+    storiesRanking.fetch({
+        data: { 
+            schema: "wedding", 
+            limit : 10
+        },
+        reset: true,
+        success: function () {
+            $(".title-ranking").removeClass("hidden");
+        }
+    });
 
     Backbone.history.start();
 
