@@ -10,6 +10,92 @@
 @import "page/header";
 @import "page/footer";
 
+//new media query
+@media (min-width: 1600px) {
+    .container {
+        width: 1570px;
+    }
+    .story-shower {
+        .story-cover {
+            padding-top: 100%;
+        }
+    }
+    .five-stories {
+        &:first-child {
+            width: 50%;
+            .story-shower {
+                .story-cover {
+                    padding-top: 631.75px;
+                }
+            }
+        }
+    }
+    .affix {
+        position: fixed;
+        top: 40px;
+        max-width: 362.5px;
+    }
+    .affix-bottom {
+        position: absolute;
+        max-width: 362.5px;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+    .container {
+        width: 1170px;
+    }
+    .story-shower {
+        .story-cover {
+            padding-top: 100%;
+        }
+    }
+    .five-stories {
+        &:first-child {
+            width: 50%;
+            .story-shower {
+                .story-cover {
+                    padding-top: 481.75px;
+                }
+            }
+        }
+    }
+    .affix {
+        position: fixed;
+        top: 40px;
+        max-width: 262.5px;
+    }
+    .affix-bottom {
+        position: absolute;
+        max-width: 262.5px;
+    }
+}
+
+@media screen and (min-width: 960px) and (max-width: 1199px) {
+    .story-shower {
+        .story-cover {
+            padding-top: 100%;
+        }
+    }
+    .affix {
+        position: fixed;
+        top: 40px;
+        max-width: 180px;
+    }
+    .affix-bottom {
+        position: absolute;
+        max-width: 180px;
+    }
+}
+
+@media screen and (max-width: 960px){
+    .story-shower {
+        .story-cover {
+            padding-top: 100%;
+        }
+    }
+}
+
 .btn {
     border-radius: 4px;
 }
@@ -196,7 +282,7 @@
         }
         .story-info {
             // min-width: 150px;
-            width: 55%;
+            width: 60%;
             min-width: 100px;
             height: 100%;
             // overflow: hidden;
@@ -225,30 +311,6 @@
     #myScrollspy {
         overflow: hidden;
         width: 100%;
-        @media (min-width: 1200px) {
-            .affix {
-                position: fixed;
-                top: 40px;
-                max-width: 262.5px;
-            }
-            .affix-bottom {
-                position: absolute;
-                max-width: 262.5px;
-            }
-        }
-
-        @media screen and (min-width: 960px) and (max-width: 1199px) {
-            .affix {
-                position: fixed;
-                top: 40px;
-                max-width: 180px;
-            }
-            .affix-bottom {
-                position: absolute;
-                max-width: 180px;
-            }
-        }
-        
     }
     .wedfairy-float {
         margin-top: 25px;
@@ -272,17 +334,9 @@
         padding-left: 6px;
         padding-right: 6px;
     }
-    @media (min-width: 1199px) {
-        .five-stories {
-            &:first-child {
-                width: 50%;
-                .story-shower {
-                    .story-cover {
-                        padding-top: 115%;
-                    }
-                }
-            }
-        }
+
+    .story-wedding-container, .story-baby-container, .story-voyage-container {
+        padding: 0 9px;
     }
     .story-container {
         overflow: hidden;
@@ -298,25 +352,15 @@
             position: relative;
 
             .story-cover {
-                padding-top: 100%;
+                // padding-top: 100%;
                 position: relative;
-                // margin-bottom: 2px;
                 @extend .pointer;
                 &:hover {
-                    // background-size: 110%;
-                    // background-position: 100%;
                     .story-info {
                         background: rgba(0, 0, 0, 0.4);
                         .story-title {
                             color: white;
                         }
-                        // .story-desc {
-                        //     padding-top: 3em;
-                        //     padding-left: 10%;
-                        //     padding-right: 10%;
-                        //     display: inherit;
-                        //     height: 4em;
-                        // }
                     }
                 }
             }
@@ -418,16 +462,6 @@
 .story-voyage-container {
     margin-bottom: 100px;
 }
-// @media screen and (min-width: 1320px) {
-//     .center {
-//         min-width:1230px;
-//         margin: 0 auto
-//     }
-
-//     .max {
-//         max-width: 1230px
-//     }
-// }
 
 @mixin icon($size, $offsetX, $offsetY) {
     background-image: image-url("home/homepage-icon.svg");
@@ -517,7 +551,7 @@ a {
     height: 100%;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, .4);
+    background-color: rgba(0, 0, 0, .5);
     z-index: 9998;
 }
 div[contenteditable=true] {
@@ -602,78 +636,6 @@ input[type=tel], input[type=url], input[type=text], input[type=email], input[typ
     overflow: hidden;
 }
 
-
-
-
-.avatar-container {
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin-top: 6px;
-    margin-right: 45px;
-
-    .avatar-round {
-        width: 30px;
-        height: 30px;
-        background-color: #D7D7D5;
-        border-radius: 15px;
-        padding-left: 7px;
-        padding-top: 3px;
-    }
-    .icon-iconyonghumorentouxiang {
-        font-size: 17px;
-    }
-    .icon-jiantou {
-        position: absolute;
-        right: 0;
-        top: 0;
-        margin-right: -30px;
-        margin-top: 7px;
-        font-size: 18px;
-        @include hoverable($light-text-color);
-    }
-}
-.user-menu {
-    height: 99px;
-    background-color: $content-bg-color;
-    width: 125px;
-    position: absolute;
-    right: 0px;
-    z-index: 1;
-    top: 0;
-    margin-top: 40px;
-
-    .user-menu-item {
-        @include hoverable($title-color);
-        @extend .pointer;
-        color: #656666;
-        padding-left: 16px;
-        padding-top: 15px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid rgba($border-color, .5);
-
-        &:hover {
-            color: $main-color !important;
-
-            .iconfont:before {
-                color: $main-color;
-            }
-        }
-        .iconfont {
-            color: #656666;
-            font-size: 16px;
-        }
-        .icon-tuichu {
-            font-size: 17px;
-        }
-        &:first-child {
-            padding-top: 15px;
-        }
-        &:last-child {
-            border-bottom: none;
-        }
-    }
-}
 .navbar{
     background-color: $navbar-bg-color;
     border-radius: 0px;

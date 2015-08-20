@@ -1,14 +1,12 @@
 $(function() {
     var token = Amour.TokenAuth.get();
     if (token === null) {
-        // $('.login-container').modal('show');
         $(".login-container").removeClass("hidden"); 
-        $(".avatar-container").addClass("hidden");
+        $(".user-info").addClass("hidden");
     };
     Amour.ajax.on('unauthorized', function() {
-        // $('.login-container').modal('show');
         $(".login-container").removeClass("hidden");
-        $(".avatar-container").addClass("hidden");
+        $(".user-info").addClass("hidden");
     });
     // if(Amour.isMobile) {
     // if(window.screen.width <= 400) {
@@ -176,7 +174,10 @@ $(function() {
             schema: "food", 
             limit : 3
         },
-        reset: true
+        reset: true,
+        success: function () {
+            $(".title-fetured").removeClass("hidden");
+        }
     });
 
     storiesHot.fetch({
@@ -184,7 +185,10 @@ $(function() {
             schema: "idol", 
             limit : 3
         },
-        reset: true
+        reset: true,
+        success: function () {
+            $(".title-hot").removeClass("hidden");
+        }
     });
 
     storiesRanking.fetch({
@@ -192,7 +196,10 @@ $(function() {
             schema: "yearbook", 
             limit : 10
         },
-        reset: true
+        reset: true,
+        success: function () {
+            $(".title-ranking").removeClass("hidden");
+        }
     });
 
     storiesWedding.fetch({
@@ -200,7 +207,10 @@ $(function() {
             schema: "wedding", 
             limit : 5
         },
-        reset: true
+        reset: true,
+        success: function () {
+            $(".title-wedding").removeClass("hidden");
+        }
     });
 
     storiesBaby.fetch({
@@ -208,7 +218,10 @@ $(function() {
             schema: "baby", 
             limit : 5
         },
-        reset: true
+        reset: true,
+        success: function () {
+            $(".title-baby").removeClass("hidden");
+        }
     });
 
     storiesVoyage.fetch({
@@ -216,7 +229,10 @@ $(function() {
             schema: "voyage", 
             limit : 5
         },
-        reset: true
+        reset: true,
+        success: function () {
+            $(".title-voyage").removeClass("hidden");
+        }
     });
 
     // backbone router stuff

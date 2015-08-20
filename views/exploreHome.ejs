@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="<%= tat_static %>stylesheets/animate.min.css">
     <link rel="stylesheet" href="<%= tat_static %>stylesheets/amour.css">
     <link rel="stylesheet" href="<%= static_url %>stylesheets/bootstrap-custom.css?v=<%= build_no %>">
-    <link rel="stylesheet" href="<%= static_url %>stylesheets/community.css?v=<%= build_no %>">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/exploreHome.css?v=<%= build_no %>">
     
 
 
@@ -41,13 +41,6 @@
                             <li><a href="explore/wedding" filter-name="wedding">婚礼</a></li>
                             <li><a href="explore/baby" filter-name="baby">宝贝</a></li>
                             <li><a href="explore/voyage" filter-name="voyage">旅行</a></li>
-<!--                                 <li><a href="#lover" filter-name="lover">爱情纪念日</a></li>
-                            <li><a href="#idol" filter-name="idol">偶像</a></li>
-                            <li><a href="#friendship" filter-name="friendship">友情</a></li>
-                            <li><a href="#yearbook" filter-name="yearbook">新年书</a></li>
-                            <li><a href="#personal" filter-name="personal">个人故事</a></li>
-                            <li><a href="#food" filter-name="food">美食故事</a></li>
-                            <li><a href="#universal" filter-name="universal">通用</a></li> -->
                             <li>
                                 <div class="btn-group">
                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -131,41 +124,37 @@
                 </div>
             </div>
 
-            <!-- <div class="row"> -->
-            <!-- <div class="col-sm-12 col-md-12 col-lg-12" id="content-title"></div> -->
-
-            <!-- </div> -->
             <div class="row content-body">
                 <!-- <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 story-container"></div> -->
                 <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                    <h3>推荐故事   <a href="/explore/featured"><span class="moreStoried">更多>></span></a></h3>
+                    <h3 class="title-fetured hidden">推荐故事 <a href="/explore/featured"><span class="moreStoried">更多>></span></a></h3>
                     <div class="row">
                         <div class="story-container story-featured-container"></div>
                     </div>
 
-                    <h3>热门故事   <a href="/explore/hot"><span class="moreStoried">更多>></span></a></h3>
+                    <h3 class="title-hot hidden">热门故事 <a href="/explore/hot"><span class="moreStoried">更多>></span></a></h3>
                     <div class="row">
                         <div class="story-container story-hot-container"></div>
                     </div>
 
-                    <h3>婚礼邀请函   <a href="/community/wedding"><span class="moreStoried">更多>></span></a></h3>
+                    <h3 class="title-wedding hidden">婚礼邀请函 <a href="/community/wedding"><span class="moreStoried">更多>></span></a></h3>
                     <div class="row">
                         <div class="story-container story-wedding-container"></div>
                     </div>
 
-                    <h3>宝贝故事   <a href="/explore/baby"><span class="moreStoried">更多>></span></a></h3>
+                    <h3 class="title-baby hidden">宝贝故事 <a href="/explore/baby"><span class="moreStoried">更多>></span></a></h3>
                     <div class="row">
                         <div class="story-container story-baby-container"></div>
                     </div>
 
-                    <h3>旅行故事   <a href="/explore/voyage"><span class="moreStoried">更多>></span></a></h3>
+                    <h3 class="title-voyage hidden">旅行故事 <a href="/explore/voyage"><span class="moreStoried">更多>></span></a></h3>
                     <div class="row">
                         <div class="story-container story-voyage-container"></div>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-3 hidden-xs">
                     <div class="ranking">
-                        <h3>排行榜</h3>
+                        <h3 class="title-ranking hidden">排行榜</h3>
                         <!-- <div class="">本周</div> -->
                         <div class="story-ranking-container"></div>
                     </div>
@@ -211,6 +200,7 @@
     <!-- <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script> -->
     <% include includes/analytics %>
     <script src="<%= tat_static %>javascripts/amour.js?v=<%= build_no %>"></script>
-    <script src="<%= static_url %>javascripts/community.js?v=<%= build_no %>"></script>
+    <script src="<%= static_url %>javascripts/exploreHome.js?v=<%= build_no %>"></script>
+    <script src="<%= static_url %>javascripts/init.js?v=<%= build_no %>"></script>
 </body>
 </html>

@@ -34,7 +34,7 @@ router.get('/ranking', function(req, res) {
 
 // explore 
 router.get('/explore', function(req, res) {
-    res.render('community');
+    res.render('exploreHome');
 });
 
 // explore 
@@ -44,11 +44,6 @@ router.get('/explore/:filterName', function(req, res) {
         filterName: filterName
     });
 });
-
-// community
-// router.get('/community', function(req, res) {
-//     res.render('community');
-// });
 
 //contact
 router.get('/contact', function(req, res) {

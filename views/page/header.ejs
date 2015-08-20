@@ -1,38 +1,38 @@
 <div class="header">
     <div class="logo-container pull-left" >
         <a href="/">
-            <!-- <img src="/assets/images/logo-text-white.png" width=80 /> -->
             <i class="iconfont icon-logo"></i>
             <span><i class="iconfont icon-bayinhe icon-brand-ba"></i></span>
             <span><i class="iconfont icon-bayinhe icon-brand-yin"></i></span>
             <span><i class="iconfont icon-bayinhe icon-brand-he"></i></span>
         </a>
     </div>
-    <div class="login-container pull-right hidden">
-        <ul>
-            <li><a href="http://site.wedfairy.com/login">登录</a></li>
-            <li class="register-box"><a href="http://site.wedfairy.com/register">免费注册</a></li>
-            <!-- <li><a href="#"><i class="fa fa-bars fa-lg"></i></a></li> -->
-        </ul>
-        
-        <!-- user info -->
-        <div class="avatar-container">
-            <div class="avatar-round">
-                <i class="iconfont icon-iconyonghumorentouxiang"></i>
-            </div>
-
-            <i class="iconfont icon-jiantou pointer user-menu-btn"></i>
+    <div class="user-log pull-right">        
+        <div class="login-container pull-left hidden">
+            <ul>
+                <li><a href="http://site.wedfairy.com/login">登录</a></li>
+                <li class="register-box"><a href="http://site.wedfairy.com/register">免费注册</a></li>
+            </ul>
         </div>
-
-        <div class="user-menu box-shadow view-hide">
-            <div class="user-menu-item change-password-btn" data-href="/change-password">
-                <i class='iconfont icon-usermimaxiugai'></i> 修改密码
+        <div class="user-info pull-right">
+            <!-- user info -->
+            <div class="avatar">
+                <a href="http://site.wedfairy.com"><i class="iconfont icon-user"></i></a>
+                <i class="iconfont icon-angle-down pointer user-menu-btn"></i>
             </div>
-            <div class="user-menu-item logout-btn">
-                <i class='iconfont icon-tuichu'></i> 登出
+
+            <div class="user-menu box-shadow view-hide">
+                <div class="user-menu-item show-username"> 
+                </div>
+                <div class="user-menu-item change-password-btn" data-href="/change-password">
+                    <!-- <i class='iconfont icon-usermimaxiugai'></i> 修改密码 -->
+                    <i class="fa fa-lock"></i> 修改密码
+                </div>
+                <div class="user-menu-item logout-btn">
+                    <!-- <i class='iconfont icon-tuichu'></i> 登出 -->
+                    <i class="fa fa-sign-out"></i> 登出
+                </div>
             </div>
         </div>
     </div>
-
-
 </div>

@@ -1,14 +1,12 @@
 $(function() {
     var token = Amour.TokenAuth.get();
     if (token === null) {
-        // $('.login-container').modal('show');
         $(".login-container").removeClass("hidden"); 
-        $(".avatar-container").addClass("hidden");
+        $(".user-info").addClass("hidden");
     };
     Amour.ajax.on('unauthorized', function() {
-        // $('.login-container').modal('show');
         $(".login-container").removeClass("hidden");
-        $(".avatar-container").addClass("hidden");
+        $(".user-info").addClass("hidden");
     });
     // if(Amour.isMobile) {
     if(window.screen.width <= 400) {
@@ -104,30 +102,30 @@ $(function() {
         }
     });
 
-    $(document).on('click', '.filter .nav li a', function() {
-        // var $aStr = window.location.hash;
-        var $aStr = $(this).html();
-        var $contentTitle = $('#content-title');
-        if($aStr === "首页") {
-            $contentTitle.html("");
-        } else {
-            $contentTitle.html("<h2>" + $aStr + "</h2>");
-        }
+    // $(document).on('click', '.filter .nav li a', function() {
+    //     // var $aStr = window.location.hash;
+    //     var $aStr = $(this).html();
+    //     var $contentTitle = $('#content-title');
+    //     if($aStr === "首页") {
+    //         $contentTitle.html("");
+    //     } else {
+    //         $contentTitle.html("<h2>" + $aStr + "</h2>");
+    //     }
         
-        // if ($menu.is(":visible")) {
-        //     Backbone.trigger("close-scene-filter-menu");
-        // } else {
-        //     $("html").off("click");
-        //     $("html").on("click", function(e) {
-        //         var $target = $(e.target);
-        //         if ($target.closest(".scene-filter").length == 0 && $menu.is(":visible")) {
-        //             Backbone.trigger("close-scene-filter-menu");
-        //             $("html").off("click");
-        //         }
-        //     });
-        //     $menu.show();
-        // }
-    });
+    //     // if ($menu.is(":visible")) {
+    //     //     Backbone.trigger("close-scene-filter-menu");
+    //     // } else {
+    //     //     $("html").off("click");
+    //     //     $("html").on("click", function(e) {
+    //     //         var $target = $(e.target);
+    //     //         if ($target.closest(".scene-filter").length == 0 && $menu.is(":visible")) {
+    //     //             Backbone.trigger("close-scene-filter-menu");
+    //     //             $("html").off("click");
+    //     //         }
+    //     //     });
+    //     //     $menu.show();
+    //     // }
+    // });
 
 
 
@@ -161,7 +159,10 @@ $(function() {
             
             stories.fetch({
                 data: { schema: filterName },
-                reset: true
+                reset: true,
+                success: function () {
+                    $("#content-title").removeClass("hidden");
+                }
             });
         }
     }))();
