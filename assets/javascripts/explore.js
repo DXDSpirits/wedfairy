@@ -56,12 +56,12 @@ $(function() {
     });
 
     var stories = new (Amour.Collection.extend({
-        url: Amour.APIRoot + 'sites/storylist/',
+        url: Amour.APIRoot + 'search/story/',
         model: Amour.Models.Story
     }))();
 
     var storiesRanking = new (Amour.Collection.extend({
-        url: Amour.APIRoot + 'sites/storylist/',
+        url: Amour.APIRoot + 'search/story/',
         model: Amour.Models.Story
     }))();
 

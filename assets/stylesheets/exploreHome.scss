@@ -11,7 +11,7 @@
 @import "page/footer";
 
 //new media query
-@media (min-width: 1600px) {
+@media screen and (min-width: 1600px) {
     .container {
         width: 1570px;
     }
@@ -30,9 +30,16 @@
             }
         }
     }
+    .ranking-story-item {
+        .story-title {
+            .story-info {
+                width: 80%;
+            }
+        }
+    }
     .affix {
         position: fixed;
-        top: 40px;
+        top: 25px;
         max-width: 362.5px;
     }
     .affix-bottom {
@@ -62,7 +69,7 @@
     }
     .affix {
         position: fixed;
-        top: 40px;
+        top: 25px;
         max-width: 262.5px;
     }
     .affix-bottom {
@@ -79,7 +86,7 @@
     }
     .affix {
         position: fixed;
-        top: 40px;
+        top: 25px;
         max-width: 180px;
     }
     .affix-bottom {
@@ -253,6 +260,8 @@
     }
 
     .story-ranking-container {
+        max-width: 262.5px;
+        margin-right: 0;
         overflow: hidden;
         .ranking-story-item{
             padding: 10px 0;
@@ -315,6 +324,7 @@
         padding: 30px;
         background-color: white;
         width: 100%;
+        max-width: 262.5px;
         border-radius: 10px;
         .wedfairy-float-bg {
             padding-top: 50%;

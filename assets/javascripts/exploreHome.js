@@ -80,32 +80,32 @@ $(function() {
 
 
     var storiesFeatured = new (Amour.Collection.extend({
-        url: Amour.APIRoot + 'sites/storylist/',
+        url: Amour.APIRoot + 'search/story/',
         model: Amour.Models.Story
     }))();
 
     var storiesHot = new (Amour.Collection.extend({
-        url: Amour.APIRoot + 'sites/storylist/',
+        url: Amour.APIRoot + 'search/story/',
         model: Amour.Models.Story
     }))();
 
     var storiesRanking = new (Amour.Collection.extend({
-        url: Amour.APIRoot + 'sites/storylist/',
+        url: Amour.APIRoot + 'search/story/',
         model: Amour.Models.Story
     }))();
 
     var storiesWedding = new (Amour.Collection.extend({
-        url: Amour.APIRoot + 'sites/storylist/',
+        url: Amour.APIRoot + 'search/story/',
         model: Amour.Models.Story
     }))();
 
     var storiesBaby = new (Amour.Collection.extend({
-        url: Amour.APIRoot + 'sites/storylist/',
+        url: Amour.APIRoot + 'search/story/',
         model: Amour.Models.Story
     }))();
 
     var storiesVoyage = new (Amour.Collection.extend({
-        url: Amour.APIRoot + 'sites/storylist/',
+        url: Amour.APIRoot + 'search/story/',
         model: Amour.Models.Story
     }))();
 
@@ -121,7 +121,7 @@ $(function() {
     });
 
     // var stories = new (Amour.Collection.extend({
-    //     url: Amour.APIRoot + 'sites/storylist/',
+    //     url: Amour.APIRoot + 'search/story/',
     //     model: Amour.Models.Story
     // }))();
 
