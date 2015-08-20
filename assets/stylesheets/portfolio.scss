@@ -12,19 +12,20 @@ body {
     padding-bottom: 50px;
 }
 
-.schema-list {
-    margin-top: 20px;
-}
-
-.schema-item {
-    cursor: pointer;
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 0 10px;
+.menu {
+    margin-bottom: 50px;
+    .form-search {
+        margin: 20px auto;
+    }
+    .tag-list {
+        margin-top: 20px;
+    }
 }
 
 .story-item {
     font-size: 0.8em;
+    margin-bottom: 30px;
+    border-bottom: 1px solid rgba(#000, 0.1);
     .cover {
         padding-top: 100%;
         margin-bottom: 10px;
@@ -40,15 +41,25 @@ body {
         box-shadow: 0 0 0 1px #fff;
     }
     .title {
+        @include ellipsis();
+    }
+    .tags {
+        cursor: pointer;
         height: 3em;
         overflow: hidden;
     }
-    .fa-check-circle {
-        //cursor: pointer;
+    .tag {
+        display: inline-block;
+        padding: 0 0.2em;
+        font-weight: bold;
     }
-    margin-bottom: 15px;
 }
 
-.menu {
-    margin-bottom: 50px;
+#tags-modal {
+    .tag-list {
+        margin-top: 20px;
+        .btn {
+            margin: 5px;
+        }
+    }
 }

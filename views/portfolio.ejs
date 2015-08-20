@@ -26,15 +26,12 @@
 
 <div class="container">
     <div class="text-center menu">
-        <p class="btn-group" data-toggle="buttons">
-            <label class="btn btn-primary">
-                <input type="radio" name="featured" value="2">只看推荐的故事</label>
-            <label class="btn btn-primary">
-                <input type="radio" name="featured" value="1">只看完成的故事</label>
-            <label class="btn btn-primary active">
-                <input type="radio" name="featured" value="0" checked>浏览全部故事</label>
-        </p>
-        <p>点击故事完成百分比旁边的 <i class="fa fa-check-circle"></i> 可以推荐或者取消推荐</p>
+        <div class="btn-group">
+            <a class="btn btn-parimary btn-link" href="#all">全部故事</a>
+            <a class="btn btn-parimary btn-link" href="#complete">只看完成</a>
+            <a class="btn btn-parimary btn-link" href="#featured">只看推荐</a>
+        </div>
+        <!-- <p>点击故事完成百分比旁边的 <i class="fa fa-check-circle"></i> 可以推荐或者取消推荐</p> -->
         <form class="form-inline form-search">
             <div class="form-group">
                 <div class="input-group">
@@ -44,7 +41,7 @@
             </div>
             <button type="submit" class="btn btn-primary">确认</button>
         </form>
-        <div class="schema-list"></div>
+        <div class="tag-list"></div>
     </div>
     <div class="row story-list"></div>
     <button id="btn-more" data-loading-text="Loading..." class="btn btn-block">更多</button>
@@ -54,11 +51,11 @@
 
 <!-- Login Modal -->
 
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="exampleModalLabel">故事管理员登录</h4>
+                <h4 class="modal-title">故事管理员登录</h4>
             </div>
             <div class="modal-body">
                 <form id="loginForm">
@@ -73,13 +70,33 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button id="loginButton" type="button" class="btn btn-primary">登录</button>
+                <button id="login-button" type="button" class="btn btn-primary">登录</button>
             </div>
         </div>
     </div>
 </div>
 
 <!-- / Login Modal -->
+
+<!-- Tags Modal -->
+
+<div class="modal fade" id="tags-modal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">选择标签</h4>
+            </div>
+            <div class="modal-body">
+                <div class="tag-list"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- / Tags Modal -->
 
 <script id="template-story-item" type="text/x-handlebars-template">
     <div class="cover img" data-bg-src="{{data.coverImage}}">
@@ -107,6 +124,13 @@
     </p>
     <p>{{owner}}</p>
     <p class="title">{{title}}</p>
+    <p class="tags">
+        {{#list tags}}
+        <span class="tag">{{title}}</span>
+        {{else}}
+        <span>没有标签</span>
+        {{/list}}
+    </p>
 </script>
 
 <script src="<%= tat_static %>javascripts/vendor/jquery-2.1.1.min.js"></script>
