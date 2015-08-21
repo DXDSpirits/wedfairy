@@ -158,7 +158,7 @@ $(function() {
 
     storiesFeatured.fetch({
         data: { 
-            schema: "food", 
+            tag: "staffpicks", 
             limit : 3
         },
         reset: true,
@@ -169,7 +169,7 @@ $(function() {
 
     storiesHot.fetch({
         data: { 
-            schema: "idol", 
+            tag: "hot", 
             limit : 3
         },
         reset: true,
@@ -180,7 +180,7 @@ $(function() {
 
     storiesRanking.fetch({
         data: { 
-            schema: "yearbook", 
+            tag: "hot", 
             limit : 10
         },
         reset: true,
@@ -191,7 +191,7 @@ $(function() {
 
     storiesWedding.fetch({
         data: { 
-            schema: "wedding", 
+            tag: "wedding", 
             limit : 5
         },
         reset: true,
@@ -202,7 +202,7 @@ $(function() {
 
     storiesBaby.fetch({
         data: { 
-            schema: "baby", 
+            tag: "baby", 
             limit : 5
         },
         reset: true,
@@ -213,7 +213,7 @@ $(function() {
 
     storiesVoyage.fetch({
         data: { 
-            schema: "voyage", 
+            tag: "voyage", 
             limit : 5
         },
         reset: true,
@@ -225,10 +225,10 @@ $(function() {
     // backbone router stuff
     // var ROUTER = new (Backbone.Router.extend({
     //     routes: {
-    //         ':schemaFilter': 'schemaFilter',
-    //         '': 'schemaFilter'
+    //         ':tagFilter': 'tagFilter',
+    //         '': 'tagFilter'
     //     },
-    //     schemaFilter: function(filterName) {
+    //     tagFilter: function(filterName) {
     //         // var filterName = EXPLORE_FILTER_NAME;
     //         var filterName = filterName || "all";
     //         var $selectedScene = $('.selected-scene');
@@ -237,12 +237,12 @@ $(function() {
     //         var $temp = $('.scene-filter-menu [filter-name=' + filterName +"]");
     //         $temp.addClass("active");
     //         $selectedScene.find(".text").html($temp.html());
-    //         if (filterName == "all") { // 'all' means we do not need schema-filter
+    //         if (filterName == "all") { // 'all' means we do not need tag-filter
     //             filterName = null;
     //         }
             
     //         stories.fetch({
-    //             data: { schema: "wedding" },
+    //             data: { tag: "wedding" },
     //             reset: true
     //         });
     //     }

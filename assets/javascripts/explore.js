@@ -19,7 +19,7 @@ $(function() {
                 'click .story-popup': 'onClick',
                 'click .story-cover': 'onClick',
             },
-            className: 'animated fadeIn col-lg-3 col-md-3 col-sm-4 col-xs-12 story-item',
+            className: 'animated fadeIn col-lg-3 col-md-4 col-sm-6 col-xs-6 story-item',
             template: $("#newexplore-story-template").html(),
             serializeData: function() {
                 var data = this.model ? this.model.toJSON() : {};
@@ -102,21 +102,21 @@ $(function() {
         var dict = {
             "featured"  : "推荐故事",
             "hot"       : "热门故事",
-            "wedding"   : "婚礼邀请函",
-            "baby"      : "宝贝故事",
-            "voyage"    : "旅行故事",
-            "lover"     : "爱情纪念日",
-            "idol"      : "偶像故事",
-            "friendship": "友情故事",
+            "wedding"   : "婚礼",
+            "baby"      : "宝贝",
+            "voyage"    : "旅行",
+            "lover"     : "爱人",
+            "idol"      : "偶像",
+            "friendship": "友情",
             "yearbook"  : "新年书",
-            "personal"  : "个人故事",
-            "food"      : "美食故事",
-            "universal" : "通用故事"
+            "personal"  : "个人",
+            "food"      : "美食",
+            "universal" : "通用"
         };
         // var $aStr = $(this).html();
         var $contentTitle = $('#content-title');
         if($aStr !== "首页") {
-            $contentTitle.html("<h2>" + dict[$aStr] + "</h2>");
+            $contentTitle.html("<h4>" + dict[$aStr] + "</h4>");
         }
     });
 
@@ -159,10 +159,13 @@ $(function() {
     // backbone router stuff
     var ROUTER = new (Backbone.Router.extend({
         routes: {
-            ':schemaFilter': 'schemaFilter',
-            '': 'schemaFilter'
+            ':tagFilter': 'tagFilter',
+            '': 'tagFilter'
         },
-        schemaFilter: function(filterName) {
+        tagFilter: function(filterName) {
+            if (EXPLORE_FILTER_NAME === "featured") {
+                EXPLORE_FILTER_NAME = "staffpicks";
+            };
             var filterName = EXPLORE_FILTER_NAME;
             // var filterName = filterName || "all";
             // var $selectedScene = $('.selected-scene');
@@ -171,12 +174,12 @@ $(function() {
             // var $temp = $('.scene-filter-menu [filter-name=' + filterName +"]");
             // $temp.addClass("active");
             // $selectedScene.find(".text").html($temp.html());
-            // if (filterName == "all") { // 'all' means we do not need schema-filter
+            // if (filterName == "all") { // 'all' means we do not need tag-filter
             //     filterName = null;
             // }
             
             stories.fetch({
-                data: { schema: filterName },
+                data: { tag: filterName },
                 reset: true,
                 success: function () {
                     $("#content-title").removeClass("hidden");
@@ -187,7 +190,7 @@ $(function() {
 
     storiesRanking.fetch({
         data: { 
-            schema: "wedding", 
+            tag: "friendship", 
             limit : 10
         },
         reset: true,

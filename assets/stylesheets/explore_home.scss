@@ -1,8 +1,6 @@
 @import "bourbon/bourbon";
 
 @import "variables";
-@import "page/variables";
-@import "bootstrap/bootstrap/mixins";
 
 /******************************************************************************/
 
@@ -17,19 +15,19 @@
     }
     .story-shower {
         .story-cover {
-            padding-top: 100%;
+            padding-top: 90%;
         }
     }
-    .five-stories {
-        &:first-child {
-            width: 50%;
-            .story-shower {
-                .story-cover {
-                    padding-top: 631.75px;
-                }
-            }
-        }
-    }
+    // .five-stories {
+    //     &:first-child {
+    //         width: 50%;
+    //         .story-shower {
+    //             .story-cover {
+    //                 padding-top: 563.156px;
+    //             }
+    //         }
+    //     }
+    // }
     .ranking-story-item {
         .story-title {
             .story-info {
@@ -54,7 +52,7 @@
     }
     .story-shower {
         .story-cover {
-            padding-top: 100%;
+            padding-top: 90%;
         }
     }
     .five-stories {
@@ -62,7 +60,7 @@
             width: 50%;
             .story-shower {
                 .story-cover {
-                    padding-top: 481.75px;
+                    padding-top: 428.156px;
                 }
             }
         }
@@ -81,7 +79,7 @@
 @media screen and (min-width: 960px) and (max-width: 1199px) {
     .story-shower {
         .story-cover {
-            padding-top: 100%;
+            padding-top: 90%;
         }
     }
     .affix {
@@ -98,7 +96,7 @@
 @media screen and (max-width: 960px){
     .story-shower {
         .story-cover {
-            padding-top: 100%;
+            padding-top: 90%;
         }
     }
 }
@@ -106,16 +104,14 @@
 .btn {
     border-radius: 4px;
 }
-.btn-default {
-    @include button-variant(white, $main-color, $main-color);
-}
+
 //
 #newexplore, #explore {
     .body {
         margin: 0;
         background-color: #F0F0EF;
     }
-    color: $text-color;
+    // color: $text-color;
     .loading{
         margin-bottom: 30px;
         .icon-loading{
@@ -123,7 +119,7 @@
             margin-right: 6px;
             @include transform-origin(51% 47%);
             &::before{
-                color: $navbar-bg-color;
+                // color: $navbar-bg-color;
             }
         }
     }
@@ -137,7 +133,7 @@
         background-color: #323a45;
     }
     .filter-container {
-        margin-top: 20px;
+        // margin-top: 20px;
         // margin-bottom: 10px;
         width: 100%;
         display: inline-block;
@@ -145,7 +141,7 @@
         .filter {
             border-radius: 1px;
             display: inline-block;
-            @extend .pointer;
+            cursor: pointer;
             .btn-group {
                 .btn {
                     padding: 8px 12px;
@@ -154,13 +150,10 @@
                 .dropdown-menu {
                     min-width: 100px;
                     a {
-                        color: $light-text-color;
+                        color: $gray;
                     }
                 }
             }
-            .iconfont::before {
-                @include hoverable($label-color);
-            };
             li {
                 color: lighten(grey, 10);
                 margin-right: 10px;
@@ -284,7 +277,7 @@
                 padding-top: 60px;
                 width: 60px;
                 margin-bottom: 2px;
-                @extend .pointer;
+                cursor: pointer;
             }
         }
         .story-info {
@@ -309,7 +302,7 @@
                 }
             }
             i {
-                color: $light-text-color;
+                color: #aaa;
                 font-size: 15px;
             }
         }
@@ -350,7 +343,7 @@
         overflow: hidden;
         height: 100%;
         .story-item {
-            margin-bottom: 33px;
+            margin-bottom: 20px;
         }
         .story-shower {
             background-color: white;
@@ -359,12 +352,12 @@
             margin: 0 auto;
             position: relative;
             &:hover {
-                box-shadow: 1px 3px 5px #555;
+                box-shadow: 0px 0px 10px #999;
             }
             .story-cover {
                 // padding-top: 100%;
                 position: relative;
-                @extend .pointer;
+                cursor: pointer;
                 &:hover {
                     .story-info {
                         background: rgba(0, 0, 0, 0.4);
@@ -385,7 +378,7 @@
                 overflow: hidden;
                 position: absolute;             
                 @include transition(all .35s);
-                @extend .pointer;
+                cursor: pointer;
                 .story-title {
                     color: transparent;
                     // display: none;
@@ -405,7 +398,7 @@
                 }
             }
             .extra-info {
-                color: $label-color;
+                // color: $label-color;
                 padding: 12px;
                 .icon-container {
                     overflow: hidden;
@@ -427,6 +420,52 @@
                 }
             }
         }
+        @media screen and (min-width: 1600px) {
+            .five-stories {
+                &:first-child {
+                    width: 50%;
+                    .story-shower {
+                        .story-cover {
+                            padding-top: 563.156px;
+                            .story-info {
+                                padding: 10%;
+                                padding-top: 80%;
+                                @include background(linear-gradient(transparent 70%, rgba(#000,0.9) 100%));
+                                // padding-top: 474.234px;
+                                .story-title {
+                                    text-align: left;
+                                    color: white;
+                                    font-size: 1.5em;
+                                }
+                                .story-desc {
+                                    display: block;
+                                    color: white;
+                                }
+                            }
+                        }
+                    }
+                }
+                &:nth-child(n+2) {
+                    .story-cover {
+                        // padding-top: 100%;
+                        position: relative;
+                        // @extend .pointer;
+                        .story-title {
+                            color: transparent;
+                        }
+                        &:hover {
+                            .story-info {
+                                padding-top: 58%;
+                                background: rgba(0, 0, 0, 0.4);
+                                .story-title {
+                                    color: white;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -434,53 +473,9 @@
     margin-bottom: 100px;
 }
 
-@mixin icon($size, $offsetX, $offsetY) {
-    background-image: image-url("home/homepage-icon.svg");
-    background-size: ($size * 4) ($size * 2);
-    background-repeat: no-repeat;
-    width: $size;
-    height: $size;
-    background-position: (-$size * ($offsetY - 1)) (-$size * ($offsetX - 1));
-}
-[data-scene-type=friendship] {
-    &::before {
-        content: '友情故事';
-    }
-    @include icon(30px, 1, 4);
-}
-[data-scene-type=wedding] {
-    &::before {
-        content: '婚礼邀请函';
-    }
-    @include icon(30px, 2, 4);
-}
-[data-scene-type=lover] {
-    &::before {
-        content: '爱人故事';
-    }
-    @include icon(30px, 1, 1);
-}
-[data-scene-type*='idol'] {
-    &::before {
-        content: '偶像故事';
-    }
-    @include icon(30px, 1, 2);
-}
-[data-scene-type=yearbook] {
-    &::before {
-        content: '新年书';
-    }
-    @include icon(30px, 2, 3);
-}
-[data-scene-type=voyage] {
-    &::before {
-        content: '旅游故事';
-    }
-    @include icon(30px, 2, 2);
-}
 
 body {
-    background-color: $background-color;
+    background-color: #f0f0f0;
     min-width: 300px;
     // padding: 0 30px;
 }
@@ -497,199 +492,4 @@ a {
         // background-color: transparent;
         text-decoration: none;
     };
-}
-.alert-tip {
-    display: none;
-    z-index: 100000;
-    width: 620px;
-    border-radius: 0px !important;
-    padding-top: 5px;
-    padding-bottom: 2px;
-    position: absolute;
-    left: 50%;
-    margin-left: -365px;
-    // background-color: $content-bg-color;
-    // color: black;
-    // border-color: darken($content-bg-color, 10);
-
-    button.close {
-        font-size: 14px;
-    }
-}
-.black-background {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, .5);
-    z-index: 9998;
-}
-div[contenteditable=true] {
-    border: 1px solid rgba($border-color, .5);
-    padding: 10px;
-    color: $label-color;
-    font-size: 13px;
-    line-height: 1.7em;
-    background-color: white;
-    border-radius: 4px;
-
-    &:focus {
-        @include box-shadow(none);
-        border-color: $main-color;
-        outline: none;
-    }
-}
-.wysihtml5-toolbar {
-    position: absolute;
-
-    .btn-default {
-        padding: 2px 7px;
-        border-radius: 4px !important;
-        background-color: #E9E7E7;
-        border: none;
-        color: rgba(black, .5);
-        font-size: 10px;
-        @include hoverable-bg(#E9E7E7);
-
-        &:first-child {
-            margin-right: 5px;
-        }
-    }
-}
-
-[data-wysihtml5-command=underline] {
-    display: none;
-}
-input[type=tel], input[type=url], input[type=text], input[type=email], input[type=search], input[type=number], input[type=password], input[type=date], input[type=time], input[type=datetime-local], textarea {
-    height: 40px;
-
-    &.form-control {
-        border-radius: 4px;
-        -webkit-appearance: none;
-        font-size: 13px;
-        background-color: white;
-        resize: none;
-        color: $label-color;
-        line-height: 1.7em;
-        @include box-shadow(none);
-    }
-    &.form-control:focus {
-        @include box-shadow(none);
-        border-color: $main-color;
-    }
-    @include placeholder {
-        color: $light-text-color;
-    }
-}
-.control-label {
-    color: $label-color;
-}
-.iconfont {
-    font-family: "iconfont" !important;
-    font-size: 22px;
-    font-style: normal;
-    color: $main-color;
-    -webkit-font-smoothing: antialiased;
-    -webkit-text-stroke-width: 0.2px;
-    -moz-osx-font-smoothing: grayscale;
-    @include hoverable($main-color);
-}
-.icon-huanyipi:before {
-    content: "\e606";
-}
-
-.header {
-    // margin-top: 0;
-    background-color: #323a45;
-    padding-top: 10px;
-    padding-bottom: 15px;
-    overflow: hidden;
-}
-
-.navbar{
-    background-color: $navbar-bg-color;
-    border-radius: 0px;
-    height: 32px;
-    min-height: 32px;
-    margin-top: 10px;
-    margin-bottom: 0px;
-
-    .nav-wrapper {
-        width: 960px;
-        min-width: 960px;
-        margin: 0 auto;
-    }
-    .nav-item {
-        &:first-child {
-            // margin-left: 50px;
-        }
-        &.active, &:hover {
-            background-color: #899092;
-        }
-        height: inherit;
-        padding: 6px 15px;
-        color: white;
-        display: inline-block;
-        padding-top: 7px;
-        margin-top: -1px;
-    }
-}
-// for timepicker
-.icon-chevron-up {
-    @extend .iconfont;
-    @include transform(rotate(270deg));
-    display: block;
-
-    &:before {
-        content: "\e605";
-    }
-}
-.icon-chevron-down {
-    @extend .iconfont;
-    @include transform(rotate(90deg));
-    display: block;
-
-    &:before {
-        content: "\e605";
-    }
-}
-.datepicker-days .day.active, .datepicker-months .month.active {
-    background-color: $main-color !important;
-    background-image: none !important;
-}
-[contentEditable=true]:empty:not(:focus):before {
-    content: attr(data-ph);
-    color: lighten(grey, 10);
-}
-
-/* Turn on custom 8px wide scrollbar */
-::-webkit-scrollbar {
-    width: 10px; /* 1px wider than Lion. */
-
-    /* This is more usable for users trying to click it. */
-    height: 30px;
-    background-color: rgba(0, 0, 0, 0);
-    -webkit-border-radius: 100px;
-}
-
-/* The scrollbar 'thumb' ...that marque oval shape in a scrollbar */
-::-webkit-scrollbar-thumb {
-
-    /* This is the EXACT color of Mac OS scrollbars. 
-       Yes, I pulled out digital color meter */
-    background: rgba(0, 0, 0, 0.5);
-    -webkit-border-radius: 100px;
-    background-clip: padding-box;
-    border: 2px solid rgba(0, 0, 0, 0);
-    min-height: 10px; /*Prevent it from getting too small */
-    height: 30px;
-}
-::-webkit-scrollbar:horizontal, ::-webkit-scrollbar-thumb:horizontal {
-    min-height: 10px;
-    height: 10px;
-}
-::-webkit-scrollbar-thumb:active {
-    background: rgba(0, 0, 0, 0.61); /* Some darker color when you click it */
-    -webkit-border-radius: 100px;
 }

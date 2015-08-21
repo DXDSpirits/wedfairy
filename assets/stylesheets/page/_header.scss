@@ -1,18 +1,30 @@
-
 .header {
-    // margin-top: 0;
-    padding-top: 10px;
+    padding-top: 30px;
     padding-bottom: 15px;
+    background-color: #323a45;
     overflow: hidden;
 }
 
 .logo-container {
-    margin-left: 15px;
-    margin-top: 8px;
+    margin-left: 30px;
+    // margin-top: 30px;
+    border-radius: 3px;
+    .iconfont {
+        color: #fff;
+        width: 38px;
+        background-color: $brand-primary;
+        text-align: center;
+        padding: 5px 4px;
+        border-radius: 2px;
+        font-size: 30px;
+        &:before {
+            color: white;
+        }
+    }
 }
 .login-container {
     // display: none;
-    margin: 8px 15px 0;
+    margin: 5px 15px 0;
     // margin-top: ;
     ul {
         margin: 0;
@@ -53,7 +65,7 @@
 .user-log {
     margin-right: 25px;
     .user-info {
-        margin-top: 8px;
+        margin-top: 5px;
         height: 100%;
         // width: 100%;
         .icon-user {
@@ -70,28 +82,27 @@
 
 .user-menu {
     // height: 99px;
-    background-color: $content-bg-color;
     width: 100px;
     position: absolute;
     right: 0px;
     z-index: 1;
     top: 0;
-    margin-top: 55px;
+    background-color: #eee;
+    margin-top: 75px;
 
     .user-menu-item {
-        @include hoverable($title-color);
-        @extend .pointer;
+        cursor: pointer;
         color: #656666;
         padding-left: 16px;
         padding-top: 15px;
         padding-bottom: 10px;
-        border-bottom: 1px solid rgba($border-color, .5);
+        border-bottom: 1px solid rgba($gray-light, .5);
 
         &:hover {
-            color: $main-color !important;
+            color: $brand-primary;
 
             .iconfont:before {
-                color: $main-color;
+                color: $brand-primary;
             }
         }
         .iconfont {

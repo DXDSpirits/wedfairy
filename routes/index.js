@@ -34,7 +34,7 @@ router.get('/ranking', function(req, res) {
 
 // explore 
 router.get('/explore', function(req, res) {
-    res.render('exploreHome');
+    res.render('explore_home');
 });
 
 // explore 
