@@ -103,7 +103,7 @@ $(function() {
     var token = Amour.TokenAuth.get();
     if (token === null) {
         $('#loginModal').modal('show');
-    }
+    };
     Amour.ajax.on('unauthorized', function() {
         $('#loginModal').modal('show');
     });

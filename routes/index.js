@@ -34,9 +34,16 @@ router.get('/ranking', function(req, res) {
 
 // explore 
 router.get('/explore', function(req, res) {
-    res.render('explore');
+    res.render('explore_home');
 });
 
+// explore 
+router.get('/explore/:filterName', function(req, res) {
+    var filterName = req.params.filterName;
+    res.render('explore', {
+        filterName: filterName
+    });
+});
 
 //contact
 router.get('/contact', function(req, res) {
