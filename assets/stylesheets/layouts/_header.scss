@@ -1,0 +1,51 @@
+
+#global-header {
+    padding: 20px 20px 50px 20px;
+    background-color: #323a45;
+    .icon-logo {
+        color: #fff;
+        background-color: $brand-primary;
+        text-align: center;
+        padding: 5px 4px;
+        border-radius: 2px;
+        font-size: 30px;
+    }
+    .anonymous {}
+    .btn-login, .btn-register {
+        width: 100px;
+    }
+    .btn-login {
+        color: #eee;
+        &:hover, &:active, &:focus {
+            color: $brand-primary;
+        }
+    }
+    .userinfo {
+        margin-top: 5px;
+        height: 100%;
+    }
+    .avatar {
+        cursor: pointer;
+    }
+    .user-menu {
+        width: 100px;
+        position: absolute;
+        right: 0px;
+        z-index: 1;
+        top: 0;
+        background-color: $body-bg;
+        margin-top: 75px;
+        .user-menu-item {
+            cursor: pointer;
+            color: #656666;
+            padding-left: 16px;
+            padding-top: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba($gray-light, .5);
+            .iconfont {
+                color: #656666;
+                font-size: 16px;
+            }
+        }
+    }
+}

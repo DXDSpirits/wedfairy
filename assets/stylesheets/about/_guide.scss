@@ -1,0 +1,93 @@
+
+#guide {
+    position: relative;
+    h4{
+        margin-top: 50px;
+        font-weight: 800;
+    }
+    h5 {
+        color: darken($text-color, 3);
+        margin-top: 18px;
+        font-size: 16px;
+    }
+    .tips {
+        display: none;
+        color: $brand-primary;
+    }
+    .page-title {
+        font-size: 30px;
+        margin:0;
+        height: 100px;
+        line-height: 100px;
+    }
+    .affix {
+        top: 40px;
+        width: 100%;
+    }
+    .affix-bottom {
+      position: absolute;
+      width: 100%;
+    }
+    .sidebar {
+        border: 0;
+        width: 180px;
+        margin-left: 100px;
+        li {
+            border-radius:0;
+            border-left: 2px solid transparent;
+            &.active>a {
+                color: $brand-primary;
+                background: transparent;
+                border-radius:0;
+                border: 0;
+                border-left: 2px solid $brand-primary;
+            }
+            &>a {
+                padding-top: 5px;
+                padding-bottom: 5px;
+                background: transparent;
+                &:hover {
+                    color: $brand-primary;
+                    border: 2px solid transparent;
+                    background: transparent;
+                    border-left: 2px solid $brand-primary;
+                    color: $text-color;
+                }
+            }
+        }
+    }
+    #myScrollspy {
+        li {
+            background: transparent;
+            text-align: center;
+            a {
+                padding: 5px;
+                color: $text-color;
+                background: transparent;
+                &:hover, &:active, &:visited {
+                    border-left: 2px solid $brand-primary;
+                }
+            }
+        }
+    }
+    pre {
+        margin: 20px 0;
+        padding: 0;
+        background-color: inherit;
+        border: none;
+        overflow: hidden;
+    }
+    .usage-img {
+        border: 1px solid $gray-light;
+        margin: 15px auto;
+        padding-top: 62.5%;
+        box-shadow: 10px 10px 5px $gray-light;
+        background-size:100% 100%;
+    }
+    #img-phone-bg {
+        margin: 15px auto;
+        border: 1px solid $gray-light;
+        padding-top: 50%;
+        box-shadow: 10px 10px 5px $gray-light;
+    }
+}

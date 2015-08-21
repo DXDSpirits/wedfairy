@@ -1,7 +1,6 @@
-@import "bourbon/bourbon";
 
+@import "bourbon/bourbon";
 @import "variables";
-@import "page/variables";
 
 /******************************************************************************/
 
@@ -12,13 +11,3 @@
 
 @import "home/footer";
 @import "home/header";
-@import "spritesheet";
-
-// some help class
-.img-grey{
-    @include filter(grayscale(100%));
-}
-
-.light-text{
-    color: $light-text-color;
-}

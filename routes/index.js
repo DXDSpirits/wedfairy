@@ -34,7 +34,7 @@ router.get('/ranking', function(req, res) {
 
 // explore 
 router.get('/explore', function(req, res) {
-    res.render('explore_home');
+    res.render('explore-home');
 });
 
 // explore 
@@ -47,7 +47,7 @@ router.get('/explore/:filterName', function(req, res) {
 
 //contact
 router.get('/contact', function(req, res) {
-    res.render('page/contact');
+    res.redirect('about/contactus');
 });
 
 //uploadmusic

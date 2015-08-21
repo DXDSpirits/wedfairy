@@ -1,0 +1,36 @@
+
+@import "bourbon/bourbon";
+@import "variables";
+
+// pages
+@import "about/job";
+@import "about/contact";
+@import "about/about";
+@import "about/law";
+@import "about/press";
+@import "about/faq";
+@import "about/navlaw";
+@import "about/guide";
+@import "about/team";
+
+.navbar {
+    text-align: center;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    height: 32px;
+    line-height: 100%;
+    min-height: 32px;
+    .nav-wrapper {
+        @extend .container;
+        margin: 0 auto;
+    }
+    .nav-item {
+        color: $text-color;
+        &.active, &:hover {
+            color: lighten($brand-primary, 10);
+        }
+        height: inherit;
+        padding: 6px 15px;
+        display: inline-block;
+    }
+}

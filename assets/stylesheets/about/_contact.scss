@@ -1,0 +1,53 @@
+
+#contact {
+    .page-title {
+        margin-top: 50px;
+        margin-left: 50px;
+        margin-right: 50px;
+        @media (max-width:$screen-sm-max) {
+            text-align: center;
+            margin-left: 0px;
+        }
+    }
+    .img-container {
+        float: right;
+        margin-left: 20px;
+        margin-right: 20px;
+        @media (max-width:$screen-sm-max) {
+            float: none;
+            margin-left: 0px;
+            .map {
+                margin: 0 auto;
+            }
+            .addr-text {
+                text-align: center;
+            }
+        }
+        .map {
+            width: 260px;
+            height: 260px;
+            margin-top: 19px;
+        }
+        .addr-text {
+            font-size: 14px;
+            margin-top: 10px;
+            text-align: center;
+        }
+    }
+    .content {
+        margin-left: 50px;
+        margin-right: 50px;
+        margin-top: 30px;
+        margin-bottom: 60px;
+        max-width: 620px;
+    }
+    .contact-info {
+        margin-left: 100px;
+        margin-right: 100px;
+        margin-bottom: 100px;
+        @media (max-width:$screen-sm-max) {
+            margin-left: 50px;
+            margin-right: 50px;
+        }
+    }
+}

@@ -1,0 +1,24 @@
+
+.about-header {
+    border-bottom: 1px solid $gray-lighter;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    .nav-container {
+        margin-right: 30px;
+        margin-top: 15px;
+        li{
+            margin-left: 60px;
+            color: black;
+            display: inline-block;
+            a {
+                color: $gray-light;
+            }
+            a:hover {
+                color: $gray;
+            }
+            i {
+                color: $brand-primary;
+            }
+        }
+    }
+}

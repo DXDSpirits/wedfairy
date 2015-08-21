@@ -1,13 +1,5 @@
 $(function() {
-    var token = Amour.TokenAuth.get();
-    if (token === null) {
-        $(".login-container").removeClass("hidden"); 
-        $(".user-info").addClass("hidden");
-    };
-    Amour.ajax.on('unauthorized', function() {
-        $(".login-container").removeClass("hidden");
-        $(".user-info").addClass("hidden");
-    });
+    
     // if(Amour.isMobile) {
     if(window.screen.width <= 400) {
         // document.location.href="http://www.wedfairy.com/ranking";

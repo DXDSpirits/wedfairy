@@ -1,13 +1,8 @@
+
 @import "bourbon/bourbon";
-
 @import "variables";
-@import "page/variables";
-@import "bootstrap/bootstrap/mixins";
 
-/******************************************************************************/
 
-@import "page/utils";
-@import "page/footer";
 body {
     background: image-url("ranking/ranking-bg.jpg") repeat;
     background-size: 160px 160px;
