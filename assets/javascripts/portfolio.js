@@ -81,8 +81,8 @@
             className: 'story-item text-center col-xs-6 col-sm-3 col-md-2',
             template: $('#template-story-item').html(),
             serializeThemeData: function(data) {
-                var themeName = data.theme, themeOptionName = '';
-                var match = data.theme.match(/^(.*)\[(.+)\]$/);
+                var themeName = data.theme || '', themeOptionName = '';
+                var match = themeName.match(/^(.*)\[(.+)\]$/);
                 if (match) {
                     themeName = match[1];
                     themeOptionName = match[2];
@@ -199,20 +199,30 @@
         index: function() {
             this.navigate('all');
         },
+        fetchStories: function(data) {
+            $('.story-list').addClass('animated fadeOut');
+            stories.fetch({
+                reset: true,
+                data: data,
+                success: function() {
+                    $('.story-list').removeClass('animated fadeOut');
+                }
+            });
+        },
         filterAll: function() {
-            stories.fetch({ reset: true });
+            this.fetchStories();
         },
         filterFeatured: function() {
-            stories.fetch({ reset: true, data: { featured: 2 } });
+            this.fetchStories({ featured: 2 });
         },
         filterComplete: function() {
-            stories.fetch({ reset: true, data: { featured: 1 } });
+            this.fetchStories({ featured: 1 });
         },
         filterOwner: function(owner) {
-            stories.fetch({ reset: true, data: { owner__username: owner } });
+            this.fetchStories({ owner__username: owner });
         },
         filterTag: function(tag) {
-            stories.fetch({ reset: true, data: { tag: tag } });
+            this.fetchStories({ tag: tag });
         }
     }))();
 
