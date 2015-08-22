@@ -142,28 +142,6 @@ $(function() {
     //     }
     // });
 
-    storiesFeatured.fetch({
-        data: { 
-            tag: "staffpicks", 
-            limit : 3
-        },
-        reset: true,
-        success: function () {
-            $(".title-fetured").removeClass("hidden");
-        }
-    });
-
-    storiesHot.fetch({
-        data: { 
-            tag: "hot", 
-            limit : 3
-        },
-        reset: true,
-        success: function () {
-            $(".title-hot").removeClass("hidden");
-        }
-    });
-
     storiesRanking.fetch({
         data: { 
             tag: "hot", 
@@ -175,38 +153,119 @@ $(function() {
         }
     });
 
-    storiesWedding.fetch({
-        data: { 
-            tag: "wedding", 
-            limit : 5
-        },
-        reset: true,
-        success: function () {
-            $(".title-wedding").removeClass("hidden");
-        }
-    });
+    var screenWidth = document.body.scrollWidth;
+    // if (screenWidth >= 1200) {
+        storiesFeatured.fetch({
+            data: { 
+                tag: "staffpicks", 
+                limit : 3
+            },
+            reset: true,
+            success: function () {
+                $(".title-fetured").removeClass("hidden");
+            }
+        });
 
-    storiesBaby.fetch({
-        data: { 
-            tag: "baby", 
-            limit : 5
-        },
-        reset: true,
-        success: function () {
-            $(".title-baby").removeClass("hidden");
-        }
-    });
+        storiesHot.fetch({
+            data: { 
+                tag: "hot", 
+                limit : 3
+            },
+            reset: true,
+            success: function () {
+                $(".title-hot").removeClass("hidden");
+            }
+        });
 
-    storiesVoyage.fetch({
-        data: { 
-            tag: "voyage", 
-            limit : 5
-        },
-        reset: true,
-        success: function () {
-            $(".title-voyage").removeClass("hidden");
-        }
-    });
+        storiesWedding.fetch({
+            data: { 
+                tag: "wedding", 
+                limit : 5
+            },
+            reset: true,
+            success: function () {
+                $(".title-wedding").removeClass("hidden");
+            }
+        });
+
+        storiesBaby.fetch({
+            data: { 
+                tag: "baby", 
+                limit : 5
+            },
+            reset: true,
+            success: function () {
+                $(".title-baby").removeClass("hidden");
+            }
+        });
+
+        storiesVoyage.fetch({
+            data: { 
+                tag: "voyage", 
+                limit : 5
+            },
+            reset: true,
+            success: function () {
+                $(".title-voyage").removeClass("hidden");
+            }
+        });
+    // } else {
+    //     storiesFeatured.fetch({
+    //         data: { 
+    //             tag: "staffpicks", 
+    //             limit : 4
+    //         },
+    //         reset: true,
+    //         success: function () {
+    //             $(".title-fetured").removeClass("hidden");
+    //         }
+    //     });
+
+    //     storiesHot.fetch({
+    //         data: { 
+    //             tag: "hot", 
+    //             limit : 4
+    //         },
+    //         reset: true,
+    //         success: function () {
+    //             $(".title-hot").removeClass("hidden");
+    //         }
+    //     });
+
+    //     storiesWedding.fetch({
+    //         data: { 
+    //             tag: "wedding", 
+    //             limit : 6
+    //         },
+    //         reset: true,
+    //         success: function () {
+    //             $(".title-wedding").removeClass("hidden");
+    //         }
+    //     });
+
+    //     storiesBaby.fetch({
+    //         data: { 
+    //             tag: "baby", 
+    //             limit : 6
+    //         },
+    //         reset: true,
+    //         success: function () {
+    //             $(".title-baby").removeClass("hidden");
+    //         }
+    //     });
+
+    //     storiesVoyage.fetch({
+    //         data: { 
+    //             tag: "voyage", 
+    //             limit : 6
+    //         },
+    //         reset: true,
+    //         success: function () {
+    //             $(".title-voyage").removeClass("hidden");
+    //         }
+    //     });
+    // }
+        
 
     Backbone.history.start();
 

@@ -40,16 +40,16 @@
             padding-top: 90%;
         }
     }
-    .five-stories {
-        &:first-child {
-            width: 50%;
-            .story-shower {
-                .story-cover {
-                    padding-top: 428.156px;
-                }
-            }
-        }
-    }
+    // .five-stories {
+    //     &:first-child {
+    //         width: 50%;
+    //         .story-shower {
+    //             .story-cover {
+    //                 padding-top: 428.156px;
+    //             }
+    //         }
+    //     }
+    // }
     .affix {
         position: fixed;
         top: 25px;
@@ -330,7 +330,6 @@ font-size: 30px;
             box-shadow: 0px 0px 10px #999;
         }
         .story-cover {
-            // padding-top: 100%;
             position: relative;
             cursor: pointer;
             &:hover {
@@ -406,11 +405,55 @@ font-size: 30px;
                             padding: 10%;
                             padding-top: 80%;
                             @include background(linear-gradient(transparent 70%, rgba(#000,0.9) 100%));
-                            // padding-top: 474.234px;
                             .story-title {
                                 text-align: left;
                                 color: white;
                                 font-size: 1.5em;
+                            }
+                            .story-desc {
+                                display: block;
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+            &:nth-child(n+2) {
+                .story-cover {
+                    // padding-top: 100%;
+                    position: relative;
+                    // @extend .pointer;
+                    .story-title {
+                        color: transparent;
+                    }
+                    &:hover {
+                        .story-info {
+                            padding-top: 58%;
+                            background: rgba(0, 0, 0, 0.4);
+                            .story-title {
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media screen and (min-width: 1200px) and (max-width: 1599px){
+        .five-stories {
+            &:first-child {
+                width: 50%;
+                .story-shower {
+                    .story-cover {
+                        padding-top: 428.156px;
+                        .story-info {
+                            padding: 10%;
+                            padding-top: 70%;
+                            @include background(linear-gradient(transparent 70%, rgba(#000,0.9) 100%));
+                            .story-title {
+                                text-align: left;
+                                color: white;
+                                font-size: 1.2em;
                             }
                             .story-desc {
                                 display: block;
@@ -449,6 +492,6 @@ font-size: 30px;
 
 
 body {
-    background-color: #f5f5f5;
+    background-color: #f0f0f0;
 }
 
