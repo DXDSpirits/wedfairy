@@ -13,13 +13,14 @@
 @import "about/guide";
 @import "about/team";
 
+body {
+    font-size: 16px;
+}
 .navbar {
     text-align: center;
-    border-radius: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     height: 32px;
     line-height: 100%;
-    min-height: 32px;
     .nav-wrapper {
         @extend .container;
         margin: 0 auto;
@@ -30,7 +31,26 @@
             color: lighten($brand-primary, 10);
         }
         height: inherit;
-        padding: 6px 15px;
+        padding: 6px 10px;
         display: inline-block;
     }
+}
+
+
+.container,.body,.navbar .nav-wrapper {
+    max-width: 750px;
+    margin: 30px auto 100px;
+}
+section {
+    padding-top: 30px;
+    padding-bottom: 80px;
+    border-top: 1px solid #eee;
+}
+
+h2 {
+    margin: 50px auto 20px;
+    text-align: center;
+}
+h3 {
+    text-align: center;
 }

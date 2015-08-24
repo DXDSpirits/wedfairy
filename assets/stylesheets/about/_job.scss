@@ -6,10 +6,21 @@
         margin-right: 50px;
         margin-bottom: 30px;
     }
-    .job-desc {
-        padding-top: 0;
-        h3 {
-            margin: 60px auto 0;
+    h2 {
+        margin-top: 50px;
+        margin-bottom: 20px;
+    }
+    h3 {
+        margin: 50px auto 20px;
+        text-align: center;
+    }
+    .mail-addr>a {
+        color: $brand-primary;
+    }
+    .jobs {
+        p {
+            margin-bottom: 18px;
+            line-height: 1.8em;
         }
     }
 }

@@ -1,5 +1,5 @@
 
-#contact {
+#contactus {
     .page-title {
         margin-top: 50px;
         margin-left: 50px;
@@ -11,6 +11,7 @@
     }
     .img-container {
         float: right;
+        width: 290px;
         margin-left: 20px;
         margin-right: 20px;
         @media (max-width:$screen-sm-max) {
@@ -23,10 +24,11 @@
                 text-align: center;
             }
         }
-        .map {
-            width: 260px;
+        .map-img {
+            background-size: 260px;
             height: 260px;
             margin-top: 19px;
+            background-position: right;
         }
         .addr-text {
             font-size: 14px;

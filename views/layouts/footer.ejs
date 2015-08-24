@@ -35,3 +35,41 @@
         <span class="made-with-love">SITE MADE WITH LOVE</span>
     </div>
 </footer>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+   aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" 
+               data-dismiss="modal" aria-hidden="true">
+                  &times;
+            </button>
+            <h4 class="modal-title text-center" id="myModalLabel">
+               <i class="iconfont icon-logo"></i>
+            </h4>
+         </div>
+         <div class="modal-body">
+            <form id="loginForm">
+                <div class="form-group">
+                    <label class="control-label">用户名</label>
+                    <input class="form-control" type="text" name="username">
+                </div>
+                <div class="form-group">
+                    <label class="control-label">密码</label>
+                    <input class="form-control" type="password" name="password">
+                </div>
+            </form>
+         </div>
+         <div class="modal-footer">
+            <div class="forget-pw">
+                <a href="#">忘记密码？</a>
+            </div>
+            <button type="button" class="btn btn-primary">
+               <h3>登 录</h3>
+            </button>
+         </div>
+      </div>
+</div>
+
