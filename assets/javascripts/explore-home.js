@@ -265,6 +265,57 @@ $(function() {
     //         }
     //     });
     // }
+
+    (function() {
+        var message = localStorage.getItem('notify-message');
+        var $loginAlert = $('.login-alert')
+        if (message) {
+            showMessage(message);
+            localStorage.removeItem('notify-message');
+        }
+
+        function showMessage(_message) {
+            // console.log(_message);
+            $loginAlert.find('.alert-text').html(_message);
+            $loginAlert.show();
+        }
+    })()
+
+
+    Backbone.on("login-user", function(){
+        var username = $('.username-input').val() || null;
+        var password = $('.password-input').val() || null;
+        if (username && password) {
+            user.login({ username : username, password : password },{
+                "error": function(){
+                    alert('手机号或者密码错误，请重新输入');
+                },
+                "success": function(){
+                    // redirect
+                    var urls = window.location.search.split("url=");
+                    if(urls.length < 2){
+                        window.location.href = "/mystory";
+                    }else{
+                        window.location.href = urls[1];
+                    }
+
+                },
+            })
+        }else{
+            alert('请输入手机号和密码!');
+        }
+    });
+
+
+    $(document).on('click', '.login-btn', function(){
+        Backbone.trigger('login-user');
+    })
+
+    $('.password-input').on('keydown', function(e){
+        if (13 == e.keyCode) {  // 27 is the ESC key
+            Backbone.trigger('login-user');
+        }
+    });
         
 
     Backbone.history.start();

@@ -4,7 +4,7 @@
 
 
 //new media query
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1800px) {
     .container {
         width: 1570px;
     }
@@ -31,7 +31,7 @@
     }
 }
 
-@media screen and (min-width: 1200px) and (max-width: 1599px) {
+@media screen and (min-width: 1200px) and (max-width: 1799px) {
     .container {
         width: 1170px;
     }
@@ -40,16 +40,7 @@
             padding-top: 90%;
         }
     }
-    // .five-stories {
-    //     &:first-child {
-    //         width: 50%;
-    //         .story-shower {
-    //             .story-cover {
-    //                 padding-top: 428.156px;
-    //             }
-    //         }
-    //     }
-    // }
+
     .affix {
         position: fixed;
         top: 25px;
@@ -394,7 +385,7 @@ font-size: 30px;
             }
         }
     }
-    @media screen and (min-width: 1600px) {
+    @media screen and (min-width: 1800px) {
         .five-stories {
             &:first-child {
                 width: 50%;
@@ -439,7 +430,7 @@ font-size: 30px;
             }
         }
     }
-    @media screen and (min-width: 1200px) and (max-width: 1599px){
+    @media screen and (min-width: 1200px) and (max-width: 1799px){
         .five-stories {
             &:first-child {
                 width: 50%;
@@ -448,7 +439,7 @@ font-size: 30px;
                         padding-top: 428.156px;
                         .story-info {
                             padding: 10%;
-                            padding-top: 70%;
+                            padding-top: 75%;
                             @include background(linear-gradient(transparent 70%, rgba(#000,0.9) 100%));
                             .story-title {
                                 text-align: left;
