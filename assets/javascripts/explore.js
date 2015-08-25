@@ -11,7 +11,7 @@ $(function() {
                 'click .story-popup': 'onClick',
                 'click .story-cover': 'onClick',
             },
-            className: 'animated fadeIn col-lg-3 col-md-4 col-sm-6 col-xs-6 story-item',
+            className: 'animated fadeIn col-lg-3 col-md-4 col-sm-6 col-xs-12 story-item',
             template: $("#newexplore-story-template").html(),
             serializeData: function() {
                 var data = this.model ? this.model.toJSON() : {};
