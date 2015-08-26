@@ -15,11 +15,15 @@ $modal-bg: #1e2531;
         border-radius: 2px;
         font-size: 30px;
     }
-    .anonymous {
+    .header-nav, .anonymous {
         margin-top: 5px;
-    }
-    .btn-login, .btn-register {
-        width: 100px;
+        display: inline-block;
+        a {
+            padding: 6px 12px;
+            &:hover, &:active, &:focus {
+                color: $brand-primary;
+            }
+        }
     }
     .btn-login {
         color: #eee;
@@ -34,6 +38,7 @@ $modal-bg: #1e2531;
         padding: 0;
     }
     .userinfo {
+        display: inline-block;
         position: relative;
         margin-top: 5px;
         height: 100%;

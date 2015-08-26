@@ -90,7 +90,7 @@ $(function() {
     });
 
     $(document).ready(function() {
-        var $aStr = document.location.pathname.split("\/")[2];
+        var $aStr = EXPLORE_FILTER_NAME;
         var dict = {
             "featured"  : "推荐故事",
             "hot"       : "热门故事",
@@ -103,6 +103,7 @@ $(function() {
             "yearbook"  : "新年书",
             "personal"  : "个人",
             "food"      : "美食",
+            "family"    : "家人",
             "universal" : "通用"
         };
         // var $aStr = $(this).html();
