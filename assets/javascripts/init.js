@@ -29,7 +29,6 @@
 
     $('#global-header .logout-btn').on('click', function() {
         Amour.TokenAuth.clear();
-        // window.location.href = '/login';
         window.location.reload();
     });
 
@@ -63,19 +62,13 @@
                     alert('手机号或者密码错误，请重新输入');
                 },
                 "success": function(){
-                    // redirect
-                    // var urls = window.location.search.split("url=");
-                    // if(urls.length < 2){
-                    //     window.location.href = "/mystory";
-                    // }else{
-                    //     window.location.href = urls[1];
-                    // }
                     console.log("success!")
                     window.location.reload();
 
                 },
             })
         }else{
+            console.log(123);
             alert('请输入手机号和密码!');
         }
     });

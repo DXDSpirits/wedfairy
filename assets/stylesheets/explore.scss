@@ -8,7 +8,7 @@ body {
 }
 
 //new media query
-@media (min-width: 1800px) {
+@media (min-width: $giant-screen-width) {
     .container {
         width: 1570px;
     }
@@ -23,7 +23,7 @@ body {
     }
 }
 
-@media screen and (min-width: 1200px) and (max-width: 1799px) {
+@media screen and (min-width: 1200px) and (max-width: $giant-screen-width-1) {
     .container {
         width: 1170px;
     }

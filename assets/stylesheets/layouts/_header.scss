@@ -15,7 +15,9 @@ $modal-bg: #1e2531;
         border-radius: 2px;
         font-size: 30px;
     }
-    .anonymous {}
+    .anonymous {
+        margin-top: 5px;
+    }
     .btn-login, .btn-register {
         width: 100px;
     }
@@ -35,15 +37,24 @@ $modal-bg: #1e2531;
         position: relative;
         margin-top: 5px;
         height: 100%;
-        .dropdown-menu {
-            top: 120%;
-            right: -30px;
-            min-width: 116px;
-            a {
-                margin: 0;
-                padding: 3px 5px;
+        a {
+            color: white;
+            &:hover, &:active, &:focus {
+                color: $brand-primary;
             }
         }
+        .logout-btn {
+            margin-right: -12px;
+        }
+        // .dropdown-menu {
+        //     top: 120%;
+        //     right: -30px;
+        //     min-width: 116px;
+        //     a {
+        //         margin: 0;
+        //         padding: 3px 5px;
+        //     }
+        // }
     }
     .avatar {
         color: white;

@@ -4,7 +4,7 @@
 
 
 //new media query
-@media screen and (min-width: 1800px) {
+@media screen and (min-width: $giant-screen-width) {
     .container {
         width: 1570px;
     }
@@ -31,7 +31,7 @@
     }
 }
 
-@media screen and (min-width: 1200px) and (max-width: 1799px) {
+@media screen and (min-width: 1200px) and (max-width: $giant-screen-width-1) {
     .container {
         width: 1170px;
     }
@@ -94,10 +94,10 @@
     }
 }
 
-.iconfont {
-color: $brand-primary;
-font-size: 30px;
-}
+// .iconfont {
+// color: $brand-primary;
+// font-size: 30px;
+// }
 
 .filter-nav {
     background-color: #323a45;
@@ -385,7 +385,7 @@ font-size: 30px;
             }
         }
     }
-    @media screen and (min-width: 1800px) {
+    @media screen and (min-width: $giant-screen-width) {
         .five-stories {
             &:first-child {
                 width: 50%;
@@ -430,7 +430,7 @@ font-size: 30px;
             }
         }
     }
-    @media screen and (min-width: 1200px) and (max-width: 1799px){
+    @media screen and (min-width: 1200px) and (max-width: $giant-screen-width-1){
         .five-stories {
             &:first-child {
                 width: 50%;
