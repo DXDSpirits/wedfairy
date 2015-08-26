@@ -58,10 +58,6 @@ body > header {
                 // margin-left: 12px;
                 @extend .pointer;
                 box-shadow: 0 0px 1px rgba(0, 0, 0, 0.2);
-
-                .iconfont::before {
-                    @include hoverable($label-color);
-                }
             }
             .selected-scene {
                 width: 102.5px;
@@ -110,8 +106,6 @@ body > header {
                     padding: 6px 10px;
                     padding-top: 7px;
                     width: inherit;
-                    color: $light-text-color;
-                    @include hoverable-bg(white);
 
                     &.active {
                         background-color: darken(white, 10) !important;
