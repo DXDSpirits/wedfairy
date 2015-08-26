@@ -43,9 +43,6 @@ $modal-bg: #1e2531;
                 color: $brand-primary;
             }
         }
-        .logout-btn {
-            margin-right: -12px;
-        }
         // .dropdown-menu {
         //     top: 120%;
         //     right: -30px;
@@ -75,6 +72,7 @@ $modal-bg: #1e2531;
         .user-menu-item {
             cursor: pointer;
             color: #656666;
+            width: 100px;
             padding-left: 8px;
             padding-top: 15px;
             padding-bottom: 10px;
@@ -86,8 +84,6 @@ $modal-bg: #1e2531;
         }
     }
     .modal-dialog {
-        // margin-top: 100px;
-        // min-width: 300px;
         width: 440px;
         margin: 40px auto;
     }
@@ -105,7 +101,6 @@ $modal-bg: #1e2531;
             background-color: $modal-bg;
             border-top-left-radius: 4px;
             border-top-right-radius: 4px;
-            // height: 
             .logo-modal{
                 font-size: 55px;
                 color: #d2dadf;
@@ -185,8 +180,6 @@ $modal-bg: #1e2531;
         .forget-pw {
             display: inline-block;
             position: absolute;
-      /* padding-bottom: 10px; */
-      /* margin-top: -3em; */
             top: -50px;
             right: 40px;
             a {
@@ -209,7 +202,6 @@ $modal-bg: #1e2531;
         .register-footer-others {
             color: #989ca2;
             margin-top: 3em;
-            // margin-bottom: -2.5em;
         }
         .privacy-policy {
             color: $privacy-policy;

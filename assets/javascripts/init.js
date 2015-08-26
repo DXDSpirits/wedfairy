@@ -68,7 +68,7 @@
                 },
             })
         }else{
-            console.log(123);
+            // console.log(123);
             alert('请输入手机号和密码!');
         }
     });
@@ -78,11 +78,21 @@
         Backbone.trigger('login-user');
     })
 
-    $('#global-header .password-input').on('keydown', function(e){
+    $('#global-header .username-login-input').on('keydown', function(e){
         if (13 == e.keyCode) {  // 27 is the ESC key
             Backbone.trigger('login-user');
         }
     });
+
+    $('#global-header .password-login-input').on('keydown', function(e){
+        if (13 == e.keyCode) {  // 27 is the ESC key
+            Backbone.trigger('login-user');
+        }
+    });
+
+    // $(document).on('submit', '#global-header #loginModal form', function() {
+    //     Backbone.trigger('login-user');
+    // })
 
     // 注册
     Backbone.on('register-user', function(){
