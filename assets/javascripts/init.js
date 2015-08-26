@@ -1,14 +1,10 @@
 
 (function() {
 
-    var token = Amour.TokenAuth.get();
-    // var disp_alert = function() {
-    //     alert("1");
-    // };
-    
+    var token = Amour.TokenAuth.get();    
 
     $("#global-header .anonymous").toggleClass("hidden", token != null); 
-    $("#global-header .userinfo").toggleClass("hidden", token = null);
+    $("#global-header .userinfo").toggleClass("hidden", token == null);
 
     Amour.ajax.on('unauthorized', function() {
         $("#global-header .anonymous").removeClass("hidden");
@@ -59,8 +55,8 @@
 
     // 登录
     Backbone.on("login-user", function(){
-        var username = $('.username-login-input').val() || null;
-        var password = $('.password-login-input').val() || null;
+        var username = $('#global-header .username-login-input').val() || null;
+        var password = $('#global-header .password-login-input').val() || null;
         if (username && password) {
             user.login({ username : username, password : password },{
                 "error": function(){
