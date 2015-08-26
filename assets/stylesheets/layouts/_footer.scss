@@ -1,22 +1,95 @@
 
 $qrcode-size: 150px;
+$footer-bg-color: #323a45;
+$footer-title: #9ea6b2;
+$footer-text-color: #777f8b;
+$footer-logo-color: #7d858f;
+$copyright-color: #687280;
 
 #global-footer {
     padding-top: 80px;
     padding-bottom: 10px;
+    padding-left: 150px;
+    padding-right: 150px;
     z-index: 1;
     position: relative;
     color: $gray-lighter;
-    a { color: $gray-lighter; }
-    .bg {
-        @include position(absolute, 0 0 0 0);
-        z-index: -1;
-        &::after {
-            content: "";
-            @include position(absolute, 0 0 0 0);
-            background-color: rgba(#222, 0.9);
+    background-color: $footer-bg-color;
+    overflow: hidden;
+    .footer-logo-container {
+        display: inline-block;
+        min-height: 200px;
+        width: 30%;
+        padding-top: 45px;
+        a {
+            letter-spacing: 0;
         }
-        z-index: -1;
+        .iconfont {
+            font-size: 1.2em;
+            color: $footer-logo-color;
+            margin-left: -5px;
+            &:first-child {
+                margin-right: 8px;
+                padding: 4px;
+                border-radius: 2px;
+                color: $footer-bg-color;
+                font-size: 2em;
+                background-color: $footer-logo-color;
+            }
+
+        }
+    }
+    .footer-content-container {
+        display: inline-block;
+        width: 70%;
+    }
+    .icon-logo {
+        font-size: 30px;
+    }
+    li {
+        line-height: 2.5em;
+        text-align: center;
+        a { 
+            width: 100%;
+            text-align: left;
+        }
+    }
+    div, a {
+        letter-spacing: 2px;
+        color: $footer-text-color;
+    }
+    // a { color: $gray-lighter; }
+    // .bg {
+    //     @include position(absolute, 0 0 0 0);
+    //     z-index: -1;
+    //     &::after {
+    //         content: "";
+    //         @include position(absolute, 0 0 0 0);
+    //         background-color: rgba(#222, 0.9);
+    //     }
+    //     z-index: -1;
+    // }
+    .footer-item {
+        float: left;
+        display: inline-block;
+        height: 200px;
+        width: 20%;
+        margin: 20px auto;
+        &:last-child {
+            width: 24%;
+            float: right;
+        }
+        ul {
+            padding: 0;
+        }
+        ul>li {
+            list-style-type: none;
+            &:first-child {
+                margin: 12px auto;
+                color: $footer-title;
+                // line-height: 3em;
+            }
+        }
     }
     .ready-to-compose {
         font-size: 1.2em;
@@ -48,21 +121,22 @@ $qrcode-size: 150px;
         }
     }
     .social {
-        margin: 30px auto;
+        // margin: 30px auto;
         .social-icon {
             display: inline-block;
             color: $gray-lighter;
             //border: 1px solid $gray-lighter;
             border: 0;
             border-radius: 50%;
-            font-size: 30px;
-            width: 45px;
-            height: 45px;
+            font-size: 22px;
+            width: 25px;
+            height: 25px;
             //padding-top: (45px - 20px - 2px) / 2 - 1px;
             //padding-bottom: (45px - 20px - 2px) / 2 + 1px;
             margin: 5px;
             .fa {
-                line-height: 45px;
+                line-height: 35px;
+                color: $footer-text-color;
             }
         }
         .wechat:hover {
@@ -70,38 +144,41 @@ $qrcode-size: 150px;
             @include transform(scale(4, 4));
             @include transform-origin(100% 0);
             background: #fff image-url("weixin-qrcode.jpg") no-repeat center;
-            background-size: 43px 43px;
+            background-size: 27px 27px;
             border-color: transparent;
             border-radius: 0;
             .fa { visibility: hidden; }
         }
     }
-    .links {
-        display: inline-block;
-        padding-top: 1em;
-        border-top: 1px solid $gray-light;
-        margin-bottom: 80px;
-        font-size: 0.9em;
-        > a + a {
-            margin-left: 15em;
-            @media (max-width: $screen-md-max) {
-                margin-left: 10em;
-            }
-            @media (max-width: $screen-sm-max) {
-                margin-left: 7em;
-            }
-        }
-        @media (max-width: $screen-xs-max) {
-            font-size: 1em;
-            > a {
-                display: block;
-                margin: 1em 7em;
-            }
-        }
+    // .links {
+    //     display: inline-block;
+    //     padding-top: 1em;
+    //     border-top: 1px solid $gray-light;
+    //     margin-bottom: 80px;
+    //     font-size: 0.9em;
+    //     > a + a {
+    //         margin-left: 15em;
+    //         @media (max-width: $screen-md-max) {
+    //             margin-left: 10em;
+    //         }
+    //         @media (max-width: $screen-sm-max) {
+    //             margin-left: 7em;
+    //         }
+    //     }
+    //     @media (max-width: $screen-xs-max) {
+    //         font-size: 1em;
+    //         > a {
+    //             display: block;
+    //             margin: 1em 7em;
+    //         }
+    //     }
+    // }
+    .end {
+        padding-top: 10px;
     }
-    .copyright, .made-with-love {
+    .copyright {
         font-size: 0.8em;
-        color: $gray-light;
+        color: $copyright-color;
         letter-spacing: 0.05em;
     }
 }
