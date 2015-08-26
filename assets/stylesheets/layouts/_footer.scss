@@ -1,5 +1,8 @@
 
 $qrcode-size: 150px;
+$footer-bg-color: #323a45;
+$footer-text-color: #96a0b0;
+$copyright-color: #687280;
 
 #global-footer {
     padding-top: 80px;
@@ -7,16 +10,28 @@ $qrcode-size: 150px;
     z-index: 1;
     position: relative;
     color: $gray-lighter;
+    background-color: $footer-bg-color;
+    * {
+        color: $footer-text-color;
+    }
     a { color: $gray-lighter; }
-    .bg {
-        @include position(absolute, 0 0 0 0);
-        z-index: -1;
-        &::after {
-            content: "";
-            @include position(absolute, 0 0 0 0);
-            background-color: rgba(#222, 0.9);
+    // .bg {
+    //     @include position(absolute, 0 0 0 0);
+    //     z-index: -1;
+    //     &::after {
+    //         content: "";
+    //         @include position(absolute, 0 0 0 0);
+    //         background-color: rgba(#222, 0.9);
+    //     }
+    //     z-index: -1;
+    // }
+    .footer-item {
+        display: inline-block;
+        width: 19%;
+        &:last-child {width: 24%}
+        ul>li {
+            list-style-type:  none;
         }
-        z-index: -1;
     }
     .ready-to-compose {
         font-size: 1.2em;
@@ -101,7 +116,7 @@ $qrcode-size: 150px;
     }
     .copyright, .made-with-love {
         font-size: 0.8em;
-        color: $gray-light;
+        color: $copyright-color;
         letter-spacing: 0.05em;
     }
 }
