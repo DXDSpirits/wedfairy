@@ -92,7 +92,7 @@ $(function() {
     $(document).ready(function() {
         var $aStr = EXPLORE_FILTER_NAME;
         var dict = {
-            "featured"  : "推荐故事",
+            "staffpicks"  : "推荐故事",
             "hot"       : "热门故事",
             "wedding"   : "婚礼",
             "baby"      : "宝贝",
