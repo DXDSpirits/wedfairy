@@ -113,12 +113,10 @@
                     alert(response.responseJSON.username);
                 },
                 "success": function(){
-                    // redirect
                     user.login(auth, {
                         "success":function(){
                             window.location.reload();
                         }
-
                     })
                 },
             })
@@ -137,6 +135,20 @@
     $(document).on('click', '#global-header .switch-to-register', function() {
         $('#loginModal').modal('hide');
         $('#registerModal').modal('show');
+    });
+
+    //back to top
+    $(document).on('click', '#global-footer-float-group .icon-arrow-up', function(){
+        $('html, body').animate({scrollTop: 0}, 400);
+    });
+
+    $(window).on('scroll', function() {
+        var screenheight = document.documentElement.scrollTop||document.body.scrollTop;
+        if(screenheight>3000) {
+            $('#global-footer-float-group .back-to-top').removeClass('hidden');
+        }else {
+            $('#global-footer-float-group .back-to-top').addClass('hidden');
+        };
     });
 
 })();

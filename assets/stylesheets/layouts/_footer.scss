@@ -6,20 +6,77 @@ $footer-text-color: #777f8b;
 $footer-logo-color: #7d858f;
 $copyright-color: #687280;
 
+#global-footer-float-group {
+    width: 40px;
+    position: fixed;
+    // top: 90px;
+    bottom: 300px;
+    right: 50px;
+    z-index: 99;
+    
+    .footer-float-block, .footer-float-qrcode {
+        display: inline-block;
+        width: 100%;
+        height: 42px;
+        margin-bottom: 5px;
+        background-color: rgba(91,103,122,0.9);
+        padding: 6px;
+        cursor: pointer;
+        font-size: 13px;
+        line-height: 32px;
+        color: white;
+        text-align: center;
+        .fa {
+            font-size: 34px;
+            // width: 30px;
+            // height: 30px;
+        }
+        i {
+            font-size: 30px;
+            width: 30px;
+            height: 30px;
+        }
+        &:hover {
+            background-color: rgba(91,103,122, .6);
+        }
+    }
+    .footer-float-qrcode:hover {
+        @include transition(transform .1s ease-in-out);
+        @include transform(scale(4, 4));
+        @include transform-origin(100% 0);
+        padding: 0;
+        // z-index: 99;
+        background: #fff image-url("homepage/qrcode-composer.png") no-repeat center;
+        background-size: 35px 35px;
+        border: 1px solid $footer-bg-color;
+        border-radius: 0;
+        .fa { visibility: hidden; }
+    }
+}
 #global-footer {
-    padding-top: 80px;
+    padding-top: 40px;
     padding-bottom: 10px;
-    padding-left: 150px;
-    padding-right: 150px;
+    // width: 75%;
+    // min-width: 351px;
+    // max-width: 877.5px;
+    padding-left: 15%;
+    padding-right: 15%;
     z-index: 1;
     position: relative;
     color: $gray-lighter;
     background-color: $footer-bg-color;
     overflow: hidden;
+    margin: 0 auto;
+    // @media screen and (min-width: $giant-screen-width) {
+    //     width: 1570px;
+    // }
+    // @media screen and (min-width: 1200px) and (max-width: $giant-screen-width-1) {
+    //     width: 1170px;
+    // }
     .footer-logo-container {
         display: inline-block;
         min-height: 200px;
-        width: 30%;
+        width: 25%;
         padding-top: 45px;
         a {
             letter-spacing: 0;
@@ -41,7 +98,7 @@ $copyright-color: #687280;
     }
     .footer-content-container {
         display: inline-block;
-        width: 70%;
+        width: 75%;
     }
     .icon-logo {
         font-size: 30px;
@@ -76,7 +133,7 @@ $copyright-color: #687280;
         width: 20%;
         margin: 20px auto;
         &:last-child {
-            width: 24%;
+            width: 20%;
             float: right;
         }
         ul {
@@ -150,29 +207,7 @@ $copyright-color: #687280;
             .fa { visibility: hidden; }
         }
     }
-    // .links {
-    //     display: inline-block;
-    //     padding-top: 1em;
-    //     border-top: 1px solid $gray-light;
-    //     margin-bottom: 80px;
-    //     font-size: 0.9em;
-    //     > a + a {
-    //         margin-left: 15em;
-    //         @media (max-width: $screen-md-max) {
-    //             margin-left: 10em;
-    //         }
-    //         @media (max-width: $screen-sm-max) {
-    //             margin-left: 7em;
-    //         }
-    //     }
-    //     @media (max-width: $screen-xs-max) {
-    //         font-size: 1em;
-    //         > a {
-    //             display: block;
-    //             margin: 1em 7em;
-    //         }
-    //     }
-    // }
+
     .end {
         padding-top: 10px;
     }
@@ -181,4 +216,22 @@ $copyright-color: #687280;
         color: $copyright-color;
         letter-spacing: 0.05em;
     }
+
+    // .affix-top {
+    //     width: 40px;
+    //     top: 300px;
+    //     right: 100px;
+    // }
+    // .affix {
+    //     position: fixed;
+    //     width: 40px;
+    //     top: 300px;
+    //     right: 100px;
+    // }
+    // .affix-bottom {
+    //     position: absolute;
+    //     width: 40px;
+    //     bottom: 350px;
+    //     right: 100px;
+    // }
 }

@@ -103,8 +103,6 @@
     background-color: #323a45;
 }
 .filter-container {
-    // margin-top: 20px;
-    // margin-bottom: 10px;
     width: 100%;
     display: inline-block;
 
@@ -112,35 +110,35 @@
         border-radius: 1px;
         display: inline-block;
         cursor: pointer;
+        a {
+            color: #949eb3;
+            &:active {
+                color: #b9c0d3;
+            }
+            &:hover {
+                color: $brand-primary;
+            }
+        }
+        a:hover, a:visited, a:focus {
+            background-color:transparent;
+        }
         .btn-group {
             .btn {
-                padding: 8px 12px;
+                padding: 9px 12px;
                 background-color: transparent;
+                color: #949eb3;
             }
             .dropdown-menu {
                 min-width: 100px;
                 a {
-                    color: $gray;
+                    padding: 3px 12px;
+                    // color: #949eb3;
                 }
             }
         }
         li {
-            color: lighten(grey, 10);
             margin-right: 10px;
             display: inline-block;
-            text-decoration: none;
-            &:hover {
-                // border-bottom: 1px solid $brand-primary;
-                a {
-                    color: $brand-primary;
-                }
-            }
-            a {
-                color: white;
-            }
-            a:hover, a:visited, a:focus {
-            background-color:transparent;
-            }
         }
     }
 
@@ -193,9 +191,13 @@
         }
     }
     .carousel-control{
-        padding-top: 175px;
+        padding-top: 165px;
+        width: 7%;
+        &:hover {
+            opacity: .5;
+        }
         .iconfont{
-            font-size: 40px;
+            font-size: 30px;
             &::before{
                 color: white;
             }

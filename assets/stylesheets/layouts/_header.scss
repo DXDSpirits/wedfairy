@@ -1,4 +1,5 @@
-
+//colors
+$header-nav-color: #b9c0d3;
 $modal-control-label: #989ca2;
 $modal-input: #323a45;
 $privacy-policy: #7f868f;
@@ -7,6 +8,10 @@ $modal-bg: #1e2531;
 #global-header {
     padding: 20px 30px;
     background-color: #323a45;
+    z-index: 9;
+    a {
+        font-size: .9em;
+    }
     .logo-header {
         color: #fff;
         background-color: $brand-primary;
@@ -15,7 +20,7 @@ $modal-bg: #1e2531;
         border-radius: 2px;
         font-size: 30px;
     }
-    .header-nav, .anonymous {
+    .header-nav, .anonymous, .userinfo {
         margin-top: 5px;
         display: inline-block;
         a {
@@ -24,17 +29,27 @@ $modal-bg: #1e2531;
                 color: $brand-primary;
             }
         }
+        .btn-register-logout {
+            color: $header-nav-color;
+            background-color: transparent;
+            border-color: $header-nav-color;
+            &:hover {
+                color: white;
+                background-color: $brand-primary;
+                border-color: transparent;
+            }
+        }
     }
     .btn-login {
-        color: #eee;
+        color: $header-nav-color;
         &:hover, &:active, &:focus {
             color: $brand-primary;
         }
     }
-    .btn-white {
+    .btn-nav {
         background-color: transparent;
         outline: none;
-        color: white;
+        color: $header-nav-color;
         padding: 0;
     }
     .userinfo {
@@ -43,7 +58,7 @@ $modal-bg: #1e2531;
         margin-top: 5px;
         height: 100%;
         a {
-            color: white;
+            color: $header-nav-color;
             &:hover, &:active, &:focus {
                 color: $brand-primary;
             }
