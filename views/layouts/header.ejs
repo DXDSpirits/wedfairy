@@ -1,56 +1,65 @@
 
-<div id="global-header" class="clearfix">
-    <div class="logo pull-left">
+<div id="global-header">
+    <div class="navbar navbar-default clearfix">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <!-- <div class=""> -->
         <a class="iconfont icon-logo logo-header" href="/"></a>
-    </div>
-    <div class="hidden-xs pull-right">
-        <div class="header-nav">
-            <a class="btn btn-link btn-nav" href="/about">关于我们</a>
-            <a class="btn btn-link btn-nav" href="/explore">社区首页</a>
-            <a class="btn btn-link btn-nav" href="/about/guide">产品帮助</a>
-        </div>
-        <div class="anonymous hidden">
-            <a class="btn btn-link btn-login" data-toggle="modal" data-target="#loginModal">登录</a>
-            <a class="btn btn-outline-inverse btn-register-logout" data-toggle="modal" data-target="#registerModal">免费注册</a>
-        </div>
-        <div class="userinfo hidden">
-            <a class="btn btn-link user-menu-item" href="http://site.wedfairy.com">我的账户</a>
-            <a class="btn user-menu-item logout-btn btn-outline-inverse btn-register-logout">登出</a>
-            <!-- <div class="avatar pull-left">
-                <i class="iconfont icon-user iconfont-2x"></i> -->
-                <!-- <i class="iconfont icon-angle-down"></i> -->
-            <!-- </div> -->
-            <!-- <div class="btn-group pull-right">
-                <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="http://site.wedfairy.com">
-                        <div class="user-menu-item show-username"></div></a></li>
-                    <li><a href="http://site.wedfairy.com/change-password">
-                        <div class="user-menu-item change-password-btn" data-href="http://site.wedfairy.com/change-password">
-                            <i class="fa fa-lock"></i> 修改密码
-                        </div>
-                    </a></li>
-                    <li><a>
-                        <div class="user-menu-item logout-btn">
-                            <i class="fa fa-sign-out"></i> 登出
-                        </div></a>
-                    </li>
-                </ul>
-            </div> -->
+        <!-- </div> -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="header-nav nav navbar-nav">
+                
+                <li><a class="btn btn-link btn-nav" href="/explore">社区首页</a></li>
+                <li><a class="btn btn-link btn-nav" href="/about/guide">产品帮助</a></li>
+                <li><a class="btn btn-link btn-nav" href="/about">关于我们</a></li>
+            </ul>
+            <ul class="anonymous nav navbar-nav navbar-right hidden">
+                <li><a class="btn btn-link btn-login li-login" data-toggle="modal" data-target="#loginModal">登录</a></li>
+                <li><a class="btn btn-outline-inverse btn-register-logout" data-toggle="modal" data-target="#registerModal">免费注册</a></li>
+            </ul>
+            <ul class="userinfo nav navbar-nav navbar-right hidden">
+                <li><a class="btn btn-link user-menu-item li-login" href="http://site.wedfairy.com">我的账户</a></li>
+                <li><a class="btn user-menu-item logout-btn btn-outline-inverse btn-register-logout">登出</a></li>
+                <!-- <div class="avatar pull-left">
+                    <i class="iconfont icon-user iconfont-2x"></i> -->
+                    <!-- <i class="iconfont icon-angle-down"></i> -->
+                <!-- </div> -->
+                <!-- <div class="btn-group pull-right">
+                    <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="http://site.wedfairy.com">
+                            <div class="user-menu-item show-username"></div></a></li>
+                        <li><a href="http://site.wedfairy.com/change-password">
+                            <div class="user-menu-item change-password-btn" data-href="http://site.wedfairy.com/change-password">
+                                <i class="fa fa-lock"></i> 修改密码
+                            </div>
+                        </a></li>
+                        <li><a>
+                            <div class="user-menu-item logout-btn">
+                                <i class="fa fa-sign-out"></i> 登出
+                            </div></a>
+                        </li>
+                    </ul>
+                </div> -->
 
-<!--             <div class="user-menu hidden">
-                <div class="user-menu-item show-username"> 
+    <!--             <div class="user-menu hidden">
+                    <div class="user-menu-item show-username"> 
+                    </div>
+                    <div class="user-menu-item change-password-btn" data-href="http://site.wedfairy.com/change-password">
+                        <i class="fa fa-lock"></i> 修改密码
+                    </div>
+                    <div class="user-menu-item logout-btn">
+                        <i class="fa fa-sign-out"></i> 登出
+                    </div>
                 </div>
-                <div class="user-menu-item change-password-btn" data-href="http://site.wedfairy.com/change-password">
-                    <i class="fa fa-lock"></i> 修改密码
-                </div>
-                <div class="user-menu-item logout-btn">
-                    <i class="fa fa-sign-out"></i> 登出
-                </div>
-            </div>
- -->        </div>
+     -->        </ul>
+        </div>
     </div>
     <!-- 登录模态框（LoginModal） -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" 

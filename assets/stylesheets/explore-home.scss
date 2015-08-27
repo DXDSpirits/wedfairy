@@ -77,6 +77,27 @@
     }
 }
 
+@media (max-width: 375px) {
+    .filter-container, .filter, .nav-pills {
+        width: 100%;
+    }
+    .filter-nav .nav-pills>li {
+        width: 20%;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        // margin: 0;
+        a {
+            padding: 9px 0;
+            margin: 0;
+            // padding: 9px 7px;
+            // padding-left: 15px;
+        }
+        .btn {
+            border: 0;
+        }
+    }
+}
 .btn {
     border-radius: 4px;
 }
@@ -137,7 +158,7 @@
             }
         }
         li {
-            margin-right: 10px;
+            // margin-right: 10px;
             display: inline-block;
         }
     }

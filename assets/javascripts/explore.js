@@ -3,7 +3,7 @@ $(function() {
     // if(Amour.isMobile) {
     if(window.screen.width <= 400) {
         // document.location.href="http://www.wedfairy.com/ranking";
-        document.location.href="/ranking";
+        // document.location.href="/ranking";
     };
     var StoryGalleryView = Amour.CollectionView.extend({
         ModelView: Amour.ModelView.extend({

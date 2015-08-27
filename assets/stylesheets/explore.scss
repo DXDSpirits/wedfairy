@@ -29,6 +29,30 @@ body {
     }
 }
 
+@media (max-width: 375px) {
+    .filter-container, .filter, .nav-pills {
+        // padding: 0;
+        // margin: 0;
+        width: 100%;
+    }
+    .filter-nav .nav-pills>li {
+        width: 20%;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        // margin: 0;
+        a {
+            padding: 9px 0;
+            margin: 0;
+            // padding: 9px 7px;
+            // padding-left: 15px;
+        }
+        .btn {
+            border: 0;
+        }
+    }
+}
+
 .loading{
     margin-bottom: 30px;
     .icon-loading{

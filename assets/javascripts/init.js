@@ -151,4 +151,10 @@
         };
     });
 
+    $(document).on('click', "#global-header .btn-login", function() {
+        if (Amour.isMobile) {
+            document.location.href = "http://compose.wedfairy.com/accounts/?url=" + encodeURIComponent(location.href);
+        }
+    });
+
 })();

@@ -28,41 +28,58 @@ pre {
 .body {
     font-size: 16px;
 }
-.navbar {
-    text-align: center;
-    margin-bottom: 0;
-    height: 32px;
-    line-height: 100%;
-    .nav-wrapper {
-        @extend .container;
-        margin: 0 auto;
-    }
-    .nav-item {
-        color: $text-color;
-        &.active, &:hover {
-            color: lighten($brand-primary, 10);
+#about {
+        .navbar {
+        text-align: center;
+        margin-bottom: 0;
+        height: 32px;
+        line-height: 100%;
+        .nav-wrapper {
+            @extend .container;
+            margin: 0 auto;
         }
-        height: inherit;
-        padding: 6px 10px;
-        display: inline-block;
+        .nav-item {
+            color: $text-color;
+            &.active, &:hover {
+                color: lighten($brand-primary, 10);
+            }
+            height: inherit;
+            padding: 6px 10px;
+            display: inline-block;
+        }
     }
+
+.about-header {
+    // .nav-container {
+    //         margin: 0;
+    //         width: 100%;
+    //         text-align: center;
+    //         ul {
+    //             padding-left: 0;
+    //         }
+    //         li {
+    //             text-align: center;
+    //             width: 30%;
+    //             margin-left: 0;
+    //         }
+    //     }
 }
 
+    &, .container,.navbar .nav-wrapper {
+        max-width: 750px;
+        margin: 30px auto 100px;
+    }
+    section {
+        padding-top: 30px;
+        padding-bottom: 80px;
+        border-top: 1px solid #eee;
+    }
 
-.container,.body,.navbar .nav-wrapper {
-    max-width: 750px;
-    margin: 30px auto 100px;
-}
-section {
-    padding-top: 30px;
-    padding-bottom: 80px;
-    border-top: 1px solid #eee;
-}
-
-h2 {
-    margin: 50px auto 20px;
-    text-align: center;
-}
-h3 {
-    text-align: center;
+    h2 {
+        margin: 50px auto 20px;
+        text-align: center;
+    }
+    h3 {
+        text-align: center;
+    }
 }
