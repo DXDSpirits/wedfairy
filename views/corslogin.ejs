@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>八音盒</title>
+    <script>
+        var match = window.location.search.match(/[\?\&]url=(.+)(&|$)/);
+        match && localStorage.setItem('redirect-on-login', decodeURIComponent(match[1]));
+        localStorage.setItem('auth-token', '<%= token %>');
+        var url = localStorage.getItem('redirect-on-login') || '/';
+        localStorage.removeItem('redirect-on-login');
+        location.href = url;
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -8,8 +8,15 @@ router.get('/', function(req, res) {
     res.render('homepage');
 });
 
+router.get('/corslogin/:token', function(req, res, next) {
+    var token = req.params.token;
+    res.render('corslogin', {
+        token: token
+    });
+});
+
 router.get('/newhome', function(req, res) {
-    res.render('homepage');
+    res.redirect('/');
 });
 
 router.get('/wedding', function(req, res) {

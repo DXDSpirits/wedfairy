@@ -3,22 +3,22 @@
     
     var user = new Amour.Models.User();
 
-    var registerModal = new (Amour.View.extend({
+    var loginModal = new (Amour.View.extend({
         events: {
             'click .login-btn': 'login',
+            'click .btn-wechat-login': 'wechatLogin',
             'click .switch-to-register': 'switchToRegister',
-            'keydown #loginModal input': 'keydownLogin',
+            'keydown input': 'keydownLogin'
         },
         login: function() {
             var username = this.$('input[name=username]').val() || null;
             var password = this.$('input[name=password]').val() || null;
             if (username && password) {
-                user.login({ username : username, password : password },{
+                user.login({ username : username, password : password }, {
                     error: function(){
                         alert('手机号或者密码错误，请重新输入');
                     },
                     success: function(){
-                        console.log("success!")
                         window.location.reload();
                     }
                 })
@@ -27,19 +27,22 @@
             }
         },
         keydownLogin: function(e) {
-            if (13 == e.keyCode) {
-                this.login();
-            }
+            if (13 == e.keyCode) this.login();
+        },
+        wechatLogin: function() {
+            localStorage.setItem('redirect-on-login', decodeURIComponent(location.href));
+            var url = 'https://open.weixin.qq.com/connect/qrconnect?appid=wxe2e28297d62b0270&redirect_uri=http://api.wedfairy.com/api/users/wechat-auth/&response_type=code&scope=snsapi_login&state=web%7C#wechat_redirect';
+            location.href = url;
         },
         switchToRegister: function() {
             $('#loginModal').modal('hide');
             $('#registerModal').modal('show');
-        },
+        }
     }))({
         el: $('#loginModal')
     });
 
-    var loginModal = new (Amour.View.extend({
+    var registerModal = new (Amour.View.extend({
         events: {
             'click .register-btn': 'register',
             'click .switch-to-login': 'switchToLogin'
@@ -53,10 +56,10 @@
             } else if (username && password) {
                 var auth = { username : username, password : password };
                 user.register(auth,{
-                    "error": function(model, response, options){
+                    error: function(model, response, options){
                         alert(response.responseJSON.username);
                     },
-                    "success": function(){
+                    success: function(){
                         user.login(auth, {
                             "success":function(){
                                 window.location.reload();
@@ -123,10 +126,10 @@
         globalHeader.toggleUserinfo();
     });
 
-
-    //back to top
     $(document).on('click', '#global-footer-float-group .icon-arrow-up', function(){
-        $('html, body').animate({scrollTop: 0}, 400);
+        $('html,body').animate({
+            scrollTop: 0
+        }, 400);
     });
 
     var toggleBackToTop = _.throttle(function() {
