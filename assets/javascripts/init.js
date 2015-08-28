@@ -111,7 +111,11 @@
         },
         gotoAccounts: function() {
             var token = Amour.TokenAuth.get();
-            location.href = 'http://site.wedfairy.com/corslogin/' + token;
+            if (Amour.isMobile) {
+                location.href = 'http://compose.wedfairy.com/corslogin/' + token;
+            } else {
+                location.href = 'http://site.wedfairy.com/corslogin/' + token;
+            }
         },
         fetchUserinfo: function() {
             if (!Amour.TokenAuth.get()) return;
