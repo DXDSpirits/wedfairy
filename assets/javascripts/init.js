@@ -30,7 +30,7 @@
             if (13 == e.keyCode) this.login();
         },
         wechatLogin: function() {
-            localStorage.setItem('redirect-on-login', decodeURIComponent(location.href));
+            localStorage.setItem('redirect-on-login', location.href);
             var url = 'https://open.weixin.qq.com/connect/qrconnect?appid=wxe2e28297d62b0270&redirect_uri=http://api.wedfairy.com/api/users/wechat-auth/&response_type=code&scope=snsapi_login&state=web%7C#wechat_redirect';
             location.href = url;
         },
@@ -82,32 +82,27 @@
     var globalHeader = new (Amour.View.extend({
         events: {
             'click .btn-logout': 'logout',
-            'click .btn-login': 'login',
-            'click .btn-register': 'register',
+            'click .btn-login': 'gotoLogin',
+            'click .btn-register': 'gotoRegister',
             'click .btn-accounts': 'gotoAccounts'
         },
         logout: function() {
             Amour.TokenAuth.clear();
             window.location.reload();
         },
-        login: function() {
+        gotoLogin: function() {
             if (Amour.isMobile) {
                 location.href = 'http://compose.wedfairy.com/accounts/?url=' + encodeURIComponent(location.href) + '#login';
             } else {
                 $('#loginModal').modal('show');
             }
         },
-        register: function() {
+        gotoRegister: function() {
             if (Amour.isMobile) {
                 location.href = 'http://compose.wedfairy.com/accounts/?url=' + encodeURIComponent(location.href) + '#register';
             } else {
                 $('#registerModal').modal('show');
             }
-        },
-        toggleUserinfo: function() {
-            var token = Amour.TokenAuth.get();
-            this.$(".anonymous").toggleClass("hidden", token != null);
-            this.$(".userinfo").toggleClass("hidden", token == null);
         },
         gotoAccounts: function() {
             var token = Amour.TokenAuth.get();
@@ -116,6 +111,11 @@
             } else {
                 location.href = 'http://site.wedfairy.com/corslogin/' + token;
             }
+        },
+        toggleUserinfo: function() {
+            var token = Amour.TokenAuth.get();
+            this.$(".anonymous").toggleClass("hidden", token != null);
+            this.$(".userinfo").toggleClass("hidden", token == null);
         },
         fetchUserinfo: function() {
             if (!Amour.TokenAuth.get()) return;
