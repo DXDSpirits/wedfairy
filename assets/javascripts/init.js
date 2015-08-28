@@ -151,13 +151,15 @@
         };
     });
 
-    $(document).on('click', "#global-header .btn-login", function() {
+    $(document).on('click', "#global-header .btn-login", function(e) {
         if (Amour.isMobile) {
+            e.stopPropagation && e.stopPropagation();
             document.location.href = "http://compose.wedfairy.com/accounts/?url=" + encodeURIComponent(location.href);
         }
     });
-    $(document).on('click', "#global-header .btn-register", function() {
+    $(document).on('click', "#global-header .btn-register", function(e) {
         if (Amour.isMobile) {
+            e.stopPropagation && e.stopPropagation();
             document.location.href = "http://compose.wedfairy.com/accounts/?url=" + encodeURIComponent(location.href) + "#register";
         }
     });
