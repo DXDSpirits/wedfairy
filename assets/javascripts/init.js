@@ -1,143 +1,128 @@
 
 (function() {
-
-    var token = Amour.TokenAuth.get();    
-
-    $("#global-header .anonymous").toggleClass("hidden", token != null); 
-    $("#global-header .userinfo").toggleClass("hidden", token == null);
-
-    Amour.ajax.on('unauthorized', function() {
-        $("#global-header .anonymous").removeClass("hidden");
-        $("#global-header .userinfo").addClass("hidden");
-    });
-
+    
     var user = new Amour.Models.User();
 
-    if(token!=null) {
-        user.fetch({
-            success: function() {
-                var username = user.get('username');
-                var usericon = '<i class="fa fa-user"></i>';
-                $("#global-header .show-username").html(usericon + " " + username);
+    var registerModal = new (Amour.View.extend({
+        events: {
+            'click .login-btn': 'login',
+            'click .switch-to-register': 'switchToRegister',
+            'keydown #loginModal input': 'keydownLogin',
+        },
+        login: function() {
+            var username = this.$('input[name=username]').val() || null;
+            var password = this.$('input[name=password]').val() || null;
+            if (username && password) {
+                user.login({ username : username, password : password },{
+                    error: function(){
+                        alert('手机号或者密码错误，请重新输入');
+                    },
+                    success: function(){
+                        console.log("success!")
+                        window.location.reload();
+                    }
+                })
+            } else {
+                alert('请输入手机号和密码!');
             }
-        });
-    };
-
-    $('#global-header .avatar').on('click', function() {
-        var self = this;
-        $('#global-header .user-menu').toggleClass('hidden');
+        },
+        keydownLogin: function(e) {
+            if (13 == e.keyCode) {
+                this.login();
+            }
+        },
+        switchToRegister: function() {
+            $('#loginModal').modal('hide');
+            $('#registerModal').modal('show');
+        },
+    }))({
+        el: $('#loginModal')
     });
 
-
-    $('#global-header .logout-btn').on('click', function() {
-        Amour.TokenAuth.clear();
-        window.location.reload();
-    });
-
-    $('#global-header [data-href]').on('click', function() {
-        var href = $(this).attr('data-href');
-        window.location.href = href;
-    });
-
-    (function() {
-        var message = localStorage.getItem('notify-message');
-        var $loginAlert = $('.login-alert')
-        if (message) {
-            showMessage(message);
-            localStorage.removeItem('notify-message');
+    var loginModal = new (Amour.View.extend({
+        events: {
+            'click .register-btn': 'register',
+            'click .switch-to-login': 'switchToLogin'
+        },
+        register: function() {
+            var username = this.$('input[name=username]').val() || null;
+            var password = this.$('input[name=password]').val() || null;
+            var surePassword = this.$('input[name=password2]').val() || null;
+            if (password !== surePassword) {
+                alert("两次密码不一致");
+            } else if (username && password) {
+                var auth = { username : username, password : password };
+                user.register(auth,{
+                    "error": function(model, response, options){
+                        alert(response.responseJSON.username);
+                    },
+                    "success": function(){
+                        user.login(auth, {
+                            "success":function(){
+                                window.location.reload();
+                            }
+                        })
+                    },
+                })
+            } else {
+                alert('请输入手机号和密码!');
+            }
+        },
+        switchToLogin: function() {
+            $('#registerModal').modal('hide');
+            $('#loginModal').modal('show');
         }
+    }))({
+        el: $('#registerModal')
+    });
 
-        function showMessage(_message) {
-            // console.log(_message);
-            $loginAlert.find('.alert-text').html(_message);
-            $loginAlert.show();
+    var globalHeader = new (Amour.View.extend({
+        events: {
+            'click .btn-logout': 'logout',
+            'click .btn-login': 'login',
+            'click .btn-register': 'register'
+        },
+        logout: function() {
+            Amour.TokenAuth.clear();
+            window.location.reload();
+        },
+        login: function() {
+            if (Amour.isMobile) {
+                location.href = 'http://compose.wedfairy.com/accounts/?url=' + encodeURIComponent(location.href) + '#login';
+            } else {
+                $('#loginModal').modal('show');
+            }
+        },
+        register: function() {
+            if (Amour.isMobile) {
+                location.href = 'http://compose.wedfairy.com/accounts/?url=' + encodeURIComponent(location.href) + '#register';
+            } else {
+                $('#registerModal').modal('show');
+            }
+        },
+        toggleUserinfo: function() {
+            var token = Amour.TokenAuth.get();
+            this.$(".anonymous").toggleClass("hidden", token != null);
+            this.$(".userinfo").toggleClass("hidden", token == null);
+        },
+        fetchUserinfo: function() {
+            if (!Amour.TokenAuth.get()) return;
+            user.fetch();
+        },
+        render: function() {
+            this.toggleUserinfo();
+            this.fetchUserinfo();
         }
-    })()
-
-    // 登录
-    Backbone.on("login-user", function(){
-        var username = $('#global-header .username-login-input').val() || null;
-        var password = $('#global-header .password-login-input').val() || null;
-        if (username && password) {
-            user.login({ username : username, password : password },{
-                "error": function(){
-                    alert('手机号或者密码错误，请重新输入');
-                },
-                "success": function(){
-                    console.log("success!")
-                    window.location.reload();
-
-                },
-            })
-        }else{
-            // console.log(123);
-            alert('请输入手机号和密码!');
-        }
+    }))({
+        el: $('#global-header')
     });
 
+    globalHeader.render();
 
-    $(document).on('click', '#global-header .login-btn', function(){
-        Backbone.trigger('login-user');
-    })
-
-    $('#global-header .username-login-input').on('keydown', function(e){
-        if (13 == e.keyCode) {  // 27 is the ESC key
-            Backbone.trigger('login-user');
-        }
+    Amour.ajax.on('unauthorized', function() {
+        globalHeader.toggleUserinfo();
     });
 
-    $('#global-header .password-login-input').on('keydown', function(e){
-        if (13 == e.keyCode) {  // 27 is the ESC key
-            Backbone.trigger('login-user');
-        }
-    });
-
-    // $(document).on('submit', '#global-header #loginModal form', function() {
-    //     Backbone.trigger('login-user');
-    // })
-
-    // 注册
-    Backbone.on('register-user', function(){
-        var username = $('#global-header .username-register-input').val() || null;
-        var password = $('#global-header .password-register-input').val() || null;
-        var surePassword = $('#global-header .password-register-input2').val() || null;
-
-
-        if(password !== surePassword){
-            alert("两次密码不一致");
-            return ;
-        }
-
-        if (username && password) {
-            var auth = { username : username, password : password };
-            user.register(auth,{
-                "error": function(model, response, options){
-                    alert(response.responseJSON.username);
-                },
-                "success": function(){
-                    user.login(auth, {
-                        "success":function(){
-                            window.location.reload();
-                        }
-                    })
-                },
-            })
-        }else{
-            alert('请输入手机号和密码!');
-        }
-    });
-    $(document).on('click', '#global-header .register-btn', function(){
-        Backbone.trigger('register-user');
-    });
-
-    $(document).on('click', '#global-header .switch-to-login', function() {
-        $('#registerModal').modal('hide');
-        $('#loginModal').modal('show');
-    });
-    $(document).on('click', '#global-header .switch-to-register', function() {
-        $('#loginModal').modal('hide');
-        $('#registerModal').modal('show');
-    });
 
     //back to top
     $(document).on('click', '#global-footer-float-group .icon-arrow-up', function(){
@@ -154,19 +139,5 @@
     }, 500);
 
     // $(window).on('scroll', toggleBackToTop);
-
-    $(document).on('click', "#global-header .btn-login", function(e) {
-        if (Amour.isMobile) {
-            e.stopPropagation && e.stopPropagation();
-            document.location.href = "http://compose.wedfairy.com/accounts/?url=" + encodeURIComponent(location.href);
-        }
-    });
-    $(document).on('click', "#global-header .btn-register", function(e) {
-        if (Amour.isMobile) {
-            e.stopPropagation && e.stopPropagation();
-            document.location.href = "http://compose.wedfairy.com/accounts/?url=" + encodeURIComponent(location.href) + "#register";
-        }
-    });
-
 
 })();
