@@ -83,7 +83,8 @@
         events: {
             'click .btn-logout': 'logout',
             'click .btn-login': 'login',
-            'click .btn-register': 'register'
+            'click .btn-register': 'register',
+            'click .btn-accounts': 'gotoAccounts'
         },
         logout: function() {
             Amour.TokenAuth.clear();
@@ -107,6 +108,10 @@
             var token = Amour.TokenAuth.get();
             this.$(".anonymous").toggleClass("hidden", token != null);
             this.$(".userinfo").toggleClass("hidden", token == null);
+        },
+        gotoAccounts: function() {
+            var token = Amour.TokenAuth.get();
+            location.href = 'http://site.wedfairy.com/corslogin/' + token;
         },
         fetchUserinfo: function() {
             if (!Amour.TokenAuth.get()) return;
