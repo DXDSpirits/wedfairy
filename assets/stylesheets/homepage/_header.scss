@@ -48,8 +48,12 @@
     nav {
         padding-top: 30px;
         a {
+            color: $footer-text-color;
             display: inline-block;
             margin: 0 2em;
+            &:hover {
+                color: $brand-primary;
+            }
         }
     }
 }

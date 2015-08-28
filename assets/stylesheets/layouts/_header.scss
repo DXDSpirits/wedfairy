@@ -253,6 +253,7 @@ $modal-bg: #1e2531;
             position: relative;
             border-top: 0;
             padding: 10px 40px 30px;
+            // margin-bottom: 
 
             .btn {
                 width: 100%;
@@ -263,17 +264,33 @@ $modal-bg: #1e2531;
                     letter-spacing:2px
                 }
             }
-            .wechat a:hover, .privacy-policy a {
+            .privacy-policy a {
                 text-decoration: underline;
             }
             .switch-to-register,  .switch-to-login{
                 background-color: transparent;
                 border: 0;
                 padding: 0;
+                span {
+                    color: $brand-primary;
+                }
             }
             span {
-                color: $brand-primary;
+                color: #5b677a;
                 letter-spacing: 1px;
+            }
+            .wechat {
+                padding-top: 20px;
+                .fa-wechat {
+                    font-size: 30px;
+                }
+                i, p {
+                    color: #5b677a;
+                    display: block;
+                }
+                span {
+
+                }
             }
         }
         .forget-pw {
@@ -292,7 +309,7 @@ $modal-bg: #1e2531;
             font-size: 13px;
             color: $modal-control-label;
             overflow: hidden;
-            margin-top: 3.5em;
+            margin-top: 20px;
             margin-bottom: -4.4em;
             a {
                 color: $modal-control-label;
@@ -300,7 +317,7 @@ $modal-bg: #1e2531;
         }
         .register-footer-others {
             color: #989ca2;
-            margin-top: 3em;
+            // margin-top: 3em;
         }
         .privacy-policy {
             color: $privacy-policy;

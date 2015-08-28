@@ -67,7 +67,7 @@
     }
     .text-hover {
         @include position(absolute, 3px 3px 3px 3px);
-        background-color: rgba(223, 71, 71, 0.8);
+        background-color: rgba(50, 58, 69, 0.8);
         opacity: 0;
         @include transition(opacity .2s ease-in-out);
         &::after {

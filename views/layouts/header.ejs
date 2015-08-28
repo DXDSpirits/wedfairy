@@ -24,41 +24,7 @@
             <ul class="userinfo nav navbar-nav navbar-right hidden">
                 <li><a class="btn btn-link user-menu-item li-login" href="http://site.wedfairy.com">我的账户</a></li>
                 <li><a class="btn user-menu-item logout-btn btn-outline-inverse btn-register-logout">登出</a></li>
-                <!-- <div class="avatar pull-left">
-                    <i class="iconfont icon-user iconfont-2x"></i> -->
-                    <!-- <i class="iconfont icon-angle-down"></i> -->
-                <!-- </div> -->
-                <!-- <div class="btn-group pull-right">
-                    <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="http://site.wedfairy.com">
-                            <div class="user-menu-item show-username"></div></a></li>
-                        <li><a href="http://site.wedfairy.com/change-password">
-                            <div class="user-menu-item change-password-btn" data-href="http://site.wedfairy.com/change-password">
-                                <i class="fa fa-lock"></i> 修改密码
-                            </div>
-                        </a></li>
-                        <li><a>
-                            <div class="user-menu-item logout-btn">
-                                <i class="fa fa-sign-out"></i> 登出
-                            </div></a>
-                        </li>
-                    </ul>
-                </div> -->
-
-    <!--             <div class="user-menu hidden">
-                    <div class="user-menu-item show-username"> 
-                    </div>
-                    <div class="user-menu-item change-password-btn" data-href="http://site.wedfairy.com/change-password">
-                        <i class="fa fa-lock"></i> 修改密码
-                    </div>
-                    <div class="user-menu-item logout-btn">
-                        <i class="fa fa-sign-out"></i> 登出
-                    </div>
-                </div>
-     -->        </ul>
+            </ul>
         </div>
     </div>
     <!-- 登录模态框（LoginModal） -->
@@ -93,9 +59,11 @@
                     <button class="btn btn-primary login-btn">
                        <h4>登录</h4>
                     </button>
+                    <div class="wechat text-center hidden">
+                        <a href="https://open.weixin.qq.com/connect/qrconnect?appid=wxe2e28297d62b0270&redirect_uri=http://api.wedfairy.com/api/users/wechat-auth/&response_type=code&scope=snsapi_login&state=web%7C#wechat_redirect"><i class="fa fa-wechat"></i>
+                            <span>微信快捷登录</span></a></div>
                     <div class="login-footer-others">
-                        <div class="wechat pull-left hidden"><a href="https://open.weixin.qq.com/connect/qrconnect?appid=wxe2e28297d62b0270&redirect_uri=http://api.wedfairy.com/api/users/wechat-auth/&response_type=code&scope=snsapi_login&state=web%7C#wechat_redirect"><i class="fa fa-wechat"></i> 微信快捷登录</a></div>
-                        <!-- <div class="register pull-right">还没有账号?<a href=""><span>免费注册</span></a></div> -->
+                        <!-- <div class="wechat pull-left hidden"><a href="https://open.weixin.qq.com/connect/qrconnect?appid=wxe2e28297d62b0270&redirect_uri=http://api.wedfairy.com/api/users/wechat-auth/&response_type=code&scope=snsapi_login&state=web%7C#wechat_redirect"><i class="fa fa-wechat"></i> 微信快捷登录</a></div> -->
                         <div class="register-link text-center">还没有账号?<button class="switch-to-register"><span>免费注册</span></button></div>
                     </div>
                 </div>

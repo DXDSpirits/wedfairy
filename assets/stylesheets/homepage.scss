@@ -16,4 +16,9 @@
 @import "homepage/gallery";
 @import "homepage/features";
 
-@import "homepage/footer";
+// @import "homepage/footer";
+@import "layouts/footer";
+
+#global-footer {
+    font-size: 14px;
+}

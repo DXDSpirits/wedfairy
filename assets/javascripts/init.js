@@ -13,13 +13,15 @@
 
     var user = new Amour.Models.User();
 
-    user.fetch({
-        success: function() {
-            var username = user.get('username');
-            var usericon = '<i class="fa fa-user"></i>';
-            $("#global-header .show-username").html(usericon + " " + username);
-        }
-    });
+    if(token!=null) {
+        user.fetch({
+            success: function() {
+                var username = user.get('username');
+                var usericon = '<i class="fa fa-user"></i>';
+                $("#global-header .show-username").html(usericon + " " + username);
+            }
+        });
+    };
 
     $('#global-header .avatar').on('click', function() {
         var self = this;
@@ -142,14 +144,16 @@
         $('html, body').animate({scrollTop: 0}, 400);
     });
 
-    $(window).on('scroll', function() {
+    var toggleBackToTop = _.throttle(function() {
         var screenheight = document.documentElement.scrollTop||document.body.scrollTop;
         if(screenheight>3000) {
             $('#global-footer-float-group .back-to-top').removeClass('hidden');
         }else {
             $('#global-footer-float-group .back-to-top').addClass('hidden');
         };
-    });
+    }, 500);
+
+    // $(window).on('scroll', toggleBackToTop);
 
     $(document).on('click', "#global-header .btn-login", function(e) {
         if (Amour.isMobile) {

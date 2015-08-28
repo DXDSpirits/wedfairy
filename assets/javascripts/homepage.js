@@ -16,6 +16,7 @@
     $('body').on('click', '.gallery .item', function() {
         location.href = '/explore';
     });
+    $("#global-footer-float-group").addClass('hidden');
 
     function start() {
         // var constants = {};
