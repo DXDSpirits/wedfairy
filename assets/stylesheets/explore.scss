@@ -7,52 +7,6 @@ body {
     background-color: #f0f0f0;
 }
 
-//new media query
-@media (min-width: $giant-screen-width) {
-    .container {
-        width: 1570px;
-    }
-    .affix {
-        position: fixed;
-        top: 25px;
-        max-width: 262.5px;
-    }
-    .affix-bottom {
-        position: absolute;
-        max-width: 262.5px;
-    }
-}
-
-@media screen and (min-width: 1200px) and (max-width: $giant-screen-width-1) {
-    .container {
-        width: 1170px;
-    }
-}
-
-@media (max-width: 375px) {
-    .filter-container, .filter, .nav-pills {
-        // padding: 0;
-        // margin: 0;
-        width: 100%;
-    }
-    .filter-nav .nav-pills>li {
-        width: 20%;
-        text-align: center;
-        margin: 0;
-        padding: 0;
-        // margin: 0;
-        a {
-            padding: 9px 0;
-            margin: 0;
-            // padding: 9px 7px;
-            // padding-left: 15px;
-        }
-        .btn {
-            border: 0;
-        }
-    }
-}
-
 .loading{
     margin-bottom: 30px;
     .icon-loading{
@@ -391,3 +345,48 @@ body {
     }
 }
 
+//new media query
+@media (min-width: $giant-screen-width) {
+    .container {
+        width: 1570px;
+    }
+    .affix {
+        position: fixed;
+        top: 25px;
+        max-width: 262.5px;
+    }
+    .affix-bottom {
+        position: absolute;
+        max-width: 262.5px;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: $giant-screen-width-1) {
+    .container {
+        width: 1170px;
+    }
+}
+
+@media (max-width: 375px) {
+    .filter-container, .filter, .nav-pills {
+        // padding: 0;
+        // margin: 0;
+        width: 100%;
+    }
+    .filter-nav .nav-pills>li {
+        width: 25%;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        // margin: 0;
+        a {
+            padding: 9px 0;
+            margin: 0;
+            // padding: 9px 7px;
+            // padding-left: 15px;
+        }
+        .btn {
+            border: 0;
+        }
+    }
+}
