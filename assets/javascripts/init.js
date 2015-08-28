@@ -156,5 +156,11 @@
             document.location.href = "http://compose.wedfairy.com/accounts/?url=" + encodeURIComponent(location.href);
         }
     });
+    $(document).on('click', "#global-header .btn-register", function() {
+        if (Amour.isMobile) {
+            document.location.href = "http://compose.wedfairy.com/accounts/?url=" + encodeURIComponent(location.href) + "#register";
+        }
+    });
+
 
 })();

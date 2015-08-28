@@ -10,7 +10,8 @@ var routes = {
     'faq': 'faq',
     'press': 'press',
     'guide': 'guide',
-    'team': 'team'
+    'team': 'team',
+    'policy': 'policy'
 }
 
 router.get('/', function(req, res) {
