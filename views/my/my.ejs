@@ -173,8 +173,7 @@
                     </button>
                 </div> <!-- /.modal-header -->
                 <div class="modal-body text-center">
-                    <div id="story-qrcode">
-                    </div>
+                    <div id="story-qrcode"></div>
                     <h2>微信扫一扫，分享你的故事</h2>
                 </div> <!-- /.modal-body -->
                 <div class="modal-footer text-center">
@@ -189,10 +188,10 @@
                         <a class="sns-btn sns-renren">
                             <img data-src="images/sns/sns-renren.png"><span>人人分享</span>
                         </a>
-                        <a class="sns-btn sns-facebook">
+<!--                         <a class="sns-btn sns-facebook" href="http://myweb2.search.yahoo.com/myresults/bookmarklet?u=<?php the_permalink() ?>&t=<?php the_title(); ?>" target="_blank">
                             <img data-src="images/sns/sns-facebook.png"><span>Facebook分享</span>
                         </a>
-                    </div>
+ -->                    </div>
                 </div> <!-- /.modal-body -->
             </div> <!-- /.modal-content -->
         </div> <!-- /.modal-dialog -->
@@ -212,6 +211,10 @@
     <script src="<%= tat_static %>javascripts/plugins/moment.js"></script>
     <script src="<%= tat_static %>javascripts/plugins/jquery.qrcode.min.js"></script>
     <script src="<%= static_url %>javascripts/mystories.js?v=<%= build_no %>"></script>
+
+    <!-- SNS js -->
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js"></script>
+    <script src="http://widget.renren.com/js/rrshare.js"></script>
 
     <% include ../includes/analytics %>
 

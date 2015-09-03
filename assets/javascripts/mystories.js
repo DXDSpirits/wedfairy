@@ -23,6 +23,13 @@ $(function () {
         location.href = 'http://site.wedfairy.com/corslogin/' + token + '?url=' + encodeURIComponent(newStoryURL);
     });
 
+    var getWeiboLink = function(s, d, e, r, l, p, t, z, c) {
+        var f = 'http://service.weibo.com/share/share.php?appkey=', u = z || d.location,
+        p = ['&url=', e(u), '&title=', e(t || d.title), '&source=', e(r), '&sourceUrl=', e(l), 
+            '&content=', c || 'gb2312', '&pic=', e(p || ''), '&ralateUid=', '5224024448'].join('');
+        return [f, p].join('');
+    }
+
     var StoryGalleryView = Amour.CollectionView.extend({
         ModelView: Amour.ModelView.extend({
             events: {
@@ -88,11 +95,42 @@ $(function () {
                 });
             },
             share: function() {
-                $('#story-qrcode').qrcode({
-                    size: 180,
-                    text: 'http://story.wedfairy.com/story/' + this.model.get('name') + '/?from=desktopqrcode'
+                var storyURL = 'http://story.wedfairy.com/story/' + this.model.get('name');
+                var storyTitle = this.model.get("title");
+                var storyDesc = this.model.get('description');
+                var storyPic = this.model.getData('coverImage');
+                var shareContent = '【' + storyTitle + '】' + storyDesc;
+                if($("#story-qrcode").html() == "") {
+                        $('#story-qrcode').qrcode({
+                        size: 180,
+                        text: storyURL + '/?from=desktopqrcode'
+                    });
+                };
+                $(".sns-douban").click(function() {
+                    var urlDoubanShare = storyURL + "?from=doubanshare";
+                    var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:'',r='http://www.douban.com/recommend/?url='+e(urlDoubanShare)+'&title='+e(shareContent)+'&v=1',w=450,h=330,x=function(){if(!window.open(r,'douban','toolbar=0,resizable=1,scrollbars=yes,status=1,width='+w+',height='+h+',left='+(screen.width-w)/2+',top='+(screen.height-h)/2))location.href=r+'&r=1'};
+                    if(/Firefox/.test(navigator.userAgent)){
+                        setTimeout(x,0)
+                    }else{x()}
                 });
-                $("")
+                $(".sns-weibo").click(function() {
+                    var urlWeiboShare = storyURL + '?from=weiboshare';
+                    var link = getWeiboLink(screen, document, encodeURIComponent,
+                                            'http://www.wedfairy.com', 'http://www.wedfairy.com',
+                                            storyPic, storyDesc, urlWeiboShare, 'utf-8');
+                    window.open(link, '_blank');
+                });
+                $(".sns-renren").click(function() {
+                    var urlRenrenShare = storyURL + "?from=renrenshare";
+                    var rrShareParam = {
+                        resourceUrl : urlRenrenShare,   //分享的资源Url
+                        srcUrl : '',    //分享的资源来源Url,默认为header中的Referer,如果分享失败可以调整此值为resourceUrl试试
+                        pic : storyPic,       //分享的主题图片Url
+                        title : storyTitle,     //分享的标题
+                        description : storyDesc    //分享的详细描述
+                    };
+                    rrShareOnclick(rrShareParam);
+                });
             },
         })
     });
@@ -107,7 +145,7 @@ $(function () {
     stories.fetch({
         reset: true,
         success: function() {
-            console.log("success!")
+            // console.log("success!")
         }
     });
 
@@ -141,7 +179,6 @@ $(function () {
     //         });
     //     }
     // }))();
-
 
     Backbone.history.start();
 
