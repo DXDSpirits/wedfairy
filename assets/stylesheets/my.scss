@@ -229,12 +229,15 @@ body {
             z-index: 9;
             background-color: white;
             width: 100%;
-            padding: 20px 8px 10px;
+            height: 127px;
+            bottom: -40px;
+            padding: 20px 8px 15px;
             overflow: hidden;           
             cursor: pointer;
             @include transform(translate3d(0, 0, 0));
             @include transition(all .35s ease-in-out);
         }
+
         .story-title {
             color: $my-story-title;
             font-size: 15px;
@@ -250,7 +253,11 @@ body {
             font-size: 11px;
         }
         p {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .last-modified-time {
+            color: #78839f;
+            font-size: 12px;
         }
     }
 }
@@ -276,15 +283,17 @@ body {
     position: relative;
     a {
         width: 31px;
-        height: 29px;
-        line-height: 29px;
+        height: 31px;
+        line-height: 31px;
         margin: 0 6px 0 0;
         position: relative;
         overflow: hidden;
         background-color: transparent;
         border: 1px solid $gray-lighter;
-        .fa, .iconfont {
-            margin-left: 8px;
+        border-radius: 1px;
+        .iconfont {
+            color: #48536c;
+            margin-left: 7px;
             font-size: 15px;
             width: 15px;
             height: 15px;
@@ -294,7 +303,7 @@ body {
             color: white;
         }
         &:hover {
-            .fa, .iconfont {
+            .iconfont {
                 color: white;
             }
             @include transition(all, .25s);
@@ -323,10 +332,14 @@ body {
 }
 .share-btn {
     width: 31px;
-    height: 29px;
+    height: 31px;
     background-color: #cacfd3;
     padding: 5px 9px;
-    .fa {
+    a {
+        border-radius: 1px;
+    }
+    .iconfont {
+        color: #959ba1;
         width: 15px;
         height: 15px;
     }
@@ -526,7 +539,7 @@ body {
         }
     }
     .btn-preview {
-        top: 90.5px;
+        top: 85.5px;
         left: 72.25px;
     }
     .story-cover {
@@ -539,11 +552,6 @@ body {
         height: 339.5px;
         top: -40px;
         opacity: 0;
-    }
-    .story-info {
-        width: 100%;
-        height: 117px;
-        bottom: -40px;
     }
 }
 
@@ -569,7 +577,7 @@ body {
         }
     }
     .btn-preview {
-        top: 82.25px;
+        top: 77.25px;
         left: 62.25px;
     }
     .story-cover {
@@ -582,11 +590,6 @@ body {
         height: 319.5px;
         top: -40px;
         opacity: 0;
-    }
-    .story-info {
-        width: 100%;
-        height: 117px;
-        bottom: -40px;
     }
 }
 
@@ -612,7 +615,7 @@ body {
         }
     }
     .btn-preview {
-        top: 131.75px;
+        top: 126.75px;
         left: 113.5px;
     }
     .story-cover {
@@ -625,11 +628,6 @@ body {
         height: 422px;
         top: -40px;
         opacity: 0;
-    }
-    .story-info {
-        width: 100%;
-        height: 117px;
-        bottom: -40px;
     }
 }
 
@@ -655,7 +653,7 @@ body {
         }
     }
     .btn-preview {
-        top: 131.75px;
+        top: 126.75px;
         left: 113.5px;
     }
     .story-cover {
@@ -668,10 +666,5 @@ body {
         height: 422px;
         top: -40px;
         opacity: 0;
-    }
-    .story-info {
-        width: 100%;
-        height: 117px;
-        bottom: -40px;
     }
 }
