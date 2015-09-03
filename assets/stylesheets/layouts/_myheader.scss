@@ -1,0 +1,218 @@
+
+$header-nav-color: #b9c0d3;
+$modal-control-label: #989ca2;
+$modal-input: #323a45;
+$privacy-policy: #7f868f;
+$modal-bg: #1e2531;
+
+
+#global-myheader {
+    .navbar {
+        padding: 20px 15px;
+        background-color: $modal-input;
+        z-index: 9;
+        margin-bottom: 0;
+        border: 0;
+        border-radius: 0;
+        .btn {
+            padding-top: 6px;
+            padding-bottom: 6px;
+            font-size: .9em;
+        }
+    }
+    .logo-header {
+        color: #fff;
+        // background-color: $brand-primary;
+        text-align: center;
+        // padding: 5px 4px;
+        border-radius: 2px;
+        font-size: 40px;
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        margin-top: -20px;
+    }
+    .page-title {
+        color: white;
+        position: absolute;
+        font-size: 22px;
+        margin: 2px 4px 4px 70px;
+        letter-spacing: 2px;
+    }
+    .btn-outline-inverse {
+        margin-left: 12px;
+        color: $header-nav-color;
+        border-color: $header-nav-color;
+        &:hover, &:active, &:focus {
+            color: #fff;
+            background-color: $brand-primary;
+            border-color: transparent;
+        }
+    }
+    .btn-link {
+        color: $header-nav-color;
+        &:hover, &:active, &:focus {
+            color: $brand-primary;
+        }
+    }
+    @media (max-width: $screen-xs-max) {
+        .navbar {
+            padding: 10px 15px;
+        }
+        .navbar-collapse {
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            right: 0px;
+            top: 100%;
+            border: 0;
+            background-color: $modal-input;
+        }
+        .navbar-toggle {
+            margin-top: 3px;
+            margin-right: 0;
+        }
+        .btn-outline-inverse {
+            margin-left: 0;
+        }
+    }
+}
+
+.modal-backdrop.in {
+    background-color: #1c1f28;
+    opacity: .95;
+}
+
+#loginModal, #registerModal {
+    .modal-dialog {
+        width: 440px;
+        margin: 40px auto;
+    }
+    .modal-content {
+        letter-spacing: 1px;
+        button {
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    .modal-header {
+        padding: 40px 40px;
+        border: 0;
+        background-color: $modal-bg;
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        .icon-logo {
+            font-size: 55px;
+            color: #d2dadf;
+            background-color: transparent;
+            padding: 0;
+        }
+        .close {
+            font-size: 40px;
+            margin-top: -75px;
+            margin-right: -65px;
+            text-shadow: none;
+            opacity: 1;
+            &:focus {
+                outline: none;
+            }
+            i {
+                font-size: 20px;
+                color: #7d8790;
+                font-weight: bold;
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+    }
+    .modal-body {
+        padding: 25px 40px 10px;
+        .control-label {
+            color: $modal-control-label;
+            font-weight: normal;
+            letter-spacing:1px
+        }
+        input {
+            color: $modal-input;
+            font-size: 17px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .form-control {
+        border: 0;
+        border-radius: 0;
+        border-bottom: 1.5px solid #e8eaf1;
+        padding: 0;
+    }
+    .modal-footer {
+        position: relative;
+        border-top: 0;
+        padding: 10px 40px 30px;
+        .btn {
+            width: 100%;
+            padding: 8px 12px;
+            border-radius: 3px;
+            letter-spacing: 2px;
+        }
+        .privacy-policy a {
+            text-decoration: underline;
+        }
+        .switch-to-register, .switch-to-login {
+            background-color: transparent;
+            border: 0;
+            padding: 0;
+            color: $brand-primary;
+        }
+        span {
+            color: #5b677a;
+            letter-spacing: 1px;
+        }
+        .btn-wechat-login {
+            padding-top: 20px;
+            .fa-wechat {
+                font-size: 30px;
+            }
+            color: #5b677a;
+            cursor: pointer;
+        }
+    }
+    .forget-pw {
+        display: inline-block;
+        position: absolute;
+        top: -50px;
+        right: 40px;
+        a {
+            font-size: 13px;
+            color: #949eb3;
+        }
+    }
+    .footer-others {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        margin-top: 10px;
+        font-size: 13px;
+        color: $modal-control-label;
+        overflow: hidden;
+        a {
+            color: $modal-control-label;
+        }  
+    }
+    .privacy-policy {
+        padding-top: 20px;
+        font-size: $font-size-small;
+    }
+}
+
+#registerModal {
+    .footer-others {
+        color: #989ca2;
+    }
+}

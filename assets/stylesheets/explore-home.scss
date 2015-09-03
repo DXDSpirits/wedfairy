@@ -2,6 +2,10 @@
 @import "bourbon/bourbon";
 @import "variables";
 
+body {
+    background-color: #f0f0f0;
+    min-height: 500px;
+}
 .btn {
     border-radius: 4px;
 }
@@ -135,6 +139,7 @@
 }
 
 .content-body {
+    min-height: 500px;
     padding-top:  50px;
     .moreStoried {
         font-size: .6em;
@@ -407,12 +412,6 @@
 .story-voyage-container {
     margin-bottom: 100px;
 }
-
-
-body {
-    background-color: #f0f0f0;
-}
-
 
 //new media query
 @media screen and (min-width: $giant-screen-width) {

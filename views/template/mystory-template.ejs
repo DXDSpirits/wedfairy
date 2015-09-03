@@ -1,0 +1,28 @@
+<script id="mystory-template" type="text/x-handlebars-template">
+    <div class="story-shower">
+        <div class="story-cover img" data-bg-src="{{data.coverImage}}">
+        </div>
+        <div class="overlay text-center">
+            <div class="btn btn-preview">预览故事</div>
+            <div class="btn button btn-delete" data-toggle="modal">
+                <i class="iconfont icon-delete"></i>
+            </div>
+        </div>
+
+        <div class="story-info">
+            <p class="story-title text-center">{{title}}</p>
+            <p class="story-last-modified text-center">上次编辑 {{formatted_date}}</p>
+            <div class="story-btn-group clearfix">
+                <div class="operate-btns">
+                    <a class="btn-edit button pull-left"><i class="iconfont icon-pencil"></i> <span>编辑</span></a>
+                    <a class="btn-duplicate button pull-left" data-toggle="modal" data-target="#duplicate-modal"><i class="iconfont icon-duplicate"></i> <span>复制</span></a>
+                    <a class="btn-comment button pull-left" data-toggle="modal" data-target="#comment-modal"><i class="iconfont icon-comment"></i> <span>留言</span></a>
+                    <a class="btn-shop button pull-left" data-toggle="modal" data-target="#shop-modal"><i class="iconfont icon-shop"></i> <span>应用商店</span></a>
+                </div>
+                <div class="share-btn button pull-right" data-toggle="modal" data-target="#share-modal">
+                    <i class="iconfont icon-share"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>

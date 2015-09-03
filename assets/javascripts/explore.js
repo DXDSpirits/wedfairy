@@ -183,7 +183,7 @@ $(function() {
 
     storiesRanking.fetch({
         data: { 
-            tag: "friendship", 
+            tag: "hot", 
             limit : 10
         },
         reset: true,

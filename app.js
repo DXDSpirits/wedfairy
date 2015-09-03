@@ -50,6 +50,7 @@ app.use(wechat.signUrl());
 // routes
 app.use('/', require('./routes/index'));
 app.use('/about', require('./routes/about'));
+app.use('/my', require('./routes/my'));
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

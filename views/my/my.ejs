@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<% include ../includes/html %>
+<head>
+    <title>我的故事</title>
+
+    <% include ../includes/metadata %>
+    <% include ../includes/stylesheets %>
+
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/my.css?v=<%= build_no %>">
+
+    <% include ../includes/capability %>
+    <% include ../includes/production %>
+
+    <script src="<%= tat_static %>javascripts/vendor/modernizr-2.7.1.min.js"></script>
+</head>
+<body>
+    
+    <!-- Content Begins Here -->
+    <% include ../my/myheader %>
+    <div class="my-nav">
+        <div class="container">
+            <div class="row">
+                <div class="my-story-nav col-md-12 col-sm-12">
+                    <a class="nav-my-stories active" href="/my">故事列表</a>
+                    <a class="nav-my-gallery" href="/my/mygallery">我的相册</a>
+                    <a class="btn btn-newstory"><i class="iconfont icon-pencil-add"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="filter-nav">
+        <!-- <div class="container">
+            <div class="row filter-container">
+                <div class="filter pull-left">
+                    <ul class="nav nav-pills">
+                        <li><a href="all">全部</a></li>
+                        <li class="hidden-xs"><a href="wedding" filter-name="wedding">婚礼</a></li>
+                        <li class="hidden-xs"><a href="baby" filter-name="baby">宝贝</a></li>
+                        <li class="hidden-xs"><a href="voyage" filter-name="voyage">旅行</a></li>
+                        <li><a href="lover" filter-name="lover">爱人</a></li>
+                        <li><a href="friendship" filter-name="friendship">友情</a></li>
+                        <li><a href="idol" filter-name="idol">偶像</a></li>
+                        <li><a href="family" filter-name="family">家人</a></li>
+                        <li><a href="personal" filter-name="personal">个人</a></li>
+                        <li><a href="food" filter-name="food">美食</a></li>
+                        <li>
+                            <div class="btn-group">
+                               <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                  更多 <span class="caret"></span>
+                               </button>
+                               <ul class="dropdown-menu" role="menu">
+                                    <li class="visible-xs-* hidden-sm hidden-md hidden-lg"><a href="/explore/wedding" filter-name="wedding">婚礼</a></li>
+                                    <li class="visible-xs-* hidden-sm hidden-md hidden-lg"><a href="/explore/baby" filter-name="baby">宝贝</a></li>
+                                    <li class="visible-xs-* hidden-sm hidden-md hidden-lg"><a href="/explore/voyage" filter-name="voyage">旅行</a></li>
+                                    <li><a href="lover" filter-name="lover">爱人</a></li>
+                                    <li><a href="friendship" filter-name="friendship">友情</a></li>
+                                    <li><a href="idol" filter-name="idol">偶像</a></li>
+                                    <li><a href="family" filter-name="family">家人</a></li>
+                                    <li><a href="personal" filter-name="personal">个人</a></li>
+                                    <li><a href="food" filter-name="food">美食</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div> -->
+    </section>
+
+    <section class="container">
+
+        <section class="row content-body">
+            <div class="col-md-12">
+                <div class="row mystory-container"></div>
+            </div>
+        </section>
+    </section>
+
+
+    <div class="center-block loading text-center hidden">
+            <i class="iconfont icon-loading spin"></i>正在加载中...
+    </div>
+
+    <% include ../layouts/footer %>
+
+    <!-- 复制模态框 -->
+    <div class="modal fade" id="duplicate-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                          <i class="icon iconfont icon-x"></i>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="img img-cover modal-story-cover"></div>
+                    <h2>复制这个故事</h2>
+                    <p>故事将不包含原本的应用商店与评论；并且你可以选择一个新的模板风格。</p>
+                    <button type="button" class="btn btn-green duplicate-button">复 制</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--删除模态框 -->
+    <div class="modal fade" id="delete-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                          <i class="icon iconfont icon-x"></i>
+                    </button>
+                </div> <!-- /.modal-header -->
+                <div class="modal-body text-center">
+                    <div class="modal-story-cover"></div>
+                    <h2>删除这个故事</h2>
+                    <p>故事删除后将不能复原，请慎重操作！</p>
+                    <button type="button" class="btn btn-red delete-button">删 除</button>
+                    <button type="button" class="btn btn-grey cancel-button">取 消</button>
+                </div> <!-- /.modal-body -->
+            </div> <!-- /.modal-content -->
+        </div> <!-- /.modal-dialog -->
+    </div>
+
+    <!--留言模态框 -->
+    <div class="modal fade" id="comment-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                          <i class="icon iconfont icon-x"></i>
+                    </button>
+                </div> <!-- /.modal-header -->
+                <div class="modal-body text-center">
+                    <div class="modal-story-cover"></div>
+                    <h2>复制这个故事</h2>
+                    <p>故事将不包含原本的应用商店与评论；并且你可以选择一个新的模板风格。</p>
+                    <button type="button" class="btn btn-green">复 制</button>
+                </div> <!-- /.modal-body -->
+            </div> <!-- /.modal-content -->
+        </div> <!-- /.modal-dialog -->
+    </div>
+
+    <!--商店模态框 -->
+    <div class="modal fade" id="shop-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                          <i class="icon iconfont icon-x"></i>
+                    </button>
+                </div> <!-- /.modal-header -->
+                <div class="modal-body text-center">
+                    <div class="modal-shop-qrcode">
+                        <div class="img img-contain modal-qr text-center" data-bg-src="images/qr-wechat.jpg">
+                            微信制作入口
+                        </div>
+                        <div class="img img-contain modal-qr text-center" data-bg-src="images/qr-AppStore.jpg">下载APP</div>
+                    </div>
+                    <p>我们现在已支持手机端的应用商店啦，包含“地图”、“投票”、“宾客管理”以及“打赏”哦。扫一扫二维码，在微信入口直接制作，或者到APP Store搜索“八音盒”下载软件，立刻使用这些好玩的功能吧。</p>
+                </div> <!-- /.modal-body -->
+            </div> <!-- /.modal-content -->
+        </div> <!-- /.modal-dialog -->
+    </div>
+
+    <!--分享模态框 -->
+    <div class="modal fade" id="share-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                          <i class="icon iconfont icon-x"></i>
+                    </button>
+                </div> <!-- /.modal-header -->
+                <div class="modal-body text-center">
+                    <div id="story-qrcode">
+                    </div>
+                    <h2>微信扫一扫，分享你的故事</h2>
+                </div> <!-- /.modal-body -->
+                <div class="modal-footer text-center">
+                    <h3 class="text-center">分享到其他平台</h3>
+                    <div class="sns-btns clearfix">
+                        <a class="sns-btn sns-weibo">
+                            <img data-src="images/sns/sns-weibo.png"><span>微博分享</span>
+                        </a>
+                        <a class="sns-btn sns-douban">
+                            <img data-src="images/sns/sns-douban.png"><span>豆瓣分享</span>
+                        </a>
+                        <a class="sns-btn sns-renren">
+                            <img data-src="images/sns/sns-renren.png"><span>人人分享</span>
+                        </a>
+                        <a class="sns-btn sns-facebook">
+                            <img data-src="images/sns/sns-facebook.png"><span>Facebook分享</span>
+                        </a>
+                    </div>
+                </div> <!-- /.modal-body -->
+            </div> <!-- /.modal-content -->
+        </div> <!-- /.modal-dialog -->
+    </div>
+
+
+
+
+    <div class="view-hide template-view">
+        <% include ../template/mystory-template %>
+    </div>
+
+    <!-- Content Ends Here -->
+
+    <% include ../includes/javascripts %>
+
+    <script src="<%= tat_static %>javascripts/plugins/moment.js"></script>
+    <script src="<%= tat_static %>javascripts/plugins/jquery.qrcode.min.js"></script>
+    <script src="<%= static_url %>javascripts/mystories.js?v=<%= build_no %>"></script>
+
+    <% include ../includes/analytics %>
+
+</body>
+</html>
