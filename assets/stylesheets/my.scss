@@ -71,7 +71,7 @@ body {
     top: 50%;
     box-shadow: 0 1px 5px rgba(0,0,0,.28);
     @include transition(all .15s ease-in-out);
-    // @include transition-delay(.2s);
+    @include transition-delay(.1s);
     &:hover {
         @include transform(scale(1.1));
         box-shadow: 0 1px 25px rgba(0,0,0,.28);
@@ -251,10 +251,12 @@ body {
         .story-last-modified {
             color: $my-story-subtitle;
             font-size: 11px;
+            margin-bottom: 17px;
+            margin-top: 3px;
         }
-        p {
-            margin-bottom: 20px;
-        }
+        // p {
+        //     margin-bottom: 20px;
+        // }
         .last-modified-time {
             color: #78839f;
             font-size: 12px;
@@ -500,12 +502,61 @@ body {
     }
 }
 #comment-modal {
+    .modal-content {
+        overflow: scroll;
+    }
     .modal-dialog {
         width: 400px;
     }
-    .modal-content{
+    .modal-body{
         height: 560px;
-        overflow: hidden;
+        // overflow: hidden;
+    }
+    .comment-item {
+        padding: 20px 0 20px 15px;
+        border-bottom: 1px solid #eee;
+        position: relative;
+    }
+    .comment-avatar {
+        display: inline-block;
+        // width: 50px;
+        .sender-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #00AA90;
+        }
+    }
+    .comment-content {
+        display: inline-block;
+        width: 280px;
+        padding: 0 15px;
+        vertical-align: top;
+    }
+    .author {
+        font-size: 12px;
+        color: #707890;
+    }
+    .content {
+        font-size: 14px;
+        color: #949eb3;
+        padding: 10px 0;
+    }
+    .time_created {
+        font-size: 12px;
+        color: #575f76;
+    }
+    .comment-delete-btn {
+        border: 0;
+        background-color: transparent;
+        padding: 0;
+        // vertical-align: top;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        .icon-delete {
+            color: #48536C;
+        }
     }
 }
 #shop-modal .modal-body {
@@ -535,7 +586,6 @@ body {
             .story-info {
                 @include transform(translate3d(0, -40px, 0));
             }
-            // @include transition(all, 2s);
         }
     }
     .btn-preview {

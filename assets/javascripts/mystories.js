@@ -71,7 +71,25 @@ $(function () {
                 this.getCoverImg();
             },
             comment: function() {
-                window.open(Amour.APIRoot + 'sites/wish/?story=' + this.model.get('id'));
+                var storyId = this.model.get('id');
+                comments.fetch({
+                    data:{
+                        story: storyId, // story id
+                    },
+                    reset: true,
+                    success: function(){
+                        console.log("Get comments successfully!");
+                    }
+                });
+                // $('.comments-container').html('');
+                // if(comments.models.length == 0){
+                //     $('.comments-container').html('<div class="wish-hint">暂时没有任何祝福</div>');
+                // }
+                _.each(comments.models, function(model){
+                    console.log(model);
+                    var commentView = new CommentItemView({"model": model});
+                    commentView.render();
+                })
             },
             hide: function() {
                 this.$el.animate({
@@ -149,6 +167,53 @@ $(function () {
         }
     });
 
+    // comment
+    var Comment = Backbone.Model.extend({
+        url: function(){
+            return Amour.APIRoot + 'sites/wish/?story=' + this.get('id') + "/";
+        }
+    })
+
+    var comments = new (Backbone.Collection.extend({
+                        model: Comment,
+                        url: Amour.APIRoot + 'sites/wish/',
+                      }))();
+
+
+    var CommentItemView = Amour.CollectionView.extend({
+        ModelView: Amour.ModelView.extend({
+            events: {
+                'click .comment-delete-btn': 'deleteComment',
+            },
+            className: 'animated fadeIn',
+            template: $("#story-comment-item-template").html(),
+
+            serializeData: function() {
+                var data = this.model ? this.model.toJSON() : {};
+                data.formatted_date = moment(data.time_created).format('YYYY-MM-DD hh:mm');
+                return data;
+            },
+            deleteComment: function() {
+                // window.open(Amour.APIRoot + 'sites/wish/?story=' + this.model.get('id'));
+                // e.stopPropagation();
+                $('html').off('click');
+
+                var r = confirm("你确定要删除这条留言?");
+                if (r == true) {
+                    comments.remove(this.model);
+                    this.model.destroy();
+                }
+
+            },
+            
+        })
+    });
+
+    var commentListView = new CommentItemView({
+        collection: comments,
+        el: $('.comments-container')
+    });
+
     // var ROUTER = new (Backbone.Router.extend({
     //     routes: {
     //         ':tagFilter': 'tagFilter',
@@ -183,92 +248,6 @@ $(function () {
     Backbone.history.start();
 
 });
-
-
-    // var isFetching = false;
-    // Backbone.on('next-page', function() {
-    //     if (isFetching) return;
-    //     if (stories.next) {
-    //         isFetching = true;
-    //         $(".loading").removeClass("hidden");
-    //         _.delay(function() {
-    //             stories.fetchNext({
-    //                 remove: false, 
-    //                 success: function() {
-    //                     isFetching = false;
-    //                     $(".loading").addClass("hidden");
-    //                 },
-    //                 error: function() {
-    //                     isFetching = false;
-    //                     $(".loading").addClass("hidden");
-    //                 }
-    //             });
-    //         }, 200);
-    //     }
-    // });
-
-    // $(document).ready(function() {
-    //     // var $aStr = EXPLORE_FILTER_NAME;
-    //     var dict = {
-    //         "all"       : "全部"，
-    //         "wedding"   : "婚礼",
-    //         "baby"      : "宝贝",
-    //         "voyage"    : "旅行",
-    //         "lover"     : "爱人",
-    //         "idol"      : "偶像",
-    //         "friendship": "友情",
-    //         "yearbook"  : "新年书",
-    //         "personal"  : "个人",
-    //         "food"      : "美食",
-    //         "family"    : "家人",
-    //     };
-    //     var $contentTitle = $('#content-title');
-    //     if($aStr !== "首页") {
-    //         $contentTitle.html("<h4>" + dict[$aStr] + "</h4>");
-    //     }
-    // });
-
-    // // infinite scroll
-    // // var throttle = _.throttle(function() {
-
-    // //     if ($(window).scrollTop() + $(window).height() >= $('body').height() - 260) {
-    // //         Backbone.trigger('next-page');
-    // //     }
-    // // }, 200);
-    // // $(window).scroll(throttle);
-
-    // // backbone router stuff
-    // var ROUTER = new (Backbone.Router.extend({
-    //     routes: {
-    //         ':tagFilter': 'tagFilter',
-    //         '': 'tagFilter'
-    //     },
-    //     tagFilter: function(filterName) {
-    //         if (EXPLORE_FILTER_NAME === "featured") {
-    //             EXPLORE_FILTER_NAME = "staffpicks";
-    //         };
-    //         var filterName = EXPLORE_FILTER_NAME;            
-    //         stories.fetch({
-    //             data: { tag: filterName },
-    //             reset: true,
-    //             success: function () {
-    //                 $("#content-title").removeClass("hidden");
-    //             }
-    //         });
-    //     }
-    // }))();
-
-    // stories.fetch({
-    //     data: { 
-    //         // tag: "friendship", 
-    //         owner__username: username,
-    //         limit : 10
-    //     },
-    //     reset: true,
-    //     success: function () {
-    //         $(".title-ranking").removeClass("hidden");
-    //     }
-    // });
 
 
 

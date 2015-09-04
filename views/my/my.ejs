@@ -131,11 +131,8 @@
                           <i class="icon iconfont icon-x"></i>
                     </button>
                 </div> <!-- /.modal-header -->
-                <div class="modal-body text-center">
-                    <div class="modal-story-cover"></div>
-                    <h2>复制这个故事</h2>
-                    <p>故事将不包含原本的应用商店与评论；并且你可以选择一个新的模板风格。</p>
-                    <button type="button" class="btn btn-green">复 制</button>
+                <div class="modal-body">
+                    <div class="comments-container"></div>
                 </div> <!-- /.modal-body -->
             </div> <!-- /.modal-content -->
         </div> <!-- /.modal-dialog -->
@@ -188,10 +185,10 @@
                         <a class="sns-btn sns-renren">
                             <img data-src="images/sns/sns-renren.png"><span>人人分享</span>
                         </a>
-<!--                         <a class="sns-btn sns-facebook" href="http://myweb2.search.yahoo.com/myresults/bookmarklet?u=<?php the_permalink() ?>&t=<?php the_title(); ?>" target="_blank">
+                        <!-- <a class="sns-btn sns-facebook" href="http://myweb2.search.yahoo.com/myresults/bookmarklet?u=<?php the_permalink() ?>&t=<?php the_title(); ?>" target="_blank">
                             <img data-src="images/sns/sns-facebook.png"><span>Facebook分享</span>
-                        </a>
- -->                    </div>
+                        </a> -->
+                    </div>
                 </div> <!-- /.modal-body -->
             </div> <!-- /.modal-content -->
         </div> <!-- /.modal-dialog -->
@@ -203,6 +200,12 @@
     <div class="view-hide template-view">
         <% include ../template/mystory-template %>
     </div>
+
+    <div class="view-hide template-view">
+        <% include ../template/story-comment-item-template %>
+    </div>
+
+
 
     <!-- Content Ends Here -->
 
