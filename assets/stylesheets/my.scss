@@ -24,7 +24,9 @@ body {
     background-color: #f9f9fb;
     min-width: 768px;
 }
-
+button:focus {
+    outline: none;
+}
 .loading{
     margin-bottom: 30px;
     .icon-loading{
@@ -510,11 +512,12 @@ body {
     }
     .modal-body{
         height: 560px;
-        // overflow: hidden;
+        // overflow: scroll;
     }
     .comment-item {
         padding: 20px 0 20px 15px;
         border-bottom: 1px solid #eee;
+        border-right: 1px solid #eee;
         position: relative;
     }
     .comment-avatar {

@@ -81,15 +81,36 @@ $(function () {
                         console.log("Get comments successfully!");
                     }
                 });
+                console.log(comments);
+                // console.log("数目:" + comments.length);
                 // $('.comments-container').html('');
                 // if(comments.models.length == 0){
-                //     $('.comments-container').html('<div class="wish-hint">暂时没有任何祝福</div>');
+                //     // console.log("0");
+                //     // $('.comments-container').html('<div class="wish-hint">暂时没有任何祝福</div>');
+                //     $('.wish-hint').removeClass('hidden');
+                // }else {
+                //     $('.wish-hint').addClass('hidden');
                 // }
-                _.each(comments.models, function(model){
-                    console.log(model);
-                    var commentView = new CommentItemView({"model": model});
-                    commentView.render();
-                })
+                // var count = 0;
+                // _.each(comments.models, function(model){
+                //     var commentView = new CommentItemView({"model": model});
+                //     commentView.render();
+                //     count += 1
+                // });
+                // console.log("count: " + count);
+                var commentLength = comments.models.length;
+                if(commentLength == 0) {
+                    console.log("yo " + commentLength);
+                    // $('.comments-container').html('');
+                    // $('.comments-container').html('<div class="wish-hint">暂时没有任何留言</div>');
+                    // $('.wish-hint').removeClass('hidden');
+                }else {
+                    // $('.wish-hint').addClass('hidden');
+                    _.each(comments.models, function(model){
+                        var commentView = new CommentItemView({"model": model});
+                        commentView.render();
+                    });
+                };
             },
             hide: function() {
                 this.$el.animate({
@@ -170,7 +191,7 @@ $(function () {
     // comment
     var Comment = Backbone.Model.extend({
         url: function(){
-            return Amour.APIRoot + 'sites/wish/?story=' + this.get('id') + "/";
+            return Amour.APIRoot + 'sites/wish/' + this.get('id') + "/";
         }
     })
 
@@ -193,16 +214,17 @@ $(function () {
                 data.formatted_date = moment(data.time_created).format('YYYY-MM-DD hh:mm');
                 return data;
             },
-            deleteComment: function() {
+            deleteComment: function(e) {
                 // window.open(Amour.APIRoot + 'sites/wish/?story=' + this.model.get('id'));
-                // e.stopPropagation();
+                e.stopPropagation();
                 $('html').off('click');
 
                 var r = confirm("你确定要删除这条留言?");
                 if (r == true) {
                     comments.remove(this.model);
                     this.model.destroy();
-                }
+                    console.log("删除成功");
+                };
 
             },
             
