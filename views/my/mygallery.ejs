@@ -16,7 +16,8 @@
 <body>
     
     <!-- Content Begins Here -->
-    <% include ../my/myheader %>
+    <% include ../layouts/header %>
+    
     <div class="my-nav">
         <div class="container">
             <div class="row">
@@ -158,17 +159,7 @@
         </div> <!-- /.modal-dialog -->
     </div>
 
-
-
-
-    <div class="view-hide template-view">
-        <% include ../template/mystory-template %>
-    </div>
-
-    <div class="view-hide template-view">
-        <% include ../template/story-comment-item-template %>
-    </div>
-
+    <% include ./templates %>
 
 
     <!-- Content Ends Here -->

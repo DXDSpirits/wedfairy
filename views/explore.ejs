@@ -131,12 +131,8 @@
 
     <% include layouts/footer %>
 
-    <div class="view-hide template-view">
-        <% include template/newexplore-story-template %>
-    </div>
-    <div class="view-hide template-view">
-        <% include template/ranking-story-template %>
-    </div>
+    <% include template/newexplore-story-template %>
+    <% include template/ranking-story-template %>
 
     <script>
         var EXPLORE_FILTER_NAME = "<%= filterName %>";
