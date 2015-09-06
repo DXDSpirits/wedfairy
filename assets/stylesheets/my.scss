@@ -291,8 +291,8 @@ button:focus {
         background-color: transparent;
         border: 1px solid $gray-lighter;
         border-radius: 1px;
+        color: #48536c;
         .iconfont {
-            color: #48536c;
             margin-left: 7px;
             font-size: 15px;
             width: 15px;
@@ -300,14 +300,11 @@ button:focus {
         }
         span {
             font-size: 11px;
-            color: white;
         }
         &:hover {
-            .iconfont {
-                color: white;
-            }
-            @include transition(all, .25s);
+            color: #fff;
         }
+        @include transition(all .25s ease-in-out);
     }
     .btn-edit:hover {
         width: 62px;
