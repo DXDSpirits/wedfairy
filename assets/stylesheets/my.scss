@@ -64,6 +64,10 @@ button:focus {
 }
 .content-body {
     min-height: 500px;
+    padding-top:  65px;
+    .moreStoried {
+        font-size: .6em;
+    }
 }
 .btn-newstory {
     background-color: $brand-primary;
@@ -163,14 +167,6 @@ button:focus {
     margin-top: 50px;
 }
 
-
-.content-body {
-    padding-top:  15px;
-    .moreStoried {
-        font-size: .6em;
-    }
-}
-
 #content-title {
     h4 {
         padding-left: 13px;
@@ -193,7 +189,7 @@ button:focus {
         position: relative;
         box-shadow: 1px 2px 5px #ddd;
         overflow: hidden;
-        border-radius: 1px;
+        border-radius: 3px;
         @include transition(box-shadow .35s ease-in-out);
         &:hover {
             box-shadow: 1px 2px 15px #ddd;
@@ -348,12 +344,14 @@ button:focus {
         height: 15px;
     }
 }
-#duplicate-modal, #delete-modal, #shop-modal, #comment-modal, #share-modal {
+#edit-modal, #duplicate-modal, #delete-modal, #shop-modal, #comment-modal, #share-modal {
     // .modal-content {
     //     width: 100%;
     // }
+    font-family: "Avenir","Helvetica Neue",Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei","Wenquanyi Micro Hei",sans-serif;
     .modal-dialog {
         margin-top: 80px;
+        width: 600px;
     }
     .close:hover, .close:focus {
         outline: none;
@@ -390,7 +388,7 @@ button:focus {
         p {
             color: $modal-desc;
             font-size: 15px;
-            padding: 0 50px;
+            padding: 0 40px;
         }
     }
     .modal-footer {
@@ -407,6 +405,15 @@ button:focus {
             color: #7b8292;
         }
     }
+    .mobile-edit-text {
+        font-size: 15px;
+        color: #959ba1;
+    }
+    .mobile-edit-url {
+        color: #4eb7cd;
+        text-decoration: underline;
+        cursor: pointer;
+    }
     .modal-story-cover {
         height: 200px;
         width: 200px;
@@ -416,15 +423,15 @@ button:focus {
         border-radius: 3px;
         background-size: 200px 200px;
     }
-    #story-qrcode {
-        height: 180px;
-        width: 180px;
-        margin: 35px auto 45px;
+    #story-edit-qrcode, #story-qrcode {
+        height: 150px;
+        width: 150px;
+        margin: 50px auto 35px;
         border-radius: 3px;
     }
     .modal-qr {
         display: inline-block;
-        width: 180px;
+        width: 150px;
         padding-top: 205px;
         margin: 35px;
         font-size: 25px;
@@ -469,7 +476,7 @@ button:focus {
         }
     }
 }
-#share-modal {
+#edit-modal, #share-modal {
     .modal-footer {
         text-align: center;
         h3 {
@@ -489,7 +496,7 @@ button:focus {
     }
     .sns-btn {
         height: 35px;
-        margin: 10px;
+        margin: 10px 25px 10px;
         display: inline-block;
         img {
             width: 35px;
@@ -503,21 +510,47 @@ button:focus {
         }
     }
 }
+#edit-modal {
+    .modal-body {
+        padding-top: 30px;
+        padding-bottom: 80px;
+        h2 {
+            margin-bottom: 45px;
+        }
+    }
+}
 #comment-modal {
     .modal-content {
         overflow: scroll;
+        &::-webkit-scrollbar {
+            width: 8px;
+            height: 0px;
+        }
+        &::-webkit-scrollbar-track {
+            background-color: #eee;
+            -webkit-border-radius: 2em;
+            -moz-border-radius: 2em;
+            border-radius:2em;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: #bbb;
+            -webkit-border-radius: 2em;
+            -moz-border-radius: 2em;
+            border-radius:2em;
+        }
     }
     .modal-dialog {
         width: 400px;
     }
     .modal-body{
         height: 560px;
+        padding-right: 2px;
         // overflow: scroll;
     }
     .comment-item {
         padding: 20px 0 20px 15px;
         border-bottom: 1px solid #eee;
-        border-right: 1px solid #eee;
+        // border-right: 1px solid #eee;
         position: relative;
     }
     .comment-avatar {
@@ -527,7 +560,7 @@ button:focus {
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background-color: #00AA90;
+            background-color: #ebebeb;
         }
     }
     .comment-content {
@@ -558,8 +591,22 @@ button:focus {
         top: 5px;
         right: 5px;
         .icon-delete {
+            font-size: 16px;
             color: #48536C;
         }
+    }
+    .comments-hint {
+        width: 100%;
+        p {
+            color: #7e8891;
+            font-size: 16px;
+        }
+    }
+    .no-comment {
+        display: inline-block;
+        margin: 60px auto 50px;
+        width: 218px;
+        height: 221px;
     }
 }
 #shop-modal .modal-body {

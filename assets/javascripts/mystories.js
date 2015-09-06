@@ -60,7 +60,18 @@ $(function () {
                 var token = Amour.TokenAuth.get();
                 var editURL = "http://site.wedfairy.com/compose/" + this.model.get('name');
                 location.href = 'http://site.wedfairy.com/corslogin/' + token + '?url=' + encodeURIComponent(editURL);
-                // document.location.href = editURL;
+                document.location.href = editURL;
+                // var editURL = "http://compose.wedfairy.com/storyguide/" + this.model.get('name') + "/";
+                // var mobileEditURL = 'http://compose.wedfairy.com/corslogin/' + token + '?url=' + encodeURIComponent(editURL);
+                // if($("#story-qrcode").html() == "") {
+                //         $('#story-edit-qrcode').qrcode({
+                //         size: 150,
+                //         text: mobileEditURL
+                //     });
+                // };
+                // $(".mobile-edit-url").click(function() {
+                //     document.location.href = mobileEditURL;
+                // })
             },
             getCoverImg: function() {
                 var coverImgURL = this.model.getData('coverImage');
@@ -79,38 +90,16 @@ $(function () {
                     reset: true,
                     success: function(){
                         console.log("Get comments successfully!");
+                        var commentLength = comments.models.length;
+                        if(commentLength == 0) {
+                            $('.comments-hint').removeClass('hidden');
+                            $('.comments-container').addClass('hidden');
+                        }else {
+                            $('.comments-hint').addClass('hidden');
+                            $('.comments-container').removeClass('hidden');
+                        };
                     }
                 });
-                console.log(comments);
-                // console.log("数目:" + comments.length);
-                // $('.comments-container').html('');
-                // if(comments.models.length == 0){
-                //     // console.log("0");
-                //     // $('.comments-container').html('<div class="wish-hint">暂时没有任何祝福</div>');
-                //     $('.wish-hint').removeClass('hidden');
-                // }else {
-                //     $('.wish-hint').addClass('hidden');
-                // }
-                // var count = 0;
-                // _.each(comments.models, function(model){
-                //     var commentView = new CommentItemView({"model": model});
-                //     commentView.render();
-                //     count += 1
-                // });
-                // console.log("count: " + count);
-                var commentLength = comments.models.length;
-                if(commentLength == 0) {
-                    console.log("yo " + commentLength);
-                    // $('.comments-container').html('');
-                    // $('.comments-container').html('<div class="wish-hint">暂时没有任何留言</div>');
-                    // $('.wish-hint').removeClass('hidden');
-                }else {
-                    // $('.wish-hint').addClass('hidden');
-                    _.each(comments.models, function(model){
-                        var commentView = new CommentItemView({"model": model});
-                        commentView.render();
-                    });
-                };
             },
             hide: function() {
                 this.$el.animate({
@@ -141,7 +130,7 @@ $(function () {
                 var shareContent = '【' + storyTitle + '】' + storyDesc;
                 if($("#story-qrcode").html() == "") {
                         $('#story-qrcode').qrcode({
-                        size: 180,
+                        size: 150,
                         text: storyURL + '/?from=desktopqrcode'
                     });
                 };
@@ -161,9 +150,10 @@ $(function () {
                 });
                 $(".sns-renren").click(function() {
                     var urlRenrenShare = storyURL + "?from=renrenshare";
+                    console.log()
                     var rrShareParam = {
-                        resourceUrl : urlRenrenShare,   //分享的资源Url
-                        srcUrl : '',    //分享的资源来源Url,默认为header中的Referer,如果分享失败可以调整此值为resourceUrl试试
+                        resourceUrl : '',   //分享的资源Url
+                        srcUrl : urlRenrenShare,    //分享的资源来源Url,默认为header中的Referer,如果分享失败可以调整此值为resourceUrl试试
                         pic : storyPic,       //分享的主题图片Url
                         title : storyTitle,     //分享的标题
                         description : storyDesc    //分享的详细描述
@@ -206,12 +196,13 @@ $(function () {
             events: {
                 'click .comment-delete-btn': 'deleteComment',
             },
-            className: 'animated fadeIn',
+            className: 'animated',
             template: $("#story-comment-item-template").html(),
 
             serializeData: function() {
                 var data = this.model ? this.model.toJSON() : {};
                 data.formatted_date = moment(data.time_created).format('YYYY-MM-DD hh:mm');
+                data.avatar = data.avatar || "/images/default-avatar.png";
                 return data;
             },
             deleteComment: function(e) {
