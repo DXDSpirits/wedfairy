@@ -304,7 +304,7 @@ button:focus {
         &:hover {
             color: #fff;
         }
-        @include transition(all .25s ease-in-out);
+        @include transition(width .25s);
     }
     .btn-edit:hover {
         width: 62px;
