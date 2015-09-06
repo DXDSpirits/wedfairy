@@ -161,7 +161,7 @@
     
     var user = new Amour.Models.User();
     
-    Amour.ajax.on('unauthorized', function() {
+    Amour.ajax.on('unauthorized forbidden', function() {
         $('#login-modal').modal('show');
     });
     

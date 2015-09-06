@@ -39,6 +39,13 @@ body {
         height: 40px;
         box-shadow: 0 0 0 1px #fff;
     }
+    .status {
+        height: 20px;
+    }
+    .name samp {
+        display: inline-block;
+        max-width: 60%;
+    }
     .title {
         @include ellipsis();
     }

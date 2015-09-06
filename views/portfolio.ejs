@@ -109,11 +109,13 @@
     <p>{{formatted_date}}</p>
     <!--<p class="name"><samp>8yinhe.cn/s/{{name}}</samp></p>-->
     <p class="name"><samp>{{name}}</samp> | <strong>{{themeTitle}}</strong></p>
-    <p class="{{#eq featured 2}}text-primary{{/eq}}{{#eq featured 1}}text-success{{/eq}}">
+    <p class="status {{#eq featured 2}}text-primary{{/eq}}{{#eq featured 1}}text-success{{/eq}}">
         <span>{{progress}}</span>
         <i class="fa fa-lg fa-check-circle"></i>
         {{#eq featured 3}}
-        <div class="text-danger">原型故事</div>
+        <span class="text-danger">原型故事</span>
+        {{else if archived}}
+        <span class="text-danger">已删除</span>
         {{else}}
         <select>
             <option value="0" {{#eq featured 0}}selected{{/eq}}>未完成</option>
