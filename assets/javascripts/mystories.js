@@ -1,8 +1,9 @@
-$(function () {
+(function () {
+
     $("#global-footer-float-group").addClass('hidden');
     var token = Amour.TokenAuth.get();
 
-    Amour.ajax.on('unauthorized', function() {
+    Amour.ajax.on('unauthorized forbidden', function() {
         $('#loginModal').modal('show');
     });
     if(token == null) {
@@ -42,16 +43,10 @@ $(function () {
             },
             className: 'animated fadeIn col-lg-3 col-md-4 col-sm-6 col-xs-6 story-item',
             template: $("#mystory-template").html(),
-
             serializeData: function() {
                 var data = this.model ? this.model.toJSON() : {};
                 data.formatted_date = moment(data.last_modified).format('YYYY-MM-DD');
                 return data;
-            },
-            initPage: function() {
-                var coverImgURL = this.model.getData('coverImage');
-                $('.modal-story-cover').attr('style',"background: url(" + coverImgURL + ") no-repeat top;background-size: cover"
-                );
             },
             preview: function() {
                 window.open('http://story.wedfairy.com/story/' + this.model.get('name') + '/?from=portfolio', '_blank');
@@ -89,7 +84,6 @@ $(function () {
                     },
                     reset: true,
                     success: function(){
-                        console.log("Get comments successfully!");
                         var commentLength = comments.models.length;
                         if(commentLength == 0) {
                             $('.comments-hint').removeClass('hidden');
@@ -102,7 +96,7 @@ $(function () {
                 });
             },
             hide: function() {
-                this.$el.animate({
+                this.$el.removeClass('animated fadeIn').animate({
                     opacity: 0
                 }, 1000, function() {
                     $(this).remove();
@@ -110,17 +104,14 @@ $(function () {
             },
             archive: function() {
                 this.getCoverImg();
-                $("#delete-modal").modal('show');
                 var self = this;
-                $(".delete-button").click(function() {
-                    _.defer(function() {
+                $("#delete-modal")
+                    .modal('show')
+                    .find(".delete-button")
+                    .off('click')
+                    .one('click', function() {
                         self.model.destroy();
-                        $("#delete-modal").modal('hide');
                     });
-                });
-                $(".cancel-button").click(function() {
-                    $("#delete-modal").modal('hide');
-                });
             },
             share: function() {
                 var storyURL = 'http://story.wedfairy.com/story/' + this.model.get('name');
@@ -129,28 +120,27 @@ $(function () {
                 var storyPic = this.model.getData('coverImage');
                 var shareContent = '【' + storyTitle + '】' + storyDesc;
                 if($("#story-qrcode").html() == "") {
-                        $('#story-qrcode').qrcode({
+                    $('#story-qrcode').qrcode({
                         size: 150,
                         text: storyURL + '/?from=desktopqrcode'
                     });
                 };
-                $(".sns-douban").click(function() {
+                $(".sns-douban").off('click').one('click', function() {
                     var urlDoubanShare = storyURL + "?from=doubanshare";
                     var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:'',r='http://www.douban.com/recommend/?url='+e(urlDoubanShare)+'&title='+e(shareContent)+'&v=1',w=450,h=330,x=function(){if(!window.open(r,'douban','toolbar=0,resizable=1,scrollbars=yes,status=1,width='+w+',height='+h+',left='+(screen.width-w)/2+',top='+(screen.height-h)/2))location.href=r+'&r=1'};
                     if(/Firefox/.test(navigator.userAgent)){
                         setTimeout(x,0)
                     }else{x()}
                 });
-                $(".sns-weibo").click(function() {
+                $(".sns-weibo").off('click').one('click', function() {
                     var urlWeiboShare = storyURL + '?from=weiboshare';
                     var link = getWeiboLink(screen, document, encodeURIComponent,
                                             'http://www.wedfairy.com', 'http://www.wedfairy.com',
                                             storyPic, storyDesc, urlWeiboShare, 'utf-8');
                     window.open(link, '_blank');
                 });
-                $(".sns-renren").click(function() {
+                $(".sns-renren").off('click').one('click', function() {
                     var urlRenrenShare = storyURL + "?from=renrenshare";
-                    console.log()
                     var rrShareParam = {
                         resourceUrl : '',   //分享的资源Url
                         srcUrl : urlRenrenShare,    //分享的资源来源Url,默认为header中的Referer,如果分享失败可以调整此值为resourceUrl试试
@@ -160,22 +150,20 @@ $(function () {
                     };
                     rrShareOnclick(rrShareParam);
                 });
-            },
+            }
         })
     });
 
     var stories = new Amour.Collections.Stories();
     var storyGalleryView = new StoryGalleryView({
-            reverse: true,
-            collection: stories,
-            el: $('.mystory-container')
-        })
+        reverse: true,
+        collection: stories,
+        el: $('.mystory-container')
+    });
 
     stories.fetch({
         reset: true,
-        success: function() {
-            // console.log("success!")
-        }
+        success: function() {}
     });
 
     // comment
@@ -186,10 +174,9 @@ $(function () {
     })
 
     var comments = new (Backbone.Collection.extend({
-                        model: Comment,
-                        url: Amour.APIRoot + 'sites/wish/',
-                      }))();
-
+        model: Comment,
+        url: Amour.APIRoot + 'sites/wish/',
+    }))();
 
     var CommentItemView = Amour.CollectionView.extend({
         ModelView: Amour.ModelView.extend({
@@ -206,19 +193,12 @@ $(function () {
                 return data;
             },
             deleteComment: function(e) {
-                // window.open(Amour.APIRoot + 'sites/wish/?story=' + this.model.get('id'));
-                e.stopPropagation();
-                $('html').off('click');
-
                 var r = confirm("你确定要删除这条留言?");
                 if (r == true) {
                     comments.remove(this.model);
                     this.model.destroy();
-                    console.log("删除成功");
                 };
-
             },
-            
         })
     });
 
@@ -260,10 +240,4 @@ $(function () {
 
     Backbone.history.start();
 
-});
-
-
-
-
-
-
+})();
