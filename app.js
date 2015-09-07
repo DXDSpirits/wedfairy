@@ -1,3 +1,5 @@
+require('newrelic');
+
 var settings = require('./settings/settings');
 var express = require('express');
 var path = require('path');
