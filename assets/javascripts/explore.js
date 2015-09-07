@@ -113,33 +113,6 @@ $(function() {
         }
     });
 
-    // $(document).on('click', '.filter .nav li a', function() {
-    //     // var $aStr = window.location.hash;
-    //     var $aStr = $(this).html();
-    //     var $contentTitle = $('#content-title');
-    //     if($aStr === "首页") {
-    //         $contentTitle.html("");
-    //     } else {
-    //         $contentTitle.html("<h2>" + $aStr + "</h2>");
-    //     }
-        
-    //     // if ($menu.is(":visible")) {
-    //     //     Backbone.trigger("close-scene-filter-menu");
-    //     // } else {
-    //     //     $("html").off("click");
-    //     //     $("html").on("click", function(e) {
-    //     //         var $target = $(e.target);
-    //     //         if ($target.closest(".scene-filter").length == 0 && $menu.is(":visible")) {
-    //     //             Backbone.trigger("close-scene-filter-menu");
-    //     //             $("html").off("click");
-    //     //         }
-    //     //     });
-    //     //     $menu.show();
-    //     // }
-    // });
-
-
-
     // infinite scroll
     var throttle = _.throttle(function() {
 
@@ -160,16 +133,6 @@ $(function() {
                 EXPLORE_FILTER_NAME = "staffpicks";
             };
             var filterName = EXPLORE_FILTER_NAME;
-            // var filterName = filterName || "all";
-            // var $selectedScene = $('.selected-scene');
-            // $('.scene-filter-menu').hide();
-            // $('.scene-filter-menu a').removeClass('active');
-            // var $temp = $('.scene-filter-menu [filter-name=' + filterName +"]");
-            // $temp.addClass("active");
-            // $selectedScene.find(".text").html($temp.html());
-            // if (filterName == "all") { // 'all' means we do not need tag-filter
-            //     filterName = null;
-            // }
             
             stories.fetch({
                 data: { tag: filterName },

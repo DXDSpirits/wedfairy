@@ -109,7 +109,8 @@
             if (Amour.isMobile) {
                 location.href = 'http://compose.wedfairy.com/corslogin/' + token;
             } else {
-                location.href = 'http://site.wedfairy.com/corslogin/' + token;
+                // location.href = 'http://site.wedfairy.com/corslogin/' + token;
+                location.href = "/my/";
             }
         },
         toggleUserinfo: function() {
@@ -151,5 +152,13 @@
     }, 500);
 
     // $(window).on('scroll', toggleBackToTop);
+    var currentURL = window.location.href;
+    console.log(currentURL.indexOf("/my"));
+    if(currentURL.indexOf("/my") > 0) {
+        $(".page-title").html("我的故事");
+        // $("#global-header .navbar .icon-logo").css("background-color", "transparent");
+    }else {
+        $(".page-title").html("");
+    }
 
 })();

@@ -1,0 +1,71 @@
+.filter-nav {
+    background-color: #323a45;
+}
+.filter-container {
+    width: 100%;
+    display: inline-block;
+
+    .filter {
+        border-radius: 1px;
+        display: inline-block;
+        cursor: pointer;
+        a {
+            color: #949eb3;
+            &:active {
+                color: #b9c0d3;
+            }
+            &:hover {
+                color: $brand-primary;
+            }
+        }
+        a:hover, a:visited, a:focus {
+            background-color:transparent;
+        }
+        .btn-group {
+            .btn {
+                padding: 9px 12px;
+                background-color: transparent;
+                color: #949eb3;
+            }
+            .dropdown-menu {
+                min-width: 100px;
+                a {
+                    padding: 3px 12px;
+                    // color: #949eb3;
+                }
+            }
+        }
+        li {
+            // margin-right: 10px;
+            display: inline-block;
+        }
+    }
+
+    .search-box {
+        // border: 1px dashed red;
+        display: none;
+        background-color: white;
+        border-radius: 4px;
+        padding: 0;
+        margin-right: 30px;
+        margin-top: 20px;
+        width: 350px;
+        overflow: hidden;
+        button {
+            background-color: transparent;
+            line-height: 100%;
+            border:0;
+            display: inline-block;
+            .fa {
+                font-weight: lighter;
+                line-height: 1.428em;
+            }
+        }
+        input {
+            border: 0;
+            width: 316px;
+            height: 100%;
+            display: inline-block;
+        }
+    }
+}

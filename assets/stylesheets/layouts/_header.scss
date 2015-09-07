@@ -8,6 +8,7 @@ $modal-bg: #1e2531;
 
 #global-header {
     .navbar {
+        position: relative;
         padding: 20px 15px;
         background-color: $modal-input;
         z-index: 9;
@@ -19,6 +20,13 @@ $modal-bg: #1e2531;
             padding-bottom: 6px;
             font-size: .9em;
         }
+    }
+    .page-title {
+        color: white;
+        position: absolute;
+        font-size: 22px;
+        margin: 2px 4px 4px 70px;
+        letter-spacing: 2px;
     }
     .logo-header {
         color: #fff;
