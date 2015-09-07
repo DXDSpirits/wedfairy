@@ -15,7 +15,6 @@
     user.fetch({
         success: function() {
             var username = user.get('username');
-            // console.log(username);
         }
     });
     $(".btn-newstory").click(function() {
@@ -53,25 +52,23 @@
             },
             edit: function() {
                 var token = Amour.TokenAuth.get();
+
                 var editURL = "http://site.wedfairy.com/compose/" + this.model.get('name');
-                location.href = 'http://site.wedfairy.com/corslogin/' + token + '?url=' + encodeURIComponent(editURL);
-                document.location.href = editURL;
+                document.location.href = 'http://site.wedfairy.com/corslogin/' + token + '?url=' + encodeURIComponent(editURL);
+
                 // var editURL = "http://compose.wedfairy.com/storyguide/" + this.model.get('name') + "/";
                 // var mobileEditURL = 'http://compose.wedfairy.com/corslogin/' + token + '?url=' + encodeURIComponent(editURL);
-                // if($("#story-qrcode").html() == "") {
-                //         $('#story-edit-qrcode').qrcode({
-                //         size: 150,
-                //         text: mobileEditURL
-                //     });
-                // };
+                // $('#story-edit-qrcode').empty().qrcode({
+                //     size: 150,
+                //     text: mobileEditURL
+                // });
                 // $(".mobile-edit-url").click(function() {
                 //     document.location.href = mobileEditURL;
                 // })
             },
             getCoverImg: function() {
                 var coverImgURL = this.model.getData('coverImage');
-                $('.modal-story-cover').attr('style',"background: url(" + coverImgURL + ");background-size: cover"
-                );
+                $('.modal-story-cover').attr('style',"background: url(" + coverImgURL + ");background-size: cover");
             },
             duplicate: function() {
                 this.getCoverImg();
@@ -119,12 +116,10 @@
                 var storyDesc = this.model.get('description');
                 var storyPic = this.model.getData('coverImage');
                 var shareContent = '【' + storyTitle + '】' + storyDesc;
-                if($("#story-qrcode").html() == "") {
-                    $('#story-qrcode').qrcode({
-                        size: 150,
-                        text: storyURL + '/?from=desktopqrcode'
-                    });
-                };
+                $('#story-qrcode').empty().qrcode({
+                    size: 150,
+                    text: storyURL + '/?from=desktopqrcode'
+                });
                 $(".sns-douban").off('click').one('click', function() {
                     var urlDoubanShare = storyURL + "?from=doubanshare";
                     var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:'',r='http://www.douban.com/recommend/?url='+e(urlDoubanShare)+'&title='+e(shareContent)+'&v=1',w=450,h=330,x=function(){if(!window.open(r,'douban','toolbar=0,resizable=1,scrollbars=yes,status=1,width='+w+',height='+h+',left='+(screen.width-w)/2+',top='+(screen.height-h)/2))location.href=r+'&r=1'};

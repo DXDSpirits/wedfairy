@@ -153,7 +153,6 @@
 
     // $(window).on('scroll', toggleBackToTop);
     var currentURL = window.location.href;
-    console.log(currentURL.indexOf("/my"));
     if(currentURL.indexOf("/my") > 0) {
         $(".page-title").html("我的故事");
         // $("#global-header .navbar .icon-logo").css("background-color", "transparent");
