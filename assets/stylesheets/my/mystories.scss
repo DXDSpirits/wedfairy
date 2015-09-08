@@ -1,74 +1,5 @@
+@import "my";
 
-@import "bourbon/bourbon";
-@import "variables";
-
-$modal-title: #464d5e;
-$modal-desc: #7e8891;
-
-//modal buttons
-$btn-green: #69be7b;
-$btn-green-hover: #4ba65e;
-$btn-green-border: #47a85b;
-
-$btn-red: #ed344e;
-$btn-red-hover: #d41932;
-$btn-red-border: #ed1349;
-
-$btn-grey: #ebebeb;
-$btn-grey-border: #dee3e9;
-$btn-grey-hover: #e0e0e0;
-$cancel-text: #959ea5;
-
-
-body {
-    background-color: #f9f9fb;
-    min-width: 768px;
-}
-button:focus {
-    outline: none;
-}
-.loading{
-    margin-bottom: 30px;
-    .icon-loading{
-        display: inline-block;
-        margin-right: 6px;
-        @include transform-origin(51% 47%);
-    }
-}
-
-.my-nav {
-    padding-top: 20px;
-    background-color: #323a45;
-    a {
-        color: #949eb3;
-        display: inline-block;
-        margin-right: 80px;
-        font-size: 16px;
-        padding: 10px 8px;
-        border-bottom: 2px solid transparent;
-    }
-    a.btn-newstory {
-        padding: 8px;
-        margin-right: 0;
-    }
-    a:hover {
-        color: $brand-primary;
-    }
-    a.active {
-        color: #f8f8fa;
-        border-bottom: 2px solid $brand-primary;
-    }
-}
-.my-story-nav {
-    position: relative;
-}
-.content-body {
-    min-height: 500px;
-    padding-top:  80px;
-    .moreStoried {
-        font-size: .6em;
-    }
-}
 .btn-newstory {
     background-color: $brand-primary;
     position: absolute;
@@ -90,81 +21,6 @@ button:focus {
         font-size: 20px;
     }
 
-}
-.filter-nav {
-    margin-top: 50px;
-}
-.filter-container {
-    width: 100%;
-    display: inline-block;
-
-    .filter {
-        border-radius: 1px;
-        display: inline-block;
-        cursor: pointer;
-        a {
-            color: #949eb3;
-            &:active {
-                color: #b9c0d3;
-            }
-            &:hover {
-                color: $brand-primary;
-            }
-        }
-        a:hover, a:visited, a:focus {
-            background-color:transparent;
-        }
-        .btn-group {
-            .btn {
-                padding: 9px 12px;
-                background-color: transparent;
-                color: #949eb3;
-            }
-            .dropdown-menu {
-                min-width: 100px;
-                a {
-                    padding: 3px 12px;
-                    // color: #949eb3;
-                }
-            }
-        }
-        li {
-            margin-right: 10px;
-            display: inline-block;
-        }
-    }
-
-    .search-box {
-        // border: 1px dashed red;
-        display: none;
-        background-color: white;
-        border-radius: 4px;
-        padding: 0;
-        margin-right: 30px;
-        margin-top: 20px;
-        width: 350px;
-        overflow: hidden;
-        button {
-            background-color: transparent;
-            line-height: 100%;
-            border:0;
-            display: inline-block;
-            .fa {
-                font-weight: lighter;
-                line-height: 1.428em;
-            }
-        }
-        input {
-            border: 0;
-            width: 316px;
-            height: 100%;
-            display: inline-block;
-        }
-    }
-}
-
-.slider {
-    margin-top: 50px;
 }
 
 #content-title {
@@ -342,9 +198,6 @@ button:focus {
     }
 }
 #edit-modal, #duplicate-modal, #delete-modal, #shop-modal, #comment-modal, #share-modal {
-    // .modal-content {
-    //     width: 100%;
-    // }
     font-family: "Avenir","Helvetica Neue",Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei","Wenquanyi Micro Hei",sans-serif;
     .modal-dialog {
         margin-top: 80px;
@@ -493,7 +346,7 @@ button:focus {
     }
     .sns-btn {
         height: 35px;
-        margin: 10px 25px 10px;
+        margin: 10px 15px 10px;
         display: inline-block;
         img {
             width: 35px;
@@ -611,16 +464,8 @@ button:focus {
 }
 
 //new media query
-@media (min-width: $giant-screen-width) {
-    .container {
-        width: 1570px;
-    }
-}
 
 @media screen and (min-width: 1200px) and (max-width: $giant-screen-width-1) {
-    .container {
-        width: 1170px;
-    }
     .story-shower {
         width: 262.5px;
         height: 339.5px;
@@ -653,9 +498,6 @@ button:focus {
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
-    .container {
-        width: 970px;
-    }
     .operate-btns a {
         margin: 0 3px 0 0;
     }
@@ -691,9 +533,6 @@ button:focus {
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
-    .container {
-        width: 750px;
-    }
     .operate-btns a {
         margin: 0 8px 0 0;
     }
@@ -729,9 +568,6 @@ button:focus {
 }
 
 @media screen and (max-width: 767px){
-    .container {
-        width: 735px;
-    }
     .operate-btns a {
         margin: 0 8px 0 0;
     }

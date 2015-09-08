@@ -6,7 +6,7 @@
     <% include ../includes/metadata %>
     <% include ../includes/stylesheets %>
 
-    <link rel="stylesheet" href="<%= static_url %>stylesheets/my.css?v=<%= build_no %>">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/my/mystories.css?v=<%= build_no %>">
 
     <% include ../includes/capability %>
     <% include ../includes/production %>
@@ -23,7 +23,7 @@
             <div class="row">
                 <div class="my-story-nav col-md-12 col-sm-12">
                     <a class="nav-my-stories active" href="/my">故事列表</a>
-                    <!-- <a class="nav-my-gallery" href="/my/mygallery">我的相册</a> -->
+                    <a class="nav-my-gallery" href="/my/mygallery">我的相册</a>
                     <a class="btn btn-newstory"><i class="iconfont icon-pencil-add"></i></a>
                 </div>
             </div>
@@ -173,9 +173,9 @@
                         <a class="sns-btn sns-renren">
                             <img data-src="images/sns/sns-renren.png"><span>人人分享</span>
                         </a>
-                        <!-- <a class="sns-btn sns-facebook" href="http://myweb2.search.yahoo.com/myresults/bookmarklet?u=<?php the_permalink() ?>&t=<?php the_title(); ?>" target="_blank">
-                            <img data-src="images/sns/sns-facebook.png"><span>Facebook分享</span>
-                        </a> -->
+                        <a class="sns-btn sns-qzone">
+                            <img data-src="images/sns/sns-qzone.png"><span>QQ空间分享</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -197,6 +197,7 @@
     <!-- SNS js -->
     <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js"></script>
     <script src="http://widget.renren.com/js/rrshare.js"></script>
+    <script src="http://qzonestyle.gtimg.cn/qzone/app/qzlike/qzopensl.js#jsdate=20111201"></script>
 
     <% include ../includes/analytics %>
 

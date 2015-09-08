@@ -1,0 +1,103 @@
+
+@import "../bourbon/bourbon";
+@import "../variables";
+
+$modal-title: #464d5e;
+$modal-desc: #7e8891;
+
+//modal buttons
+$btn-green: #69be7b;
+$btn-green-hover: #4ba65e;
+$btn-green-border: #47a85b;
+
+$btn-red: #ed344e;
+$btn-red-hover: #d41932;
+$btn-red-border: #ed1349;
+
+$btn-grey: #ebebeb;
+$btn-grey-border: #dee3e9;
+$btn-grey-hover: #e0e0e0;
+$cancel-text: #959ea5;
+
+
+body {
+    background-color: #f9f9fb;
+    min-width: 768px;
+}
+button:focus {
+    outline: none;
+}
+.loading{
+    margin-bottom: 30px;
+    .icon-loading{
+        display: inline-block;
+        margin-right: 6px;
+        @include transform-origin(51% 47%);
+    }
+}
+
+.my-nav {
+    padding-top: 20px;
+    background-color: #323a45;
+    a {
+        color: #949eb3;
+        display: inline-block;
+        margin-right: 80px;
+        font-size: 16px;
+        padding: 10px 8px;
+        border-bottom: 2px solid transparent;
+    }
+    a.btn-newstory {
+        padding: 8px;
+        margin-right: 0;
+    }
+    a:hover {
+        color: $brand-primary;
+    }
+    a.active {
+        color: #f8f8fa;
+        border-bottom: 2px solid $brand-primary;
+    }
+}
+.my-story-nav {
+    position: relative;
+}
+.content-body {
+    min-height: 500px;
+    padding-top:  80px;
+    .moreStoried {
+        font-size: .6em;
+    }
+}
+
+
+//new media query
+@media (min-width: $giant-screen-width) {
+    .container {
+        width: 1570px;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: $giant-screen-width-1) {
+    .container {
+        width: 1170px;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .container {
+        width: 735px;
+    }
+}

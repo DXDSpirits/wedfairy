@@ -116,6 +116,7 @@
                 var storyDesc = this.model.get('description');
                 var storyPic = this.model.getData('coverImage');
                 var shareContent = '【' + storyTitle + '】' + storyDesc;
+
                 $('#story-qrcode').empty().qrcode({
                     size: 150,
                     text: storyURL + '/?from=desktopqrcode'
@@ -144,6 +145,26 @@
                         description : storyDesc    //分享的详细描述
                     };
                     rrShareOnclick(rrShareParam);
+                });
+                $(".sns-qzone").off('click').one('click', function() {
+                    var qzonep = {
+                            url: storyURL + '?from=qzone',
+                            showcount:'0',/*是否显示分享总数,显示：'1'，不显示：'0' */
+                            desc: storyDesc,/*默认分享理由(可选)*/
+                            summary:'',/*分享摘要(可选)*/
+                            title:storyTitle,/*分享标题(可选)*/
+                            site:'八音盒轻故事',/*分享来源 如：腾讯网(可选)*/
+                            pics: storyPic, /*分享图片的路径(可选)*/
+                            style:'201',
+                            width:15,
+                            height:15
+                        };
+                    var qzones = [];
+                    for(var i in qzonep){
+                        qzones.push(i + '=' + encodeURIComponent(qzonep[i]||''));
+                    };
+                    qzoneURL = "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" + qzones.join('&');
+                    window.open(qzoneURL);
                 });
             }
         })

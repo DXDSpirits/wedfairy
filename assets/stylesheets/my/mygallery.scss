@@ -1,0 +1,29 @@
+@import "my";
+
+
+.mygallery-upload-area {
+    height: 130px;
+    border: 1px dashed #dbdbdb;
+    border-radius: 3px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    .mygallery-upload {
+        display: inline-block;
+        width: 63px;
+        height: 41px;
+    }
+    .mygallery-upload-text {
+        margin-top: 12px;
+        color: #5b677a;
+    }
+    span {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+.mygallery-container {
+    min-height: 500px;
+    margin: 50px 0;
+    border: 1px solid #dbdbdb;
+}
