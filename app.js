@@ -21,8 +21,7 @@ app.set('view engine', 'ejs');
 
 // local vars
 app.locals.build_no = settings.BUILD || Date.now();
-app.locals.static_url = '/assets/';
-app.locals.cdn_url = settings.CDN_URL;
+app.locals.static_url = app.get('env') == 'development' ? '/assets/' : settings.CDN_URL;
 app.locals.api_root = settings.API_ROOT;
 app.locals.tat_static = settings.TAT_STATIC;
 
@@ -36,8 +35,6 @@ app.use(sass({
     src: __dirname + '/assets/stylesheets/',
     dest: __dirname + '/assets/stylesheets/',
     prefix:  '/assets/stylesheets/',
-    imagePath: settings.CDN_URL + 'images',
-    //includePaths: [__dirname + '/lib/'],
     debug: app.get('env') == 'development', // Output debugging information
     force: app.get('env') == 'development', // Always re-compile
     outputStyle: 'compressed'

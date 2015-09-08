@@ -1,18 +1,17 @@
 
 var CONFIG = {
     ENV : 'production',
-    
+
     TAT_STATIC : 'http://static.wedfairy.com/',
-    
+
     API_ROOT : 'http://api.wedfairy.com/api/',
     API_HOST : 'http://api.wedfairy.com',
     API_HOSTNAME : 'api.wedfairy.com',
     API_PORT : 80,
     API_PROTOCOL : 'http',
-    
-    //CDN_URL : 'http://wedfairy.qiniudn.com/',
+
     CDN_URL : '/assets/',
-    
+
     QINIUMUSIC: {
         ACCESS_KEY: '',
         SECRET_KEY: '',
