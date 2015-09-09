@@ -22,20 +22,24 @@
             background-color:transparent;
         }
         .btn-group {
-            .btn {
+            >.btn {
                 padding: 9px 12px;
                 background-color: transparent;
                 color: #949eb3;
             }
             .dropdown-menu {
+                left: -17px;
                 min-width: 100px;
                 a {
-                    padding: 3px 12px;
+                    padding: 6px 12px;
                     // color: #949eb3;
+                }
+                li {
+                    display: block;
                 }
             }
         }
-        li {
+        >ul>li {
             // margin-right: 10px;
             display: inline-block;
         }

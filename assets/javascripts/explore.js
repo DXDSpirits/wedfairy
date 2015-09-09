@@ -116,8 +116,14 @@ $(function() {
     // infinite scroll
     var throttle = _.throttle(function() {
 
-        if ($(window).scrollTop() + $(window).height() >= $('body').height() - 260) {
-            Backbone.trigger('next-page');
+        if (!Amour.isMobile) {
+            if ($(window).scrollTop() + $(window).height() >= $('body').height() - 260) {
+                Backbone.trigger('next-page');
+            }
+        } else {
+            if ($(window).scrollTop() + $(window).height() >= $('body').height() - 760) {
+                Backbone.trigger('next-page');
+            }
         }
     }, 200);
     $(window).scroll(throttle);

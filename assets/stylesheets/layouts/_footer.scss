@@ -27,13 +27,16 @@ $qrcode-size: 150px;
             // height: 30px;
         }
         i {
-            font-size: 30px;
-            width: 30px;
+            // font-size: 30px;
+            width: 28px;
             height: 30px;
         }
         &:hover {
             background-color: rgba(91,103,122, .6);
         }
+    }
+    .icon-arrow-up {
+        font-size: 28px;
     }
     .footer-float-qrcode:hover {
         @include transition(transform .1s ease-in-out);
@@ -41,11 +44,14 @@ $qrcode-size: 150px;
         @include transform-origin(100% 0);
         padding: 0;
         // z-index: 99;
-        background: #fff image-url("homepage/qrcode-composer.png") no-repeat center;
+        background: #fff image-url("qrcode-to-compose.jpg") no-repeat center;
         background-size: 35px 35px;
         border: 1px solid $footer-bg-color;
         border-radius: 0;
         .fa { visibility: hidden; }
+        .qr-text {
+            display: block;
+        }
     }
 }
 #global-footer {

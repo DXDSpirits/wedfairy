@@ -6,10 +6,26 @@
 @import "explore/explore-ranking-container";
 
 .story-container {
-    .story-item {
-        margin-bottom: 33px;
+    
+    @media (min-width: 421px) {
+        .story-item {
+            margin-bottom: 33px;
+        }
+        .story-cover {
+            padding-top: 100%;
+        }
+    }
+    @media (max-width: 420px) {
+        .story-item {
+            margin-bottom: 10px;
+        }
     }
 }
+
+// .wedfairy-float {
+//     margin-top: 65px;
+//     // margin-bottom: 30px;
+// }
 //new media query
 @media (min-width: $giant-screen-width) {
     .container {
