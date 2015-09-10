@@ -23,33 +23,46 @@
             <div class="row">
                 <div class="my-story-nav col-md-12 col-sm-12">
                     <a class="nav-my-stories" href="/my">故事列表</a>
-                    <a class="nav-my-gallery active" href="/my/mygallery">我的相册</a>
+                    <a class="nav-my-gallery active" href="/my/gallery">我的相册</a>
                 </div>
             </div>
         </div>
     </div>
 
     <section class="container">
-        <section class="row content-body">
-            <div class="col-md-12">
-                <div class="mygallery-upload-area text-center">
-                    <div class="img img-cover mygallery-upload" data-bg-src="/images/mygallery-upload-icon.png"></div>
-                    <div class="mygallery-upload-text">将照片拖到这里，或<span type="button">点击上传</span></div>
-                </div>
+        <section class="row content-body" id="view-albums">
+
+            <div id="mygallery-upload-area" class="text-center">
+                <div class="img img-cover mygallery-upload" data-bg-src="/images/mygallery-upload-icon.png"></div>
+                <div class="mygallery-upload-text">将照片拖到这里，或<span type="button" id="gallery-pickfiles">点击上传</span></div>
             </div>
-            <div class="col-md-12">
-                <div class="row mygallery-container"></div>
+
+            <div class="wrapper">
+                <div class="gallery-wrapper"></div>
             </div>
+
+            <div class="center-block loading text-center hidden">
+                <i class="iconfont icon-loading spin"></i>正在加载中...
+            </div>
+
         </section>
     </section>
 
 
-    <div class="center-block loading text-center hidden">
-            <i class="iconfont icon-loading spin"></i>正在加载中...
-    </div>
+        
 
     <% include ../layouts/footer %>
 
+    <!--查看相片大图 -->
+    <div class="modal fade" id="photo-modal">
+        <div class="modal-dialog photoShow">
+            <!-- <div class="modal-content">
+                <div class="modal-body text-center photoShow">
+
+                </div>
+            </div> -->
+        </div>
+    </div>
 
     <% include ./templates %>
 
@@ -60,11 +73,10 @@
 
     <script src="<%= tat_static %>javascripts/plugins/moment.js"></script>
     <script src="<%= tat_static %>javascripts/plugins/jquery.qrcode.min.js"></script>
-    <script src="<%= static_url %>javascripts/mystories.js?v=<%= build_no %>"></script>
+    <script src="<%= tat_static %>javascripts/plugins/plupload.full.min.js"></script>
+    <script src="<%= tat_static %>javascripts/plugins/qiniu.js"></script>
+    <script src="<%= static_url %>javascripts/mygallery.js?v=<%= build_no %>"></script>
 
-    <!-- SNS js -->
-    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js"></script>
-    <script src="http://widget.renren.com/js/rrshare.js"></script>
 
     <% include ../includes/analytics %>
 

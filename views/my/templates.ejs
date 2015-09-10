@@ -14,7 +14,7 @@
             <p class="story-last-modified text-center">上次编辑&nbsp;<span class="last-modified-time">{{formatted_date}}</span></p>
             <div class="story-btn-group clearfix">
                 <div class="operate-btns">
-                    <a class="btn-edit button pull-left" data-toggle="modal" data-target="#edit-modalOOOOOOOOOOOOO"><i class="iconfont icon-pencil"></i> <span>编辑</span></a>
+                    <a class="btn-edit button pull-left" data-toggle="modal" data-target="#edit-modal"><i class="iconfont icon-pencil"></i> <span>编辑</span></a>
                     <a class="btn-duplicate button pull-left hidden" data-toggle="modal" data-target="#duplicate-modal"><i class="iconfont icon-duplicate"></i> <span>复制</span></a>
                     <a class="btn-comment button pull-left" data-toggle="modal" data-target="#comment-modal"><i class="iconfont icon-comment"></i> <span>留言</span></a>
                     <a class="btn-shop button pull-left hidden" data-toggle="modal" data-target="#shop-modal"><i class="iconfont icon-shop"></i> <span>应用商店</span></a>
@@ -42,9 +42,17 @@
 </div>
 </script>
 
-<script id="gallery-item-template" type="text/x-mustache-template">
-    <div class="gallery-item">
-        
+<script id="template-gallery-item" type="text/x-mustache-template">
+    <div class="gallery-shower">
+        <div class="img img-cover gallery-item" data-bg-src="{{url}}">
+        </div>
+        <div class="delete-mask" data-toggle="modal" data-target="#photo-modal">
+            
+        </div>
+        <div class="gallery-item-delete-btn">
+            <i class="iconfont icon-delete"></i>
+            <span class="sureTodelete">确定</span>
+        </div>
     </div>
-    <button class="gallery-item-delete-btn"><i class="iconfont icon-delete">确定</i></button>
+    
 </script>

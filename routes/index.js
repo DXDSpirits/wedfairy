@@ -75,4 +75,19 @@ router.get('/music/uptoken', function(req, res, next) {
     }
 });
 
+//upload image
+var putPolicyImg = new qiniu.rs.PutPolicy(settings.QINIUIMG.BUCKET_NAME);
+router.get('/gallery/uptoken', function(req, res, next) {
+    var token = putPolicyImg.token();
+    res.header("Cache-Control", "max-age=0, private, must-revalidate");
+    res.header("Pragma", "no-cache");
+    res.header("Expires", 0);
+    if (token) {
+        res.json({
+            uptoken: token
+        });
+    }
+});
+
+
 module.exports = router;

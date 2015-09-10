@@ -1,12 +1,15 @@
 @import "my";
 
-
-.mygallery-upload-area {
+.content-body {
+    padding-bottom: 80px;
+}
+#mygallery-upload-area {
     height: 130px;
     border: 1px dashed #dbdbdb;
     border-radius: 3px;
     padding-top: 25px;
     padding-bottom: 25px;
+    margin: 0 15px;
     .mygallery-upload {
         display: inline-block;
         width: 63px;
@@ -27,3 +30,154 @@
     margin: 50px 0;
     border: 1px solid #dbdbdb;
 }
+
+.wrapper {
+    padding: 50px 0 10px;
+    overflow: hidden;
+}
+.gallery-wrapper {
+    overflow: hidden;
+}
+.photo-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+.gallery-item-delete-btn {
+    padding: 4px;
+    color: transparent;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    height: 29px;
+    width: 25px;
+    overflow: hidden;
+    white-space:nowrap;
+    border-radius: 2px;
+    @include transition(all, .3s);
+
+    &:hover {
+        background-color: $brand-primary;
+        width: 58px;
+    }
+}
+.gallery-shower {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    .delete-mask {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        right: 0;
+        @include transition(background-color, .25s);
+        
+    }
+    .icon-delete {
+        font-size: 18px;
+    }
+    .sureTodelete {
+        font-size: 13px;
+        cursor: pointer;
+    }
+    &:hover {
+        .delete-mask {
+            background-color: rgba(50,58,69,0.7);
+        }
+        .gallery-item-delete-btn {
+            color: white;
+        }
+    }
+}
+.gallery-item {
+    padding-top: 100%;
+    box-shadow: 1px 3px 5px #dfdfdf;
+    position: relative;
+    
+    &:hover {
+        .gallery-item-delete-btn {
+            display: inline-block;
+        }
+    }
+
+}
+
+.photo-item .progress {
+    position: absolute;
+    overflow: hidden;
+    height: 16px;
+    border-radius: 8px;
+    margin: 0;
+    background-color: #ebebeb;
+    // @include position(absolute, auto 0 0 0);
+    // margin: 10px;
+    .tip {
+        position: absolute;
+        width: 100%;
+        font-size: 0.8em;
+        line-height: 16px;
+        color: white;
+    }
+    .progress-bar {
+        position: absolute;
+        top: 0;
+        height: 16px;
+        border-radius: 8px;
+        background-color: #67b368;
+        box-shadow: 1px 1px 5px #ccc inset;
+        // background-color: red;
+    }
+}
+
+.loading {
+    margin-bottom: 70px;
+}
+
+#photo-modal {
+    height: 100%;
+    vertical-align: middle;
+    text-align: center;
+    .modal-dialog {
+        // width: 100%;
+        height: 100%;
+        // margin: 0;
+        // margin: 4% auto
+        text-align: center;
+        vertical-align: middle;
+        img {
+            max-height: 90%;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+    }
+    .modal-content {
+        height: 100%;
+        vertical-align: middle;
+        text-align: center;
+        background-color:transparent;
+    }
+    .modal-header {
+        height: 0;
+        padding: 0;
+        margin: 0;
+    }
+    .modal-body {
+        // width: 100%;
+        max-height: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+        vertical-align: middle;
+        // text-align: center;
+    }
+    .photo-item-show {
+        height: 90%;
+        width: auto;
+        max-width: 96%;
+        margin: 0 auto;
+        border: 1px solid white;
+    }
+}
+
+
