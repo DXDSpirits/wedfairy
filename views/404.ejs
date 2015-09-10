@@ -3,63 +3,45 @@
 <% include includes/html %>
 
 <head>
-    
-<title>找不到该页面</title>
+    <title>八音盒</title>
 
-<% include includes/metadata %>
+    <% include includes/metadata %>
 
-<link rel="stylesheet" href="<%= tat_static %>stylesheets/bootstrap.css">
-<style type="text/css">
-    .link-container{
-        text-align: center;
-        margin-top: 30px;
-    }
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/bootstrap-custom.css?v=<%= build_no %>">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/font-awesome.css">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/error.css?v=<%= build_no %>">
 
-    .link-container a{
-        color: #2c7cbf !important;
-    }
-
-
-</style>
-<% include includes/production %>
-
-<script src="<%= tat_static %>javascripts/vendor/modernizr-2.7.1.min.js"></script>
-    
+    <script src="<%= tat_static %>javascripts/vendor/modernizr-2.7.1.min.js"></script>
 </head>
 <body>
 
-<div class="container">
-   
-    <h3 class="text-center" style="margin-top: 68px;">抱歉! 小盒子好像迷路了!</h3>
-    <div class="link-container"><a id="link" href="/">► <span id="timing">5</span>秒后返回首页</a></div>
-    <div class="col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 " >
-        <img src="/assets/images/404.jpg" style="width: 100%" />
-
-    </div>
-
+<div class="waves">
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="whale"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
 </div>
-
-<% include includes/analytics %>
-<script>
-    var $timing = document.getElementById("timing");
-    var interval = setInterval(function(){
-        var number = parseInt($timing.innerHTML);
-        number --;
-        if(number == 0){
-            clearInterval(interval);
-            console.log("done");
-            window.location.href = "/";
-            document.getElementById("link").innerHTML = "正在跳转..."
-            return 
-        }
-        $timing.innerHTML = number;
-    }, 1000);
-
-    
-
-
-
-</script>
+<header class="container-fluid text-center">
+    <h1>小盒子迷路啦</h1>
+    <h4>不如还是游回首页去吧</h4>
+    <a class="btn btn-primary" href="http://www.wedfairy.com">八音盒首页</a>
+</header>
+<footer class="footer text-center">
+    <div class="social-icons">
+        <a href="http://mp.weixin.qq.com/s?__biz=MzA5ODM0OTM5Mg==&mid=209005186&idx=1&sn=e9c3d663cec343fcf098a927c5d32354#rd" target="_blank">
+            <i class="fa fa-wechat"></i>
+        </a>
+        <a href="http://weibo.com/u/5224024448/" target="_blank" class="hidden-xs">
+            <i class="fa fa-weibo"></i>
+        </a>
+        <a href="http://m.weibo.cn/u/5224024448/" target="_blank" class="visible-xs-inline-block">
+            <i class="fa fa-weibo"></i>
+        </a>
+    </div>
+    <p class="copyright">© 八音盒 2015</p>
+</footer>
 
 </body>
 </html>

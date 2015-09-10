@@ -57,23 +57,25 @@ app.use('/', require('./routes/index'));
 app.use('/about', require('./routes/about'));
 app.use('/my', require('./routes/my'));
 
-/// catch 404 and forwarding to error handler
+// catch 404
 app.use(function(req, res, next) {
-    res.status(404);
-    res.render('404');
-    return ;
-    // next(err);
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
 });
 
-/// error handlers
-
+// error handlers
 app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-        message: err.message,
-        status: err.status || 500,
-        stack: err.stack
-    });
+    if (err.status == 404) {
+        res.render('404');
+    } else {
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            status: err.status || 500,
+            stack: err.stack
+        });
+    }
 });
 
 if (app.get('env') !== 'development') {

@@ -1,0 +1,113 @@
+
+// Bourbon
+@import "bourbon/bourbon";
+@import "variables";
+
+@include keyframes(wave) {
+      0% { background-position: 0px 0px; }
+     50% { background-position: -50px 0px; }
+    100% { background-position: -100px 0px; }
+}
+
+@include keyframes(whale) {
+      0% { @include transform(rotate(0deg)); }
+     25% { @include transform(rotate(-10deg)); }
+     50% { @include transform(rotate(0deg)); }
+     75% { @include transform(rotate(10deg)); }
+    100% { @include transform(rotate(0deg)); }
+}
+
+body {
+    background-color: #f76d7b;
+    color: #fff;
+}
+
+body > header {
+    padding-top: 80px;
+    h4 {
+        margin: 30px auto;
+    }
+    .btn {
+        padding: 8px 20px;
+        background-color: #d13b49;
+        &:hover, &:focus, &:active {
+            background-color: darken(#d13b49, 5%);
+        }
+    }
+}
+
+body > footer {
+    @include position(fixed, auto 0 0 0);
+    a {
+        display: inline-block;
+        margin: 0 5px;
+        font-size: 30px;
+        color: #afc9d3;
+        &:hover, &:focus, &:active {
+            color: #fff;
+        }
+    }
+    .copyright {
+        font-size: 0.9em;
+    }
+}
+
+.waves {
+    @include position(fixed, 50% 0 0 0);
+    background-color: #5f93a8;
+}
+
+.wave {
+    background-repeat: repeat-x;
+    background-size: 100px auto;
+    background-position: 0px 0px;
+    height: 100px;
+    margin-top: -50px;
+    @include transform(translate3d(0, 0, 0));
+    &:nth-child(1) {
+        background-image: image-url("404/wave1.png");
+        @include animation(wave 4s linear infinite);
+    }
+    &:nth-child(2) {
+        background-image: image-url("404/wave2.png");
+        @include animation(wave 4s linear infinite reverse);
+    }
+    &:nth-child(3) {
+        background-image: image-url("404/wave3.png");
+        @include animation(wave 2s linear infinite);
+    }
+    &:nth-child(5) {
+        background-image: image-url("404/wave4.png");
+        @include animation(wave 1s linear infinite reverse);
+    }
+    &:nth-child(6) {
+        background-image: image-url("404/wave5.png");
+        @include animation(wave 1s linear infinite);
+    }
+}
+
+.whale {
+    background: image-url("404/whale.png") no-repeat center;
+    background-size: contain;
+    height: 240px;
+    margin-top: -240px;
+    @include animation(whale 2s linear infinite);
+}
+
+@media (max-width: 400px) {
+    .waves {
+        top: 55%;
+    }
+    .wave {
+        background-size: 50px auto;
+        height: 50px;
+        margin-top: -25px;
+    }
+    .whale {
+        height: 120px;
+        margin-top: -120px;
+    }
+    body > header {
+        padding-top: 30px;
+    }
+}
