@@ -56,6 +56,7 @@ app.use(wechat.signUrl());
 app.use('/', require('./routes/index'));
 app.use('/about', require('./routes/about'));
 app.use('/my', require('./routes/my'));
+app.use('/accounts', require('./routes/accounts'));
 
 // catch 404
 app.use(function(req, res, next) {

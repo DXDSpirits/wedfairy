@@ -46,24 +46,26 @@
     padding: 4px;
     color: transparent;
     position: absolute;
-    right: 15px;
-    top: 15px;
+    right: 10px;
+    top: 10px;
     height: 29px;
     width: 25px;
     overflow: hidden;
     white-space:nowrap;
     border-radius: 2px;
-    @include transition(all, .3s);
+    @include transition(all .3s ease-in-out);
 
     &:hover {
         background-color: $brand-primary;
-        width: 58px;
+        width: 55px;
     }
 }
 .gallery-shower {
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    box-shadow: 1px 1px 5px #cdcdcd;
+    @include transition(all .2s ease-in-out);
     .delete-mask {
         position: absolute;
         height: 100%;
@@ -71,22 +73,24 @@
         top: 0;
         right: 0;
         @include transition(background-color, .25s);
-        
+        @include transition-delay(.1s);
     }
     .icon-delete {
         font-size: 18px;
     }
     .sureTodelete {
-        font-size: 13px;
+        font-size: 11px;
         cursor: pointer;
     }
     &:hover {
         .delete-mask {
-            background-color: rgba(50,58,69,0.7);
+            background-color: rgba(34,37,68,0.6);
         }
         .gallery-item-delete-btn {
             color: white;
         }
+        @include transform(scale(1.04));
+
     }
 }
 .gallery-item {
@@ -109,8 +113,6 @@
     border-radius: 8px;
     margin: 0;
     background-color: #ebebeb;
-    // @include position(absolute, auto 0 0 0);
-    // margin: 10px;
     .tip {
         position: absolute;
         width: 100%;
@@ -134,49 +136,79 @@
 }
 
 #photo-modal {
-    height: 100%;
+    height: 90%;
+    width: 90%;
     vertical-align: middle;
     text-align: center;
-    .modal-dialog {
-        // width: 100%;
-        height: 100%;
-        // margin: 0;
-        // margin: 4% auto
-        text-align: center;
-        vertical-align: middle;
-        img {
-            max-height: 90%;
-            max-width: 90%;
-            margin: 0 auto;
+    margin: auto;
+    .close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        opacity: 1;
+        cursor: pointer;
+        
+        .icon-x {
+            font-size: 20px;
+            color: #7D8790;
+            font-weight: bold;
+            text-shadow: none;
         }
     }
-    .modal-content {
+    
+    .icon-page {
+        position: absolute;
         height: 100%;
         vertical-align: middle;
-        text-align: center;
-        background-color:transparent;
+        top: 48%;
     }
-    .modal-header {
-        height: 0;
-        padding: 0;
-        margin: 0;
+    .page-rev {
+        left: 0;
+
     }
-    .modal-body {
-        // width: 100%;
+    .page-next {
+        right: 0;
+    }
+    .icon-angle-left {
+        color: #666666;
+        font-size: 40px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        z-index: 99999;
+
+        &:hover {
+            background-color: rgba(50,58,69,0.7);
+            color: $modal-desc;
+        }
+    }
+    .icon-angle-right {
+        color: #666666;
+        font-size: 40px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        z-index: 99999;
+        &:hover {
+            background-color: rgba(50,58,69,0.7);
+            color: $modal-desc;
+        }
+    }
+    .photoShow {
+        width: auto;
+        height: 100%;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .img-showing {
         max-height: 100%;
         max-width: 100%;
-        overflow: hidden;
-        padding: 0;
-        margin: 0;
-        vertical-align: middle;
-        // text-align: center;
+        height: 100%;
+        background-position: center;
     }
-    .photo-item-show {
-        height: 90%;
-        width: auto;
-        max-width: 96%;
-        margin: 0 auto;
-        border: 1px solid white;
+    .img-auto {
+        background-size: auto;
     }
 }
 

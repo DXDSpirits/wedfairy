@@ -2,7 +2,6 @@
 
     $("#global-footer-float-group").addClass('hidden');
     var token = Amour.TokenAuth.get();
-
     Amour.ajax.on('unauthorized forbidden', function() {
         $('#loginModal').modal('show');
     });
@@ -53,18 +52,18 @@
             edit: function() {
                 var token = Amour.TokenAuth.get();
 
-                var editURL = "http://site.wedfairy.com/compose/" + this.model.get('name');
-                document.location.href = 'http://site.wedfairy.com/corslogin/' + token + '?url=' + encodeURIComponent(editURL);
+                // var editURL = "http://site.wedfairy.com/compose/" + this.model.get('name');
+                // document.location.href = 'http://site.wedfairy.com/corslogin/' + token + '?url=' + encodeURIComponent(editURL);
 
-                // var editURL = "http://compose.wedfairy.com/storyguide/" + this.model.get('name') + "/";
-                // var mobileEditURL = 'http://compose.wedfairy.com/corslogin/' + token + '?url=' + encodeURIComponent(editURL);
-                // $('#story-edit-qrcode').empty().qrcode({
-                //     size: 150,
-                //     text: mobileEditURL
-                // });
-                // $(".mobile-edit-url").click(function() {
-                //     document.location.href = mobileEditURL;
-                // })
+                var editURL = "http://compose.wedfairy.com/storyguide/" + this.model.get('name') + "/";
+                var mobileEditURL = 'http://compose.wedfairy.com/corslogin/' + token + '?url=' + encodeURIComponent(editURL);
+                $('#story-edit-qrcode').empty().qrcode({
+                    size: 150,
+                    text: mobileEditURL
+                });
+                $(".mobile-edit-url").click(function() {
+                    document.location.href = mobileEditURL;
+                })
             },
             getCoverImg: function() {
                 var coverImgURL = this.model.getData('coverImage');
@@ -222,37 +221,6 @@
         collection: comments,
         el: $('.comments-container')
     });
-
-    // var ROUTER = new (Backbone.Router.extend({
-    //     routes: {
-    //         ':tagFilter': 'tagFilter',
-    //         '': 'tagFilter'
-    //     },
-    //     tagFilter: function(filterName) {
-    //         if (EXPLORE_FILTER_NAME === "featured") {
-    //             EXPLORE_FILTER_NAME = "staffpicks";
-    //         };
-    //         var filterName = EXPLORE_FILTER_NAME;
-    //         // var filterName = filterName || "all";
-    //         // var $selectedScene = $('.selected-scene');
-    //         // $('.scene-filter-menu').hide();
-    //         // $('.scene-filter-menu a').removeClass('active');
-    //         // var $temp = $('.scene-filter-menu [filter-name=' + filterName +"]");
-    //         // $temp.addClass("active");
-    //         // $selectedScene.find(".text").html($temp.html());
-    //         // if (filterName == "all") { // 'all' means we do not need tag-filter
-    //         //     filterName = null;
-    //         // }
-            
-    //         stories.fetch({
-    //             data: { tag: filterName },
-    //             reset: true,
-    //             success: function () {
-    //                 $("#content-title").removeClass("hidden");
-    //             }
-    //         });
-    //     }
-    // }))();
 
     Backbone.history.start();
 

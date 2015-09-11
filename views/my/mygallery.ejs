@@ -24,6 +24,8 @@
                 <div class="my-story-nav col-md-12 col-sm-12">
                     <a class="nav-my-stories" href="/my">故事列表</a>
                     <a class="nav-my-gallery active" href="/my/gallery">我的相册</a>
+                    <a class="nav-change-pw" href="/accounts/change-password">修改密码</a>
+                    <a class="nav-forget-pw" href="/accounts/forget-password">找回密码</a>
                 </div>
             </div>
         </div>
@@ -54,14 +56,14 @@
     <% include ../layouts/footer %>
 
     <!--查看相片大图 -->
-    <div class="modal fade" id="photo-modal">
-        <div class="modal-dialog photoShow">
-            <!-- <div class="modal-content">
-                <div class="modal-body text-center photoShow">
+    <div class="modal fade clearfix" id="photo-modal">
+        <button type="button" class="close" data-dismiss="modal">
+              <i class="icon iconfont icon-x"></i>
+        </button>
+        <div class="icon-page page-prev"><i class="iconfont icon-angle-left"></i></div>
+        <div class="icon-page page-next"><i class="iconfont icon-angle-right"></i></div>
+        <div class="photoShow"></div>
 
-                </div>
-            </div> -->
-        </div>
     </div>
 
     <% include ./templates %>

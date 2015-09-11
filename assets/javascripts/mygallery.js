@@ -9,6 +9,8 @@
         $('#view-albums').hide();
         $('#loginModal').modal('show');
     };
+
+    // var url = null;
     
     var PhotoModel = Amour.Model.extend({
         urlRoot: Amour.APIRoot + 'sites/photo/'
@@ -44,7 +46,6 @@
             },
             startUpload: function() {
                 this.$el.html('<div class="progress">' +
-                              
                               '<div class="progress-bar" style="width: 0;"></div>' +
                               '<div class="tip text-center">上传中</div>' +
                               '</div>');
@@ -52,7 +53,6 @@
             },
             progressUpload: function(percentage) {
                 this.$('.progress-bar').css('width', percentage + '%');
-                // this.$('.progress .tip').html(percentage + '%');
             },
             failUpload: function(errorTip) {
                 this.$el.text(errorTip);
@@ -60,20 +60,47 @@
             completeUpload: function() {
                 this.render;
             },
+            hide: function() {
+                this.$el.animate({
+                    opacity: 0
+                }, 800, function() {
+                    $(this).remove();
+                })
+            },
             deleteImg: function() {
-
                 var self = this;
-                // _.defer(function() {
-                    // if (confirm('确认删除照片?')) {
-                        self.model.destroy();
-                    // }
-                    // });
+                self.model.destroy();
             },
             photoShow: function() {
-                // var url = this.model.get("url");
-                console.log(this.model.get("url"));
-                $('.photoShow').html('<img src="' + this.model.get("url") + '" />');
-            }
+                $('#photo-modal').modal('show');
+                var currentUrl = this.model.get('url');
+                showPhoto(currentUrl);
+                var currentIndex = photoCollection.models.indexOf(this.model);
+                var modelsLenght = photoCollection.models.length;
+                var fatherHeight = $('#photo-modal').height();
+                $('.icon-angle-left').off('click').click(function() {
+
+                    if(currentIndex == 0) {
+                        currentIndex = modelsLenght - 1 - currentIndex;
+                    }else {
+                        currentIndex -= 1
+                    };
+                    $('.img-showing').addClass('animated bounceOutRight');
+                    _.delay(showPhotoLeft, 500, photoCollection.models[currentIndex].get('url'))
+                });
+
+                $('.icon-angle-right').off('click').click(function() {
+
+                    if(currentIndex == (modelsLenght - 1)) {
+                        currentIndex = 0;
+                    }else {
+                        currentIndex += 1
+                    };
+                    $('.img-showing').addClass('animated bounceOutLeft');
+                    _.delay(showPhotoRight, 500, photoCollection.models[currentIndex].get('url'))
+                });
+            },
+
         })
     });
     
@@ -164,9 +191,67 @@
         }
     });
 
+    var showPhoto = function(url) {
+        $('.photoShow').html('<div class="img img-showing"></div>');
+        var imgContainWidth = $('#photo-modal').width() * 0.9 * 0.9;
+        var imgContainHeight = $('#photo-modal').height() * 0.9;
+        imgLoad(url, function(w,h){
+            if(w < imgContainWidth && h < imgContainHeight) {
+                $('.img-showing').addClass('img-auto');
+            }else{
+                $('.img-showing').addClass('img-contain');
+            }
+            
+        });
+        Amour.loadBgImage($('.img-showing'), url)
+    };
+
+    var showPhotoLeft = function(url) {
+        $('.photoShow').html('<div class="img img-showing animated bounceInLeft"></div>');
+        var imgContainWidthLeft = $('#photo-modal').width() * 0.9 * 0.9;
+        var imgContainHeightLeft = $('#photo-modal').height() * 0.9;
+        imgLoad(url, function(w,h){
+            if(w < imgContainWidthLeft && h < imgContainHeightLeft) {
+                $('.img-showing').addClass('img-auto');
+            }else{
+                $('.img-showing').addClass('img-contain');
+            }
+        });
+        Amour.loadBgImage($('.img-showing'), url)
+    };
+    var showPhotoRight = function(url) {
+        // $('#photo-modal').modal('show');
+
+        $('.photoShow').html('<div class="img img-showing animated bounceInRight"></div>');
+        var imgContainWidthRight = $('#photo-modal').width() * 0.9 * 0.9;
+        var imgContainHeightRight = $('#photo-modal').height() * 0.9;
+        console.log(imgContainHeightRight);
+        imgLoad(url, function(w,h){
+            if(w < imgContainWidthRight && h < imgContainHeightRight) {
+                $('.img-showing').addClass('img-auto');
+            }else{
+                $('.img-showing').addClass('img-contain');
+            }
+        });
+        Amour.loadBgImage($('.img-showing'), url)
+    };
+
+    var imgLoad = function(url, callback) {
+        var img = new Image();
+        img.src = url;
+        // 如果图片被缓存，则直接返回缓存数据
+        if(img.complete){
+            callback(img.width, img.height);
+        }else {
+            // 完全加载完毕的事件
+            img.onload = function(){
+                img.onload = null;
+                callback(img.width, img.height);
+            }
+        }
+    };
     
     var galleryView = new GalleryView({
-                    // reverse: false,
                     collection: photoCollection,
                     el: this.$('.gallery-wrapper')
                 })
@@ -210,88 +295,5 @@
     $(window).scroll(throttle);
 
     Backbone.history.start();
-
-    // var myalbums = new (Amour.CollectionView.extend({
-    //     events: {
-    //         'click #gallery-pickfiles': 'pickWxImage',
-    //         'click input[type=file]': 'onClickFileInput',
-    //         'click .btn-readytodelete': 'readyToDelete',
-    //         'click .btn-readytodelete-end': 'readyToDeleteEnd'
-    //     },
-    //     initPage: function() {
-    //         this.views = {
-    //             galleryView: new GalleryView({
-    //                 reverse: true,
-    //                 collection: photoCollection,
-    //                 el: this.$('.gallery-wrapper')
-    //             })
-    //         };
-    //     },
-    //     uploadPickedFile: function(e) {
-    //         uploader.addFile(e.currentTarget);
-    //     },
-    //     uploadWxImage: function(serverId) {
-    //         $.get('/gallery/fetchwximg/' + serverId, function(data) {
-    //             var photo = photoCollection.create({
-    //                 url: data.url
-    //             });
-    //             photo.trigger('completeUpload');
-    //         });
-    //     },
-    //     pickWxImage: function() {
-    //         var self = this;
-    //         var syncUpload = function(localIds) {
-    //             if (localIds.length == 0) return;
-    //             var localId = localIds.pop();
-    //             wx.uploadImage({
-    //                 localId: localId,
-    //                 isShowProgressTips: 1,
-    //                 success: function (res) {
-    //                     var serverId = res.serverId;
-    //                     self.uploadWxImage(serverId);
-    //                     syncUpload(localIds);
-    //                 }
-    //             });
-    //         };
-    //         if (Amour.isWeixin) {
-    //             wx.chooseImage({
-    //                 success: function (res) {
-    //                     syncUpload(res.localIds);
-    //                 }
-    //             });
-    //         }
-    //     },
-    //     scrollToTop: function() {
-    //         this.$('.wrapper').animate({
-    //             scrollTop: 0
-    //         });
-    //     },
-    //     resetPhotos: _.once(function() {
-    //         if (Amour.isWeixin) {
-    //             $('#pickfile-container').css('z-index', 0);
-    //         } else {
-    //             initUploader();
-    //         }
-    //         photoCollection.fetch();
-    //     }),
-    //     readyToDelete: function(forceReset) {
-    //         this.$('.gallery-wrapper').addClass('ready-to-delete');
-    //         this.$('.btn-readytodelete').addClass('hidden');
-    //         this.$('.btn-readytodelete-end').removeClass('hidden');
-    //     },
-    //     readyToDeleteEnd: function() {
-    //         this.$('.gallery-wrapper').removeClass('ready-to-delete');
-    //         this.$('.btn-readytodelete').removeClass('hidden');
-    //         this.$('.btn-readytodelete-end').addClass('hidden');
-    //     },
-    //     leave: function() {
-    //         this.readyToDeleteEnd();
-    //     },
-    //     render: function() {
-    //         this.resetPhotos();
-    //         var quota = this.options.quota || 1;
-    //         this.$('.title > span').text(quota);
-    //     }
-    // }))({el: $('#view-albums')});
     
 })();

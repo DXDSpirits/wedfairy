@@ -20,6 +20,21 @@ $btn-grey-hover: #e0e0e0;
 $cancel-text: #959ea5;
 
 
+//color blocks 
+$img-loading-color1: #819ea3;
+$img-loading-color2: #263939;
+$img-loading-color3: #bebcb6;
+$img-loading-color4: #696b5a;
+$img-loading-color5: #433e41;
+$img-loading-color6: #928a82;
+$img-loading-color7: #94694d;
+$img-loading-color8: #9d94a2;
+$img-loading-color9: #b9aa9f;
+$img-loading-color10: #6c8bb6;
+$img-loading-color11: #383620;
+$img-loading-color12: #908761;
+
+
 body {
     background-color: #f9f9fb;
     min-width: 768px;
@@ -42,7 +57,7 @@ button:focus {
     a {
         color: #949eb3;
         display: inline-block;
-        margin-right: 80px;
+        margin-right: 50px;
         font-size: 16px;
         padding: 10px 8px;
         border-bottom: 2px solid transparent;
