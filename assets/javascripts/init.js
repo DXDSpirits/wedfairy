@@ -156,6 +156,8 @@
     if(currentURL.indexOf("/my") > 0) {
         $(".page-title").html("我的故事");
         // $("#global-header .navbar .icon-logo").css("background-color", "transparent");
+    }else if(currentURL.indexOf("forget-password") > 0){
+        $(".page-title").html("找回密码");
     }else {
         $(".page-title").html("");
     }

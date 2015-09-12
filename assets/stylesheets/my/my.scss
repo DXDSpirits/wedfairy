@@ -75,11 +75,13 @@ button:focus {
     }
 }
 .my-story-nav {
+    height: 44px;
     position: relative;
 }
 .content-body {
     min-height: 500px;
     padding-top:  80px;
+    padding-bottom: 80px;
     .moreStoried {
         font-size: .6em;
     }

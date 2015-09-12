@@ -1,27 +1,11 @@
 (function() {
 
     $("#global-footer-float-group").addClass('hidden');
-    var token = Amour.TokenAuth.get();
-    // Amour.ajax.on('unauthorized forbidden', function() {
-    //     $('#loginModal').modal('show');
-    // });
-    // if(token == null) {
-    //     $('#loginModal').modal('show');
-    // };
     
-    var user = new Amour.Models.User();
-
-    // user.fetch({
-    //     success: function() {
-    //         // var username = user.get('username');
-    //     }
-    // });
-    
-    var forgetPassword= new (Amour.View.extend({
+    var forgetPassword = new (Amour.View.extend({
         events: {
             'click .btn-send-code': 'sendCode',
             'click .btn-confirm-pwd': 'confirmPwd',
-            'click .pwdvisible': 'pwdVisible'
         },
         initPage: function() {},
         onError: function(error) {
@@ -36,6 +20,7 @@
         sendCode: function(e) {
             e && e.preventDefault && e.preventDefault();
             var mobile = this.$('input[name=mobile]').val();
+            
             if (mobile) {
                 var self = this;
                 var model = new (Amour.Model.extend({
@@ -43,20 +28,13 @@
                 }))({ mobile:  mobile});
                 model.save({}, {
                     success: function(model, response, options) {
-                        self.$('.btn-send-code').attr('disabled', true).text('验证码已发送');
-                        // self.$('.step-two').removeClass('invisible');
+                        resendCountDown(30);
                     },
                     error: function(model, response, options) {
                         self.onError(response.responseJSON);
                     }
                 });
             }
-        },
-        pwdVisible: function() {
-            this.$('.pwdvisible').toggleClass('on');
-            var checked = this.$('.pwdvisible').hasClass('on');
-            this.$('.pwdvisible').text(checked ? '隐藏密码': '显示密码');
-            this.$('input[name=password]').attr('type', checked ? 'text': 'password');
         },
         confirmPwd: function(e) {
             e && e.preventDefault && e.preventDefault();
@@ -103,5 +81,20 @@
             this.$('.btn-send-code').removeAttr('disabled').text('发送验证码');
             return this;
         }
-    }))({el: $('#view-forget')});
+    }))({el: $('#view-forget-password')});
+
+    var resendCountDown = function(resendInterval) {
+        if(resendInterval == 0 ) {
+            $('.resend-hint').addClass('hidden');
+            $('.btn-send-code').removeClass('btn-disable').removeAttr('disabled');
+            // return;
+        }else if(resendInterval>0){
+            $('.btn-send-code').attr('disabled', true).addClass('btn-disable');
+            $('.resend-hint').removeClass('hidden').html(resendInterval + "s后可再次发送");
+            resendInterval-=1;
+            setTimeout(function() {
+                resendCountDown(resendInterval);
+            }, 1000)
+        }
+    }
 })();

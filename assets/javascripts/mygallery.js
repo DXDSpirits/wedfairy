@@ -2,11 +2,11 @@
     $("#global-footer-float-group").addClass('hidden');
     var token = Amour.TokenAuth.get();
     Amour.ajax.on('unauthorized forbidden', function() {
-        $('#view-albums').hide();
+        $('#mygallery-upload-area').hide();
         $('#loginModal').modal('show');
     });
     if(token == null) {
-        $('#view-albums').hide();
+        $('#mygallery-upload-area').hide();
         $('#loginModal').modal('show');
     };
 
@@ -197,9 +197,9 @@
         var imgContainHeight = $('#photo-modal').height() * 0.9;
         imgLoad(url, function(w,h){
             if(w < imgContainWidth && h < imgContainHeight) {
-                $('.img-showing').addClass('img-auto');
+                $('.img-showing').removeClass('img-contain').addClass('img-auto');
             }else{
-                $('.img-showing').addClass('img-contain');
+                $('.img-showing').removeClass('img-auto').addClass('img-contain');
             }
             
         });
@@ -212,9 +212,9 @@
         var imgContainHeightLeft = $('#photo-modal').height() * 0.9;
         imgLoad(url, function(w,h){
             if(w < imgContainWidthLeft && h < imgContainHeightLeft) {
-                $('.img-showing').addClass('img-auto');
+                $('.img-showing').removeClass('img-contain').addClass('img-auto');
             }else{
-                $('.img-showing').addClass('img-contain');
+                $('.img-showing').removeClass('img-auto').addClass('img-contain');
             }
         });
         Amour.loadBgImage($('.img-showing'), url)
@@ -228,9 +228,9 @@
         console.log(imgContainHeightRight);
         imgLoad(url, function(w,h){
             if(w < imgContainWidthRight && h < imgContainHeightRight) {
-                $('.img-showing').addClass('img-auto');
+                $('.img-showing').removeClass('img-contain').addClass('img-auto');
             }else{
-                $('.img-showing').addClass('img-contain');
+                $('.img-showing').removeClass('img-auto').addClass('img-contain');
             }
         });
         Amour.loadBgImage($('.img-showing'), url)

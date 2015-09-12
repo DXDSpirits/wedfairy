@@ -1,8 +1,8 @@
 @import "my";
 
-.content-body {
-    padding-bottom: 80px;
-}
+// .content-body {
+//     padding-bottom: 80px;
+// }
 #mygallery-upload-area {
     height: 130px;
     border: 1px dashed #dbdbdb;
@@ -141,6 +141,7 @@
     vertical-align: middle;
     text-align: center;
     margin: auto;
+    overflow: hidden;
     .close {
         position: absolute;
         right: 0;
