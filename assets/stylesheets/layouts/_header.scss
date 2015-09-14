@@ -87,7 +87,7 @@ $modal-bg: #1e2531;
 #loginModal, #registerModal {
     .modal-dialog {
         width: 440px;
-        margin: 40px auto;
+        margin: 100px auto;
     }
     .modal-content {
         letter-spacing: 1px;
@@ -157,7 +157,7 @@ $modal-bg: #1e2531;
         padding: 10px 40px 30px;
         .btn {
             width: 100%;
-            padding: 8px 12px;
+            padding: 15px 12px;
             border-radius: 3px;
             letter-spacing: 2px;
         }
@@ -175,7 +175,9 @@ $modal-bg: #1e2531;
             letter-spacing: 1px;
         }
         .btn-wechat-login {
-            padding-top: 20px;
+            padding-top: 30px;
+            font-size: 12px;
+            letter-spacing: 0;
             .fa-wechat {
                 font-size: 30px;
             }
@@ -198,7 +200,7 @@ $modal-bg: #1e2531;
         left: 0;
         right: 0;
         top: 100%;
-        margin-top: 10px;
+        margin-top: 20px;
         font-size: 13px;
         color: $modal-control-label;
         overflow: hidden;
@@ -207,8 +209,11 @@ $modal-bg: #1e2531;
         }  
     }
     .privacy-policy {
-        padding-top: 20px;
+        padding-top: 30px;
         font-size: $font-size-small;
+        span, a {
+            color: #7f868f;
+        }
     }
 }
 

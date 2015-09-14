@@ -11,4 +11,10 @@
 
 #view-change-password.content-body, #view-forget-password {
     min-height: 700px;
+    .sure-btn {
+        margin-top: 50px;
+        padding: 10px;
+        width: 100%;
+        border-radius: 0px;
+    }
 }
