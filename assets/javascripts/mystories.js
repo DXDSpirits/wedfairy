@@ -47,7 +47,7 @@
                 return data;
             },
             preview: function() {
-                window.open('http://story.wedfairy.com/story/' + this.model.get('name') + '/?from=portfolio', '_blank');
+                window.open('http://story.wedfairy.com/story/' + this.model.get('name') + '/?from=mystories', '_blank');
             },
             edit: function() {
                 var token = Amour.TokenAuth.get();
