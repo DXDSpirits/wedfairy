@@ -41,66 +41,84 @@
 .photo-item {
     position: relative;
     margin-bottom: 30px;
-    &:nth-child(12n+0) {
-            .img-loading {
-                background-color: $img-loading-color1;
-            }
+    &:nth-child(13n+0) {
+        .img-loading {
+            background-image: none !important;
+            background-color: $img-loading-color1;
         }
-        &:nth-child(12n+1) {
-            .img-loading {
-                background-color: $img-loading-color2;
-            }
+    }
+    &:nth-child(13n+1) {
+        .img-loading {
+            background-image: none !important;
+            background-color: $img-loading-color2;
         }
-        &:nth-child(12n+2) {
-            .img-loading {
-                background-color: $img-loading-color3;
-            }
+    }
+    &:nth-child(13n+2) {
+        .img-loading {
+            background-image: none !important;
+            background-color: $img-loading-color3;
         }
-        &:nth-child(12n+3) {
-            .img-loading {
-                background-color: $img-loading-color4;
-            }
+    }
+    &:nth-child(13n+3) {
+        .img-loading {
+            background-image: none !important;
+            background-color: $img-loading-color4;
         }
-        &:nth-child(12n+4) {
-            .img-loading {
-                background-color: $img-loading-color5;
-            }
+    }
+    &:nth-child(13n+4) {
+        .img-loading {
+            background-image: none !important;
+            background-color: $img-loading-color5;
         }
-        &:nth-child(12n+5) {
-            .img-loading {
-                background-color: $img-loading-color6;
-            }
+    }
+    &:nth-child(13n+5) {
+        .img-loading {
+            background-image: none !important;
+            background-color: $img-loading-color6;
         }
-        &:nth-child(12n+6) {
-            .img-loading {
-                background-color: $img-loading-color7;
-            }
+    }
+    &:nth-child(13n+6) {
+        .img-loading {
+            background-image: none !important;
+            background-color: $img-loading-color7;
         }
-        &:nth-child(12n+7) {
-            .img-loading {
-                background-color: $img-loading-color8;
-            }
+    }
+    &:nth-child(13n+7) {
+        .img-loading {
+            background-image: none !important;
+            background-color: $img-loading-color8;
         }
-        &:nth-child(12n+8) {
-            .img-loading {
-                background-color: $img-loading-color9;
-            }
+    }
+    &:nth-child(13n+8) {
+        .img-loading {
+            background-image: none !important;
+            background-color: $img-loading-color9;
         }
-        &:nth-child(12n+9) {
-            .img-loading {
-                background-color: $img-loading-color10;
-            }
+    }
+    &:nth-child(13n+9) {
+        .img-loading {
+            background-image: none !important;
+            background-color: $img-loading-color10;
         }
-        &:nth-child(12n+10) {
-            .img-loading {
-                background-color: $img-loading-color11;
-            }
+    }
+    &:nth-child(13n+10) {
+        .img-loading {
+            background-image: none !important;
+            background-color: $img-loading-color11;
         }
-        &:nth-child(12n+11) {
-            .img-loading {
-                background-color: $img-loading-color12;
-            }
+    }
+    &:nth-child(13n+11) {
+        .img-loading {
+            background-image: none !important;
+            background-color: $img-loading-color12;
         }
+    }
+    &:nth-child(13n+12) {
+        .img-loading {
+            background-image: none !important;
+            background-color: $img-loading-color13;
+        }
+    }
 }
 .gallery-item-delete-btn {
     padding: 4px;
