@@ -47,7 +47,10 @@
                 return data;
             },
             preview: function() {
-                window.open('http://story.wedfairy.com/story/' + this.model.get('name') + '/?from=mystories', '_blank');
+                // window.open('http://story.wedfairy.com/story/' + this.model.get('name') + '/?from=mystories', '_blank');
+
+                var storyPreviewURL = 'http://story.wedfairy.com/story/' + this.model.get('name') + '/?from=mystories';
+                window.open('http://story.wedfairy.com/corslogin/' + token + '?url=' + encodeURIComponent(storyPreviewURL), '_blank');
             },
             edit: function() {
                 var token = Amour.TokenAuth.get();
