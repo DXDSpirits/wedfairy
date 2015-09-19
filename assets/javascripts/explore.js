@@ -1,5 +1,5 @@
 $(function() {
-    
+    var token = Amour.TokenAuth.get();
     // if(Amour.isMobile) {
     if(window.screen.width <= 400) {
         // document.location.href="http://www.wedfairy.com/ranking";
@@ -21,7 +21,8 @@ $(function() {
                 return data;
             },
             onClick: function() {
-                window.open('http://wedfairy.com/story/' + this.model.get('name'), '_blank');
+                var storyPreviewURL = 'http://wedfairy.com/story/' + this.model.get('name');
+                window.open('http://story.wedfairy.com/corslogin/' + token + '?url=' + encodeURIComponent(storyPreviewURL), '_blank');
             },
         })
     });
@@ -42,7 +43,8 @@ $(function() {
                 return data;
             },
             onClick: function() {
-                window.open('http://wedfairy.com/story/' + this.model.get('name'), '_blank');
+                var storyPreviewURL = 'http://wedfairy.com/story/' + this.model.get('name');
+                window.open('http://story.wedfairy.com/corslogin/' + token + '?url=' + encodeURIComponent(storyPreviewURL), '_blank');
             },
         })
     });
