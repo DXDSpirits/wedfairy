@@ -61,7 +61,8 @@ $(function() {
                 return data;
             },
             onClick: function() {
-                window.open('http://wedfairy.com/story/' + this.model.get('name'), '_blank');
+                var storyPreviewURL = 'http://wedfairy.com/story/' + this.model.get('name');
+                window.open('http://story.wedfairy.com/corslogin/' + token + '?url=' + encodeURIComponent(storyPreviewURL), '_blank');
             },
         })
     });
