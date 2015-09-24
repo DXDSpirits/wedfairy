@@ -15,6 +15,10 @@ router.get('/corslogin/:token', function(req, res, next) {
     });
 });
 
+router.get('/create', function(req, res) {
+    res.render('create');
+});
+
 router.get('/newhome', function(req, res) {
     res.redirect('/');
 });

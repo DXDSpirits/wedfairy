@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<% include includes/html %>
+<head>
+    <title>八音盒</title>
+
+    <% include includes/metadata %>
+
+    <% include includes/stylesheets %>
+
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/create.css?v=<%= build_no %>">
+
+    <% include includes/capability %>
+    <% include includes/production %>
+
+    <script src="<%= tat_static %>javascripts/vendor/modernizr-2.7.1.min.js"></script>
+</head>
+<body id="story-new">
+
+    <!-- Content Begins Here -->
+
+    <div id="create-carousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#create-carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#create-carousel" data-slide-to="1"></li>
+            <li data-target="#create-carousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <a href="http://story.wedfairy.com/story/d15129" target="_blank">
+                    <div class="img slide-img" data-bg-src="images/slide/0.jpg" alt=""></div>
+                </a>
+                <div class="carousel-caption">
+                </div>
+            </div>
+            <div class="item">
+                <a href="http://story.wedfairy.com/story/b56e33" target="_blank">
+                    <div class="img slide-img" data-bg-src="images/slide/1.jpg" alt=""></div>
+                </a>
+                <div class="carousel-caption">
+                </div>
+            </div>
+            <div class="item">
+                <a href="http://story.wedfairy.com/story/b32ee6" target="_blank">
+                    <div class="img slide-img" data-bg-src="images/slide/2.jpg" alt=""></div>
+                </a>
+                <div class="carousel-caption">
+                </div>
+            </div>
+        </div>
+         <!-- Controls -->
+        <a class="left carousel-control hidden-xs" href="#create-carousel" role="button" data-slide="prev">
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control hidden-xs" href="#create-carousel" role="button" data-slide="next">
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div class="create-body">
+        <div class="view view-hidden" id="view-create">
+            <header class="header-navbar">
+                <div class="navbar-body">
+                    <span class="title">选择故事场景</span>
+                </div>
+            </header>
+            <div class="wrapper">
+                <div class="labels btn-group btn-group-lg btn-group-justified"></div>
+                <div class="prototypes invisible"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 在线预览模态框 -->
+    <div class="modal fade" id="preview-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                          <i class="icon iconfont icon-x"></i>
+                    </button>
+                </div>
+                <div class="modal-body clearfix">
+                    <div class="pull-left" id="view-themes">
+                        <div class="view view-hidden">
+                            <header class="header-navbar">
+                                <div class="navbar-body text-center">
+                                    <span class="navbar-title">选择模板风格</span>
+                                </div>
+                            </header>
+                            <div class="wrapper">
+                                <div class="themes-labels"></div>
+                                <div class="themes-cube"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone-frame img pull-right">
+                        <iframe id="story-frame" frameBorder="0"  src=""></iframe>
+                    </div>
+                </div>
+                <div class="modal-footer clearfix">
+                    <div class="tips pull-left">选择模板风格后就不可以替换咯！但可以通过“复制故事”来更改袄！</div>
+                    <div class="btn btn-default btn-ensure pull-right" disabled="ture">确 定</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Content Ends Here -->
+
+
+    <% include template/template-prototype-theme %>
+
+    <% include includes/javascripts %>
+    <script src="<%= static_url %>javascripts/create.js?v=<%= build_no %>"></script>
+
+    <% include includes/analytics %>
+
+</body>
+</html>

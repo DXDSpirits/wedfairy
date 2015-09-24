@@ -1,0 +1,108 @@
+#preview-modal {    
+    .modal-dialog {
+        width: 1000px;
+        margin-top: 50px;
+    }
+    .modal-header {
+        padding: 0;
+        height: 0;
+        border: 0;
+        min-height: 0;
+        .close {
+            margin-top: -2px;
+            position: absolute;
+            top: -25px;
+            right: -25px;
+            opacity: 1;
+            .icon-x {
+                font-size: 20px;
+                color: #7D8790;
+                font-weight: bold;
+                text-shadow: none;
+            }
+        }
+        .close:hover, .close:focus {
+            outline: none;
+        }
+    }
+    .modal-body {
+        background-color: #353a48;
+        height: 600px;
+        padding: 0;
+    }
+    .header-navbar {
+        padding: 25px;
+    }
+    #view-themes {
+        width: 645px;
+        height: 600px;
+        background-color: white;
+    }
+    .wrapper {
+        height: 515px;
+    }
+    .themes-labels {
+        height: 50px;
+    }
+    .themes-cube {
+        padding: 40px 30px;
+        height: 465px;
+        background-color: #f4f4f4;
+        overflow: scroll;
+        box-shadow: 1px 1px 3px #aaa inset;
+    }
+    .theme {
+        margin-bottom: 33px;
+    }
+    .theme > .avatar {
+        box-shadow: 1px 2px 10px #ccc;
+        cursor: pointer;
+        border: 2px solid white;
+    }
+    .theme.selected {
+        .avatar {
+            border: 2px solid #3598ff;
+        }
+    }
+    .theme > .avatar > .img {
+        width: 100%;
+        padding-top: 133.3%;
+
+    }
+    .phone-frame {
+        // border: 1px solid blue;
+        padding: 30px 15px 0;
+        width: 350px;
+    }
+    iframe#story-frame {
+        width: 320px;
+        height: 570px;
+        box-shadow: 1px 1px 3px #ddd inset;
+    }
+    .navbar-title {
+        font-size: 25px;
+        color: #464d5e;
+    }
+    .modal-footer {
+        height: 84px;
+        text-align: left;
+        padding: 22px 30px 22px 60px;
+        div.tips {
+            height: 40px;
+            display: inline-block;
+            line-height: 40px;
+            color: #7e8891;
+            font-size: 15px;
+        }
+    }
+    .btn-ensure {
+        height: 40px;
+        width: 160px;
+        background-color: #369aff;
+        font-size: 16px;
+        color: white;
+        border: 0;
+        line-height: 28px;
+    }
+
+}

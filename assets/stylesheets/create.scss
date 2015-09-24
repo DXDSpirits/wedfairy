@@ -1,0 +1,25 @@
+@import "bourbon/bourbon";
+@import "variables";
+
+@import "prototype-select";
+@import "theme-select";
+
+body#story-new {
+    background-color: #1e2531;
+}
+
+#create-carousel {
+    height: 360px;
+    width: 1200px;
+    margin: 0 auto;
+    .slide-img {
+        height: 360px;
+        width: 100%;
+    }
+}
+
+.create-body {
+    // height: 800px;
+    background-color: #1e2531;
+    padding-bottom: 100px;
+}
