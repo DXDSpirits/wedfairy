@@ -31,7 +31,7 @@
         padding: 0;
     }
     .header-navbar {
-        padding: 25px;
+        padding: 50px;
     }
     #view-themes {
         width: 645px;
@@ -45,23 +45,50 @@
         height: 50px;
     }
     .themes-cube {
-        padding: 40px 30px;
-        height: 465px;
+        padding: 30px;
+        height: 400px;
         background-color: #f4f4f4;
-        overflow: scroll;
-        box-shadow: 1px 1px 3px #aaa inset;
+        overflow: hidden;
+        // box-shadow: 1px 1px 3px #aaa inset;
+    }
+    .paging {
+        text-align: center;
+        background-color: #f4f4f4;
+        height: 65px;
+        .btn-paging-group {
+            width: 104px;
+            margin: 0 auto;
+        }
+        .btn-paging {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px;
+            background-color: #c3c3c3;
+            border-radius: 50%;
+            cursor: pointer;
+            &:hover {
+                background-color: #9a9a9a;
+            }
+        }
+        .icon-angle-left, .icon-angle-right {
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            width: 20px;
+            height: 20px;
+        }
     }
     .theme {
         margin-bottom: 33px;
     }
     .theme > .avatar {
-        box-shadow: 1px 2px 10px #ccc;
+        box-shadow: 1px 1px 2px #ccc;
         cursor: pointer;
-        border: 2px solid white;
+        border: 3px solid white;
     }
     .theme.selected {
         .avatar {
-            border: 2px solid #3598ff;
+            border: 3px solid #3598ff;
         }
     }
     .theme > .avatar > .img {
@@ -77,7 +104,7 @@
     iframe#story-frame {
         width: 320px;
         height: 570px;
-        box-shadow: 1px 1px 3px #ddd inset;
+        // box-shadow: 1px 1px 3px #ddd inset;
     }
     .navbar-title {
         font-size: 25px;
@@ -101,8 +128,13 @@
         background-color: #369aff;
         font-size: 16px;
         color: white;
-        border: 0;
+        border: 2px solid #4e87e5;
         line-height: 28px;
+    }
+    .btn-ensure.enable {
+        &:hover {
+            background-color: #308be5;
+        }
     }
 
 }

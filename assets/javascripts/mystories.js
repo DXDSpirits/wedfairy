@@ -18,8 +18,9 @@
     });
     $(".btn-newstory").click(function() {
         /* Act on the event */
-        var newStoryURL = "http://site.wedfairy.com/choose-story-type/";
-        location.href = 'http://site.wedfairy.com/corslogin/' + token + '?url=' + encodeURIComponent(newStoryURL);
+        var newStoryURL = "/create";
+        // location.href = 'http://www.wedfairy.com/corslogin/' + token + '?url=' + encodeURIComponent(newStoryURL);
+        location.href = newStoryURL;
     });
 
     var getWeiboLink = function(s, d, e, r, l, p, t, z, c) {

@@ -1,11 +1,10 @@
 (function () {
     var user = new Amour.Models.User();
+    var token = Amour.TokenAuth.get();
     user.fetch({
         success: function() {
-            // console.log(user.get('username'))
         }
     });
-    var curThemes;
     var completePrototypes = new Amour.Collection();
 
     var LabelsView = Amour.CollectionView.extend({
@@ -58,10 +57,7 @@
     
     var newStory = new (Amour.View.extend({
         events: {
-            // 'click .prototype-item': 'readyToCompose',
             'click .prototype-item': 'selectPrototype'
-            // 'click .btn-ensure': 'saveClone'
-            // 'click .compose-button': 'quickClone'
         },
         initialize: function() {
             this.prototypes = new Amour.Collection();
@@ -86,19 +82,20 @@
             })
         },
         selectPrototype: function(e) {
+            // var curThemesCollection;
+            var curPage = 1;
+            var totalPage = 1;
+            var newStoryName;
             var $frame = $("#story-frame");
             var prototypeName = $(e.currentTarget).closest('.prototype-item').data('clone');
             ga('send', 'event', 'prototypes', 'select', prototypeName);
             if (prototypeName != 'disable') {
-                // $frame[0].src = "http://story.wedfairy.com/story/" + prototypeName;
                 
                 //select theme
                 var ThemesView = Amour.CollectionView.extend({
                     ModelView: Amour.ModelView.extend({
                         events: {
-                            // 'click .option': 'selectOption',
-                            'click .avatar': 'selectTheme',
-                            // 'click .btn.btn-ensure': 'saveClone'
+                            'click .avatar': 'selectTheme'
                         },
                         className: 'theme animated fadeIn col-md-3 col-sm-3 col-xs-3',
                         template: $('#template-theme-item').html(),
@@ -113,7 +110,7 @@
                         selectTheme: function(e) {
                             var theme = this.model.get('name');
                             $(e.currentTarget).closest('.theme').addClass('selected').siblings().removeClass('selected');
-                            $('.btn-ensure').removeAttr('disabled');
+                            $('.btn-ensure').removeAttr('disabled').addClass('enable');
                             ga('send', 'event', 'themes', 'select', theme);
                             $("#story-frame")[0].src = "http://story.wedfairy.com/story/" + prototypeName + "?theme=" + theme;
                             window.themeName = theme;
@@ -124,54 +121,73 @@
 
                 var newSelectThemes = new (Amour.View.extend({
                     initialize: function() {
+                        var self = this;
                         this.themes = new (Amour.Collection.extend({
                             url: Amour.APIRoot + 'sites/theme/',
                         }))();
+                        self.render();
+                    },
+                    render: function() {
+                        // var tempCollection = new (Amour.Collection.extend({
+                        //     url: Amour.APIRoot + 'sites/theme/',
+                        // }))();
+                        $('.themes-cube').html('')
+                        var tempCollection = new Amour.Collection;
+    
+                        this.themes.fetch({
+                            url: Amour.APIRoot + "sites/storyname/" + prototypeName + "/themes/",
+                            reset: true,
+                            success: function(collection) {
+                                totalPage = ((collection.length-1)/8 | 0)+ 1;
+                                // self.render();
+                                var sliceCollection = collection.slice(curPage*8-8, curPage*8);
+                                _.each(sliceCollection, function(model){
+                                    tempCollection.push(model);
+                                });
+                                $(".paging-left, .paging-right").show();
+                                if(curPage == 1) {
+                                    $(".paging-left").hide();
+                                };
+                                if(curPage == totalPage) {
+                                    $(".paging-right").hide();
+                                };
+                            }
+                        });
                         this.views = {
                             themes: new ThemesView({
-                                collection: this.themes,
+                                collection: tempCollection,
                                 el: this.$('.themes-cube')
                             })
                         };
-                        this.render();
-                    },
-                    render: function() {
-                        this.themes.fetch({
-                            url: Amour.APIRoot + "sites/storyname/" + prototypeName + "/themes/",
-                            reset: true
-                        });
+                        tempCollection.reset();                        
                     }
                 }))({el: $('#view-themes')});
 
                 $("#preview-modal").on('hide.bs.modal', function() {
                     $frame[0].src = '';
-                    $(".btn-ensure").attr('disabled', true);
+                    $(".btn-ensure").attr('disabled', true).removeClass('enable');
+                    // newSelectThemes.reset();
                 });
-
             };
+            $(".paging-left").off('click').click(function() {
+                curPage--;
+                newSelectThemes.render();
+            });
+            $(".paging-right").off('click').click(function() {
+                curPage++;
+                newSelectThemes.render();
+            });
         },
         saveClone: function() {
             var prototypeStory = new StoryModelClone({ name: window.prototypeName });
             var self = this;
             prototypeStory.clone({
                 success: function(model) {
+                    newStoryName = model.get('name');
                     self.saveTheme(model.toJSON(), window.themeName);
                 }
             });
         },
-        // readyToCompose: function(e) {
-        //     var prototypeName = $(e.currentTarget).closest('.prototype-item').data('clone');
-        //     if (prototypeName != 'disable') {
-        //         this.readyToCompose(prototypeName);
-        //     }
-        // },
-        // quickClone: function(e) {
-        //     e.stopPropagation && e.stopPropagation();
-        //     var prototypeName = $(e.currentTarget).closest('.prototype-item').data('clone');
-        //     if (prototypeName != 'disable') {
-        //         this.cloneStory(prototypeName);
-        //     }
-        // },
         saveTheme: function(storyData, storyTheme) {
             var story = new Amour.Models.Story(storyData);
             if (!storyTheme) {
@@ -180,22 +196,16 @@
                 story.save({ theme: storyTheme }, {
                     url: story.url() + 'theme/',
                     success: function() {
-                        // $('#preview-modal').modal("hide");
-                        window.location.href = "http://www.wedfairy.com/my";
+                        // 防止从跳转页面回退到create页面的时候会有背景音乐
+                        $("#story-frame")[0].src = '';
+                        // window.location.href = "http://www.wedfairy.com/my";
+                        var editURL = "http://compose.wedfairy.com/storyguide/" + newStoryName + "/";
+                        var mobileEditURL = 'http://compose.wedfairy.com/corslogin/' + token + '?url=' + encodeURIComponent(editURL);
+                        window.location.href = mobileEditURL;
                     }
                 });
             }
         },
-        // cloneStory: function(storyName, storyTheme) {
-        //     // console.log("cloneStory");
-        //     var prototypeStory = new StoryModelClone({ name: storyName });
-        //     var self = this;
-        //     prototypeStory.clone({
-        //         success: function(model) {
-        //             self.saveTheme(model.toJSON(), storyTheme);
-        //         }
-        //     });
-        // },
         filterLabel: function(label) {
             var prototypes = completePrototypes.filter(function(prototype) {
                 return _.contains(prototype.get('labels'), label);
@@ -227,7 +237,6 @@
                         url: Amour.APIRoot + 'clients/prototypes/',
                         data: data,
                         success: function(collection) {
-                            // self.prototypes.reset(collection);
                             self.initLabels();
                         }
                     });
