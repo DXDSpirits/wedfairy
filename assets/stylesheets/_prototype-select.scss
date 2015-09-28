@@ -1,13 +1,14 @@
 #view-create{    
     background-color: #f4f4f4;
-    width: 1200px;
+    width: 1120px;
     margin: 0 auto;
     overflow: hidden;
     .wrapper {
         overflow: hidden;
-        padding-bottom: 100px;
+        // padding-bottom: 100px;
+        padding: 0 80px 60px;
         .prototypes {
-            padding: 0 30px;
+            
         }
     }
     .header-navbar {
@@ -42,6 +43,8 @@
         cursor: pointer;
         position: relative;
         margin-bottom: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
     .prototype-shower {
         // border: 1px solid 
