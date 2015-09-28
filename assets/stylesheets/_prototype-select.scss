@@ -17,9 +17,20 @@
         padding-top: 42px;
     }
     .navbar-body {
-        span {
+        span.title {
             font-size: 25px;
             color: #464d5e;
+            position: relative;
+            &:before {
+                content: '';
+                position: absolute;
+                background: url("/assets/images/icon-step1.png") no-repeat center;
+                width: 25px;
+                height: 28px;
+                background-size: 100%;
+                left: -30px;
+                top: 0px;
+            }
         }
     }
     .btn-label {
