@@ -11,6 +11,16 @@
     
     var user = new Amour.Models.User();
 
+    var StoryModelClone = Amour.Models.Story.extend({
+        urlRoot: Amour.APIRoot + 'sites/storyname/',
+        idAttribute: 'name',
+        clone: function(options) {
+            options = options || {};
+            options.url = this.url() + 'clone/';
+            this.save({}, options);
+        }
+    });
+
     user.fetch({
         success: function() {
             var username = user.get('username');
@@ -75,6 +85,17 @@
             },
             duplicate: function() {
                 this.getCoverImg();
+                var prototypeName = this.model.get('name');
+
+                $("#duplicate-modal .duplicate-button").off("click").one("click", function() {
+                    var prototypeStory = new StoryModelClone({ name: prototypeName });
+                    var self = this;
+                    prototypeStory.clone({
+                        success: function(model) {
+                            window.location.reload();
+                        }
+                    });
+                });
             },
             comment: function() {
                 var storyId = this.model.get('id');
