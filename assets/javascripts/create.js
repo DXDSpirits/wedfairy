@@ -11,7 +11,7 @@
 
     var LabelsView = Amour.CollectionView.extend({
         ModelView: Amour.ModelView.extend({
-            className: 'label-item text-center col-md-4 col-sm-4 col-xs-4',
+            className: 'label-item text-center',
             template: '<div class="btn btn-label">{{name}}</div>',
             events: {
                 'click': 'select'
