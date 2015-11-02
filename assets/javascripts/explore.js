@@ -102,6 +102,7 @@ $(function() {
             "personal"  : "个人",
             "food"      : "美食",
             "family"    : "家人",
+            "boutique"  : "好货",
             "universal" : "通用"
         };
         // var $aStr = $(this).html();
