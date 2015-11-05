@@ -8,7 +8,7 @@
         localStorage.setItem('auth-token', '<%= token %>');
         var url = localStorage.getItem('redirect-on-login') || '/';
         localStorage.removeItem('redirect-on-login');
-        location.href = url;
+        location.replace(url);
     </script>
 </head>
 <body>
