@@ -1,6 +1,7 @@
 
 (function() {
     var $style = $('<style></style>');
+    var token = Amour.TokenAuth.get();
     $style.text('.window-height{height:'+$(window).height()+'px;}').appendTo('head');
     $(window).resize(_.debounce(function() {
         $style.text('.window-height{height:'+$(window).height()+'px;}')
@@ -17,7 +18,34 @@
         location.href = '/explore';
     });
     $("#global-footer-float-group").addClass('hidden');
+    $("#view-hero .compose-button").click(function() {
+        loginRedirector();
+    });
+    $("#global-header .compose-button").click(function() {
+        loginRedirector();
+    });
 
+    function loginRedirector() {
+
+        Amour.ajax.on('unauthorized', function() {
+
+            if(Amour.isMobile) {
+                window.location.href = "http://story.wedfairy.com/";
+            }else {
+                window.location.href="/my";
+            }
+        });
+
+        if(!token) {
+            if(Amour.isMobile) {
+                window.location.href = "http://story.wedfairy.com/";
+            }else{
+                window.location.href="/my";
+            }
+        }else{
+            window.location.href="/create/?from=homepagehero";
+        }
+    }
     function start() {
         // var constants = {};
         var scroller = skrollr.init({

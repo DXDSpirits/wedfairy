@@ -9,8 +9,17 @@
     });
 
     if(!token) {
-        location.href="/my";
+        unLoginRedirect();
     }
+
+    Amour.ajax.on('unauthorized', function() {
+        unLoginRedirect();
+    });
+
+    function unLoginRedirect() {
+        location.href="/my";
+    };
+
     var completePrototypes = new Amour.Collection();
 
     var LabelsView = Amour.CollectionView.extend({
