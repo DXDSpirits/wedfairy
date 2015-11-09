@@ -7,6 +7,10 @@
         success: function() {
         }
     });
+
+    if(!token) {
+        location.href="/my";
+    }
     var completePrototypes = new Amour.Collection();
 
     var LabelsView = Amour.CollectionView.extend({
