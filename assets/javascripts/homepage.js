@@ -13,7 +13,7 @@
         $('.wechat').removeClass('wechat');
     }
     $('.visible-wechat').toggleClass('hidden', !Amour.isWeixin);
-    
+
     $('body').on('click', '.gallery .item', function() {
         location.href = '/explore';
     });
@@ -43,7 +43,7 @@
                 window.location.href="/my";
             }
         }else{
-            window.location.href="/create/?from=homepagehero";
+            window.location.href="/my";
         }
     }
     function start() {
