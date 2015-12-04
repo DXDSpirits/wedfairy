@@ -1,0 +1,90 @@
+.wedfairy-dashboard {
+    background-color: #2E3C54;
+    // padding: 50px;
+}
+
+#view-chart-wrapper, #story-chart-wrapper {
+    overflow: hidden;
+    & > .charts-wrapper {
+        background-color: #fff;
+    }
+}
+#view-chart-wrapper {
+    border-bottom: 1px solid #fff;
+}
+.checkbox-wrapper {
+    margin: 30px 0 30px;
+    padding-left: 30px;
+    .checkbox-inline {
+        margin: 5px;
+    }
+}
+.controllers-wrapper {
+    color: #fff;
+    display: inline-block;
+    width: 20%;
+    float: left;
+    height: 100%;
+    #first-datepicker, #second-datepicker {
+        width: 100%;
+        margin: 30px auto;
+    }
+}
+.input-group-addon {
+    background-color: #FF3265;
+}
+.submit-wrapper {
+    padding-right: 50px;
+}
+.data-label {
+    text-align: center;
+}
+.charts-wrapper {
+    display: inline-block;
+    width: 80%;
+    padding: 40px;
+    // border: 1px solid blue;
+    float: left;
+}
+
+.canvas-wraper {
+    overflow: hidden;
+    width: 85%;
+    float: left;
+    display: inline-block;
+
+}
+.show-legend {
+    float: left;
+    width: 15%;
+    display: inline-block;
+    li {
+        margin-bottom: 5px !important;
+    }
+}
+
+.wedfairy-charts {
+    // max-width: 800px;
+    // margin: 30px auto;
+    .show-legend {
+        ul {
+            list-style: none;
+        }
+        ul li {
+            // display: inline-block;
+            padding-left: 30px;
+            position: relative;
+            margin: 0 10px;
+        }
+
+        li span {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+        }
+    }
+}

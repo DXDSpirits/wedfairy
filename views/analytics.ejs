@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<% include includes/html %>
+
+<head>
+    <title>八音盒</title>
+
+    <% include includes/metadata %>
+
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/bootstrap-custom.css?v=<%= build_no %>">
+
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/font-awesome.css">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/animate.min.css">
+    <link rel="stylesheet" href="<%= tat_static %>stylesheets/amour.css">
+
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/bootstrap-datepicker/bootstrap-datepicker.min.css?v=<%= build_no %>">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/tat_analytics.css?v=<%= build_no %>">
+
+    <% include includes/capability %>
+    <% include includes/production %>
+
+    <script src="<%= tat_static %>javascripts/vendor/modernizr-2.7.1.min.js"></script>
+</head>
+<body>
+
+    <header></header>
+    <div class="wedfairy-dashboard clearfix">
+        <div id="view-chart-wrapper">
+            <div class="controllers-wrapper">
+                <h4 class="text-center">选择时间</h4>
+                <div class="datepicker input-group input-daterange">
+                    <input type="text" class="form-control" id="view-Chart-Start-Time">
+                    <span class="input-group-addon">to</span>
+                    <input type="text" class="form-control" id="view-Chart-End-Time">
+                </div>
+                <div class="checkbox-wrapper view-data-checkbox-wrapper">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="view-checkbox" value="PV" checked="checked"> PV
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="view-checkbox" value="UV" checked="checked"> UV
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="view-checkbox" value="newstories" checked="checked"> 制作量
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="view-checkbox" value="completed" checked="checked"> 已完成
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="view-checkbox" value="shared" checked="checked"> 已分享
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="view-checkbox" value="newusers" checked="checked"> 新用户
+                    </label>
+                </div>
+                <div class="submit-wrapper text-right"><button class="btn btn-primary submit" type="button">Submit</button></div>
+
+            </div>
+            <div class="charts-wrapper">
+                <!-- 第一个图标 -->
+
+                <div id="chart-time-data" class="wedfairy-charts">
+
+                    <div class="canvas-wraper">
+                        <div class="data-label">浏览数据</div>
+                        <canvas id="storyDataChart" width="600" height="200">
+                        </canvas>
+                    </div>
+                    <div class="show-legend"></div>
+
+                    <!-- <div class="dropdown types-dropdown" id="types-story">
+                       <button type="button" class="btn btn-primary dropdown-toggle" id="dropdownMenu"
+                          data-toggle="dropdown">
+                          选择展示效果
+                          <span class="caret"></span>
+                       </button>
+                       <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                          <li role="presentation">
+                             <a role="menuitem" tabindex="-1" class="select-Bar">柱状图</a>
+                          </li>
+                          <li role="presentation">
+                             <a role="menuitem" tabindex="-1" class="select-Line">曲线图</a>
+                          </li>
+                       </ul>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+        <div id="story-chart-wrapper">
+            <div class="controllers-wrapper">
+                <h4 class="text-center">选择时间</h4>
+                <div class="datepicker input-group input-daterange">
+                    <input type="text" class="form-control" id="story-Chart-Start-Time">
+                    <span class="input-group-addon">to</span>
+                    <input type="text" class="form-control" id="story-Chart-End-Time">
+                </div>
+                <div class="checkbox-wrapper story-values-checkbox-wrapper">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="story-checkbox" value="PV" checked="checked"> PV
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="story-checkbox" value="UV" checked="checked"> UV
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="story-checkbox" value="newstories" checked="checked"> 故事制作
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="story-checkbox" value="completed" checked="checked"> 故事完成
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" name="story-checkbox" value="shared" checked="checked"> 故事分享
+                    </label>
+                    <!-- <label class="checkbox-inline">
+                        <input type="checkbox" id="checkbox-newstories" value="option3"> 故事制作量
+                    </label> -->
+                </div>
+                <!-- <div class="checkbox-wrapper tags-checkbox-wrapper">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="checkbox-wedding" value="wedding" checked="checked"> 婚礼
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="checkbox-lover" value="lover" checked="checked"> 爱人
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="checkbox-baby" value="baby" checked="checked"> 宝贝
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="checkbox-voyage" value="voyage"> 旅行
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="checkbox-idol" value="idol"> 偶像
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="checkbox-friendship" value="friendship"> 友谊
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="checkbox-yearbook" value="yearbook"> 新年书
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="checkbox-personal" value="personal"> 个人
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="checkbox-food" value="food"> 美食
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="checkbox-family" value="family"> 家庭
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="checkbox-boutique" value="boutique"> 好货
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="checkbox-universal" value="universal"> 通用
+                    </label>
+                </div> -->
+                <div class="submit-wrapper text-right"><button class="btn btn-primary submit" type="button">Submit</button></div>
+            </div>
+            <div class="charts-wrapper">
+                <!-- 第二个图标 -->
+
+                <div id="chart-story-data" class="wedfairy-charts">
+
+                    <div class="canvas-wraper">
+                        <div class="data-label">故事数据</div>
+                        <canvas id="userDataChart" width="600" height="200">
+                        </canvas>
+                    </div>
+                    <div class="show-legend"></div>
+
+                    <!-- <div class="dropdown types-dropdown" id="types-user">
+                       <button type="button" class="btn btn-primary dropdown-toggle" id="dropdownMenu"
+                          data-toggle="dropdown">
+                          选择展示效果
+                          <span class="caret"></span>
+                       </button>
+                       <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                          <li role="presentation">
+                             <a role="menuitem" tabindex="-1" class="select-Bar">柱状图</a>
+                          </li>
+                          <li role="presentation">
+                             <a role="menuitem" tabindex="-1" class="select-Line">曲线图</a>
+                          </li>
+                       </ul>
+                    </div> -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+<script src="<%= tat_static %>javascripts/vendor/jquery-2.1.1.min.js"></script>
+<script src="<%= tat_static %>javascripts/vendor/underscore.min.js"></script>
+<script src="<%= tat_static %>javascripts/vendor/handlebars.min.js"></script>
+<script src="<%= tat_static %>javascripts/vendor/backbone.min.js"></script>
+<script src="<%= tat_static %>javascripts/vendor/bootstrap.min.js"></script>
+
+<script src="<%= tat_static %>javascripts/plugins/fastclick.js"></script>
+<script src="<%= tat_static %>javascripts/plugins/plupload.full.min.js"></script>
+<script src="<%= tat_static %>javascripts/plugins/qiniu.js"></script>
+<script src="<%= tat_static %>javascripts/plugins/moment.js"></script>
+<script src="<%= tat_static %>javascripts/plugins/jquery.qrcode.min.js"></script>
+
+<script src="<%= tat_static %>javascripts/amour.js?v=<%= build_no %>"></script>
+<script src="<%= static_url %>javascripts/Chartjs/Chart.min.js?v=<%= build_no %>"></script>
+<script src="<%= static_url %>javascripts/bootstrap-datepicker/bootstrap-datepicker.js?v=<%= build_no %>" charset="UTF-8"></script>
+<script src="<%= static_url %>javascripts/tat_analytics.js?v=<%= build_no %>"></script>
+<% include includes/analytics %>
+
+</body>
+</html>

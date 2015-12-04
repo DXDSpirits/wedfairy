@@ -39,16 +39,20 @@ router.get('/staff/uploadmusic', function(req, res) {
     res.render('uploadmusic');
 });
 
+router.get('/staff/analytics', function(req, res) {
+    res.render('analytics');
+});
+
 router.get('/ranking', function(req, res) {
     res.render('ranking');
 });
 
-// explore 
+// explore
 router.get('/explore', function(req, res) {
     res.render('explore-home');
 });
 
-// explore 
+// explore
 router.get('/explore/:filterName', function(req, res) {
     var filterName = req.params.filterName;
     res.render('explore', {
