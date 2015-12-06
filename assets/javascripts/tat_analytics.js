@@ -31,6 +31,23 @@
         "universal" : "通用"
     };
 
+    var storyTagSetReverse = {
+        "推荐故事" :  "staffpicks",
+        "热门故事" :  "hot",
+        "婚礼" :  "wedding",
+        "宝贝" :  "baby",
+        "旅行" :  "voyage",
+        "爱人" :  "lover",
+        "偶像" :  "idol",
+        "友情" :  "friendship",
+        "新年书" :  "yearbook",
+        "个人" :  "personal",
+        "美食" :  "food",
+        "家人" :  "family",
+        "好货" :  "boutique",
+        "通用" :  "universal"
+    };
+
     var filterSet = {
         'PV'         : 'PV',
         'UV'         : 'UV',
@@ -58,8 +75,9 @@
         sendStoryDataStart = Date2Unix(storyChartStartTime);
         sendStoryDataEnd = Date2Unix(storyChartEndTime);
 
-        viewFilterList = ['PV', 'UV', 'newstories', 'completed', 'shared', 'newusers'];
-        storyFilterList = ['PV', 'UV', 'newstories', 'completed', 'shared'];
+        viewFilterList = ['PV', 'UV'];
+        // viewFilterList = ['PV', 'UV', 'newstories', 'completed', 'shared', 'newusers'];
+        storyFilterList = ['newstories', 'completed', 'shared'];
 
         $("#view-Chart-Start-Time").val(defaultStartDate);
         $("#story-Chart-Start-Time").val(defaultStartDate);
@@ -111,6 +129,15 @@
             }
         }
     }
+
+    function sumArray(anyArray) {
+        var result = 0;
+        for (var i = 0; i < anyArray.length; i++) {
+            result += anyArray[i];
+        }
+        return result;
+    }
+
     //charts show functions
     function showBar(data, myChart) {
         var mylegend;
@@ -198,6 +225,9 @@
         }
     };
 
+    var storyModel = new (Backbone.Model.extend({
+            urlRoot: APIHOST + 'v1/reports/new_story_by_tag.json',
+        }));
 
     var renderView = function(start, end, viewFilterList) {
         var initDataView = [];
@@ -246,14 +276,11 @@
                         for (var j = 0; j < timeDuration; j++) {
                             console.log(viewChart.datasets[i].label);
                             if(viewChart.datasets[i].label == filterSet[collection.attributes.label]) {
-
                                 viewChart.datasets[i].points[j].value = collection.attributes.datasets[0].data[j];
                             }
-
                         }
                         viewChart.update();
                     }
-
                 }
             })
         }
@@ -262,16 +289,23 @@
     var renderStory = function(startDate, endDate, storyFilterList) {
         var initDataStory = [];
         var storyFilterLabels = [];
-        var storyChartInitData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        var storyChartInitData = [];
+        // var
 
         for(var i in storyFilterList) {
             storyFilterLabels.push(filterSet[storyFilterList[i]]);
         }
 
         var dataStory = {
-            labels : ["推荐故事", "热门故事", "婚礼", "宝贝", "旅行", "爱人", "偶像", "友情", "新年书", "个人", "美食", "家人", "好货", "通用"],
+            // labels : ["推荐故事", "热门故事", "婚礼", "宝贝", "旅行", "爱人", "偶像", "友情", "新年书", "个人", "美食", "家人", "好货", "通用"],
+            labels: [],
             datasets : []
         };
+
+        for(var j in storyTagSet) {
+            storyChartInitData.push(0);
+            dataStory.labels.push(storyTagSet[j]);
+        }
 
         for (var k in storyFilterLabels) {
             dataStory.datasets.push({
@@ -282,15 +316,59 @@
 
         showBar(dataStory, "storyChart");
 
-        setTimeout(function() {
-            for(var i in storyChart.datasets) {
 
-                for (var j in [1, 1, 1, 1,1 ,1,1,1,1,1,1,1,1,1]) {
-                    storyChart.datasets[i].bars[j].value = Math.random() * 100;
+        for(var i in storyChart.datasets) {
+            console.log(storyChart.datasets[i]);
+            var j = 0;
+            for (var k in storyTagSet) {
+                // storyChart.datasets[i].bars[j].value = Math.random() * 100;
+                if(storyChart.datasets[i].label == filterSet["newstories"]) {
+                    console.log(111);
+                    storyModel.fetch({
+                        data: {
+                            'from_date' : sendStoryDataStart,
+                            'to_date'   : sendStoryDataEnd,
+                            'interval'  : 'day',
+                            'tag'       : storyTagSetReverse[storyTagSet[k]]
+                        },
+                        success: function(collection) {
+                            storyChart.datasets[i].point[k] = sumArray(collection.attributes.datasets[0].data);
+                        }
+                    });
+                }else if(storyChart.datasets[i].label == filterSet["completed"]) {
+                    console.log(222);
+                    storyModel.fetch({
+                        data: {
+                            'from_date' : sendStoryDataStart,
+                            'to_date'   : sendStoryDataEnd,
+                            'interval'  : 'day',
+                            'tag'       : storyTagSetReverse[storyTagSet[k]],
+                            'finishd'   : true
+                        },
+                        success: function(collection) {
+                            storyChart.datasets[i].point[k] = sumArray(collection.attributes.datasets[0].data);
+                        }
+                    });
+                }else if(storyChart.datasets[i].label == filterSet["shared"]) {
+                    console.log(333);
+                    storyModel.fetch({
+                        data: {
+                            'from_date' : sendStoryDataStart,
+                            'to_date'   : sendStoryDataEnd,
+                            'interval'  : 'day',
+                            'tag'       : storyTagSetReverse[storyTagSet[k]],
+                            'shared'    : true
+                        },
+                        success: function(collection) {
+                            storyChart.datasets[i].point[k] = sumArray(collection.attributes.datasets[0].data);
+                        }
+                    });
                 }
-                storyChart.update();
+
+                // j++;
             }
-        }, 5000);
+            storyChart.update();
+        }
     };
 
 
