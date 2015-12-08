@@ -34,23 +34,23 @@
                     <input type="text" class="form-control" id="view-Chart-End-Time">
                 </div>
                 <div class="checkbox-wrapper view-data-checkbox-wrapper">
-                    <label class="checkbox-inline">
-                        <input type="checkbox" name="view-checkbox" value="PV" checked="checked"> PV
+                    <label class="checkbox-inline hidden">
+                        <input type="checkbox" name="view-checkbox" value="PV"> PV
+                    </label>
+                    <label class="checkbox-inline hidden">
+                        <input type="checkbox" name="view-checkbox" value="UV"> UV
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" name="view-checkbox" value="UV" checked="checked"> UV
+                        <input type="checkbox" name="view-checkbox" value="newstories" checked="checked"> 制作量
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" name="view-checkbox" value="newstories"> 制作量
+                        <input type="checkbox" name="view-checkbox" value="completed" checked="checked"> 已完成
                     </label>
-                    <label class="checkbox-inline">
-                        <input type="checkbox" name="view-checkbox" value="completed"> 已完成
-                    </label>
-                    <label class="checkbox-inline">
+                    <label class="checkbox-inline hidden">
                         <input type="checkbox" name="view-checkbox" value="shared"> 已分享
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" name="view-checkbox" value="newusers"> 新用户
+                        <input type="checkbox" name="view-checkbox" value="newusers" checked="checked"> 新用户
                     </label>
                 </div>
                 <div class="submit-wrapper text-right"><button class="btn btn-primary submit" type="button">Submit</button></div>
@@ -63,7 +63,7 @@
 
                     <div class="canvas-wraper">
                         <div class="data-label">浏览数据</div>
-                        <canvas id="storyDataChart" width="600" height="200">
+                        <canvas id="storyDataChart" width="600" height="400">
                         </canvas>
                     </div>
                     <div class="show-legend"></div>
@@ -87,7 +87,7 @@
             </div>
         </div>
 
-        <div id="story-chart-wrapper">
+        <div id="story-chart-wrapper" class="hidden">
             <div class="controllers-wrapper">
                 <h4 class="text-center">选择时间</h4>
                 <div class="datepicker input-group input-daterange">
@@ -109,7 +109,7 @@
                         <input type="checkbox" name="story-checkbox" value="completed" checked="checked"> 已完成
                     </label>
                     <label class="checkbox-inline">
-                        <input type="checkbox" name="story-checkbox" value="shared" checked="checked"> 已分享
+                        <input type="checkbox" name="story-checkbox" value="shared"> 已分享
                     </label>
                 </div>
                 <!-- <div class="checkbox-wrapper tags-checkbox-wrapper">

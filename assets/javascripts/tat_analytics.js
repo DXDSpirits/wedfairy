@@ -1,5 +1,6 @@
 (function() {
-    var APIHOST =  "http://192.168.0.192:3000/api/";
+    // var APIHOST =  "http://192.168.0.192:3000/api/";
+    var APIHOST = 'http://testpayapi.wedfairy.com/api/';
 
     var storyCtx = $("#storyDataChart").get(0).getContext("2d");
     var userCtx = $("#userDataChart").get(0).getContext("2d");
@@ -15,8 +16,8 @@
     var storyChartData = [];
 
     var storyTagSet = {
-        "staffpicks"  : "推荐故事",
-        "hot"       : "热门故事",
+        // "staffpicks"  : "推荐故事",
+        // "hot"       : "热门故事",
         "wedding"   : "婚礼",
         "baby"      : "宝贝",
         "voyage"    : "旅行",
@@ -27,26 +28,20 @@
         "personal"  : "个人",
         "food"      : "美食",
         "family"    : "家人",
-        "boutique"  : "好货",
+        // "boutique"  : "好货",
         "universal" : "通用"
     };
 
-    var storyTagSetReverse = {
-        "推荐故事" :  "staffpicks",
-        "热门故事" :  "hot",
-        "婚礼" :  "wedding",
-        "宝贝" :  "baby",
-        "旅行" :  "voyage",
-        "爱人" :  "lover",
-        "偶像" :  "idol",
-        "友情" :  "friendship",
-        "新年书" :  "yearbook",
-        "个人" :  "personal",
-        "美食" :  "food",
-        "家人" :  "family",
-        "好货" :  "boutique",
-        "通用" :  "universal"
-    };
+    var storyTagSetIndex = {};
+
+    function setStoryTag() {
+        var count = 0;
+        for(var key in storyTagSet) {
+            storyTagSetIndex[key] = count;
+            count++;
+        }
+    }
+    setStoryTag();
 
     var filterSet = {
         'PV'         : 'PV',
@@ -75,9 +70,9 @@
         sendStoryDataStart = Date2Unix(storyChartStartTime);
         sendStoryDataEnd = Date2Unix(storyChartEndTime);
 
-        viewFilterList = ['PV', 'UV'];
-        // viewFilterList = ['PV', 'UV', 'newstories', 'completed', 'shared', 'newusers'];
-        storyFilterList = ['newstories', 'completed', 'shared'];
+        // viewFilterList = ['PV', 'UV'];
+        viewFilterList = ['newstories', 'completed', 'newusers'];
+        storyFilterList = ['newstories', 'completed'];
 
         $("#view-Chart-Start-Time").val(defaultStartDate);
         $("#story-Chart-Start-Time").val(defaultStartDate);
@@ -101,7 +96,7 @@
         oDate1 = new Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0]); //转换为12-18-2006格式
         aDate = end.split("-");
         oDate2 = new Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0]);
-        iDays = Math.abs(oDate1 - oDate2) / 1000 / 60 / 60 / 24 + 1; //把相差的毫秒数转换为天数
+        iDays = Math.abs(oDate1 - oDate2) / 1000 / 60 / 60 / 24; //把相差的毫秒数转换为天数
         return iDays;
     }
 
@@ -115,7 +110,7 @@
 
     function enumerateDays(startDate, endDate) {
         var now = moment(startDate), dates = [];
-        while (now.format('YYYY-MM-DD') <= moment(endDate).format('YYYY-MM-DD')) {
+        while (now.format('YYYY-MM-DD') < moment(endDate).format('YYYY-MM-DD')) {
               dates.push(now.format('YYYY-MM-DD'));
               now.add('days', 1);
         }
@@ -207,9 +202,6 @@
         "completed": {
             label: "completed",
             urlRoot: APIHOST + "v1/reports/new_story.json?finished=true"
-            // data: {
-            //     finish: true
-            // }
         },
         "shared": {
             label: "shared",
@@ -224,10 +216,6 @@
             urlRoot: APIHOST + "v1/reports/new_user.json"
         }
     };
-
-    var storyModel = new (Backbone.Model.extend({
-            urlRoot: APIHOST + 'v1/reports/new_story_by_tag.json',
-        }));
 
     var renderView = function(start, end, viewFilterList) {
         var initDataView = [];
@@ -274,7 +262,6 @@
                 success: function(collection) {
                     for(var i in viewChart.datasets) {
                         for (var j = 0; j < timeDuration; j++) {
-                            console.log(viewChart.datasets[i].label);
                             if(viewChart.datasets[i].label == filterSet[collection.attributes.label]) {
                                 viewChart.datasets[i].points[j].value = collection.attributes.datasets[0].data[j];
                             }
@@ -282,7 +269,7 @@
                         viewChart.update();
                     }
                 }
-            })
+            });
         }
     };
 
@@ -290,14 +277,12 @@
         var initDataStory = [];
         var storyFilterLabels = [];
         var storyChartInitData = [];
-        // var
 
         for(var i in storyFilterList) {
             storyFilterLabels.push(filterSet[storyFilterList[i]]);
         }
 
         var dataStory = {
-            // labels : ["推荐故事", "热门故事", "婚礼", "宝贝", "旅行", "爱人", "偶像", "友情", "新年书", "个人", "美食", "家人", "好货", "通用"],
             labels: [],
             datasets : []
         };
@@ -317,57 +302,175 @@
         showBar(dataStory, "storyChart");
 
 
-        for(var i in storyChart.datasets) {
-            console.log(storyChart.datasets[i]);
-            var j = 0;
-            for (var k in storyTagSet) {
-                // storyChart.datasets[i].bars[j].value = Math.random() * 100;
-                if(storyChart.datasets[i].label == filterSet["newstories"]) {
-                    console.log(111);
-                    storyModel.fetch({
-                        data: {
-                            'from_date' : sendStoryDataStart,
-                            'to_date'   : sendStoryDataEnd,
-                            'interval'  : 'day',
-                            'tag'       : storyTagSetReverse[storyTagSet[k]]
-                        },
-                        success: function(collection) {
-                            storyChart.datasets[i].point[k] = sumArray(collection.attributes.datasets[0].data);
-                        }
-                    });
-                }else if(storyChart.datasets[i].label == filterSet["completed"]) {
-                    console.log(222);
-                    storyModel.fetch({
-                        data: {
-                            'from_date' : sendStoryDataStart,
-                            'to_date'   : sendStoryDataEnd,
-                            'interval'  : 'day',
-                            'tag'       : storyTagSetReverse[storyTagSet[k]],
-                            'finishd'   : true
-                        },
-                        success: function(collection) {
-                            storyChart.datasets[i].point[k] = sumArray(collection.attributes.datasets[0].data);
-                        }
-                    });
-                }else if(storyChart.datasets[i].label == filterSet["shared"]) {
-                    console.log(333);
-                    storyModel.fetch({
-                        data: {
-                            'from_date' : sendStoryDataStart,
-                            'to_date'   : sendStoryDataEnd,
-                            'interval'  : 'day',
-                            'tag'       : storyTagSetReverse[storyTagSet[k]],
-                            'shared'    : true
-                        },
-                        success: function(collection) {
-                            storyChart.datasets[i].point[k] = sumArray(collection.attributes.datasets[0].data);
-                        }
-                    });
+        var NewStoryResultModel = Backbone.Model.extend({
+            defaults: {
+                length: 0,
+                result: {},
+                models: {}
+            },
+            initialize: function() {
+                var self = this;
+                var currentDatasetIndex;
+                for(var i in storyChart.datasets) {
+                    if(storyChart.datasets[i].label == '制作量') {
+                        currentDatasetIndex = i;
+                    }
                 }
+                _.each(storyTagSet, function(val, k) {
+                    self.defaults.length++;
+                    self.defaults.result[k] = 0;
+                    var url = APIHOST + 'v1/reports/new_story_by_schema.json?schema=' + k;
+                    var model = new (Backbone.Model.extend({
+                        urlRoot: url
+                    }))({
+                        label: k,
+                        url: url
+                    });
+                    model.on('change', function() {
+                        var label = this.label;
+                        var dataset = _.findWhere(storyChart.datasets, {
+                            label: label
+                        });
+                        self.defaults.result[k] = sumArray(this.toJSON().datasets[0].data);
+                        storyChart.datasets[currentDatasetIndex].bars[storyTagSetIndex[label]].value = sumArray(this.toJSON().datasets[0].data);
+                        storyChart.update();
+                    }, model);
 
-                // j++;
+                    model.label = k;
+
+                    self.defaults.models[k] = {
+                        label: k,
+                        model: model
+                    };
+                });
+            // },
+            // setData: function() {
+            //     var self = this;
+            //     // console.log(1212);
+            //     _.after(self.defaults.length, function() {
+            //         console.log(self.defaults.result);
+            //     });
             }
-            storyChart.update();
+        });
+
+        var CompletedResultModel = Backbone.Model.extend({
+            defaults: {
+                length: 0,
+                result: {},
+                models: {}
+            },
+            initialize: function() {
+                var self = this;
+                var currentDatasetIndex;
+                for(var i in storyChart.datasets) {
+                    if(storyChart.datasets[i].label == '已完成') {
+                        currentDatasetIndex = i;
+                    }
+                }
+                _.each(storyTagSet, function(val, k) {
+                    self.defaults.length++;
+                    self.defaults.result[k] = 0;
+                    var url = APIHOST + 'v1/reports/new_story_by_schema.json?schema=' + k;
+                    var model = new (Backbone.Model.extend({
+                        urlRoot: url
+                    }))({
+                        label: k,
+                        url: url
+                    });
+                    model.on('change', function() {
+                        var label = this.label;
+                        var dataset = _.findWhere(storyChart.datasets, {
+                            label: label
+                        });
+                        self.defaults.result[k] = sumArray(this.toJSON().datasets[0].data);
+                        storyChart.datasets[currentDatasetIndex].bars[storyTagSetIndex[label]].value = sumArray(this.toJSON().datasets[0].data);
+                        storyChart.update();
+                    }, model);
+
+                    model.label = k;
+
+                    self.defaults.models[k] = {
+                        label: k,
+                        model: model
+                    };
+                });
+            // },
+            // setData: function() {
+            //     var self = this;
+            //     _.after(self.defaults.length, function() {
+            //     });
+            }
+        });
+
+        var NewStoryResult = new NewStoryResultModel;
+        var CompletedResult = new CompletedResultModel;
+
+        for (var i in storyChart.datasets) {
+            var currentLabel = storyChart.datasets[i].label;
+            if(storyChart.datasets[i].label == filterSet["newstories"]) {
+                    for(var index in storyTagSetIndex) {
+                        NewStoryResult.defaults.models[index].model.fetch({
+                            data: {
+                                'from_date' : sendStoryDataStart,
+                                'to_date'   : sendStoryDataEnd,
+                                'interval'  : 'day'
+                            // },
+                            // success: function(model) {
+                                // NewStoryResult.setData();
+                                // console.log(NewStoryResult.defaults.models);
+                            }
+                        });
+                    }
+            }else if(storyChart.datasets[i].label == filterSet["completed"]) {
+                for(var index in storyTagSetIndex) {
+                        CompletedResult.defaults.models[index].model.fetch({
+                            data: {
+                                'from_date' : sendStoryDataStart,
+                                'to_date'   : sendStoryDataEnd,
+                                'interval'  : 'day',
+                                'finished'  : true
+                            // },
+                            // success: function(model) {
+                                // console.log(model.toJSON().datasets[0].data);
+                                // NewStoryResult.setData();
+                                //renderNotes;
+                                // console.log(NewStoryResult.defaults.models);
+                            }
+                        });
+                    }
+            // }else if(storyChart.datasets[i].label == filterSet["shared"]) {
+
+            //     // _.each(storyModelSet, function(val, k) {
+            //     //     // storyChart.datasets[i].bars[storyTagSetIndex[k]].value = Math.random()*100;
+            //     //     val.model.fetch({
+            //     //         data: {
+            //     //             'from_date' : sendStoryDataStart,
+            //     //             'to_date'   : sendStoryDataEnd,
+            //     //             'interval'  : 'day',
+            //     //             'shared'  : true
+            //     //         }
+            //     //     });
+            //     //     // storyChart.update();
+            //     // });
+            //     for(var index in storyTagSetIndex) {
+            //             // console.log(storyTagSetIndex[index]);
+            //             // console.log(NewStoryResult.defaults.models[index]);
+            //             NewStoryResult.defaults.models[index].model.fetch({
+            //                 data: {
+            //                     'from_date' : sendStoryDataStart,
+            //                     'to_date'   : sendStoryDataEnd,
+            //                     'interval'  : 'day',
+            //                     'shared'  : true
+            //                 // },
+            //                 // success: function(model) {
+            //                     // console.log(model.toJSON().datasets[0].data);
+            //                     // NewStoryResult.setData();
+            //                     //renderNotes;
+            //                     // console.log(NewStoryResult.defaults.models);
+            //                 }
+            //             });
+            //         }
+            }
         }
     };
 
@@ -376,6 +479,7 @@
         $(this).datepicker({
             language: "cn",
             format: 'yyyy-mm-dd',
+            startDate: "-60d",
             endDate: "0d",
             todayBtn: 'linked',
             autoclose: true,
@@ -431,7 +535,6 @@
         renderStory(storyChartStartTime, storyChartEndTime, storyFilterList);
     });
 
-    //
     initialize();
 
     renderView(defaultStartDate, defaultEndDate, viewFilterList);
