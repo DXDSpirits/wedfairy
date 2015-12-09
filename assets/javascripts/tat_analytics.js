@@ -1,5 +1,33 @@
 (function() {
-    // var APIHOST =  "http://192.168.0.192:3000/api/";
+
+    var user = new Amour.Models.User();
+    var token = Amour.TokenAuth.get();
+
+    if(!token) {
+        unLoginRedirect();
+    }
+
+    Amour.ajax.on('unauthorized', function() {
+        unLoginRedirect();
+    });
+
+    function unLoginRedirect() {
+        // location.href="/";
+        $(".wedfairy-dashboard").addClass('hidden');
+        $('#loginModal').modal('show');
+    }
+
+    Amour.ajax.on('unauthorized forbidden', function() {
+        $(".wedfairy-dashboard").addClass('hidden');
+        $('#loginModal').modal('show');
+    });
+
+    if(token == null) {
+        $(".wedfairy-dashboard").addClass('hidden');
+        $('#loginModal').modal('show');
+    }
+
+    // var APIHOST =  "http://192.168.0.192:3333/api/";
     var APIHOST = 'http://testpayapi.wedfairy.com/api/';
 
     var storyCtx = $("#storyDataChart").get(0).getContext("2d");
@@ -14,6 +42,8 @@
 
     var viewChartData = [];
     var storyChartData = [];
+
+    var viewChartX;
 
     var storyTagSet = {
         // "staffpicks"  : "推荐故事",
@@ -55,6 +85,7 @@
     var colorsets = ["#1ABC9C", "#F39C12", "#C0392B", "#8E44AD", "#3498DB", "#34495E", "#27AE60", "#BDC3C7", "#E67E22",  "#7F8C8D"];
 
     function initialize() {
+        viewChartX = $("#view-chart-wrapper .radio-wrapper input:checked").val();
         defaultEndDate = GetDateStr(0);
         defaultStartDate = GetDateStr(-7);
 
@@ -90,22 +121,38 @@
         return y+"-"+m+"-"+d;
     }
 
-    function HowManyDays(start, end) {
-        var aDate, oDate1, oDate2, iDays;
-        aDate = start.split("-");
-        oDate1 = new Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0]); //转换为12-18-2006格式
-        aDate = end.split("-");
-        oDate2 = new Date(aDate[1] + '-' + aDate[2] + '-' + aDate[0]);
-        iDays = Math.abs(oDate1 - oDate2) / 1000 / 60 / 60 / 24; //把相差的毫秒数转换为天数
-        return iDays;
-    }
-
     function Unix2Date(anyUTC) {
         return moment.unix(anyUTC).format("YYYY-MM-DD");
     }
 
     function Date2Unix(anyDateString) {
         return moment(anyDateString).valueOf() / 1000;
+    }
+
+    function HowManyDays(start, end) {
+        var duration = moment.duration(moment(end).diff(moment(start)));
+        return duration.asDays();
+    }
+
+    function HowManyWeeks(start, end) {
+        var duration_days = HowManyDays(start, end);
+        var weekday_start = moment(start).isoWeekday();
+        var weekday_end = moment(end).isoWeekday();
+        var weeks = (duration_days - (7 - weekday_start + 1) - (weekday_end - 1 + 1) + 1) / 7 + 2;
+        return weeks;
+    }
+
+    function HowManyMonths(start, end) {
+        var startDateArray = start.split('-');
+        var endDateArray = end.split('-');
+        var endMonth = moment(endDateArray[0] + '-' + endDateArray[1], "YYYY-MM");
+        var startMonth = moment(startDateArray[0] + '-' + startDateArray[1], "YYYY-MM");
+        var duration = Math.floor(moment.duration(endMonth.diff(startMonth)).asMonths()) + 1;
+        return duration;
+    }
+
+    function HowManyYears(start, end) {
+        return Math.ceil(moment.duration(moment(end).diff(moment(start))).asYears());
     }
 
     function enumerateDays(startDate, endDate) {
@@ -115,6 +162,45 @@
               now.add('days', 1);
         }
         return dates;
+    }
+
+    function enumerateWeeks(start, end) {
+        var labels = [];
+        var weeks_count = HowManyWeeks(start, end);
+        var weekday_start = moment(start).isoWeekday();
+        for (var i = 1; i <= weeks_count; i++) {
+            if(i==1) {
+                labels.push(start);
+            }else if(i==weeks_count) {
+                labels.push(end);
+            }else {
+                labels.push(moment(start).add(7 - weekday_start + 1, 'days').add(i-2, 'weeks').format('YYYY-MM-DD'));
+            }
+        }
+        return labels;
+    }
+
+    function enumerateMonths(start, end) {
+        var labels = [];
+        var months_count = HowManyMonths(start, end);
+        var startDateArray = start.split('-');
+
+        var startMonth = moment(startDateArray[0] + '-' + startDateArray[1], "YYYY-MM");
+        for (var i = 0; i < months_count; i++) {
+            labels.push(moment(startMonth).add(i, 'months').format("YYYY-MM"));
+        }
+        return labels;
+    }
+
+    function enumerateYears(start, end) {
+        var labels = [];
+        var start_year = moment(start).get('year');
+        var end_year = moment(end).get('year');
+        var duration = end_year - start_year + 1;
+        for (var i = 0; i < duration; i++) {
+            labels.push(start_year + i);
+        }
+        return labels;
     }
 
     function isInArray(ele, array) {
@@ -219,8 +305,24 @@
 
     var renderView = function(start, end, viewFilterList) {
         var initDataView = [];
-        var viewLabels = enumerateDays(start, end) || enumerateDays(defaultStartDate, defaultEndDate);
-        var timeDuration = HowManyDays(start, end);
+        var viewLabels, timeDuration, interval;
+        if(viewChartX == 'byDay') {
+            interval = 'day';
+            viewLabels = enumerateDays(start, end) || enumerateDays(defaultStartDate, defaultEndDate);
+            timeDuration = HowManyDays(start, end);
+        }else if(viewChartX == "byWeek") {
+            interval = 'week';
+            viewLabels = enumerateWeeks(start, end) || enumerateWeeks(defaultStartDate, defaultEndDate);
+            timeDuration = HowManyWeeks(start, end);
+        }else if(viewChartX == "byMonth") {
+            interval = 'month';
+            viewLabels = enumerateMonths(start, end) || enumerateMonths(defaultStartDate, defaultEndDate);
+            timeDuration = HowManyMonths(start, end);
+        }else if(viewChartX == "byYear") {
+            interval = 'year';
+            viewLabels = enumerateYears(start, end) || enumerateYears(defaultStartDate, defaultEndDate);
+            timeDuration = HowManyYears(start, end);
+        }
         var viewDataSets = [];
 
         var dataView = {
@@ -257,7 +359,7 @@
                 data: {
                     'from_date' : sendViewDataStart,
                     'to_date'   : sendViewDataEnd,
-                    'interval'  : 'day'
+                    'interval'  : interval
                 },
                 success: function(collection) {
                     for(var i in viewChart.datasets) {
@@ -343,13 +445,6 @@
                         model: model
                     };
                 });
-            // },
-            // setData: function() {
-            //     var self = this;
-            //     // console.log(1212);
-            //     _.after(self.defaults.length, function() {
-            //         console.log(self.defaults.result);
-            //     });
             }
         });
 
@@ -394,11 +489,6 @@
                         model: model
                     };
                 });
-            // },
-            // setData: function() {
-            //     var self = this;
-            //     _.after(self.defaults.length, function() {
-            //     });
             }
         });
 
@@ -414,62 +504,20 @@
                                 'from_date' : sendStoryDataStart,
                                 'to_date'   : sendStoryDataEnd,
                                 'interval'  : 'day'
-                            // },
-                            // success: function(model) {
-                                // NewStoryResult.setData();
-                                // console.log(NewStoryResult.defaults.models);
                             }
                         });
                     }
             }else if(storyChart.datasets[i].label == filterSet["completed"]) {
                 for(var index in storyTagSetIndex) {
-                        CompletedResult.defaults.models[index].model.fetch({
-                            data: {
-                                'from_date' : sendStoryDataStart,
-                                'to_date'   : sendStoryDataEnd,
-                                'interval'  : 'day',
-                                'finished'  : true
-                            // },
-                            // success: function(model) {
-                                // console.log(model.toJSON().datasets[0].data);
-                                // NewStoryResult.setData();
-                                //renderNotes;
-                                // console.log(NewStoryResult.defaults.models);
-                            }
-                        });
-                    }
-            // }else if(storyChart.datasets[i].label == filterSet["shared"]) {
-
-            //     // _.each(storyModelSet, function(val, k) {
-            //     //     // storyChart.datasets[i].bars[storyTagSetIndex[k]].value = Math.random()*100;
-            //     //     val.model.fetch({
-            //     //         data: {
-            //     //             'from_date' : sendStoryDataStart,
-            //     //             'to_date'   : sendStoryDataEnd,
-            //     //             'interval'  : 'day',
-            //     //             'shared'  : true
-            //     //         }
-            //     //     });
-            //     //     // storyChart.update();
-            //     // });
-            //     for(var index in storyTagSetIndex) {
-            //             // console.log(storyTagSetIndex[index]);
-            //             // console.log(NewStoryResult.defaults.models[index]);
-            //             NewStoryResult.defaults.models[index].model.fetch({
-            //                 data: {
-            //                     'from_date' : sendStoryDataStart,
-            //                     'to_date'   : sendStoryDataEnd,
-            //                     'interval'  : 'day',
-            //                     'shared'  : true
-            //                 // },
-            //                 // success: function(model) {
-            //                     // console.log(model.toJSON().datasets[0].data);
-            //                     // NewStoryResult.setData();
-            //                     //renderNotes;
-            //                     // console.log(NewStoryResult.defaults.models);
-            //                 }
-            //             });
-            //         }
+                    CompletedResult.defaults.models[index].model.fetch({
+                        data: {
+                            'from_date' : sendStoryDataStart,
+                            'to_date'   : sendStoryDataEnd,
+                            'interval'  : 'day',
+                            'finished'  : true
+                        }
+                    });
+                }
             }
         }
     };
@@ -479,7 +527,7 @@
         $(this).datepicker({
             language: "cn",
             format: 'yyyy-mm-dd',
-            startDate: "-60d",
+            // startDate: "-191d",
             endDate: "0d",
             todayBtn: 'linked',
             autoclose: true,
@@ -508,6 +556,7 @@
     });
 
     $("#view-chart-wrapper").on('click', 'button.submit', function(e) {
+        viewChartX = $("#view-chart-wrapper .radio-wrapper input:checked").val();
         var obj = document.getElementsByName("view-checkbox");
         viewFilterList = [];
         for(var k in obj){

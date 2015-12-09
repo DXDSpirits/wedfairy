@@ -19,6 +19,18 @@
         margin: 5px;
     }
 }
+.radio-wrapper {
+    margin: 30px 0 30px;
+    padding-left: 30px;
+    .radio-inline {
+        margin: 5px;
+    }
+}
+.controller-label {
+    font-size: 20px;
+    color: #fff;
+}
+
 .controllers-wrapper {
     color: #fff;
     display: inline-block;
@@ -49,14 +61,14 @@
 
 .canvas-wraper {
     overflow: hidden;
-    width: 85%;
+    width: 80%;
     float: left;
     display: inline-block;
 
 }
 .show-legend {
     float: left;
-    width: 15%;
+    width: 20%;
     display: inline-block;
     li {
         margin-bottom: 5px !important;

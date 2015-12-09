@@ -15,15 +15,14 @@
 
     <link rel="stylesheet" href="<%= static_url %>stylesheets/bootstrap-datepicker/bootstrap-datepicker.min.css?v=<%= build_no %>">
     <link rel="stylesheet" href="<%= static_url %>stylesheets/tat_analytics.css?v=<%= build_no %>">
-
+    <% include includes/stylesheets %>
     <% include includes/capability %>
     <% include includes/production %>
 
     <script src="<%= tat_static %>javascripts/vendor/modernizr-2.7.1.min.js"></script>
 </head>
 <body>
-
-    <header></header>
+    <% include layouts/header %>
     <div class="wedfairy-dashboard clearfix">
         <div id="view-chart-wrapper">
             <div class="controllers-wrapper">
@@ -34,10 +33,11 @@
                     <input type="text" class="form-control" id="view-Chart-End-Time">
                 </div>
                 <div class="checkbox-wrapper view-data-checkbox-wrapper">
-                    <label class="checkbox-inline hidden">
+                    <div class="controller-label">纵轴数据</div>
+                    <label class="checkbox-inline">
                         <input type="checkbox" name="view-checkbox" value="PV"> PV
                     </label>
-                    <label class="checkbox-inline hidden">
+                    <label class="checkbox-inline">
                         <input type="checkbox" name="view-checkbox" value="UV"> UV
                     </label>
                     <label class="checkbox-inline">
@@ -53,6 +53,21 @@
                         <input type="checkbox" name="view-checkbox" value="newusers" checked="checked"> 新用户
                     </label>
                 </div>
+                <div class="radio-wrapper radio">
+                    <div class="controller-label">横轴单位</div>
+                    <label class="radio-inline">
+                        <input type="radio" name="view-radio" value="byYear"> 年
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="view-radio" value="byMonth"> 月
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="view-radio" value="byWeek"> 周
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="view-radio" value="byDay" checked="checked"> 天
+                    </label>
+                </div>
                 <div class="submit-wrapper text-right"><button class="btn btn-primary submit" type="button">Submit</button></div>
 
             </div>
@@ -63,7 +78,7 @@
 
                     <div class="canvas-wraper">
                         <div class="data-label">浏览数据</div>
-                        <canvas id="storyDataChart" width="600" height="400">
+                        <canvas id="storyDataChart" width="600" height="200">
                         </canvas>
                     </div>
                     <div class="show-legend"></div>
@@ -87,7 +102,7 @@
             </div>
         </div>
 
-        <div id="story-chart-wrapper" class="hidden">
+        <div id="story-chart-wrapper">
             <div class="controllers-wrapper">
                 <h4 class="text-center">选择时间</h4>
                 <div class="datepicker input-group input-daterange">
@@ -96,6 +111,7 @@
                     <input type="text" class="form-control" id="story-Chart-End-Time">
                 </div>
                 <div class="checkbox-wrapper story-values-checkbox-wrapper">
+                    <div class="controller-label">纵轴数据</div>
 <!--                     <label class="checkbox-inline">
                         <input type="checkbox" name="story-checkbox" value="PV" checked="checked"> PV
                     </label>
@@ -185,7 +201,7 @@
         </div>
     </div>
 
-
+<% include includes/javascripts %>
 <script src="<%= tat_static %>javascripts/vendor/jquery-2.1.1.min.js"></script>
 <script src="<%= tat_static %>javascripts/vendor/underscore.min.js"></script>
 <script src="<%= tat_static %>javascripts/vendor/handlebars.min.js"></script>
