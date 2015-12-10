@@ -4,20 +4,20 @@
 
 <head>
     <title>八音盒</title>
-    
+
     <% include includes/metadata %>
-    
+
     <link rel="stylesheet" href="<%= static_url %>stylesheets/bootstrap-custom.css?v=<%= build_no %>">
-    
+
     <link rel="stylesheet" href="<%= tat_static %>stylesheets/font-awesome.css">
     <link rel="stylesheet" href="<%= tat_static %>stylesheets/animate.min.css">
     <link rel="stylesheet" href="<%= tat_static %>stylesheets/amour.css">
-    
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/bootstrap-datepicker/bootstrap-datepicker.min.css?v=<%= build_no %>">
     <link rel="stylesheet" href="<%= static_url %>stylesheets/portfolio.css?v=<%= build_no %>">
-    
+
     <% include includes/capability %>
     <% include includes/production %>
-    
+
     <script src="<%= tat_static %>javascripts/vendor/modernizr-2.7.1.min.js"></script>
 </head>
 <body>
@@ -32,15 +32,33 @@
             <a class="btn btn-parimary btn-link" href="#featured">只看推荐</a>
         </div>
         <!-- <p>点击故事完成百分比旁边的 <i class="fa fa-check-circle"></i> 可以推荐或者取消推荐</p> -->
-        <form class="form-inline form-search">
-            <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-mobile fa-lg"></i></div>
-                    <input type="text" class="form-control" name="mobile" placeholder="输入手机号搜索">
+        <div class="searchbox-wrapper">
+            <form class="form-inline form-search">
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-mobile fa-lg"></i></div>
+                        <input type="text" class="form-control" name="mobile" placeholder="输入手机号搜索">
+                    </div>
                 </div>
-            </div>
-            <button type="submit" class="btn btn-primary">确认</button>
-        </form>
+                <button type="submit" class="btn btn-primary">确认</button>
+            </form>
+            <form class="form-inline story-search">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="storyName" placeholder="输入故事name搜索">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary ">确认</button>
+            </form>
+            <form class="form-inline form-date">
+                <div class="input-group input-daterange">
+                    <input type="text" class="form-control" id="filter-from">
+                    <span class="input-group-addon">to</span>
+                    <input type="text" class="form-control" id="filter-to">
+                </div>
+                <button type="submit" class="btn btn-primary">确认</button>
+            </form>
+        </div>
         <div class="tag-list"></div>
     </div>
     <div class="row story-list"></div>
@@ -146,7 +164,7 @@
 <script src="<%= tat_static %>javascripts/plugins/jquery.qrcode.min.js"></script>
 
 <script src="<%= tat_static %>javascripts/amour.js?v=<%= build_no %>"></script>
-
+<script src="<%= static_url %>javascripts/bootstrap-datepicker/bootstrap-datepicker.js?v=<%= build_no %>" charset="UTF-8"></script>
 <script src="<%= static_url %>javascripts/portfolio.js?v=<%= build_no %>"></script>
 
 <% include includes/analytics %>

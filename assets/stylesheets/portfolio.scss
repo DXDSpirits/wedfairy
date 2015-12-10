@@ -13,6 +13,10 @@ body {
 
 .menu {
     margin-bottom: 50px;
+    .form-inline {
+        display: inline-block;
+        margin: 0 30px;
+    }
     .form-search {
         margin: 20px auto;
     }

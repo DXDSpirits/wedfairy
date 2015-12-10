@@ -7,6 +7,22 @@
         unLoginRedirect();
     }
 
+    user.fetch({
+        success: function(model, response, options) {
+
+            if(options.xhr.status == 200) {
+                initialize();
+
+                renderView(defaultStartDate, defaultEndDate, viewFilterList);
+
+                renderStory(defaultStartDate, defaultEndDate, storyFilterList);
+            }
+        },
+        error: function(model, xhr, options) {
+            console.log(xhr.status);
+        }
+    });
+
     Amour.ajax.on('unauthorized', function() {
         unLoginRedirect();
     });
@@ -584,11 +600,11 @@
         renderStory(storyChartStartTime, storyChartEndTime, storyFilterList);
     });
 
-    initialize();
+    // initialize();
 
-    renderView(defaultStartDate, defaultEndDate, viewFilterList);
+    // renderView(defaultStartDate, defaultEndDate, viewFilterList);
 
-    renderStory(defaultStartDate, defaultEndDate, storyFilterList);
+    // renderStory(defaultStartDate, defaultEndDate, storyFilterList);
 
 
 })();

@@ -122,21 +122,21 @@
             }
         })
     });
-    
+
     var stories = new (Amour.Collection.extend({
         url: Amour.APIRoot + 'staff/story/',
         model: StoryModel
     }))();
-    
+
     var storyGalleryView = new StoryGalleryView({
         collection: stories,
         el: $('.story-list')
     });
-    
+
     stories.on('reset add', function() {
         $('#btn-more').toggleClass('hidden', stories.next == null);
     });
-    
+
     $('#btn-more').on('click', function () {
         var btn = $(this);
         btn.button('loading');
@@ -158,13 +158,44 @@
             router.navigate('owner/' + mobile);
         }
     });
-    
+
+    $('.story-search').on('submit', function(e) {
+        e.preventDefault();
+        var $input = $(this).find('input[name=storyName]');
+        var storyName = $input.val();
+        $input.val('');
+        if (storyName) {
+            $('input[name=featured]').parent().removeClass('active');
+            router.navigate('name/' + storyName);
+        }
+    });
+
+    $('.input-daterange input').each(function() {
+        $(this).datepicker({
+            language: "cn",
+            format: 'yyyy-mm-dd',
+            endDate: "0d",
+            todayBtn: 'linked',
+        });
+    });
+
+
+    $('.form-date').on('submit', function(e) {
+        e.preventDefault();
+        var filterFrom = $("#filter-from").val();
+        var filterTo = $("#filter-to").val();
+        if (filterFrom && filterTo) {
+            $('input[name=featured]').parent().removeClass('active');
+            router.navigate('date/' + filterFrom + '/' + filterTo);
+        }
+    });
+
     var user = new Amour.Models.User();
-    
+
     Amour.ajax.on('unauthorized forbidden', function() {
         $('#login-modal').modal('show');
     });
-    
+
     $('#login-button').on('click', function(e) {
         e.preventDefault && e.preventDefault();
         var username = $('#loginForm input[name=username]').val() || null;
@@ -180,7 +211,7 @@
             });
         }
     });
-    
+
     var router = new (Backbone.Router.extend({
         routes : {
             'all': 'filterAll',
@@ -188,6 +219,8 @@
             'complete': 'filterComplete',
             'owner/:owner': 'filterOwner',
             'tag/:tag': 'filterTag',
+            'name/:name': 'filterName',
+            'date/:from/:to': 'filterDate',
             '*path': 'index'
         },
         initialize: function() {},
@@ -223,6 +256,15 @@
         },
         filterTag: function(tag) {
             this.fetchStories({ tag: tag });
+        },
+        filterName: function(name) {
+            this.fetchStories({ name: name });
+        },
+        filterDate: function(from, to) {
+            this.fetchStories({
+                time_created_from: from,
+                time_created_to  : to
+            });
         }
     }))();
 
