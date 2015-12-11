@@ -183,7 +183,7 @@
     $('.form-date').on('submit', function(e) {
         e.preventDefault();
         var filterFrom = $("#filter-from").val();
-        var filterTo = $("#filter-to").val();
+        var filterTo = moment($("#filter-to").val()).add(1, 'days').format("YYYY-MM-DD");
         if (filterFrom && filterTo) {
             $('input[name=featured]').parent().removeClass('active');
             router.navigate('date/' + filterFrom + '/' + filterTo);
