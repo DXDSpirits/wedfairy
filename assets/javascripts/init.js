@@ -21,7 +21,7 @@
                     },
                     success: function(){
                         var search = location.search;
-                        search.replace(/[\?\&]?login=success|[\?\&]?register=success/, '');
+                        search = search.replace(/[\?\&]?login=success|[\?\&]?register=success/, '');
                         search += search ? '&login=success' : '?login=success';
                         if (location.search == search) {
                             location.reload();
@@ -71,7 +71,7 @@
                         user.login(auth, {
                             success: function(){
                                 var search = location.search;
-                                search.replace(/[\?\&]?login=success|[\?\&]?register=success/, '');
+                                search = search.replace(/[\?\&]?login=success|[\?\&]?register=success/, '');
                                 search += search ? '&register=success' : '?register=success';
                                 if (location.search == search) {
                                     location.reload();
@@ -104,7 +104,7 @@
         logout: function() {
             Amour.TokenAuth.clear();
             var search = location.search;
-            search.replace(/[\?\&]?login=success|[\?\&]?register=success/, '');
+            search = search.replace(/[\?\&]?login=success|[\?\&]?register=success/, '');
             if (location.search == search) {
                 location.reload();
             } else {
