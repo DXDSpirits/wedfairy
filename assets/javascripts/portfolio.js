@@ -142,9 +142,8 @@
     });
 
     $(".menu #ensure-btn .btn").off("click").on('click', function(e) {
-        e.preventDefault();
+        e.preventDefault && e.preventDefault();
         filterArray = [];
-
         mobileNum = $('input[name=mobile]').val();
         storyNameFilter = $('input[name=storyName]').val();
         storiesFilter = $("#storyFilter input:checked").val();
