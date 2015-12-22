@@ -1,7 +1,10 @@
 (function() {
 
     var router;
-
+    var storiesFilter = "storiesAll";
+    var mobileNum, storyNameFilter, dateFilter, filterResult;
+    var tagsFilter = "tagsAll";
+    var filterArray = [];
     var StoryModel = Amour.Models.Story.extend({
         urlRoot: Amour.APIRoot + 'staff/story/',
         saveTags: function(tags) {
@@ -22,8 +25,9 @@
 
     var tagsFilterView = new(Amour.CollectionView.extend({
         ModelView: Amour.ModelView.extend({
-            tagName: 'span',
-            template: '<a class="btn btn-link" href="#tag/{{name}}">{{title}}</a>'
+            tagName: 'label',
+            className: "radio-inline",
+            template: '<input type="radio" name="tags-radio" value="{{name}}"> {{title}}'
         })
     }))({
         collection: tags,
@@ -137,6 +141,47 @@
         $('#btn-more').toggleClass('hidden', stories.next == null);
     });
 
+    $(".menu #ensure-btn .btn").off("click").on('click', function(e) {
+        e.preventDefault();
+        filterArray = [];
+
+        mobileNum = $('input[name=mobile]').val();
+        storyNameFilter = $('input[name=storyName]').val();
+        storiesFilter = $("#storyFilter input:checked").val();
+        tagsFilter = $("#tagsFilter input:checked").val();
+        var filterFrom = $("#filter-from").val();
+        var filterTo = $("#filter-to").val();
+        if(mobileNum != '') {
+            filterArray.push('owner__username=' + mobileNum);
+        }
+        if(storyNameFilter != '') {
+            filterArray.push('name=' + storyNameFilter);
+        }
+        if(tagsFilter != 'tagsAll') {
+            filterArray.push('tag=' + tagsFilter);
+        }
+        if(storiesFilter != 'storiesAll') {
+            if(storiesFilter == "storiesComplete") {
+                filterArray.push('featured=1');
+            }else if(storiesFilter == "storiesFeatured") {
+                filterArray.push('featured=2');
+            }
+        }
+        if (filterFrom && filterTo) {
+            filterTo = moment(filterTo).add(1, 'days').format("YYYY-MM-DD");
+            dateFilter = "time_created_from=" + filterFrom + "&time_created_to=" + filterTo;
+            filterArray.push(dateFilter);
+        }else{
+            // alert("请输入完整时间区段");
+        }
+        if(filterArray) {
+            filterResult = filterArray.join("&");
+        }
+
+        router.navigate('filter/' + filterResult);
+
+    });
+
     $('#btn-more').on('click', function () {
         var btn = $(this);
         btn.button('loading');
@@ -148,28 +193,6 @@
         });
     });
 
-    $('.form-search').on('submit', function(e) {
-        e.preventDefault();
-        var $input = $(this).find('input[name=mobile]');
-        var mobile = $input.val();
-        $input.val('');
-        if (mobile) {
-            $('input[name=featured]').parent().removeClass('active');
-            router.navigate('owner/' + mobile);
-        }
-    });
-
-    $('.story-search').on('submit', function(e) {
-        e.preventDefault();
-        var $input = $(this).find('input[name=storyName]');
-        var storyName = $input.val();
-        $input.val('');
-        if (storyName) {
-            $('input[name=featured]').parent().removeClass('active');
-            router.navigate('name/' + storyName);
-        }
-    });
-
     $('.input-daterange input').each(function() {
         $(this).datepicker({
             language: "cn",
@@ -177,17 +200,6 @@
             endDate: "0d",
             todayBtn: 'linked',
         });
-    });
-
-
-    $('.form-date').on('submit', function(e) {
-        e.preventDefault();
-        var filterFrom = $("#filter-from").val();
-        var filterTo = moment($("#filter-to").val()).add(1, 'days').format("YYYY-MM-DD");
-        if (filterFrom && filterTo) {
-            $('input[name=featured]').parent().removeClass('active');
-            router.navigate('date/' + filterFrom + '/' + filterTo);
-        }
     });
 
     var user = new Amour.Models.User();
@@ -221,6 +233,7 @@
             'tag/:tag': 'filterTag',
             'name/:name': 'filterName',
             'date/:from/:to': 'filterDate',
+            'filter/:filterItems' : 'filter',
             '*path': 'index'
         },
         initialize: function() {},
@@ -228,6 +241,11 @@
             options = options || {};
             options.trigger = !(options.trigger === false);
             Backbone.Router.prototype.navigate.call(this, fragment, options);
+        },
+        filter: function(filterItems) {
+
+            // this.navigate(filterItems);
+            this.fetchStories(filterItems);
         },
         index: function() {
             this.navigate('all');
