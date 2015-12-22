@@ -1,7 +1,8 @@
 
 (function() {
-    
+
     var user = new Amour.Models.User();
+    // console.log(location.href);
 
     var loginModal = new (Amour.View.extend({
         events: {
@@ -19,7 +20,8 @@
                         alert('手机号或者密码错误，请重新输入');
                     },
                     success: function(){
-                        window.location.reload();
+                        // window.location.reload();
+                        window.location.href = "http://" + window.location.hostname + ":" + window.location.port + window.location.pathname + '?login=success';
                     }
                 })
             } else {
@@ -62,7 +64,9 @@
                     success: function(){
                         user.login(auth, {
                             "success":function(){
-                                window.location.reload();
+                                // window.location.reload();
+                                window.location.href = "http://" + window.location.hostname + ":" + window.location.port + window.location.pathname + '?register=success';
+                                // console.log(location.href);
                             }
                         })
                     },
@@ -88,7 +92,9 @@
         },
         logout: function() {
             Amour.TokenAuth.clear();
-            window.location.reload();
+            // window.location.reload();
+            // console.log(currentURL);
+            window.location.href = "http://" + window.location.hostname + ":" + window.location.port + window.location.pathname;
         },
         gotoLogin: function() {
             if (Amour.isMobile) {
