@@ -26,10 +26,13 @@
 
 <div class="container">
     <div class="text-center menu">
-        <div class="btn-group">
-            <a class="btn btn-parimary btn-link" href="#all">全部故事</a>
+        <div id="storyFilter" class="btn-group">
+            <!-- <a class="btn btn-parimary btn-link" href="#all">全部故事</a>
             <a class="btn btn-parimary btn-link" href="#complete">只看完成</a>
-            <a class="btn btn-parimary btn-link" href="#featured">只看推荐</a>
+            <a class="btn btn-parimary btn-link" href="#featured">只看推荐</a> -->
+            <label class="radio-inline"><input type="radio" name="stories-radio" value="storiesAll" checked="checked"> 全部故事</label>
+            <label class="radio-inline"><input type="radio" name="stories-radio" value="storiesComplete"> 只看完成</label>
+            <label class="radio-inline"><input type="radio" name="stories-radio" value="storiesFeatured"> 只看推荐</label>
         </div>
         <!-- <p>点击故事完成百分比旁边的 <i class="fa fa-check-circle"></i> 可以推荐或者取消推荐</p> -->
         <div class="searchbox-wrapper">
@@ -40,7 +43,7 @@
                         <input type="text" class="form-control" name="mobile" placeholder="输入手机号搜索">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">确认</button>
+                <!-- <button type="submit" class="btn btn-primary">确认</button> -->
             </form>
             <form class="form-inline story-search">
                 <div class="form-group">
@@ -48,7 +51,7 @@
                         <input type="text" class="form-control" name="storyName" placeholder="输入故事name搜索">
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary ">确认</button>
+                <!-- <button type="submit" class="btn btn-primary ">确认</button> -->
             </form>
             <form class="form-inline form-date">
                 <div class="input-group input-daterange">
@@ -56,10 +59,16 @@
                     <span class="input-group-addon">to</span>
                     <input type="text" class="form-control" id="filter-to">
                 </div>
-                <button type="submit" class="btn btn-primary">确认</button>
+                <!-- <button type="submit" class="btn btn-primary">确认</button> -->
             </form>
         </div>
-        <div class="tag-list"></div>
+        <div id="tagsFilter" class="tag-list">
+            <!-- <span></span> -->
+            <label class="radio-inline"><input type="radio" name="tags-radio" value="tagsAll" checked="checked"> 全部</label>
+        </div>
+        <div id="ensure-btn" class="btn-wrapper text-center">
+            <button type="submit" class="btn btn-primary">确认</button>
+        </div>
     </div>
     <div class="row story-list"></div>
     <button id="btn-more" data-loading-text="Loading..." class="btn btn-block">更多</button>
