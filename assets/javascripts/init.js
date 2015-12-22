@@ -20,8 +20,14 @@
                         alert('手机号或者密码错误，请重新输入');
                     },
                     success: function(){
-                        // window.location.reload();
-                        window.location.href = "http://" + window.location.hostname + ":" + window.location.port + window.location.pathname + '?login=success';
+                        var search = location.search;
+                        search.replace(/[\?\&]?login=success|[\?\&]?register=success/, '');
+                        search += search ? '&login=success' : '?login=success';
+                        if (location.search == search) {
+                            location.reload();
+                        } else {
+                            location.search = search;
+                        }
                     }
                 })
             } else {
@@ -63,10 +69,15 @@
                     },
                     success: function(){
                         user.login(auth, {
-                            "success":function(){
-                                // window.location.reload();
-                                window.location.href = "http://" + window.location.hostname + ":" + window.location.port + window.location.pathname + '?register=success';
-                                // console.log(location.href);
+                            success: function(){
+                                var search = location.search;
+                                search.replace(/[\?\&]?login=success|[\?\&]?register=success/, '');
+                                search += search ? '&register=success' : '?register=success';
+                                if (location.search == search) {
+                                    location.reload();
+                                } else {
+                                    location.search = search;
+                                }
                             }
                         })
                     },
@@ -92,9 +103,13 @@
         },
         logout: function() {
             Amour.TokenAuth.clear();
-            // window.location.reload();
-            // console.log(currentURL);
-            window.location.href = "http://" + window.location.hostname + ":" + window.location.port + window.location.pathname;
+            var search = location.search;
+            search.replace(/[\?\&]?login=success|[\?\&]?register=success/, '');
+            if (location.search == search) {
+                location.reload();
+            } else {
+                location.search = search;
+            }
         },
         gotoLogin: function() {
             if (Amour.isMobile) {
