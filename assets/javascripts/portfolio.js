@@ -14,6 +14,7 @@
             });
         }
     });
+    var tagFetchStatus = false;
 
     var themes = new (Amour.Collection.extend({
         url: Amour.APIRoot + 'sites/theme/'
@@ -223,6 +224,43 @@
         }
     });
 
+    function fillFilters() {
+        var url = location.href;
+        filtersList = url.split("#filter/")[1].split("&");
+        var filterDict = {};
+        _.each(filtersList, function(item) {
+            filterDict[item.split("=")[0]] = item.split("=")[1];
+        });
+        if(filterDict["featured"]) {
+            if(filterDict["featured"] == 1) {
+                $("#storyFilter input[value='storiesComplete']").attr('checked','checked');
+                $("#storyFilter input[value='storiesComplete']").siblings().removeAttr('checked');
+            }else if(filterDict["featured"] == 2) {
+                $("#storyFilter input[value='storiesFeatured']").attr('checked','checked');
+                $("#storyFilter input[value='storiesFeatured']").siblings().removeAttr('checked');
+            }else {
+                $("#storyFilter input").removeAttr('checked');
+            }
+        }
+        if(filterDict["owner__username"]) {
+            $(".searchbox-wrapper .form-search input[name='mobile']").val(filterDict["owner__username"]);
+        }
+        if(filterDict["name"]) {
+            $(".searchbox-wrapper .story-search input[name='storyName']").val(filterDict["name"]);
+        }
+        if(filterDict["time_created_from"] && filterDict["time_created_to"]) {
+            $(".searchbox-wrapper .form-date #filter-from").val(filterDict["time_created_from"]);
+            $(".searchbox-wrapper .form-date #filter-to").val(moment(filterDict["time_created_to"]).subtract(1, "days").format("YYYY-MM-DD"));
+        }
+        if(tagFetchStatus) {
+            if(filterDict["tag"]) {
+                var tag = filterDict["tag"];
+                $("#tagsFilter").find('input[value=' + tag + ']').attr('checked', 'checked');
+                $("#tagsFilter").find('input[value=' + tag + ']').siblings().removeAttr('checked');
+            }
+        }
+    }
+
     var router = new (Backbone.Router.extend({
         routes : {
             'all': 'filterAll',
@@ -242,9 +280,8 @@
             Backbone.Router.prototype.navigate.call(this, fragment, options);
         },
         filter: function(filterItems) {
-
-            // this.navigate(filterItems);
             this.fetchStories(filterItems);
+            fillFilters();
         },
         index: function() {
             this.navigate('all');
@@ -289,7 +326,11 @@
         themes.fetch();
         tags.fetch({
             traditional: true,
-            data: { category: ['staff', 'story'] }
+            data: { category: ['staff', 'story'] },
+            success: function() {
+                tagFetchStatus = true;
+                fillFilters();
+            }
         });
         Backbone.history.start();
     })();
