@@ -96,7 +96,8 @@
         'completed'  : '已完成',
         'shared'     : '已分享',
         'newusers'   : '新用户',
-        'wishes'     : '评论'
+        'wishes'     : '评论',
+        "likes"      : '点赞'
     };
 
     var colorsets = ["#1ABC9C", "#F39C12", "#C0392B", "#8E44AD", "#3498DB", "#34495E", "#27AE60", "#BDC3C7", "#E67E22",  "#7F8C8D"];
@@ -119,7 +120,7 @@
         sendStoryDataEnd = Date2Unix(storyChartEndTime);
 
         // viewFilterList = ['PV', 'UV'];
-        viewFilterList = ['newstories', 'completed', 'newusers', 'wishes'];
+        viewFilterList = ['newstories', 'completed', 'newusers', 'wishes', 'likes'];
         storyFilterList = ['newstories', 'completed'];
 
         $("#view-Chart-Start-Time").val(defaultStartDate);
@@ -321,6 +322,10 @@
         "wishes": {
             label: "wishes",
             urlRoot: APIHOST + "v1/reports/new_comment.json"
+        },
+        "likes": {
+            label: "likes",
+            urlRoot: APIHOST + "v1/reports/new_like.json"
         }
     };
 
