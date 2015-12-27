@@ -20,58 +20,57 @@
 
     <script src="<%= tat_static %>javascripts/vendor/modernizr-2.7.1.min.js"></script>
 </head>
-<body>
+<body data-spy="scroll" data-target="#iframeScrollspy">
 
 <!-- Content Begins Here -->
-
-<div class="container">
-    <div class="text-center menu">
-        <div id="storyFilter" class="btn-group">
-            <!-- <a class="btn btn-parimary btn-link" href="#all">全部故事</a>
-            <a class="btn btn-parimary btn-link" href="#complete">只看完成</a>
-            <a class="btn btn-parimary btn-link" href="#featured">只看推荐</a> -->
-            <label class="radio-inline"><input type="radio" name="stories-radio" value="storiesAll" checked="checked"> 全部故事</label>
-            <label class="radio-inline"><input type="radio" name="stories-radio" value="storiesComplete"> 只看完成</label>
-            <label class="radio-inline"><input type="radio" name="stories-radio" value="storiesFeatured"> 只看推荐</label>
-        </div>
-        <!-- <p>点击故事完成百分比旁边的 <i class="fa fa-check-circle"></i> 可以推荐或者取消推荐</p> -->
-        <div class="searchbox-wrapper">
-            <div class="form-inline form-search">
-                <div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon"><i class="fa fa-mobile fa-lg"></i></div>
-                        <input type="text" class="form-control" name="mobile" placeholder="输入手机号搜索">
-                    </div>
+<div class="menu text-center">
+    <div id="storyFilter" class="btn-group">
+        <label class="radio-inline"><input type="radio" name="stories-radio" value="storiesAll" checked="checked"> 全部故事</label>
+        <label class="radio-inline"><input type="radio" name="stories-radio" value="storiesComplete"> 只看完成</label>
+        <label class="radio-inline"><input type="radio" name="stories-radio" value="storiesFeatured"> 只看推荐</label>
+    </div>
+    <!-- <p>点击故事完成百分比旁边的 <i class="fa fa-check-circle"></i> 可以推荐或者取消推荐</p> -->
+    <div class="searchbox-wrapper">
+        <div class="form-inline form-search">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-mobile fa-lg"></i></div>
+                    <input type="text" class="form-control" name="mobile" placeholder="输入手机号搜索">
                 </div>
-                <!-- <button type="submit" class="btn btn-primary">确认</button> -->
-            </div>
-            <div class="form-inline story-search">
-                <div class="form-group">
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="storyName" placeholder="输入故事name搜索">
-                    </div>
-                </div>
-                <!-- <button type="submit" class="btn btn-primary ">确认</button> -->
-            </div>
-            <div class="form-inline form-date">
-                <div class="input-group input-daterange">
-                    <input type="text" class="form-control" id="filter-from">
-                    <span class="input-group-addon">to</span>
-                    <input type="text" class="form-control" id="filter-to">
-                </div>
-                <!-- <button type="submit" class="btn btn-primary">确认</button> -->
             </div>
         </div>
-        <div id="tagsFilter" class="tag-list">
-            <!-- <span></span> -->
-            <label class="radio-inline"><input type="radio" name="tags-radio" value="tagsAll" checked="checked"> 全部</label>
+        <div class="form-inline story-search">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="storyName" placeholder="输入故事name搜索">
+                </div>
+            </div>
         </div>
-        <div id="ensure-btn" class="btn-wrapper text-center">
-            <button type="submit" class="btn btn-primary">确认</button>
+        <div class="form-inline form-date">
+            <div class="input-group input-daterange">
+                <input type="text" class="form-control" id="filter-from">
+                <span class="input-group-addon">to</span>
+                <input type="text" class="form-control" id="filter-to">
+            </div>
         </div>
     </div>
-    <div class="row story-list"></div>
-    <button id="btn-more" data-loading-text="Loading..." class="btn btn-block">更多</button>
+    <div id="tagsFilter" class="tag-list">
+        <label class="radio-inline"><input type="radio" name="tags-radio" value="tagsAll" checked="checked"> 全部</label>
+    </div>
+    <div id="ensure-btn" class="btn-wrapper text-center">
+        <button type="submit" class="btn btn-primary">确认</button>
+    </div>
+</div>
+<div class="body clearfix">
+    <div class="story-wrapper container">
+        <div class="story-list row"></div>
+        <button id="btn-more" data-loading-text="Loading..." class="btn btn-block">更多</button>
+    </div>
+    <div class="iframe-wrapper" data-spy="affix" data-offset-top="250">
+        <div class="phone-frame img pull-right">
+            <iframe id="story-frame" frameBorder="0"  src=""></iframe>
+        </div>
+    </div>
 </div>
 
 <!-- Content Ends Here -->

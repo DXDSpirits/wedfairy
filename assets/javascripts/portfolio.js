@@ -83,7 +83,7 @@
                 'change select': 'modifyFeatured',
                 'click .tags': 'selectTags'
             },
-            className: 'story-item text-center col-xs-6 col-sm-3 col-md-2',
+            className: 'story-item text-center col-xs-6 col-sm-4 col-md-3 col-lg-2',
             template: $('#template-story-item').html(),
             serializeThemeData: function(data) {
                 var themeName = data.theme || '', themeOptionName = '';
@@ -109,7 +109,8 @@
                 return data;
             },
             onClick: function() {
-                window.open('http://story.wedfairy.com/story/' + this.model.get('name') + '/?from=portfolio', '_blank');
+                // window.open('http://story.wedfairy.com/story/' + this.model.get('name') + '/?from=portfolio', '_blank');
+                $("#story-frame")[0].src = 'http://story.wedfairy.com/story/' + this.model.get('name') + '/?from=portfolio';
             },
             selectTags: function() {
                 $('#tags-modal').modal('show');
@@ -226,6 +227,10 @@
 
     function fillFilters() {
         var url = location.href;
+        if(!_.contains(url, "#filter/")) {
+            return;
+        }
+
         filtersList = url.split("#filter/")[1].split("&");
         var filterDict = {};
         _.each(filtersList, function(item) {
@@ -332,6 +337,7 @@
                 fillFilters();
             }
         });
+        $("#story-frame")[0].src = '';
         Backbone.history.start();
     })();
 
