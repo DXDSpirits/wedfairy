@@ -37,7 +37,6 @@ body {
     // max-width: 70%;
     @include calc(width, '100% - 350px');
     height: 100%;
-    overflow: scroll;
     float: left;
 }
 .affix {
@@ -94,6 +93,7 @@ body {
     }
     .title {
         @include ellipsis();
+        height: 1em;
     }
     .tags {
         cursor: pointer;
