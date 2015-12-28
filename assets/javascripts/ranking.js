@@ -1,13 +1,13 @@
 (function() {
-    
+
     var StoryGalleryView = Amour.CollectionView.extend({
         ModelView: Amour.ModelView.extend({
             events: {
                 'click': 'onClick'
             },
             className: 'story-item clearfix',
-            template: '<div class="img pull-left" data-bg-src="{{data.coverImage}}"></div>' + 
-                      '<div class="text pull-left"><p>{{title}}</p><div class="desc">{{description}}</div></div>' + 
+            template: '<div class="img pull-left" data-bg-src="{{data.coverImage}}"></div>' +
+                      '<div class="text pull-left"><p>{{title}}</p><div class="desc">{{description}}</div></div>' +
                       '<div class="index"></div>' +
                       '<i class="fa fa-angle-right"></i>',
             serializeData: function() {
@@ -22,7 +22,7 @@
     });
 
 
-    // filter 
+    // filter
     Backbone.on("close-scene-filter-menu", (function() {
         var $menu = $('.scene-filter-menu');
         return function() {
@@ -50,20 +50,20 @@
 
 
     var stories = new (Amour.Collection.extend({
-        url: Amour.APIRoot + 'sites/storylist/',
+        url: Amour.APIRoot + 'search/story/',
         model: Amour.Models.Story
     }))();
-    
+
     var storyGalleryView = new StoryGalleryView({
         collection: stories,
         el: $('.story-list')
     });
-    
+
     stories.fetch();
     stories.on('reset add', function() {
         $('#btn-more').toggleClass('hidden', stories.next == null);
     });
-    
+
     var fetchMore = function() {
         var btn = $('#btn-more');
         btn.button('loading');
@@ -74,7 +74,7 @@
             }
         });
     };
-    
+
     $('#btn-more').click(fetchMore);
     var throttle = _.throttle(function() {
         var scrollTop = $(window).scrollTop();
@@ -109,5 +109,5 @@
 
     Backbone.history.start();
 
-    
+
 })();
