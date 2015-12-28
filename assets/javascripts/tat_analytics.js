@@ -297,11 +297,11 @@
     var viewModelSet = {
         "PV": {
             label: "PV",
-            urlRoot: APIHOST + "v1/reports/PV.json"
+            urlRoot: APIHOST + "v1/reports/PV.json?site=wedfairy.com"
         },
         "UV": {
             label: "UV",
-            urlRoot: APIHOST + "v1/reports/UV.json"
+            urlRoot: APIHOST + "v1/reports/UV.json?site=wedfairy.com"
         },
         "completed": {
             label: "completed",
