@@ -97,7 +97,8 @@
         'shared'     : '已分享',
         'newusers'   : '新用户',
         'wishes'     : '评论',
-        "likes"      : '点赞'
+        "likes"      : '点赞',
+        "Sessions"   : 'Sessions'
     };
 
     var colorsets = ["#1ABC9C", "#F39C12", "#C0392B", "#8E44AD", "#3498DB", "#34495E", "#27AE60", "#BDC3C7", "#E67E22",  "#7F8C8D"];
@@ -297,11 +298,15 @@
     var viewModelSet = {
         "PV": {
             label: "PV",
-            urlRoot: APIHOST + "v1/reports/PV.json?site=wedfairy.com"
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=wedfairy.com&type=pageviews"
         },
         "UV": {
             label: "UV",
-            urlRoot: APIHOST + "v1/reports/UV.json?site=wedfairy.com"
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=wedfairy.com&type=uniquePageviews"
+        },
+        "Sessions": {
+            label: "Sessions",
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=wedfairy.com&type=sessions"
         },
         "completed": {
             label: "completed",
@@ -388,6 +393,7 @@
                     'interval'  : interval
                 },
                 success: function(collection) {
+                    console.log(collection.toJSON());
                     for(var i in viewChart.datasets) {
                         for (var j = 0; j < timeDuration; j++) {
                             if(viewChart.datasets[i].label == filterSet[collection.attributes.label]) {
