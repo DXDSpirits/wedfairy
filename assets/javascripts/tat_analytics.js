@@ -19,7 +19,7 @@
             }
         },
         error: function(model, xhr, options) {
-            console.log(xhr.status);
+            // console.log(xhr.status);
         }
     });
 
@@ -90,18 +90,39 @@
     setStoryTag();
 
     var filterSet = {
-        'PV'         : 'PV',
-        'UV'         : 'UV',
-        'newstories' : '制作量',
-        'completed'  : '已完成',
-        'shared'     : '已分享',
-        'newusers'   : '新用户',
-        'wishes'     : '评论',
-        "likes"      : '点赞',
-        "Sessions"   : 'Sessions'
+
+        'PV_all'                : 'PV_all',
+        'PV_apps'               : 'PV_apps',
+        'PV_blog'               : 'PV_blog',
+        'PV_compose'            : 'PV_compose',
+        'PV_www'                : 'PV_www',
+        'PV_story'              : 'PV_story',
+        'UV_all'                : 'UV_all',
+        'UV_apps'               : 'UV_apps',
+        'UV_blog'               : 'UV_blog',
+        'UV_compose'            : 'UV_compose',
+        'UV_www'                : 'UV_www',
+        'UV_story'              : 'UV_story',
+        'Sessions_all'          : 'Sessions_all',
+        'Sessions_apps'         : 'Sessions_apps',
+        'Sessions_blog'         : 'Sessions_blog',
+        'Sessions_compose'      : 'Sessions_compose',
+        'Sessions_www'          : 'Sessions_www',
+        'Sessions_story'        : 'Sessions_story',
+        'newstories'            : '制作量',
+        'completed'             : '已完成',
+        'shared'                : '已分享',
+        'newusers'              : '新用户',
+        'wishes'                : '评论',
+        "likes"                 : '点赞'
     };
 
-    var colorsets = ["#1ABC9C", "#F39C12", "#C0392B", "#8E44AD", "#3498DB", "#34495E", "#27AE60", "#BDC3C7", "#E67E22",  "#7F8C8D"];
+    var colorsets = [
+        "#1ABC9C", "#F39C12", "#C0392B", "#8E44AD", "#3498DB", "#34495E",
+        "#27AE60", "#BDC3C7", "#E67E22", "#7F8C8D", "#4C12C1", "#80A1FB",
+        "#EFC563", "#8DC460", "#8567CD", "#63AC00", "#12072F", "#8FA81",
+        "#EF62C1", "#6C0EA1", "#CABE1E", "#D26C80", "#18829B", "#FCEB96"
+    ];
 
     function initialize() {
         viewChartX = $("#view-chart-wrapper .radio-wrapper input:checked").val();
@@ -121,7 +142,7 @@
         sendStoryDataEnd = Date2Unix(storyChartEndTime);
 
         // viewFilterList = ['PV', 'UV'];
-        viewFilterList = ['newstories', 'completed', 'newusers', 'wishes', 'likes'];
+        viewFilterList = ['PV_all', 'UV_all', 'Sessions_all', 'newstories', 'completed', 'newusers', 'wishes', 'likes'];
         storyFilterList = ['newstories', 'completed'];
 
         $("#view-Chart-Start-Time").val(defaultStartDate);
@@ -296,17 +317,77 @@
     };
 
     var viewModelSet = {
-        "PV": {
-            label: "PV",
+        "PV_all": {
+            label: "PV_all",
             urlRoot: APIHOST + "v1/reports/views_count.json?site=wedfairy.com&type=pageviews"
         },
-        "UV": {
-            label: "UV",
+        "PV_apps": {
+            label: "PV_apps",
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=apps.wedfairy.com&type=pageviews"
+        },
+        "PV_blog": {
+            label: "PV_blog",
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=blog.wedfairy.com&type=pageviews"
+        },
+        "PV_compose": {
+            label: "PV_compose",
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=compose.wedfairy.com&type=pageviews"
+        },
+        "PV_www": {
+            label: "PV_www",
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=www.wedfairy.com&type=pageviews"
+        },
+        "PV_story": {
+            label: "PV_story",
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=story.wedfairy.com&type=pageviews"
+        },
+        "UV_all": {
+            label: "UV_all",
             urlRoot: APIHOST + "v1/reports/views_count.json?site=wedfairy.com&type=uniquePageviews"
         },
-        "Sessions": {
-            label: "Sessions",
+        "UV_apps": {
+            label: "UV_apps",
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=apps.wedfairy.com&type=uniquePageviews"
+        },
+        "UV_blog": {
+            label: "UV_blog",
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=blog.wedfairy.com&type=uniquePageviews"
+        },
+        "UV_compose": {
+            label: "UV_compose",
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=compose.wedfairy.com&type=uniquePageviews"
+        },
+        "UV_www": {
+            label: "UV_www",
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=www.wedfairy.com&type=uniquePageviews"
+        },
+        "UV_story": {
+            label: "UV_story",
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=story.wedfairy.com&type=uniquePageviews"
+        },
+        "Sessions_all": {
+            label: "Sessions_all",
             urlRoot: APIHOST + "v1/reports/views_count.json?site=wedfairy.com&type=sessions"
+        },
+        "Sessions_apps": {
+            label: "Sessions_apps",
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=apps.wedfairy.com&type=sessions"
+        },
+        "Sessions_blog": {
+            label: "Sessions_blog",
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=blog.wedfairy.com&type=sessions"
+        },
+        "Sessions_compose": {
+            label: "Sessions_compose",
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=compose.wedfairy.com&type=sessions"
+        },
+        "Sessions_www": {
+            label: "Sessions_www",
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=www.wedfairy.com&type=sessions"
+        },
+        "Sessions_story": {
+            label: "Sessions_story",
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=story.wedfairy.com&type=sessions"
         },
         "completed": {
             label: "completed",
@@ -393,7 +474,6 @@
                     'interval'  : interval
                 },
                 success: function(collection) {
-                    console.log(collection.toJSON());
                     for(var i in viewChart.datasets) {
                         for (var j = 0; j < timeDuration; j++) {
                             if(viewChart.datasets[i].label == filterSet[collection.attributes.label]) {

@@ -74,6 +74,14 @@
         margin-bottom: 5px !important;
     }
 }
+.radio-inline, .checkbox-inline {
+    font-size: 10px;
+    margin: 1px !important;
+}
+.radio-inline+.radio-inline,
+.checkbox-inline+.checkbox-inline {
+    margin: 1px !important;
+}
 
 .wedfairy-charts {
     // max-width: 800px;
