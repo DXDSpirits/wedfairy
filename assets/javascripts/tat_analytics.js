@@ -62,20 +62,21 @@
     var viewChartX;
 
     var storyTagSet = {
-        // "staffpicks"  : "推荐故事",
-        // "hot"       : "热门故事",
+        "staffpicks"  : "推荐故事",
+        "hot"       : "热门故事",
         "wedding"   : "婚礼",
         "baby"      : "宝贝",
         "voyage"    : "旅行",
         "lover"     : "爱人",
         "idol"      : "偶像",
         "friendship": "友情",
-        "yearbook"  : "新年书",
+        // "yearbook"  : "新年书",
         "personal"  : "个人",
         "food"      : "美食",
         "family"    : "家人",
-        // "boutique"  : "好货",
-        "universal" : "通用"
+        "boutique"  : "好货",
+        // "universal" : "通用"
+        "commerce"  : "电商"
     };
 
     var storyTagSetIndex = {};
@@ -109,6 +110,12 @@
         'Sessions_compose'      : 'Sessions_compose',
         'Sessions_www'          : 'Sessions_www',
         'Sessions_story'        : 'Sessions_story',
+        'Users_all'             : 'Users_all',
+        'Users_apps'            : 'Users_apps',
+        'Users_blog'            : 'Users_blog',
+        'Users_compose'         : 'Users_compose',
+        'Users_www'             : 'Users_www',
+        'Users_story'           : 'Users_story',
         'newstories'            : '制作量',
         'completed'             : '已完成',
         'shared'                : '已分享',
@@ -142,7 +149,7 @@
         sendStoryDataEnd = Date2Unix(storyChartEndTime);
 
         // viewFilterList = ['PV', 'UV'];
-        viewFilterList = ['PV_all', 'UV_all', 'Sessions_all', 'newstories', 'completed', 'newusers', 'wishes', 'likes'];
+        viewFilterList = ['PV_all', 'UV_all', 'Sessions_all', 'Users_all', 'newstories', 'completed', 'newusers', 'wishes', 'likes'];
         storyFilterList = ['newstories', 'completed'];
 
         $("#view-Chart-Start-Time").val(defaultStartDate);
@@ -389,6 +396,30 @@
             label: "Sessions_story",
             urlRoot: APIHOST + "v1/reports/views_count.json?site=story.wedfairy.com&type=sessions"
         },
+        "Users_all": {
+            label: "Users_all",
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=wedfairy.com&type=users"
+        },
+        "Users_apps": {
+            label: "Users_apps",
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=apps.wedfairy.com&type=users"
+        },
+        "Users_blog": {
+            label: "Users_blog",
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=blog.wedfairy.com&type=users"
+        },
+        "Users_compose": {
+            label: "Users_compose",
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=compose.wedfairy.com&type=users"
+        },
+        "Users_www": {
+            label: "Users_www",
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=www.wedfairy.com&type=users"
+        },
+        "Users_story": {
+            label: "Users_story",
+            urlRoot: APIHOST + "v1/reports/views_count.json?site=story.wedfairy.com&type=users"
+        },
         "completed": {
             label: "completed",
             urlRoot: APIHOST + "v1/reports/new_story.json?finished=true"
@@ -533,7 +564,7 @@
                 _.each(storyTagSet, function(val, k) {
                     self.defaults.length++;
                     self.defaults.result[k] = 0;
-                    var url = APIHOST + 'v1/reports/new_story_by_schema.json?schema=' + k;
+                    var url = APIHOST + 'v1/reports/new_story_by_schema.json?tag=' + k;
                     var model = new (Backbone.Model.extend({
                         urlRoot: url
                     }))({
@@ -577,7 +608,7 @@
                 _.each(storyTagSet, function(val, k) {
                     self.defaults.length++;
                     self.defaults.result[k] = 0;
-                    var url = APIHOST + 'v1/reports/new_story_by_schema.json?schema=' + k;
+                    var url = APIHOST + 'v1/reports/new_story_by_schema.json?tag=' + k;
                     var model = new (Backbone.Model.extend({
                         urlRoot: url
                     }))({
