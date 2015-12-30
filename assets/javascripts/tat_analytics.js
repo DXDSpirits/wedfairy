@@ -131,6 +131,10 @@
         "#EF62C1", "#6C0EA1", "#CABE1E", "#D26C80", "#18829B", "#FCEB96"
     ];
 
+    function colorRandom() {
+        return '#'+('000000'+(Math.random()*0x1000000<<0).toString(16)).slice(-6);
+    }
+
     function initialize() {
         viewChartX = $("#view-chart-wrapper .radio-wrapper input:checked").val();
         defaultEndDate = GetDateStr(0);
@@ -272,12 +276,13 @@
         var data_copy_bar = $.extend(true, {}, data);
 
         for (var i = data_copy_bar.datasets.length - 1; i >= 0; i--) {
+            var currentColor = colorRandom();
             data_copy_bar.datasets[i].strokeColor = "transparent";
-            data_copy_bar.datasets[i].fillColor = colorsets[i];
-            data_copy_bar.datasets[i].pointColor = colorsets[i];
+            data_copy_bar.datasets[i].fillColor = currentColor;
+            data_copy_bar.datasets[i].pointColor = currentColor;
             data_copy_bar.datasets[i].pointStrokeColor = "#fff";
             data_copy_bar.datasets[i].pointHighlightFill = "#fff";
-            data_copy_bar.datasets[i].pointHighlightStroke = colorsets[i];
+            data_copy_bar.datasets[i].pointHighlightStroke = currentColor;
         }
 
         if(myChart == "timeChart") {
@@ -296,12 +301,13 @@
         var data_copy = $.extend(true, {}, data);
 
         for (var i = data_copy.datasets.length - 1; i >= 0; i--) {
+            var currentColor = colorRandom();
             data_copy.datasets[i].fillColor = "transparent";
-            data_copy.datasets[i].strokeColor = colorsets[i];
-            data_copy.datasets[i].pointColor = colorsets[i];
+            data_copy.datasets[i].strokeColor = currentColor;
+            data_copy.datasets[i].pointColor = currentColor;
             data_copy.datasets[i].pointStrokeColor = "#fff";
             data_copy.datasets[i].pointHighlightFill = "#fff";
-            data_copy.datasets[i].pointHighlightStroke = colorsets[i];
+            data_copy.datasets[i].pointHighlightStroke = currentColor;
         }
 
         if(myChart == "timeChart") {
