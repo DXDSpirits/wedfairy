@@ -326,6 +326,8 @@
 
     var options = {
         barShowStroke: false,
+        animation: false,
+        // animationSteps : 1,
         tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %>",
     };
 
