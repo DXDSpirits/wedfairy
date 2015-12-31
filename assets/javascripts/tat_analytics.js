@@ -76,7 +76,10 @@
         "family"    : "家人",
         "boutique"  : "好货",
         // "universal" : "通用"
-        "commerce"  : "电商"
+        "commerce"  : "电商",
+        "dating"    : "征婚",
+        "anniversary" : "周年",
+        "misc"      : "其他"
     };
 
     var storyTagSetIndex = {};
@@ -276,7 +279,7 @@
         var data_copy_bar = $.extend(true, {}, data);
 
         for (var i = data_copy_bar.datasets.length - 1; i >= 0; i--) {
-            var currentColor = colorRandom();
+            var currentColor = randomColor({luminosity: 'light'});
             data_copy_bar.datasets[i].strokeColor = "transparent";
             data_copy_bar.datasets[i].fillColor = currentColor;
             data_copy_bar.datasets[i].pointColor = currentColor;
@@ -301,7 +304,7 @@
         var data_copy = $.extend(true, {}, data);
 
         for (var i = data_copy.datasets.length - 1; i >= 0; i--) {
-            var currentColor = colorRandom();
+            var currentColor = randomColor({luminosity: 'dark'});
             data_copy.datasets[i].fillColor = "transparent";
             data_copy.datasets[i].strokeColor = currentColor;
             data_copy.datasets[i].pointColor = currentColor;
@@ -327,6 +330,8 @@
     var options = {
         barShowStroke: false,
         animation: false,
+        // scaleBeginAtZero: false,
+        // showScale: false,
         // animationSteps : 1,
         tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %>",
     };
