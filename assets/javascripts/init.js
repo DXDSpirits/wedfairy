@@ -39,7 +39,13 @@
         },
         wechatLogin: function() {
             localStorage.setItem('redirect-on-login', location.href);
-            var url = 'https://open.weixin.qq.com/connect/qrconnect?appid=wxe2e28297d62b0270&redirect_uri=http://api.wedfairy.com/api/users/wechat-auth/&response_type=code&scope=snsapi_login&state=web%7C#wechat_redirect';
+            var url = 'https://open.weixin.qq.com/connect/qrconnect?appid=wxe2e28297d62b0270&response_type=code&scope=snsapi_userinfo';
+            var state = {
+                platform: 'web'
+            };
+            url += '&redirect_uri=' + encodeURIComponent('http://api.wedfairy.com/api/users/wechat-auth/');
+            url += '&state=' + btoa(JSON.stringify(state));
+            url += '#wechat_redirect';
             location.href = url;
         },
         switchToRegister: function() {
