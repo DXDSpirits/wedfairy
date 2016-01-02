@@ -39,7 +39,7 @@
         },
         wechatLogin: function() {
             localStorage.setItem('redirect-on-login', location.href);
-            var url = 'https://open.weixin.qq.com/connect/qrconnect?appid=wxe2e28297d62b0270&response_type=code&scope=snsapi_userinfo';
+            var url = 'https://open.weixin.qq.com/connect/qrconnect?appid=wxe2e28297d62b0270&response_type=code&scope=snsapi_login';
             var state = {
                 platform: 'web'
             };
