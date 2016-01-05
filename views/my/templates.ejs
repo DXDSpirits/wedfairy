@@ -32,7 +32,7 @@
     <div class="comment-avatar">
         <div class="img img-cover sender-avatar" data-bg-src="{{avatar}}"></div>
     </div>
-    
+
     <div class="comment-content">
         <div class="author">{{name}}</div>
         <div class="content">{{message}}</div>
@@ -47,12 +47,30 @@
         <div class="img img-cover gallery-item" data-bg-src="{{url}}">
         </div>
         <div class="delete-mask" data-toggle="modal" data-target="#photo-modal0">
-            
+
         </div>
         <div class="gallery-item-delete-btn">
             <i class="iconfont icon-delete"></i>
             <span class="sureTodelete">确定</span>
         </div>
     </div>
-    
+
+</script>
+
+<script id="template-music-item" type="text/x-mustache-template">
+    <div class="music-shower form-inline">
+        <div class="music-title form-group">
+            <input type="text" class="form-control" name="edit-music-title" value="{{title}}">
+        </div>
+        <div class="music-url">
+            <label>{{url}}</label>
+        </div>
+        <div class="music-delete checkbox">
+            <input type="checkbox" name="delete-music">
+        </div>
+        <div class="music-save">
+            <button type="submit" class="btn btn-primary">保存</button>
+        </div>
+    </div>
+
 </script>
