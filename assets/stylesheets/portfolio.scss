@@ -87,9 +87,11 @@ body {
     .status {
         height: 20px;
     }
-    .name samp {
+    .name a {
         display: inline-block;
         max-width: 60%;
+        color: #555;
+        text-decoration: underline;
     }
     .title {
         @include ellipsis();
