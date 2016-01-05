@@ -32,6 +32,7 @@
         ModelView: Amour.ModelView.extend({
             events: {
                 'click .music-save': "saveMusic",
+                'click div.music-title-text': "editMusic",
             },
             className: 'music-item',
             template: $("#template-music-item").html(),
@@ -67,7 +68,19 @@
                     $(this).remove();
                 });
             },
+            editMusic: function(e) {
+                e.preventDefault && e.preventDefault();
+                var $musicTitleText = this.$el.find(".music-title .music-title-text");
+                var $musicTitleInput = this.$el.find(".music-title input[name='edit-music-title']");
+                var currentTitle = $musicTitleText.html();
+
+                $musicTitleText.addClass('hidden');
+                $musicTitleInput.removeClass("hidden").val(currentTitle);
+            },
             saveMusic: function() {
+                var $musicTitleText = this.$el.find(".music-title .music-title-text");
+                var $musicTitleInput = this.$el.find(".music-title input[name='edit-music-title']");
+
                 var deleteStatus = this.$el.find("input[name='delete-music']")[0].checked;
                 if(!deleteStatus) {
                     var newTitle = this.$el.find(".music-title input[name='edit-music-title']").val();
@@ -75,7 +88,9 @@
                         title: newTitle,
                     }, {
                         success: function() {
-                            alert("保存成功！");
+                            // alert("保存成功！");
+                            $musicTitleText.removeClass('hidden');
+                            $musicTitleInput.addClass('hidden');
                         }
                     });
                 }else {
@@ -115,19 +130,6 @@
                     { title : "Audio files", extensions : "mp3" },
                 ]
             },
-            // downtoken_url: '/downtoken',
-            // unique_names: true,
-            // save_key: true,
-            // x_vars: {
-            //     'id': '1234',
-            //     'time': function(up, file) {
-            //         var time = (new Date()).getTime();
-            //         // do something with 'time'
-            //         return time;
-            //     },
-            // },
-            auto_start: true,
-            // var musicItems = [];
             init: {
                 FilesAdded: function(up, files) {
 
@@ -186,21 +188,6 @@
             $(this).css("border-color", "");
         }
     });
-
-    var imgLoad = function(url, callback) {
-        var img = new Image();
-        img.src = url;
-        // 如果图片被缓存，则直接返回缓存数据
-        if(img.complete){
-            callback(img.width, img.height);
-        }else {
-            // 完全加载完毕的事件
-            img.onload = function(){
-                img.onload = null;
-                callback(img.width, img.height);
-            }
-        }
-    };
 
     var galleryView = new GalleryView({
         collection: musicCollection,

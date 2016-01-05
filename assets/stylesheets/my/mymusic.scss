@@ -42,12 +42,17 @@
     }
     .music-title {
         width: 30%;
-        input {
-            width: 95%;
+        .music-title-text {
+            width: 100%;
+            padding: 5px;
         }
     }
     .music-url {
         width: 50%;
+        audio {
+            vertical-align: middle;
+            width: 100%;
+        }
         label {
             word-wrap: break-word;
             font-weight: normal;
@@ -62,8 +67,13 @@
         text-align: center;
     }
 }
+.music-wrapper .music-title {
+    cursor: pointer;
+    div.music-title-text:hover {
+        color: red;
+    }
+}
 .music-item {
-    // margin-bottom: 10px;
     padding: 5px 0;
     &:nth-child(odd) {
         background-color: #fff;
