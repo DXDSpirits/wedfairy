@@ -60,10 +60,11 @@
 <script id="template-music-item" type="text/x-mustache-template">
     <div class="music-shower form-inline">
         <div class="music-title form-group">
-            <input type="text" class="form-control" name="edit-music-title" value="{{title}}">
+            <div class="music-title-text">{{title}}</div>
+            <input type="text" class="form-control music-title-text hidden" name="edit-music-title" value="">
         </div>
         <div class="music-url">
-            <label>{{url}}</label>
+            <audio src="{{url}}" preload="none" controls=""></audio>
         </div>
         <div class="music-delete checkbox">
             <input type="checkbox" name="delete-music">
