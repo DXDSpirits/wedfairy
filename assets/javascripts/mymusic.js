@@ -5,20 +5,20 @@
         $('#mygallery-upload-area').hide();
         $('#loginModal').modal('show');
     });
-    if(token == null) {
+    if(token === null) {
         $('#mygallery-upload-area').hide();
         $('#loginModal').modal('show');
-    };
+    }
 
     // var url = null;
 
-    var PhotoModel = Amour.Model.extend({
-        urlRoot: Amour.APIRoot + 'sites/photo/'
+    var musicModel = Amour.Model.extend({
+        urlRoot: Amour.APIRoot + 'sites/music/'
     });
 
-    var PhotoCollection = Amour.Collection.extend({
-        model: PhotoModel,
-        url: Amour.APIRoot + 'sites/photo/',
+    var musicCollection = Amour.Collection.extend({
+        model: musicModel,
+        url: Amour.APIRoot + 'sites/music/',
         parse: function(response) {
             response = Amour.Collection.prototype.parse.call(this, response);
             return response;
@@ -31,13 +31,13 @@
         },
         ModelView: Amour.ModelView.extend({
             events: {
-                'click .sureTodelete': 'deleteImg',
-                'click .delete-mask': 'photoShow'
+                'click .music-save': "saveMusic",
             },
-            className: 'photo-item img img-cover col-lg-2 col-md-3 col-sm-4 col-xs-6',
-            template: $("#template-gallery-item").html(),
+            className: 'music-item',
+            template: $("#template-music-item").html(),
             initModelView: function() {
                 this.stopListening(this.model, 'change');
+                this.listenTo(this.model, 'change:title', this.render);
                 this.listenTo(this.model, 'change:url', this.render);
                 this.listenTo(this.model, 'completeUpload', this.completeUpload);
                 this.listenTo(this.model, 'startUpload', this.startUpload);
@@ -49,7 +49,7 @@
                               '<div class="progress-bar" style="width: 0;"></div>' +
                               '<div class="tip text-center">上传中</div>' +
                               '</div>');
-                var progressWidth = $(".progress").width($(".photo-item").width());
+                var progressWidth = $(".progress").width($(".music-item").width());
             },
             progressUpload: function(percentage) {
                 this.$('.progress-bar').css('width', percentage + '%');
@@ -65,105 +65,101 @@
                     opacity: 0
                 }, 800, function() {
                     $(this).remove();
-                })
+                });
             },
-            deleteImg: function() {
+            saveMusic: function() {
+                var deleteStatus = this.$el.find("input[name='delete-music']")[0].checked;
+                if(!deleteStatus) {
+                    var newTitle = this.$el.find(".music-title input[name='edit-music-title']").val();
+                    this.model.save({
+                        title: newTitle,
+                    }, {
+                        success: function() {
+                            alert("保存成功！");
+                        }
+                    });
+                }else {
+                    this.deleteMusic();
+                }
+            },
+            deleteMusic: function() {
                 var self = this;
                 self.model.destroy();
             },
-            photoShow: function() {
-                $('#photo-modal').modal('show');
-                var currentUrl = this.model.get('url');
-                showPhoto(currentUrl);
-                var currentIndex = photoCollection.models.indexOf(this.model);
-                var modelsLenght = photoCollection.models.length;
-                var fatherHeight = $('#photo-modal').height();
-                $('.icon-angle-left').off('click').click(function() {
-
-                    if(currentIndex == 0) {
-                        currentIndex = modelsLenght - 1 - currentIndex;
-                    }else {
-                        currentIndex -= 1
-                    };
-                    $('.img-showing').addClass('animated bounceOutRight');
-                    _.delay(showPhotoLeft, 500, photoCollection.models[currentIndex].get('url'))
-                });
-
-                $('.icon-angle-right').off('click').click(function() {
-
-                    if(currentIndex == (modelsLenght - 1)) {
-                        currentIndex = 0;
-                    }else {
-                        currentIndex += 1
-                    };
-                    $('.img-showing').addClass('animated bounceOutLeft');
-                    _.delay(showPhotoRight, 500, photoCollection.models[currentIndex].get('url'))
-                });
-            },
-
         })
     });
 
     var uploader;
-    var photoCollection = new PhotoCollection();
+    var musicCollection = new musicCollection();
     var initUploader = _.once(function() {
         var uploadQueue = {};
-        var uploadDomain = 'http://up.img.8yinhe.cn/';
-        var uptoken_url = '/gallery/uptoken';
+        var uploadDomain = 'http://mm.8yinhe.cn/';
+        var uptoken_url = '/music/uptoken';
 
-        uploader = Qiniu.uploader({
+        var uploader = Qiniu.uploader({
             runtimes: 'html5,html4',
             uptoken_url: uptoken_url,
             domain: uploadDomain,
             container: 'view-albums',
-            browse_button: 'gallery-pickfiles',
+            browse_button: 'mymusic-pickfiles',
             multi_selection: true,
-            max_file_size: '10mb',
+            max_file_size: '3mb',
             dragdrop: true,
-            drop_element: 'mygallery-upload-area',
+            drop_element: 'mymusic-upload-area',
             chunk_size: 0,
             multipart: true,
             unique_names: true,
             auto_start: true,
             filters: {
                 mime_types : [
-                    { title : "Image files", extensions : "jpg,jpeg,gif,png" },
+                    { title : "Audio files", extensions : "mp3" },
                 ]
             },
-            resize: {
-                width: 1280,
-                height: 1280,
-                quality: 85,
-                preserve_headers: false
-            },
+            // downtoken_url: '/downtoken',
+            // unique_names: true,
+            // save_key: true,
+            // x_vars: {
+            //     'id': '1234',
+            //     'time': function(up, file) {
+            //         var time = (new Date()).getTime();
+            //         // do something with 'time'
+            //         return time;
+            //     },
+            // },
+            auto_start: true,
+            // var musicItems = [];
             init: {
                 FilesAdded: function(up, files) {
 
                 },
                 BeforeUpload: function(up, file) {
-                    var photo = new PhotoModel();
-                    uploadQueue[file.id] = photo;
-                    photoCollection.add(photo, {at:0, silent:true});
-                    galleryView.addUpload(photo);
-                    photo.trigger('startUpload');
+                    var music = new musicModel();
+                    uploadQueue[file.id] = music;
+                    musicCollection.add(music, {at:0, silent:true});
+                    galleryView.addUpload(music);
+                    music.trigger('startUpload');
                 },
                 UploadProgress: function(up, file) {
-                    var photo = uploadQueue[file.id];
-                    photo.trigger('progressUpload', file.percent);
+                    var music = uploadQueue[file.id];
+                    music.trigger('progressUpload', file.percent);
 
                 },
                 UploadComplete: function() {},
                 FileUploaded: function(up, file, info) {
-                    var photo = uploadQueue[file.id];
+                    var music = uploadQueue[file.id];
                     var url = uploadDomain + JSON.parse(info).key;
-                    photo.save({url: url});
+                    var title = file.name.split(".mp3")[0];
+                    music.save({
+                        url: url,
+                        title: title,
+                    });
                     uploadQueue[file.id] = null;
-                    photo.trigger('completeUpload');
+                    music.trigger('completeUpload');
                 },
                 Error: function(up, err, errTip) {
-                    var photo = uploadQueue[err.file.id];
-                    if (photo) {
-                        photo.trigger('failUpload', errTip);
+                    var music = uploadQueue[err.file.id];
+                    if (music) {
+                        music.trigger('failUpload', errTip);
                         uploadQueue[err.file.id] = null;
                     } else {
                         alert(errTip);
@@ -191,50 +187,6 @@
         }
     });
 
-    var showPhoto = function(url) {
-        $('.photoShow').html('<div class="img img-showing"></div>');
-        var imgContainWidth = $('#photo-modal').width() * 0.9 * 0.9;
-        var imgContainHeight = $('#photo-modal').height() * 0.9;
-        imgLoad(url, function(w,h){
-            if(w < imgContainWidth && h < imgContainHeight) {
-                $('.img-showing').removeClass('img-contain').addClass('img-auto');
-            }else{
-                $('.img-showing').removeClass('img-auto').addClass('img-contain');
-            }
-
-        });
-        Amour.loadBgImage($('.img-showing'), url)
-    };
-
-    var showPhotoLeft = function(url) {
-        $('.photoShow').html('<div class="img img-showing animated bounceInLeft"></div>');
-        var imgContainWidthLeft = $('#photo-modal').width() * 0.9 * 0.9;
-        var imgContainHeightLeft = $('#photo-modal').height() * 0.9;
-        imgLoad(url, function(w,h){
-            if(w < imgContainWidthLeft && h < imgContainHeightLeft) {
-                $('.img-showing').removeClass('img-contain').addClass('img-auto');
-            }else{
-                $('.img-showing').removeClass('img-auto').addClass('img-contain');
-            }
-        });
-        Amour.loadBgImage($('.img-showing'), url)
-    };
-    var showPhotoRight = function(url) {
-        // $('#photo-modal').modal('show');
-
-        $('.photoShow').html('<div class="img img-showing animated bounceInRight"></div>');
-        var imgContainWidthRight = $('#photo-modal').width() * 0.9 * 0.9;
-        var imgContainHeightRight = $('#photo-modal').height() * 0.9;
-        imgLoad(url, function(w,h){
-            if(w < imgContainWidthRight && h < imgContainHeightRight) {
-                $('.img-showing').removeClass('img-contain').addClass('img-auto');
-            }else{
-                $('.img-showing').removeClass('img-auto').addClass('img-contain');
-            }
-        });
-        Amour.loadBgImage($('.img-showing'), url)
-    };
-
     var imgLoad = function(url, callback) {
         var img = new Image();
         img.src = url;
@@ -251,11 +203,11 @@
     };
 
     var galleryView = new GalleryView({
-                    collection: photoCollection,
-                    el: this.$('.gallery-wrapper')
-                })
+        collection: musicCollection,
+        el: this.$('.music-wrapper')
+    });
 
-    photoCollection.fetch({
+    musicCollection.fetch({
         reset: true,
         success: function() {
             initUploader();
@@ -265,11 +217,11 @@
     var isFetching = false;
     Backbone.on('next-page', function() {
         if (isFetching) return;
-        if (photoCollection.next) {
+        if (musicCollection.next) {
             isFetching = true;
             $(".loading").removeClass("hidden");
             _.delay(function() {
-                photoCollection.fetchNext({
+                musicCollection.fetchNext({
                     remove: false,
                     // reverse: true,
                     success: function() {

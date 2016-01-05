@@ -1,0 +1,100 @@
+@import "my";
+
+#mygallery-upload-area {
+    height: 130px;
+    border: 1px dashed #dbdbdb;
+    border-radius: 3px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    margin: 0 15px;
+    .mygallery-upload {
+        display: inline-block;
+        width: 63px;
+        height: 41px;
+    }
+    .mygallery-upload-text {
+        margin-top: 12px;
+        color: #5b677a;
+    }
+    span {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+.mygallery-container {
+    min-height: 500px;
+    margin: 50px 0;
+    border: 1px solid #dbdbdb;
+}
+
+.wrapper {
+    padding: 50px 0 10px;
+    overflow: hidden;
+}
+.music-wrapper {
+    overflow: hidden;
+}
+.music-shower, .tb-header {
+    width: 100%;
+    .music-title, .music-url, .music-delete, .music-save {
+        display: inline-block;
+    }
+    .music-title {
+        width: 30%;
+        input {
+            width: 95%;
+        }
+    }
+    .music-url {
+        width: 50%;
+        label {
+            word-wrap: break-word;
+            font-weight: normal;
+        }
+    }
+    .music-delete {
+        width: 5%;
+        text-align: center;
+    }
+    .music-save {
+        width: 10%;
+        text-align: center;
+    }
+}
+.music-item {
+    // margin-bottom: 10px;
+    padding: 5px 0;
+    &:nth-child(odd) {
+        background-color: #fff;
+    }
+}
+.music-item .progress {
+    position: absolute;
+    overflow: hidden;
+    height: 16px;
+    border-radius: 8px;
+    margin: 0;
+    background-color: #ebebeb;
+    .tip {
+        position: absolute;
+        width: 100%;
+        font-size: 0.8em;
+        line-height: 16px;
+        color: white;
+    }
+    .progress-bar {
+        position: absolute;
+        top: 0;
+        height: 16px;
+        border-radius: 8px;
+        background-color: #67b368;
+        box-shadow: 1px 1px 5px #ccc inset;
+    }
+}
+
+.loading {
+    margin-bottom: 70px;
+}
+
+

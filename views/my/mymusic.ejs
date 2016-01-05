@@ -6,7 +6,7 @@
     <% include ../includes/metadata %>
     <% include ../includes/stylesheets %>
 
-    <link rel="stylesheet" href="<%= static_url %>stylesheets/my/mygallery.css?v=<%= build_no %>">
+    <link rel="stylesheet" href="<%= static_url %>stylesheets/my/mymusic.css?v=<%= build_no %>">
 
     <% include ../includes/capability %>
     <% include ../includes/production %>
@@ -23,8 +23,8 @@
             <div class="row">
                 <div class="my-story-nav col-md-12 col-sm-12">
                     <a class="nav-my-stories" href="/my">故事列表</a>
-                    <a class="nav-my-gallery active" href="/my/gallery">我的相册</a>
-                    <a class="nav-my-music" href="/my/music">我的音乐</a>
+                    <a class="nav-my-gallery" href="/my/gallery">我的相册</a>
+                    <a class="nav-my-music active" href="/my/music">我的音乐</a>
                     <a class="nav-change-pw" href="/accounts/change-password">修改密码</a>
                     <!-- <a class="nav-forget-pw" href="/accounts/forget-password">找回密码</a> -->
                 </div>
@@ -37,11 +37,18 @@
 
             <div id="mygallery-upload-area" class="text-center">
                 <div class="img img-cover mygallery-upload" data-bg-src="/images/mygallery-upload-icon.png"></div>
-                <div class="mygallery-upload-text">将照片拖到这里，或<span type="button" id="gallery-pickfiles">点击上传</span></div>
+                <div class="mygallery-upload-text">将mp3（不大于3MB）拖到这里，或<span type="button" id="mymusic-pickfiles">点击上传</span></div>
             </div>
 
             <div class="wrapper">
-                <div class="gallery-wrapper"></div>
+                <div class="tb-header clearfix">
+                    <label class="music-title">歌曲名</label>
+                    <label class="music-url">音乐地址</label>
+                    <label class="music-delete">删除</label>
+                    <label class="music-save">保存更改</label>
+                </div>
+                <div class="music-wrapper">
+                </div>
             </div>
 
             <div class="center-block loading text-center hidden">
@@ -56,17 +63,6 @@
 
     <% include ../layouts/footer %>
 
-    <!--查看相片大图 -->
-    <div class="modal fade clearfix" id="photo-modal">
-        <button type="button" class="close" data-dismiss="modal">
-              <i class="icon iconfont icon-x"></i>
-        </button>
-        <div class="icon-page page-prev"><i class="iconfont icon-angle-left"></i></div>
-        <div class="icon-page page-next"><i class="iconfont icon-angle-right"></i></div>
-        <div class="photoShow"></div>
-
-    </div>
-
     <% include ./templates %>
 
 
@@ -78,7 +74,8 @@
     <script src="<%= tat_static %>javascripts/plugins/jquery.qrcode.min.js"></script>
     <script src="<%= tat_static %>javascripts/plugins/plupload.full.min.js"></script>
     <script src="<%= tat_static %>javascripts/plugins/qiniu.js"></script>
-    <script src="<%= static_url %>javascripts/mygallery.js?v=<%= build_no %>"></script>
+    <script src="<%= static_url %>javascripts/mymusic.js?v=<%= build_no %>"></script>
+    <!-- <script src="<%= static_url %>javascripts/uploadmusicUI.js?v=<%= build_no %>"></script> -->
 
 
     <% include ../includes/analytics %>
