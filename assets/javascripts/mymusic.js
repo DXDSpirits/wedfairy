@@ -50,7 +50,6 @@
                               '<div class="progress-bar" style="width: 0;"></div>' +
                               '<div class="tip text-center">上传中</div>' +
                               '</div>');
-                var progressWidth = $(".progress").width($(".music-item").width());
             },
             progressUpload: function(percentage) {
                 this.$('.progress-bar').css('width', percentage + '%');
@@ -59,7 +58,10 @@
                 this.$el.text(errorTip);
             },
             completeUpload: function() {
-                this.render;
+                var self = this;
+                this.$('.progress').fadeOut(300, function() {
+                    self.render();
+                });
             },
             hide: function() {
                 this.$el.animate({
@@ -70,20 +72,20 @@
             },
             editMusic: function(e) {
                 e.preventDefault && e.preventDefault();
-                var $musicTitleText = this.$el.find(".music-title .music-title-text");
-                var $musicTitleInput = this.$el.find(".music-title input[name='edit-music-title']");
+                var $musicTitleText = this.$(".music-title .music-title-text");
+                var $musicTitleInput = this.$(".music-title input[name='edit-music-title']");
                 var currentTitle = $musicTitleText.html();
 
                 $musicTitleText.addClass('hidden');
                 $musicTitleInput.removeClass("hidden").val(currentTitle);
             },
             saveMusic: function() {
-                var $musicTitleText = this.$el.find(".music-title .music-title-text");
-                var $musicTitleInput = this.$el.find(".music-title input[name='edit-music-title']");
+                var $musicTitleText = this.$(".music-title .music-title-text");
+                var $musicTitleInput = this.$(".music-title input[name='edit-music-title']");
 
-                var deleteStatus = this.$el.find("input[name='delete-music']")[0].checked;
+                var deleteStatus = this.$("input[name='delete-music']")[0].checked;
                 if(!deleteStatus) {
-                    var newTitle = this.$el.find(".music-title input[name='edit-music-title']").val();
+                    var newTitle = this.$(".music-title input[name='edit-music-title']").val();
                     this.model.save({
                         title: newTitle,
                     }, {
@@ -120,7 +122,7 @@
             multi_selection: true,
             max_file_size: '3mb',
             dragdrop: true,
-            drop_element: 'mymusic-upload-area',
+            drop_element: 'mygallery-upload-area',
             chunk_size: 0,
             multipart: true,
             unique_names: true,
@@ -132,7 +134,6 @@
             },
             init: {
                 FilesAdded: function(up, files) {
-
                 },
                 BeforeUpload: function(up, file) {
                     var music = new musicModel();
@@ -154,9 +155,13 @@
                     music.save({
                         url: url,
                         title: title,
+                    }, {
+                        silent: true
                     });
                     uploadQueue[file.id] = null;
-                    music.trigger('completeUpload');
+                    _.delay(function() {
+                        music.trigger('completeUpload');
+                    }, 500);
                 },
                 Error: function(up, err, errTip) {
                     var music = uploadQueue[err.file.id];
