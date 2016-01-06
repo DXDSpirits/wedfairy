@@ -1,8 +1,22 @@
+@import 'bourbon/bourbon';
+
 .wedfairy-dashboard {
     background-color: #2E3C54;
     // padding: 50px;
 }
-
+#view-chart-wrapper, #story-chart-wrapper, #top-story-table-wrapper {
+    padding: 20px 0;
+    border-bottom: 1px solid #ebebeb;
+    overflow: auto;
+    h5 {
+        margin-top: 5px;
+        margin-bottom: 3px;
+    }
+    .data-category-item {
+        padding-bottom: 5px;
+        border-bottom: 1px dashed rgba(#fff, 0.2);
+    }
+}
 #view-chart-wrapper, #story-chart-wrapper {
     overflow: hidden;
     & > .charts-wrapper {
@@ -13,18 +27,21 @@
     border-bottom: 1px solid #fff;
 }
 .checkbox-wrapper {
-    margin: 30px 0 30px;
-    padding-left: 30px;
+    margin: 10px 0 30px;
+    padding-left: 10px;
     .checkbox-inline {
         margin: 5px;
     }
 }
 .radio-wrapper {
-    margin: 30px 0 30px;
-    padding-left: 30px;
+    margin: 10px 0 30px;
+    padding-left: 10px;
     .radio-inline {
         margin: 5px;
     }
+}
+.datepicker {
+    margin-bottom: 20px;
 }
 .controller-label {
     font-size: 20px;
@@ -55,7 +72,6 @@
     display: inline-block;
     width: 80%;
     padding: 40px;
-    // border: 1px solid blue;
     float: left;
 }
 
@@ -84,8 +100,6 @@
 }
 
 .wedfairy-charts {
-    // max-width: 800px;
-    // margin: 30px auto;
     .show-legend {
         ul {
             list-style: none;
@@ -105,6 +119,27 @@
             width: 20px;
             height: 20px;
             border-radius: 5px;
+        }
+    }
+}
+
+#top-story-table-wrapper {
+    .charts-wrapper {
+        background-color: #fff;
+        @include clearfix;
+        .inline-tb {
+            width: 33%;
+            float: left;
+            padding: 5px 30px;
+        }
+    }
+    thead > tr {
+        font-weight: bold;
+    }
+    td > a {
+        text-decoration: underline;
+        &:hover {
+            color: #f90900;
         }
     }
 }

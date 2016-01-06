@@ -12,9 +12,7 @@
 
             if(options.xhr.status == 200) {
                 initialize();
-
                 renderView(defaultStartDate, defaultEndDate, viewFilterList);
-
                 renderStory(defaultStartDate, defaultEndDate, storyFilterList);
             }
         },
@@ -38,7 +36,7 @@
         $('#loginModal').modal('show');
     });
 
-    if(token == null) {
+    if(token === null) {
         $(".wedfairy-dashboard").addClass('hidden');
         $('#loginModal').modal('show');
     }
@@ -50,11 +48,11 @@
     var userCtx = $("#userDataChart").get(0).getContext("2d");
     var viewChart, storyChart;
     var timeXaxis = [];
-    var viewChartStartTime, viewChartEndTime, storyChartStartTime, storyChartEndTime;
+    var viewChartStartTime, viewChartEndTime, storyChartStartTime, storyChartEndTime, topStoryStartTime, topStoryEndTime;
     var viewFilterList = [];
     var storyFilterList = [];
     var defaultEndDate, defaultStartDate;
-    var sendViewDataStart, sendViewDataEnd, sendStoryDataStart, sendStoryDataEnd;
+    var sendViewDataStart, sendViewDataEnd, sendStoryDataStart, sendStoryDataEnd, sendTopStoryDataStart, sendTopStoryDataEnd;
 
     var viewChartData = [];
     var storyChartData = [];
@@ -146,8 +144,8 @@
         viewChartData = [];
         storyChartData = [];
 
-        viewChartStartTime = storyChartStartTime = defaultStartDate;
-        viewChartEndTime = storyChartEndTime = defaultEndDate;
+        viewChartStartTime = storyChartStartTime = topStoryStartTime = defaultStartDate;
+        viewChartEndTime = storyChartEndTime = topStoryEndTime = defaultEndDate;
 
         sendViewDataStart = Date2Unix(viewChartStartTime);
         sendViewDataEnd = Date2Unix(viewChartEndTime);
@@ -155,14 +153,21 @@
         sendStoryDataStart = Date2Unix(storyChartStartTime);
         sendStoryDataEnd = Date2Unix(storyChartEndTime);
 
+        sendTopStoryDataEnd = Date2Unix(topStoryEndTime);
+        sendTopStoryDataStart = Date2Unix(topStoryStartTime);
+
         // viewFilterList = ['PV', 'UV'];
         viewFilterList = ['PV_all', 'UV_all', 'Sessions_all', 'Users_all', 'newstories', 'completed', 'newusers', 'wishes', 'likes'];
         storyFilterList = ['newstories', 'completed'];
 
         $("#view-Chart-Start-Time").val(defaultStartDate);
         $("#story-Chart-Start-Time").val(defaultStartDate);
+        $('#top-story-table-Start-Time').val(defaultStartDate);
         $("#view-Chart-End-Time").val(defaultEndDate);
         $("#story-Chart-End-Time").val(defaultEndDate);
+        $('#top-story-table-End-Time').val(defaultEndDate);
+
+        showTopTable();
     }
 
     //dates functions
@@ -271,6 +276,70 @@
             result += anyArray[i];
         }
         return result;
+    }
+
+    var dataTopLike, dataTopWish;
+    var storyTopLikeModel = new (Backbone.Model.extend({
+        urlRoot: APIHOST + "v1/reports/top_stories.json?sort_by=like"
+    }))();
+
+    var storyTopWishModel = new (Backbone.Model.extend({
+        urlRoot: APIHOST + "v1/reports/top_stories.json?sort_by=wish"
+    }))();
+
+    var storyTopPVModel = new (Backbone.Model.extend({
+        urlRoot: APIHOST + "v1/reports/top_stories.json?sort_by=pageviews"
+    }))();
+
+    function showTopTable() {
+        storyTopLikeModel.fetch({
+            data: {
+                'from_date' : sendTopStoryDataStart,
+                'to_date'   : sendTopStoryDataEnd,
+                'interval'  : 'day'
+            },
+            success: function(collection) {
+                var fetchResult = collection.toJSON();
+                var $tableLike = $('#top-story-table-wrapper .top-likes tbody');
+                $tableLike.html('');
+                _.each(fetchResult, function(val, k) {
+                    var nameLink = '<a href="http://story.wedfairy.com/story/' + val.name + '" target="_blank">' + val.name+ '</a>';
+                    $tableLike.append('<tr><td>' + nameLink + '</td><td>' + val.count + '</td></tr>');
+                });
+            }
+        });
+        storyTopWishModel.fetch({
+            data: {
+                'from_date' : sendTopStoryDataStart,
+                'to_date'   : sendTopStoryDataEnd,
+                'interval'  : 'day'
+            },
+            success: function(collection) {
+                var fetchResult = collection.toJSON();
+                var $tableWish = $('#top-story-table-wrapper .top-wishes tbody');
+                $tableWish.html('');
+                _.each(fetchResult, function(val, k) {
+                    var nameLink = '<a href="http://story.wedfairy.com/story/' + val.name + '" target="_blank">' + val.name+ '</a>';
+                    $tableWish.append('<tr><td>' + nameLink + '</td><td>' + val.count + '</td></tr>');
+                });
+            }
+        });
+        storyTopPVModel.fetch({
+            data: {
+                'from_date' : sendTopStoryDataStart,
+                'to_date'   : sendTopStoryDataEnd,
+                'interval'  : 'day'
+            },
+            success: function(collection) {
+                var fetchResult = collection.toJSON();
+                var $tablePV = $('#top-story-table-wrapper .top-pageviews tbody');
+                $tablePV.html('');
+                _.each(fetchResult, function(val, k) {
+                    var nameLink = '<a href="http://story.wedfairy.com/story/' + val.name + '" target="_blank">' + val.name+ '</a>';
+                    $tablePV.append('<tr><td>' + nameLink + '</td><td>' + val.count + '</td></tr>');
+                });
+            }
+        });
     }
 
     //charts show functions
@@ -678,7 +747,7 @@
         }
     };
 
-
+    //datepickers
     $('#view-chart-wrapper .input-daterange input').each(function() {
         $(this).datepicker({
             language: "cn",
@@ -711,6 +780,22 @@
 
     });
 
+    $('#top-story-table-wrapper .input-daterange input').each(function() {
+        $(this).datepicker({
+            language: "cn",
+            format: 'yyyy-mm-dd',
+            endDate: "0d",
+            todayBtn: 'linked',
+            autoclose: true
+        });
+        $(this).on("changeDate", function() {
+            topStoryStartTime = $("#top-story-table-Start-Time").val() || defaultStartDate;
+            topStoryEndTime = $("#top-story-table-End-Time").val() || defaultEndDate;
+        });
+
+    });
+
+    //submit behviors
     $("#view-chart-wrapper").on('click', 'button.submit', function(e) {
         viewChartX = $("#view-chart-wrapper .radio-wrapper input:checked").val();
         var obj = document.getElementsByName("view-checkbox");
@@ -740,11 +825,15 @@
         renderStory(storyChartStartTime, storyChartEndTime, storyFilterList);
     });
 
-    // initialize();
-
-    // renderView(defaultStartDate, defaultEndDate, viewFilterList);
-
-    // renderStory(defaultStartDate, defaultEndDate, storyFilterList);
-
-
+    $("#top-story-table-wrapper").on('click', 'button.submit', function() {
+        var obj = document.getElementsByName("story-checkbox");
+        storyFilterList = [];
+        for(var k in obj){
+            if(obj[k].checked)
+                storyFilterList.push(obj[k].value);
+        }
+        sendTopStoryDataStart = Date2Unix(topStoryStartTime);
+        sendTopStoryDataEnd = Date2Unix(topStoryEndTime);
+        showTopTable();
+    });
 })();
