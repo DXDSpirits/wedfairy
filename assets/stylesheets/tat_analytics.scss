@@ -136,6 +136,15 @@
     thead > tr {
         font-weight: bold;
     }
+    tbody, tbody > tr {
+        width: 100%;
+    }
+    .table-story-title {
+        // width: 50%;
+        // overflow: hidden;
+        // white-space: nowrap;
+        // text-overflow: ellipsis;
+    }
     td > a {
         text-decoration: underline;
         &:hover {

@@ -304,7 +304,7 @@
                 $tableLike.html('');
                 _.each(fetchResult, function(val, k) {
                     var nameLink = '<a href="http://story.wedfairy.com/story/' + val.name + '" target="_blank">' + val.name+ '</a>';
-                    $tableLike.append('<tr><td>' + nameLink + '</td><td>' + val.count + '</td></tr>');
+                    $tableLike.append('<tr><td class="table-story-title">' + val.title + '</td><td>' + nameLink + '</td><td>' + val.count + '</td></tr>');
                 });
             }
         });
@@ -320,7 +320,7 @@
                 $tableWish.html('');
                 _.each(fetchResult, function(val, k) {
                     var nameLink = '<a href="http://story.wedfairy.com/story/' + val.name + '" target="_blank">' + val.name+ '</a>';
-                    $tableWish.append('<tr><td>' + nameLink + '</td><td>' + val.count + '</td></tr>');
+                    $tableWish.append('<tr><td class="table-story-title">' + val.title + '</td><td>' + nameLink + '</td><td>' + val.count + '</td></tr>');
                 });
             }
         });
@@ -336,7 +336,7 @@
                 $tablePV.html('');
                 _.each(fetchResult, function(val, k) {
                     var nameLink = '<a href="http://story.wedfairy.com/story/' + val.name + '" target="_blank">' + val.name+ '</a>';
-                    $tablePV.append('<tr><td>' + nameLink + '</td><td>' + val.count + '</td></tr>');
+                    $tablePV.append('<tr><td class="table-story-title">' + val.title + '</td><td>' + nameLink + '</td><td>' + val.count + '</td></tr>');
                 });
             }
         });
@@ -402,7 +402,8 @@
         // scaleBeginAtZero: false,
         // showScale: false,
         // animationSteps : 1,
-        tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= value %>",
+        // tooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= datasetLabel %> - <%= value %>",
+        multiTooltipTemplate: "<%= datasetLabel %> - <%= value %>",
     };
 
     var viewModelSet = {
