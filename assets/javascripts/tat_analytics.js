@@ -26,7 +26,6 @@
     });
 
     function unLoginRedirect() {
-        // location.href="/";
         $(".wedfairy-dashboard").addClass('hidden');
         $('#loginModal').modal('show');
     }
@@ -46,6 +45,7 @@
 
     var storyCtx = $("#storyDataChart").get(0).getContext("2d");
     var userCtx = $("#userDataChart").get(0).getContext("2d");
+
     var viewChart, storyChart;
     var timeXaxis = [];
     var viewChartStartTime, viewChartEndTime, storyChartStartTime, storyChartEndTime, topStoryStartTime, topStoryEndTime;
@@ -53,7 +53,7 @@
     var storyFilterList = [];
     var defaultEndDate, defaultStartDate;
     var sendViewDataStart, sendViewDataEnd, sendStoryDataStart, sendStoryDataEnd, sendTopStoryDataStart, sendTopStoryDataEnd;
-
+    var eventsDate;
     var viewChartData = [];
     var storyChartData = [];
 
@@ -131,6 +131,16 @@
         "#EFC563", "#8DC460", "#8567CD", "#63AC00", "#12072F", "#8FA81",
         "#EF62C1", "#6C0EA1", "#CABE1E", "#D26C80", "#18829B", "#FCEB96"
     ];
+
+    function combineLists(list1, list2) {
+        // var length = _.min(_.size(list1), _.size(list2));
+        var length = _.size(list1);
+        var result = [];
+        for (var i = 0; i < length; i++) {
+            result.push(list1[i] + list2[0]);
+        }
+        return result;
+    }
 
     function colorRandom() {
         return '#'+('000000'+(Math.random()*0x1000000<<0).toString(16)).slice(-6);
@@ -215,6 +225,16 @@
     }
 
     function enumerateDays(startDate, endDate) {
+        var eventsFetchResult;
+        eventsModel.fetch({
+            data: {
+                'from_date' : Date2Unix(startDate),
+                'to_date'   : Date2Unix(endDate),
+            },
+            success: function(model) {
+                eventsFetchResult = model.toJSON();
+            }
+        });
         var now = moment(startDate), dates = [];
         while (now.format('YYYY-MM-DD') < moment(endDate).format('YYYY-MM-DD')) {
               dates.push(now.format('YYYY-MM-DD'));
@@ -528,6 +548,10 @@
             urlRoot: APIHOST + "v1/reports/new_like.json"
         }
     };
+    var EventsModel = Backbone.Model.extend({
+        urlRoot: APIHOST + "v1/reports/site_events.json?interval=day",
+    });
+    var eventsModel = new EventsModel();
 
     var renderView = function(start, end, viewFilterList) {
         var initDataView = [];
@@ -793,11 +817,60 @@
             topStoryStartTime = $("#top-story-table-Start-Time").val() || defaultStartDate;
             topStoryEndTime = $("#top-story-table-End-Time").val() || defaultEndDate;
         });
+    });
 
+    // add date Event
+    var EventModel = Backbone.Model.extend({
+        urlRoot: APIHOST + "v1/reports/site_event.json?interval=day",
+    });
+    $("input#datepicker-events").each(function() {
+        $(this).datepicker({
+            language: "cn",
+            format: 'yyyy-mm-dd',
+            endDate: "0d",
+            todayBtn: 'linked',
+            autoclose: true
+        });
+
+        $(this).on("changeDate", function(e) {
+            var eventFetchResult;
+            var currentDate = Date2Unix($(this).val());
+            var eventModel = new EventModel();
+            eventsDate = currentDate;
+            eventModel.fetch({
+                data: {
+                    'time': currentDate,
+                },
+                reset: true,
+                success: function(model) {
+                    eventFetchResult = model.toJSON().name || '';
+                    $("#chart-events #event-name").val(eventFetchResult);
+                }
+            });
+        });
     });
 
     //submit behviors
-    $("#view-chart-wrapper").on('click', 'button.submit', function(e) {
+    $("#chart-events").on("click", "button.btn-success", function() {
+        var eventModel = new EventModel();
+        var eventName = $("#event-name").val();
+        if(eventName) {
+            eventModel.save({
+                    time: eventsDate,
+                    name: eventName
+                },
+                {
+                    success: function() {
+                        alert('Success');
+                    }
+                }
+            );
+        }else {
+            alert("请输入事件...");
+        }
+    });
+
+    $("#view-chart-wrapper").on('click', 'button.submit', function() {
         viewChartX = $("#view-chart-wrapper .radio-wrapper input:checked").val();
         var obj = document.getElementsByName("view-checkbox");
         viewFilterList = [];
