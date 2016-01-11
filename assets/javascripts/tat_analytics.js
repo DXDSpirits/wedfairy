@@ -225,16 +225,6 @@
     }
 
     function enumerateDays(startDate, endDate) {
-        var eventsFetchResult;
-        eventsModel.fetch({
-            data: {
-                'from_date' : Date2Unix(startDate),
-                'to_date'   : Date2Unix(endDate),
-            },
-            success: function(model) {
-                eventsFetchResult = model.toJSON();
-            }
-        });
         var now = moment(startDate), dates = [];
         while (now.format('YYYY-MM-DD') < moment(endDate).format('YYYY-MM-DD')) {
               dates.push(now.format('YYYY-MM-DD'));
@@ -556,6 +546,7 @@
     var renderView = function(start, end, viewFilterList) {
         var initDataView = [];
         var viewLabels, timeDuration, interval;
+
         if(viewChartX == 'byDay') {
             interval = 'day';
             viewLabels = enumerateDays(start, end) || enumerateDays(defaultStartDate, defaultEndDate);
@@ -623,7 +614,33 @@
                 }
             });
         }
+        eventsModel.fetch({
+            data: {
+                'from_date' : Date2Unix(start) || Date2Unix(defaultStartDate),
+                'to_date'   : Date2Unix(end) || Date2Unix(defaultEndDate),
+            },
+            success: function(model) {
+                var result = model.toJSON();
+
+                var eventsFetchResult = _.object(_.map(_.pluck(result, 'date'), function(item) {
+                    return item.split('T')[0];
+                }), _.pluck(result, "name"));
+
+                if(viewChartX == 'byDay') {
+                    viewChart.scale.xLabels = replaceLabels(dataView.labels, eventsFetchResult);
+                    viewChart.update();
+                }
+            }
+        });
     };
+    function replaceLabels(array, object) {
+        var result = [];
+        result = _.map(array, function(item) {
+            var match = object[item] || item;
+            return match;
+        });
+        return result;
+    }
 
     var renderStory = function(startDate, endDate, storyFilterList) {
         var initDataStory = [];
