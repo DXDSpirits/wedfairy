@@ -636,7 +636,7 @@
     function replaceLabels(array, object) {
         var result = [];
         result = _.map(array, function(item) {
-            var match = object[item] || item;
+            var match = object[item] || moment(item).format("MM-DD");
             return match;
         });
         return result;
