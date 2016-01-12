@@ -75,7 +75,7 @@ var WECHAT_APPID = '';
         WECHAT_ACCESS_TOKEN = res.access_token;
         console.log(JSON.stringify(res));
     });
-    setTimeout(repeat, 1800 * 1000);
+    setTimeout(repeat, 10 * 1000);
 })();
 
 exports.signUrl = function() {
