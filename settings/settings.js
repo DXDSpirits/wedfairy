@@ -15,9 +15,13 @@ var CONFIG = {
     QINIUMUSIC: {
         ACCESS_KEY: '',
         SECRET_KEY: '',
-        BUCKET_NAME: '',
-        UPTOKEN_URL: '',
-        DOMAIN: ''
+        BUCKET_NAME: ''
+    },
+
+    QINIUIMG: {
+        ACCESS_KEY: '',
+        SECRET_KEY: '',
+        BUCKET_NAME: ''
     }
 };
 
