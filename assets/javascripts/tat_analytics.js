@@ -178,6 +178,7 @@
         $('#top-story-table-End-Time').val(defaultEndDate);
 
         showTopTable();
+        showKeyWordsTable();
     }
 
     //dates functions
@@ -351,7 +352,60 @@
             }
         });
     }
+    var keywordsSet = {
+        'baidu_weixitie': '微喜帖',
+        'baidu_dianziqingjianzhizuoruanjian': '电子请柬制作软件',
+        'baidu_hunlidianziqingjian': '婚礼电子请柬',
+        'baidu_weixindianzixitie': '微信电子喜帖',
+        'baidu_jiehundianziqingtie': '结婚电子请帖',
+        'baidu_dianzixitiezhizuoruanjian': '电子喜帖制作软件',
+        'baidu_dianziqingjianzaixianzhizuo': '电子请柬在线制作',
+        'baidu_dianzixitie': '电子喜帖',
+        'baidu_dianzixitiezhizuo': '电子喜帖制作',
+        'baidu_hunliyaoqinghandianziban': '婚礼邀请函电子版',
+        'baidu_dianzihunliqingjian': '电子婚礼请柬',
+        'baidu_hunlidianziqingtie': '婚礼电子请帖',
+        'baidu_hunlidianziqingjianmoban': '婚礼电子请柬模板',
+        'baidu_dianziqingtiejiehun': '电子请帖 结婚',
+        'baidu_mianfeizhizuodianziqingtie': '免费制作电子请帖',
+        'baidu_hunlidianziyaoqinghan': '婚礼电子邀请函',
+        'baidu_mianfeizaixianzhizuodianziqingtie': '免费在线制作电子请帖'
+    };
 
+    var keywordsModel = new (Backbone.Model.extend({
+        urlRoot: APIHOST + "v1/reports/baidu_keyword_reports.json"
+    }))();
+
+    function showKeyWordsTable() {
+        var from_keywords = Date2Unix(moment("2015-12-25"));
+        var to_keywords   = Date2Unix(moment());
+        keywordsModel.fetch({
+            data: {
+                'from_date' : from_keywords,
+                'to_date'   : to_keywords,
+                'interval'  : 'day'
+            },
+            success: function(collection) {
+                var fetchResult = collection.toJSON();
+                var $tableKeyWords = $('#keywords-table-wrapper .keywords-table tbody');
+                $tableKeyWords.html('');
+                _.each(fetchResult, function(val, k) {
+                    $tableKeyWords.append(
+                        '<tr><td class="table-story-title">' +
+                        keywordsSet[val.name] +
+                        '</td><td>' +
+                        val.pageviews +
+                        '</td><td>' +
+                        val.unique_pageviews +
+                        '</td><td>' +
+                        val.sessions +
+                        '</td><td>' +
+                        (val.rate * 100).toFixed(2) + "%" +
+                        '</td></tr>');
+                });
+            }
+        });
+    }
     //charts show functions
     function showBar(data, myChart) {
         var mylegend;
