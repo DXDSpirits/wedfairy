@@ -56,6 +56,7 @@
     var eventsDate;
     var viewChartData = [];
     var storyChartData = [];
+    var gaStartTime, gaEndTime, gaDateFrom, gaDateEnd;
 
     var viewChartX;
 
@@ -176,6 +177,9 @@
         $("#view-Chart-End-Time").val(defaultEndDate);
         $("#story-Chart-End-Time").val(defaultEndDate);
         $('#top-story-table-End-Time').val(defaultEndDate);
+
+        $('#iframe-start-time').val(defaultStartDate);
+        $('#iframe-end-time').val(defaultEndDate);
 
         showTopTable();
         showKeyWordsTable();
@@ -979,6 +983,57 @@
         }
         sendTopStoryDataStart = Date2Unix(topStoryStartTime);
         sendTopStoryDataEnd = Date2Unix(topStoryEndTime);
-        showTopTable();
+        showStoryguideGA();
+    });
+
+    function showStoryguideGA() {
+        storyguide_src = 'https://www.google.com/analytics/web/?hl=zh-CN&pli=1#report/content-pages/a50146907w109998801p114691420/%3F_u.date00%3D'
+                         + gaDateFrom + '%26_u.date01%3D' + gaDateEnd
+                         + '%26explorer-table.plotKeys%3D%5B%5D%26explorer-table.rowCount%3D50%26explorer-table.filter%3Dstoryguide%26explorer-table-dataTable.sortColumnName%3Danalytics.exitRate%26explorer-table-dataTable.sortDescending%3Dtrue';
+        if(gaDateFrom > gaDateEnd) {
+            alert("起始时间需小于结束时间！");
+        }else {
+            window.open(storyguide_src);
+        }
+    }
+
+    function showThemeGA() {
+        theme_src = 'https://www.google.com/analytics/web/?hl=zh-CN&pli=1#report/content-event-events/a50146907w87694721p91046723/%3F_u.date00%3D'
+                         + gaDateFrom + '%26_u.date01%3D' + gaDateEnd
+                         + '%26explorer-table.plotKeys%3D%5B%5D%26explorer-table.rowCount%3D25%26explorer-table.rowStart%3D0%26_r.drilldown%3Danalytics.eventCategory%3Athemes%2Canalytics.eventAction%3Aselect%26explorer-table-tableMode.selected%3Dpie/';
+        if(gaDateFrom > gaDateEnd) {
+            alert("起始时间需小于结束时间！");
+        }else {
+            window.open(theme_src);
+        }
+    }
+
+    $('#ga-iframe-wrapper .input-daterange input').each(function() {
+        $(this).datepicker({
+            language: "cn",
+            format: 'yyyy-mm-dd',
+            endDate: "0d",
+            todayBtn: 'linked',
+            autoclose: true
+        });
+    });
+
+    $("#ga-iframe-wrapper").on('click', 'button.submit-storyguide', function() {
+        gaStartTime = $("#iframe-start-time").val() || defaultStartDate;
+        gaEndTime = $("#iframe-end-time").val() || defaultEndDate;
+
+        gaDateFrom = moment(gaStartTime).format('YYYYMMDD');
+        gaDateEnd = moment(gaEndTime).format('YYYYMMDD');
+        showStoryguideGA();
+
+    });
+    $("#ga-iframe-wrapper").on('click', 'button.submit-theme', function() {
+        gaStartTime = $("#iframe-start-time").val() || defaultStartDate;
+        gaEndTime = $("#iframe-end-time").val() || defaultEndDate;
+
+        gaDateFrom = moment(gaStartTime).format('YYYYMMDD');
+        gaDateEnd = moment(gaEndTime).format('YYYYMMDD');
+        showThemeGA();
+
     });
 })();

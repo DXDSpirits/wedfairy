@@ -4,7 +4,7 @@
     background-color: #2E3C54;
     // padding: 50px;
 }
-#view-chart-wrapper, #story-chart-wrapper, #top-story-table-wrapper {
+#view-chart-wrapper, #story-chart-wrapper, #top-story-table-wrapper, #keywords-table-wrapper, #ga-iframe-wrapper {
     padding: 20px 0;
     border-bottom: 1px solid #ebebeb;
     overflow: auto;
@@ -17,7 +17,7 @@
         border-bottom: 1px dashed rgba(#fff, 0.2);
     }
 }
-#view-chart-wrapper, #story-chart-wrapper, #keywords-table-wrapper {
+#view-chart-wrapper, #story-chart-wrapper, #keywords-table-wrapper, #ga-iframe-wrapper {
     overflow: hidden;
     & > .charts-wrapper {
         background-color: #fff;
