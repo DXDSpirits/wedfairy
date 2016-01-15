@@ -48,7 +48,7 @@ function sign(jsapi_ticket, url) {
     return ret;
 }
 
-function request(url, success) {
+function request(url, success, error) {
     http.get(url, function(res) {
         var data = '';
         res.on('data', function(chunk) {
@@ -59,6 +59,7 @@ function request(url, success) {
         });
     }).on('error', function(e) {
         console.error(e.message);
+        error && error();
     });
 }
 
@@ -70,12 +71,15 @@ var WECHAT_APPID = '';
     console.log('Update Wechat JSAPI Ticket');
     var url = APIRoot + 'clients/wechat-jsapi-ticket/';
     request(url, function(res) {
-        WECHAT_TICKET = res.ticket;
         WECHAT_APPID = res.appid;
+        WECHAT_TICKET = res.ticket;
         WECHAT_ACCESS_TOKEN = res.access_token;
+        var expires_in = parseInt((+res.expires_in >> 1) || 10);
+        setTimeout(repeat, expires_in * 1000);
         console.log(JSON.stringify(res));
+    }, function() {
+        setTimeout(repeat, 10 * 1000);
     });
-    setTimeout(repeat, 10 * 1000);
 })();
 
 exports.signUrl = function() {
