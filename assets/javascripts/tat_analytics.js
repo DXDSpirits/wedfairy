@@ -1008,6 +1008,19 @@
         }
     }
 
+    function showGuangdiantongGA() {
+
+        guangdiantong_src = 'https://www.google.com/analytics/web/?hl=zh-CN&pli=1#report/content-pages/a50146907w82984818p85936594/%3F_u.date00%3D'
+                            + gaDateFrom + '%26_u.date01%3D' + gaDateEnd
+                            + '%26explorer-table.filter%3Dgdt%26explorer-table.plotKeys%3D%5B%5D%26explorer-table.rowStart%3D0%26explorer-table.rowCount%3D50/';
+        if(gaDateFrom > gaDateEnd) {
+            alert("起始时间需小于结束时间！");
+        }else {
+            window.open(guangdiantong_src);
+        }
+    }
+
+
     $('#ga-iframe-wrapper .input-daterange input').each(function() {
         $(this).datepicker({
             language: "cn",
@@ -1034,6 +1047,15 @@
         gaDateFrom = moment(gaStartTime).format('YYYYMMDD');
         gaDateEnd = moment(gaEndTime).format('YYYYMMDD');
         showThemeGA();
+
+    });
+    $("#ga-iframe-wrapper").on('click', 'button.submit-guangdiantong', function() {
+        gaStartTime = $("#iframe-start-time").val() || defaultStartDate;
+        gaEndTime = $("#iframe-end-time").val() || defaultEndDate;
+
+        gaDateFrom = moment(gaStartTime).format('YYYYMMDD');
+        gaDateEnd = moment(gaEndTime).format('YYYYMMDD');
+        showGuangdiantongGA();
 
     });
 })();
