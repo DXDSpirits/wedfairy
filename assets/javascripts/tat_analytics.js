@@ -987,7 +987,7 @@
     });
 
     function showStoryguideGA() {
-        storyguide_src = 'https://www.google.com/analytics/web/?hl=zh-CN&pli=1#report/content-pages/a50146907w109998801p114691420/%3F_u.date00%3D'
+        var storyguide_src = 'https://www.google.com/analytics/web/?hl=zh-CN&pli=1#report/content-pages/a50146907w109998801p114691420/%3F_u.date00%3D'
                          + gaDateFrom + '%26_u.date01%3D' + gaDateEnd
                          + '%26explorer-table.plotKeys%3D%5B%5D%26explorer-table.rowCount%3D50%26explorer-table.filter%3Dstoryguide%26explorer-table-dataTable.sortColumnName%3Danalytics.exitRate%26explorer-table-dataTable.sortDescending%3Dtrue';
         if(gaDateFrom > gaDateEnd) {
@@ -998,7 +998,7 @@
     }
 
     function showThemeGA() {
-        theme_src = 'https://www.google.com/analytics/web/?hl=zh-CN&pli=1#report/content-event-events/a50146907w87694721p91046723/%3F_u.date00%3D'
+        var theme_src = 'https://www.google.com/analytics/web/?hl=zh-CN&pli=1#report/content-event-events/a50146907w87694721p91046723/%3F_u.date00%3D'
                          + gaDateFrom + '%26_u.date01%3D' + gaDateEnd
                          + '%26explorer-table.plotKeys%3D%5B%5D%26explorer-table.rowCount%3D25%26explorer-table.rowStart%3D0%26_r.drilldown%3Danalytics.eventCategory%3Athemes%2Canalytics.eventAction%3Aselect%26explorer-table-tableMode.selected%3Dpie/';
         if(gaDateFrom > gaDateEnd) {
@@ -1009,10 +1009,9 @@
     }
 
     function showGuangdiantongGA() {
-
-        guangdiantong_src = 'https://www.google.com/analytics/web/?hl=zh-CN&pli=1#report/content-pages/a50146907w82984818p85936594/%3F_u.date00%3D'
-                            + gaDateFrom + '%26_u.date01%3D' + gaDateEnd
-                            + '%26explorer-table.filter%3Dgdt%26explorer-table.plotKeys%3D%5B%5D%26explorer-table.rowStart%3D0%26explorer-table.rowCount%3D50/';
+        var guangdiantong_src = 'https://www.google.com/analytics/web/?hl=zh-CN&pli=1#report/content-pages/a50146907w82984818p85936594/%3F_u.date00%3D'
+                              + gaDateFrom + '%26_u.date01%3D' + gaDateEnd
+                              + '%26explorer-table.filter%3Dgdt%26explorer-table.plotKeys%3D%5B%5D%26explorer-table.rowStart%3D0%26explorer-table.rowCount%3D50/';
         if(gaDateFrom > gaDateEnd) {
             alert("起始时间需小于结束时间！");
         }else {
