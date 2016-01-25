@@ -46,8 +46,8 @@
             <h2>Team</h2>
             <br />
             <div class="contariner">
-                <div class="row">
-                    <div class="col-md-4 col-sm-6">
+                <div class="row member-wrapper">
+                    <div class="team-member col-md-4 col-sm-6">
                         <div class="img img-cover avatar-team" data-bg-src="images/aboutus/yinzi.jpg">
                             <div class="text-center team-sign">
                                 <p class="team-title">设计喵</p>
@@ -56,7 +56,7 @@
                         </div>
                         <p class="text-center text-name">银子</p>
                     </div>
-                    <div class="col-md-4 col-sm-6">
+                    <div class="team-member col-md-4 col-sm-6">
                         <div class="img img-cover avatar-team" data-bg-src="images/aboutus/shiyu.jpg">
                             <div class="text-center team-sign">
                                 <p class="team-title">设计狮</p>
@@ -65,7 +65,7 @@
                         </div>
                         <p class="text-center text-name">Bear</p>
                     </div>
-                    <div class="col-md-4 col-sm-6">
+                    <div class="team-member col-md-4 col-sm-6">
                         <div class="img img-cover avatar-team" data-bg-src="images/aboutus/xiujia3.png">
                             <div class="text-center team-sign">
                                 <p class="team-title">市场打杂</p>
@@ -74,7 +74,7 @@
                         </div>
                         <p class="text-center text-name">秀佳</p>
                     </div>
-                    <div class="col-md-4 col-sm-6">
+                    <div class="team-member col-md-4 col-sm-6">
                         <div class="img img-cover avatar-team" data-bg-src="images/aboutus/yanjun3.png">
                             <div class="text-center team-sign">
                                 <p class="team-title">市场小二</p>
@@ -84,7 +84,7 @@
                         </div>
                         <p class="text-center text-name">Cecilia</p>
                     </div>
-                    <div class="col-md-4 col-sm-6">
+                    <div class="team-member col-md-4 col-sm-6">
                         <div class="img img-cover avatar-team" data-bg-src="images/aboutus/hl.jpg">
                             <div class="text-center team-sign">
                                 <p class="team-title">新媒体小编</p>
@@ -94,7 +94,7 @@
                         <p class="text-center text-name">Hayley</p>
                     </div>
 
-                    <div class="col-md-4 col-sm-6">
+                    <div class="team-member col-md-4 col-sm-6">
                         <div class="img img-cover avatar-team" data-bg-src="images/aboutus/zy.jpg">
                             <div class="text-center team-sign">
                                 <p class="team-title">前端工程狮</p>
@@ -103,7 +103,7 @@
                         </div>
                         <p class="text-center text-name">张扬</p>
                     </div>
-                    <div class="col-md-4 col-sm-6">
+                    <div class="team-member col-md-4 col-sm-6">
                         <div class="img img-cover avatar-team" data-bg-src="images/aboutus/ran.png">
                             <div class="text-center team-sign">
                                 <p class="team-title">非典型程序猿</p>
@@ -112,7 +112,7 @@
                         </div>
                         <p class="text-center text-name">Alex</p>
                     </div>
-                    <div class="col-md-4 col-sm-6">
+                    <div class="team-member col-md-4 col-sm-6">
                         <div class="img img-cover avatar-team" data-bg-src="images/aboutus/sirong.jpg">
                             <div class="text-center team-sign">
                                 <p class="team-title">市场小三</p>
@@ -121,7 +121,7 @@
                         </div>
                         <p class="text-center text-name">丝绒</p>
                     </div>
-                    <div class="col-md-4 col-sm-6">
+                    <div class="team-member col-md-4 col-sm-6">
                         <div class="img img-cover avatar-team" data-bg-src="images/aboutus/xiaohui.jpg">
                             <div class="text-center team-sign">
                                 <p class="team-title">设计尸</p>
@@ -130,7 +130,7 @@
                         </div>
                         <p class="text-center text-name">Lynn</p>
                     </div>
-                    <div class="col-md-4 col-sm-6">
+                    <div class="team-member col-md-4 col-sm-6">
                         <div class="img img-cover avatar-team" data-bg-src="images/aboutus/lantian.jpg">
                             <div class="text-center team-sign">
                                 <p class="team-title">野生程序汪</p>
@@ -139,7 +139,7 @@
                         </div>
                         <p class="text-center text-name">sebastianlan</p>
                     </div>
-                    <div class="col-md-4 col-sm-6">
+                    <div class="team-member col-md-4 col-sm-6">
                         <div class="img img-cover avatar-team" data-bg-src="images/aboutus/yanlei.jpg">
                             <div class="text-center team-sign">
                                 <p class="team-title">市场小跟班</p>
@@ -148,7 +148,7 @@
                         </div>
                         <p class="text-center text-name">艳雷</p>
                     </div>
-                    <div class="col-md-4 col-sm-6">
+                    <div class="team-member col-md-4 col-sm-6">
                         <div class="img img-cover avatar-team" data-bg-src="images/aboutus/zhy.jpg">
                             <div class="text-center team-sign">
                                 <p class="team-title">酒喝多的攻城狮</p>
@@ -165,6 +165,7 @@
     <% include ../layouts/footer %>
 
     <% include ../includes/javascripts %>
+    <script src="<%= static_url %>javascripts/team.js?v=<%= build_no %>"></script>
 
     <% include ../includes/analytics %>
 
