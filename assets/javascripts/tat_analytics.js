@@ -983,7 +983,7 @@
         }
         sendTopStoryDataStart = Date2Unix(topStoryStartTime);
         sendTopStoryDataEnd = Date2Unix(topStoryEndTime);
-        showStoryguideGA();
+        showTopTable();
     });
 
     function showStoryguideGA() {
