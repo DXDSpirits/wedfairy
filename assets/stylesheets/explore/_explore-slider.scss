@@ -7,15 +7,15 @@
     margin-top: 5px;
     // margin-bottom: 20px;
     @media (max-width: 400px) {
-        .item:nth-child(1) .slide-img{
-            background-image: url("/assets/images/slide/0s.jpg") !important;
-        }
-        .item:nth-child(2) .slide-img{
-            background-image: url("/assets/images/slide/1s.jpg") !important;
-        }
-        .item:nth-child(3) .slide-img{
-            background-image: url("/assets/images/slide/2s.jpg") !important;
-        }
+        // .item:nth-child(1) .slide-img{
+        //     background-image: url("/assets/images/slide/0s.jpg") !important;
+        // }
+        // .item:nth-child(2) .slide-img{
+        //     background-image: url("/assets/images/slide/1s.jpg") !important;
+        // }
+        // .item:nth-child(3) .slide-img{
+        //     background-image: url("/assets/images/slide/2s.jpg") !important;
+        // }
     }
     .carousel-control{
         padding-top: 165px;
@@ -33,6 +33,6 @@
     .slide-img {
         height: 360px;
         width: 100%;
-        background-position: center top;
+        // background-position: center top;
     }
 }
