@@ -8,7 +8,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compress = require('compression');
-var sass = require('node-sass-middleware');
+var sass = require('./middlewares/node-sass-middleware');
 var wechat = require('./middlewares/wechat');
 
 var app = express();
@@ -37,7 +37,8 @@ app.use(sass({
     prefix:  '/assets/stylesheets/',
     debug: app.get('env') == 'development', // Output debugging information
     force: app.get('env') == 'development', // Always re-compile
-    outputStyle: 'compressed'
+    outputStyle: 'compressed',
+    precision: 8
 }));
 app.use(compress());
 app.use('/assets', function(req, res, next) {
