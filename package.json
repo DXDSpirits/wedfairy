@@ -16,7 +16,7 @@
         "compression": "~1.0.2",
         "requirejs": "~2.1.14",
         "qiniu": "~6.1.8",
-        "node-sass": "~3.4.2",
+        "node-sass": "3.5.0-beta.1",
         "node-sass-middleware": "0.9.0",
         "newrelic": "^1.22.0",
         "jssha": "^1.5.0"
