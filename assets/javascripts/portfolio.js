@@ -166,6 +166,8 @@
                 filterArray.push('featured=1');
             }else if(storiesFilter == "storiesFeatured") {
                 filterArray.push('featured=2');
+            }else if(storiesFilter == 'storiesSubmittion') {
+                filterArray.push('submitted=1');
             }
         }
         if (filterFrom && filterTo) {
@@ -243,6 +245,13 @@
             }else if(filterDict["featured"] == 2) {
                 $("#storyFilter input[value='storiesFeatured']").attr('checked','checked');
                 $("#storyFilter input[value='storiesFeatured']").siblings().removeAttr('checked');
+            }else {
+                $("#storyFilter input").removeAttr('checked');
+            }
+        }else if(filterDict["submitted"]) {
+            if(filterDict["submitted"] == 1) {
+                $("#storyFilter input[value='storiesSubmittion']").attr('checked','checked');
+                $("#storyFilter input[value='storiesSubmittion']").siblings().removeAttr('checked');
             }else {
                 $("#storyFilter input").removeAttr('checked');
             }
