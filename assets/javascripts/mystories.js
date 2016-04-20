@@ -8,7 +8,7 @@
     if(token == null) {
         $('#loginModal').modal('show');
     };
-    
+
     var user = new Amour.Models.User();
 
     var StoryModelClone = Amour.Models.Story.extend({
@@ -35,7 +35,7 @@
 
     var getWeiboLink = function(s, d, e, r, l, p, t, z, c) {
         var f = 'http://service.weibo.com/share/share.php?appkey=', u = z || d.location,
-        p = ['&url=', e(u), '&title=', e(t || d.title), '&source=', e(r), '&sourceUrl=', e(l), 
+        p = ['&url=', e(u), '&title=', e(t || d.title), '&source=', e(r), '&sourceUrl=', e(l),
             '&content=', c || 'gb2312', '&pic=', e(p || ''), '&ralateUid=', '5224024448'].join('');
         return [f, p].join('');
     }
@@ -196,7 +196,7 @@
 
     var stories = new Amour.Collections.Stories();
     var storyGalleryView = new StoryGalleryView({
-        reverse: true,
+        // reverse: true,
         collection: stories,
         el: $('.mystory-container')
     });
