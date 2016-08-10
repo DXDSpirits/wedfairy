@@ -43,7 +43,7 @@
             var state = {
                 platform: 'web'
             };
-            url += '&redirect_uri=' + encodeURIComponent('http://api.wedfairy.com/api/users/wechat-auth/');
+            url += '&redirect_uri=' + encodeURIComponent('http://api.bayinhe.mobi/api/users/wechat-auth/');
             url += '&state=' + btoa(JSON.stringify(state));
             url += '#wechat_redirect';
             location.href = url;
