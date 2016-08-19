@@ -41,7 +41,7 @@
     }
 
     // var APIHOST =  "http://192.168.0.192:3333/api/";
-    var APIHOST = 'http://apipay.bayinhe.mobi/api/';
+    var APIHOST = 'http://apipay.wedfairy.com/api/';
 
     var storyCtx = $("#storyDataChart").get(0).getContext("2d");
     var userCtx = $("#userDataChart").get(0).getContext("2d");

@@ -72,7 +72,7 @@ $(function() {
                     url: return_url
                 }, {
                     success:function() {
-                        location.href = "http://api.bayinhe.mobi/admin/sites/music/" + music.id;
+                        location.href = "http://api.wedfairy.com/admin/sites/music/" + music.id;
                     }
                 });
 
