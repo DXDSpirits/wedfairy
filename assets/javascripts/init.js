@@ -41,7 +41,8 @@
             localStorage.setItem('redirect-on-login', location.href);
             var wechatAuth = new Amour.Model();
             wechatAuth.save({
-                platform: 'web'
+                platform: 'web',
+                auth_for: 'login'
             }, {
                 url: Amour.APIRoot + 'users/wechat-auth-url/',
                 success: function(model) {
