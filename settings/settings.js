@@ -2,10 +2,10 @@
 var CONFIG = {
     ENV : 'production',
 
-    TAT_STATIC : 'http://static.wedfairy.com/',
+    TAT_STATIC : 'https://static.wedfairy.com/',
 
-    API_ROOT : 'http://api.wedfairy.com/api/',
-    API_HOST : 'http://api.wedfairy.com',
+    API_ROOT : 'https://api.wedfairy.com/api/',
+    API_HOST : 'https://api.wedfairy.com',
     API_HOSTNAME : 'api.wedfairy.com',
     API_PORT : 80,
     API_PROTOCOL : 'http',
