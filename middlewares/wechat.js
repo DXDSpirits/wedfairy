@@ -1,5 +1,5 @@
 var settings = require('../settings/settings.js');
-var http = require('http');
+var https = require('https');
 var APIRoot = settings.API_ROOT;
 
 
@@ -49,7 +49,7 @@ function sign(jsapi_ticket, url) {
 }
 
 function request(url, success, error) {
-    http.get(url, function(res) {
+    https.get(url, function(res) {
         var data = '';
         res.on('data', function(chunk) {
             data += chunk;
