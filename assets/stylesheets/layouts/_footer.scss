@@ -273,4 +273,22 @@ $qrcode-size: 150px;
             margin: 0 15px;
         }
     }
+
+    .friends-links {
+      padding: 30px;
+      color: rgba(#777f8b, 0.7);
+      font-size: 13px;
+      margin-top: -20px;
+      border-top: 1px solid rgba(#777f8b, 0.6);
+      a {
+        color: #777f8b;
+        opacity: 0.8;
+        margin: 20px;
+        @include transition(all 0.4s ease-in-out);
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+    }
+
 }
